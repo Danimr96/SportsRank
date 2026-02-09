@@ -2,7 +2,10 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { createClient } from "@/lib/supabase/browser";
+import {
+  signInWithPasswordAction,
+  signUpWithPasswordAction,
+} from "@/app/actions/auth";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -10,7 +13,6 @@ import { Label } from "@/components/ui/label";
 import { getActionButtonClass } from "@/lib/ui/color-system";
 
 export function LoginForm() {
-  const supabase = createClient();
   const router = useRouter();
   const [isSignup, setIsSignup] = useState(false);
   const [email, setEmail] = useState("");
@@ -25,19 +27,19 @@ export function LoginForm() {
 
     try {
       if (isSignup) {
-        const { data, error } = await supabase.auth.signUp({ email, password });
-        if (error) {
-          throw error;
+        const result = await signUpWithPasswordAction({ email, password });
+        if (!result.ok) {
+          throw new Error(result.error ?? "Sign up failed.");
         }
 
-        if (!data.session) {
+        if (result.needsEmailConfirmation) {
           setMessage("Check your email to confirm the account, then log in.");
           return;
         }
       } else {
-        const { error } = await supabase.auth.signInWithPassword({ email, password });
-        if (error) {
-          throw error;
+        const result = await signInWithPasswordAction({ email, password });
+        if (!result.ok) {
+          throw new Error(result.error ?? "Log in failed.");
         }
       }
 
