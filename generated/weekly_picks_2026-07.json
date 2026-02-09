@@ -1,0 +1,2525 @@
+{
+  "round_id": "fa9e00eb-1c1a-4391-9d4a-84389f7c50c2",
+  "picks": [
+    {
+      "sport_slug": "soccer",
+      "title": "[WEEK] Getafe vs Villarreal - totals",
+      "description": "regions=eu,uk,us | bookmaker=betmgm",
+      "order_index": 0,
+      "options": [
+        {
+          "label": "Over 2.5",
+          "odds": 2.38
+        },
+        {
+          "label": "Under 2.5",
+          "odds": 1.53
+        }
+      ],
+      "metadata": {
+        "league": "La Liga - Spain",
+        "event": "Getafe vs Villarreal",
+        "start_time": "2026-02-14T15:15:00Z"
+      }
+    },
+    {
+      "sport_slug": "soccer",
+      "title": "[WEEK] Everton vs Bournemouth - spreads",
+      "description": "regions=eu,uk,us | bookmaker=betonlineag",
+      "order_index": 1,
+      "options": [
+        {
+          "label": "Bournemouth 0.25",
+          "odds": 1.79
+        },
+        {
+          "label": "Everton -0.25",
+          "odds": 2.11
+        }
+      ],
+      "metadata": {
+        "league": "EPL",
+        "event": "Everton vs Bournemouth",
+        "start_time": "2026-02-10T19:30:00Z"
+      }
+    },
+    {
+      "sport_slug": "soccer",
+      "title": "[WEEK] Parma vs Hellas Verona - totals",
+      "description": "regions=eu,uk,us | bookmaker=betmgm",
+      "order_index": 2,
+      "options": [
+        {
+          "label": "Over 2.5",
+          "odds": 2.38
+        },
+        {
+          "label": "Under 2.5",
+          "odds": 1.53
+        }
+      ],
+      "metadata": {
+        "league": "Serie A - Italy",
+        "event": "Parma vs Hellas Verona",
+        "start_time": "2026-02-15T14:00:00Z"
+      }
+    },
+    {
+      "sport_slug": "soccer",
+      "title": "[WEEK] Tottenham Hotspur vs Newcastle United - spreads",
+      "description": "regions=eu,uk,us | bookmaker=betonlineag",
+      "order_index": 3,
+      "options": [
+        {
+          "label": "Newcastle United 0",
+          "odds": 1.79
+        },
+        {
+          "label": "Tottenham Hotspur 0",
+          "odds": 2.11
+        }
+      ],
+      "metadata": {
+        "league": "EPL",
+        "event": "Tottenham Hotspur vs Newcastle United",
+        "start_time": "2026-02-10T19:30:00Z"
+      }
+    },
+    {
+      "sport_slug": "soccer",
+      "title": "[WEEK] Napoli vs AS Roma - totals",
+      "description": "regions=eu,uk,us | bookmaker=betmgm",
+      "order_index": 4,
+      "options": [
+        {
+          "label": "Over 2.5",
+          "odds": 2.4
+        },
+        {
+          "label": "Under 2.5",
+          "odds": 1.5
+        }
+      ],
+      "metadata": {
+        "league": "Serie A - Italy",
+        "event": "Napoli vs AS Roma",
+        "start_time": "2026-02-15T19:45:00Z"
+      }
+    },
+    {
+      "sport_slug": "basketball",
+      "title": "[WEEK] Minnesota Timberwolves vs Atlanta Hawks - h2h",
+      "description": "regions=eu,uk,us | bookmaker=betclic_fr",
+      "order_index": 5,
+      "options": [
+        {
+          "label": "Atlanta Hawks",
+          "odds": 3.07
+        },
+        {
+          "label": "Minnesota Timberwolves",
+          "odds": 1.38
+        }
+      ],
+      "metadata": {
+        "league": "NBA",
+        "event": "Minnesota Timberwolves vs Atlanta Hawks",
+        "start_time": "2026-02-10T01:10:00Z"
+      }
+    },
+    {
+      "sport_slug": "basketball",
+      "title": "[WEEK] New Orleans Pelicans vs Sacramento Kings - h2h",
+      "description": "regions=eu,uk,us | bookmaker=betclic_fr",
+      "order_index": 6,
+      "options": [
+        {
+          "label": "New Orleans Pelicans",
+          "odds": 1.37
+        },
+        {
+          "label": "Sacramento Kings",
+          "odds": 3.13
+        }
+      ],
+      "metadata": {
+        "league": "NBA",
+        "event": "New Orleans Pelicans vs Sacramento Kings",
+        "start_time": "2026-02-10T01:10:00Z"
+      }
+    },
+    {
+      "sport_slug": "basketball",
+      "title": "[WEEK] KK Partizan NIS vs Real Madrid - h2h",
+      "description": "regions=eu,uk,us | bookmaker=betmgm",
+      "order_index": 7,
+      "options": [
+        {
+          "label": "KK Partizan NIS",
+          "odds": 2.85
+        },
+        {
+          "label": "Real Madrid",
+          "odds": 1.44
+        }
+      ],
+      "metadata": {
+        "league": "Basketball Euroleague",
+        "event": "KK Partizan NIS vs Real Madrid",
+        "start_time": "2026-02-13T19:30:00Z"
+      }
+    },
+    {
+      "sport_slug": "basketball",
+      "title": "[WEEK] Los Angeles Lakers vs Oklahoma City Thunder - h2h",
+      "description": "regions=eu,uk,us | bookmaker=betclic_fr",
+      "order_index": 8,
+      "options": [
+        {
+          "label": "Los Angeles Lakers",
+          "odds": 2.8
+        },
+        {
+          "label": "Oklahoma City Thunder",
+          "odds": 1.44
+        }
+      ],
+      "metadata": {
+        "league": "NBA",
+        "event": "Los Angeles Lakers vs Oklahoma City Thunder",
+        "start_time": "2026-02-10T03:10:00Z"
+      }
+    },
+    {
+      "sport_slug": "basketball",
+      "title": "[WEEK] Maccabi Tel Aviv vs FC Bayern M\u00fcnchen - h2h",
+      "description": "regions=eu,uk,us | bookmaker=betmgm",
+      "order_index": 9,
+      "options": [
+        {
+          "label": "FC Bayern M\u00fcnchen",
+          "odds": 2.75
+        },
+        {
+          "label": "Maccabi Tel Aviv",
+          "odds": 1.45
+        }
+      ],
+      "metadata": {
+        "league": "Basketball Euroleague",
+        "event": "Maccabi Tel Aviv vs FC Bayern M\u00fcnchen",
+        "start_time": "2026-02-12T19:05:00Z"
+      }
+    },
+    {
+      "sport_slug": "soccer",
+      "title": "[WEEK] Cremonese vs Genoa - spreads",
+      "description": "regions=eu,uk,us | bookmaker=betonlineag",
+      "order_index": 10,
+      "options": [
+        {
+          "label": "Cremonese 0.25",
+          "odds": 1.75
+        },
+        {
+          "label": "Genoa -0.25",
+          "odds": 2.13
+        }
+      ],
+      "metadata": {
+        "league": "Serie A - Italy",
+        "event": "Cremonese vs Genoa",
+        "start_time": "2026-02-15T14:00:00Z"
+      }
+    },
+    {
+      "sport_slug": "soccer",
+      "title": "[WEEK] West Ham United vs Manchester United - totals",
+      "description": "regions=eu,uk,us | bookmaker=betmgm",
+      "order_index": 11,
+      "options": [
+        {
+          "label": "Over 3.5",
+          "odds": 2.3
+        },
+        {
+          "label": "Under 3.5",
+          "odds": 1.57
+        }
+      ],
+      "metadata": {
+        "league": "EPL",
+        "event": "West Ham United vs Manchester United",
+        "start_time": "2026-02-10T20:15:00Z"
+      }
+    },
+    {
+      "sport_slug": "soccer",
+      "title": "[WEEK] Manchester City vs Fulham - spreads",
+      "description": "regions=eu,uk,us | bookmaker=betonlineag",
+      "order_index": 12,
+      "options": [
+        {
+          "label": "Fulham 1.25",
+          "odds": 2.04
+        },
+        {
+          "label": "Manchester City -1.25",
+          "odds": 1.83
+        }
+      ],
+      "metadata": {
+        "league": "EPL",
+        "event": "Manchester City vs Fulham",
+        "start_time": "2026-02-11T19:30:00Z"
+      }
+    },
+    {
+      "sport_slug": "soccer",
+      "title": "[WEEK] Sevilla vs Alav\u00e9s - totals",
+      "description": "regions=eu,uk,us | bookmaker=betonlineag",
+      "order_index": 13,
+      "options": [
+        {
+          "label": "Over 2.25",
+          "odds": 2.09
+        },
+        {
+          "label": "Under 2.25",
+          "odds": 1.78
+        }
+      ],
+      "metadata": {
+        "league": "La Liga - Spain",
+        "event": "Sevilla vs Alav\u00e9s",
+        "start_time": "2026-02-14T17:30:00Z"
+      }
+    },
+    {
+      "sport_slug": "soccer",
+      "title": "[WEEK] Mallorca vs Real Betis - spreads",
+      "description": "regions=eu,uk,us | bookmaker=betonlineag",
+      "order_index": 14,
+      "options": [
+        {
+          "label": "Mallorca 0.25",
+          "odds": 1.77
+        },
+        {
+          "label": "Real Betis -0.25",
+          "odds": 2.1
+        }
+      ],
+      "metadata": {
+        "league": "La Liga - Spain",
+        "event": "Mallorca vs Real Betis",
+        "start_time": "2026-02-15T20:00:00Z"
+      }
+    },
+    {
+      "sport_slug": "basketball",
+      "title": "[WEEK] Anadolu Efes vs Virtus Segafredo Bologna - h2h",
+      "description": "regions=eu,uk,us | bookmaker=betmgm",
+      "order_index": 15,
+      "options": [
+        {
+          "label": "Anadolu Efes",
+          "odds": 1.48
+        },
+        {
+          "label": "Virtus Segafredo Bologna",
+          "odds": 2.7
+        }
+      ],
+      "metadata": {
+        "league": "Basketball Euroleague",
+        "event": "Anadolu Efes vs Virtus Segafredo Bologna",
+        "start_time": "2026-02-12T17:30:00Z"
+      }
+    },
+    {
+      "sport_slug": "basketball",
+      "title": "[WEEK] Golden State Warriors vs Memphis Grizzlies - h2h",
+      "description": "regions=eu,uk,us | bookmaker=betclic_fr",
+      "order_index": 16,
+      "options": [
+        {
+          "label": "Golden State Warriors",
+          "odds": 1.33
+        },
+        {
+          "label": "Memphis Grizzlies",
+          "odds": 3.37
+        }
+      ],
+      "metadata": {
+        "league": "NBA",
+        "event": "Golden State Warriors vs Memphis Grizzlies",
+        "start_time": "2026-02-10T03:10:00Z"
+      }
+    },
+    {
+      "sport_slug": "basketball",
+      "title": "[WEEK] Portland Trail Blazers vs Philadelphia 76ers - h2h",
+      "description": "regions=eu,uk,us | bookmaker=betclic_fr",
+      "order_index": 17,
+      "options": [
+        {
+          "label": "Philadelphia 76ers",
+          "odds": 1.56
+        },
+        {
+          "label": "Portland Trail Blazers",
+          "odds": 2.43
+        }
+      ],
+      "metadata": {
+        "league": "NBA",
+        "event": "Portland Trail Blazers vs Philadelphia 76ers",
+        "start_time": "2026-02-10T03:10:00Z"
+      }
+    },
+    {
+      "sport_slug": "basketball",
+      "title": "[WEEK] Olympiacos vs KK Crvena zvezda - h2h",
+      "description": "regions=eu,uk,us | bookmaker=betmgm",
+      "order_index": 18,
+      "options": [
+        {
+          "label": "KK Crvena zvezda",
+          "odds": 3.5
+        },
+        {
+          "label": "Olympiacos",
+          "odds": 1.31
+        }
+      ],
+      "metadata": {
+        "league": "Basketball Euroleague",
+        "event": "Olympiacos vs KK Crvena zvezda",
+        "start_time": "2026-02-12T19:15:00Z"
+      }
+    },
+    {
+      "sport_slug": "basketball",
+      "title": "[WEEK] Brooklyn Nets vs Chicago Bulls - h2h",
+      "description": "regions=eu,uk,us | bookmaker=betclic_fr",
+      "order_index": 19,
+      "options": [
+        {
+          "label": "Brooklyn Nets",
+          "odds": 2.37
+        },
+        {
+          "label": "Chicago Bulls",
+          "odds": 1.59
+        }
+      ],
+      "metadata": {
+        "league": "NBA",
+        "event": "Brooklyn Nets vs Chicago Bulls",
+        "start_time": "2026-02-10T00:40:00Z"
+      }
+    },
+    {
+      "sport_slug": "basketball",
+      "title": "[WEEK] Pallacanestro Olimpia Milano vs Dubai Basketball - h2h",
+      "description": "regions=eu,uk,us | bookmaker=betmgm",
+      "order_index": 20,
+      "options": [
+        {
+          "label": "Dubai Basketball",
+          "odds": 2.35
+        },
+        {
+          "label": "Pallacanestro Olimpia Milano",
+          "odds": 1.61
+        }
+      ],
+      "metadata": {
+        "league": "Basketball Euroleague",
+        "event": "Pallacanestro Olimpia Milano vs Dubai Basketball",
+        "start_time": "2026-02-13T19:30:00Z"
+      }
+    },
+    {
+      "sport_slug": "basketball",
+      "title": "[WEEK] Charlotte Hornets vs Detroit Pistons - h2h",
+      "description": "regions=eu,uk,us | bookmaker=betclic_fr",
+      "order_index": 21,
+      "options": [
+        {
+          "label": "Charlotte Hornets",
+          "odds": 2.3
+        },
+        {
+          "label": "Detroit Pistons",
+          "odds": 1.62
+        }
+      ],
+      "metadata": {
+        "league": "NBA",
+        "event": "Charlotte Hornets vs Detroit Pistons",
+        "start_time": "2026-02-10T00:10:00Z"
+      }
+    },
+    {
+      "sport_slug": "soccer",
+      "title": "[WEEK] Crystal Palace vs Burnley - spreads",
+      "description": "regions=eu,uk,us | bookmaker=betonlineag",
+      "order_index": 22,
+      "options": [
+        {
+          "label": "Burnley 1",
+          "odds": 1.87
+        },
+        {
+          "label": "Crystal Palace -1",
+          "odds": 1.99
+        }
+      ],
+      "metadata": {
+        "league": "EPL",
+        "event": "Crystal Palace vs Burnley",
+        "start_time": "2026-02-11T19:30:00Z"
+      }
+    },
+    {
+      "sport_slug": "soccer",
+      "title": "[WEEK] Hamburger SV vs Union Berlin - spreads",
+      "description": "regions=eu,uk,us | bookmaker=betonlineag",
+      "order_index": 23,
+      "options": [
+        {
+          "label": "Hamburger SV 0",
+          "odds": 1.78
+        },
+        {
+          "label": "Union Berlin 0",
+          "odds": 2.08
+        }
+      ],
+      "metadata": {
+        "league": "Bundesliga - Germany",
+        "event": "Hamburger SV vs Union Berlin",
+        "start_time": "2026-02-14T14:30:00Z"
+      }
+    },
+    {
+      "sport_slug": "soccer",
+      "title": "[WEEK] Aston Villa vs Brighton and Hove Albion - spreads",
+      "description": "regions=eu,uk,us | bookmaker=betonlineag",
+      "order_index": 24,
+      "options": [
+        {
+          "label": "Aston Villa -0.5",
+          "odds": 1.93
+        },
+        {
+          "label": "Brighton and Hove Albion 0.5",
+          "odds": 1.93
+        }
+      ],
+      "metadata": {
+        "league": "EPL",
+        "event": "Aston Villa vs Brighton and Hove Albion",
+        "start_time": "2026-02-11T19:30:00Z"
+      }
+    },
+    {
+      "sport_slug": "soccer",
+      "title": "[WEEK] Nottingham Forest vs Wolverhampton Wanderers - spreads",
+      "description": "regions=eu,uk,us | bookmaker=betonlineag",
+      "order_index": 25,
+      "options": [
+        {
+          "label": "Nottingham Forest -0.75",
+          "odds": 1.93
+        },
+        {
+          "label": "Wolverhampton Wanderers 0.75",
+          "odds": 1.93
+        }
+      ],
+      "metadata": {
+        "league": "EPL",
+        "event": "Nottingham Forest vs Wolverhampton Wanderers",
+        "start_time": "2026-02-11T19:30:00Z"
+      }
+    },
+    {
+      "sport_slug": "soccer",
+      "title": "[WEEK] Atalanta BC vs Cremonese - spreads",
+      "description": "regions=eu,uk,us | bookmaker=betanysports",
+      "order_index": 26,
+      "options": [
+        {
+          "label": "Atalanta BC -1.5",
+          "odds": 2.04
+        },
+        {
+          "label": "Cremonese 1.5",
+          "odds": 1.81
+        }
+      ],
+      "metadata": {
+        "league": "Serie A - Italy",
+        "event": "Atalanta BC vs Cremonese",
+        "start_time": "2026-02-09T17:30:00Z"
+      }
+    },
+    {
+      "sport_slug": "soccer",
+      "title": "[WEEK] Bayer Leverkusen vs FC St. Pauli - spreads",
+      "description": "regions=eu,uk,us | bookmaker=betonlineag",
+      "order_index": 27,
+      "options": [
+        {
+          "label": "Bayer Leverkusen -1.25",
+          "odds": 2.04
+        },
+        {
+          "label": "FC St. Pauli 1.25",
+          "odds": 1.81
+        }
+      ],
+      "metadata": {
+        "league": "Bundesliga - Germany",
+        "event": "Bayer Leverkusen vs FC St. Pauli",
+        "start_time": "2026-02-14T14:30:00Z"
+      }
+    },
+    {
+      "sport_slug": "soccer",
+      "title": "[WEEK] Levante vs Valencia - spreads",
+      "description": "regions=eu,uk,us | bookmaker=betonlineag",
+      "order_index": 28,
+      "options": [
+        {
+          "label": "Levante 0",
+          "odds": 2.04
+        },
+        {
+          "label": "Valencia 0",
+          "odds": 1.81
+        }
+      ],
+      "metadata": {
+        "league": "La Liga - Spain",
+        "event": "Levante vs Valencia",
+        "start_time": "2026-02-15T17:30:00Z"
+      }
+    },
+    {
+      "sport_slug": "soccer",
+      "title": "[WEEK] Chelsea vs Leeds United - spreads",
+      "description": "regions=eu,uk,us | bookmaker=betonlineag",
+      "order_index": 29,
+      "options": [
+        {
+          "label": "Chelsea -1",
+          "odds": 1.93
+        },
+        {
+          "label": "Leeds United 1",
+          "odds": 1.92
+        }
+      ],
+      "metadata": {
+        "league": "EPL",
+        "event": "Chelsea vs Leeds United",
+        "start_time": "2026-02-10T19:30:00Z"
+      }
+    },
+    {
+      "sport_slug": "soccer",
+      "title": "[WEEK] Sunderland vs Liverpool - spreads",
+      "description": "regions=eu,uk,us | bookmaker=betonlineag",
+      "order_index": 30,
+      "options": [
+        {
+          "label": "Liverpool -0.75",
+          "odds": 1.94
+        },
+        {
+          "label": "Sunderland 0.75",
+          "odds": 1.91
+        }
+      ],
+      "metadata": {
+        "league": "EPL",
+        "event": "Sunderland vs Liverpool",
+        "start_time": "2026-02-11T20:15:00Z"
+      }
+    },
+    {
+      "sport_slug": "soccer",
+      "title": "[WEEK] Brentford vs Arsenal - spreads",
+      "description": "regions=eu,uk,us | bookmaker=betonlineag",
+      "order_index": 31,
+      "options": [
+        {
+          "label": "Arsenal -0.75",
+          "odds": 1.88
+        },
+        {
+          "label": "Brentford 0.75",
+          "odds": 1.97
+        }
+      ],
+      "metadata": {
+        "league": "EPL",
+        "event": "Brentford vs Arsenal",
+        "start_time": "2026-02-12T20:00:00Z"
+      }
+    },
+    {
+      "sport_slug": "soccer",
+      "title": "[WEEK] Borussia Dortmund vs FSV Mainz 05 - totals",
+      "description": "regions=eu,uk,us | bookmaker=betmgm",
+      "order_index": 32,
+      "options": [
+        {
+          "label": "Over 2.5",
+          "odds": 1.54
+        },
+        {
+          "label": "Under 2.5",
+          "odds": 2.3
+        }
+      ],
+      "metadata": {
+        "league": "Bundesliga - Germany",
+        "event": "Borussia Dortmund vs FSV Mainz 05",
+        "start_time": "2026-02-13T19:30:00Z"
+      }
+    },
+    {
+      "sport_slug": "soccer",
+      "title": "[WEEK] Oviedo vs Athletic Bilbao - totals",
+      "description": "regions=eu,uk,us | bookmaker=betmgm",
+      "order_index": 33,
+      "options": [
+        {
+          "label": "Over 2.5",
+          "odds": 2.3
+        },
+        {
+          "label": "Under 2.5",
+          "odds": 1.54
+        }
+      ],
+      "metadata": {
+        "league": "La Liga - Spain",
+        "event": "Oviedo vs Athletic Bilbao",
+        "start_time": "2026-02-15T13:00:00Z"
+      }
+    },
+    {
+      "sport_slug": "basketball",
+      "title": "[WEEK] Panathinaikos vs Fenerbahce SK - h2h",
+      "description": "regions=eu,uk,us | bookmaker=betmgm",
+      "order_index": 34,
+      "options": [
+        {
+          "label": "Fenerbahce SK",
+          "odds": 2.1
+        },
+        {
+          "label": "Panathinaikos",
+          "odds": 1.74
+        }
+      ],
+      "metadata": {
+        "league": "Basketball Euroleague",
+        "event": "Panathinaikos vs Fenerbahce SK",
+        "start_time": "2026-02-13T19:15:00Z"
+      }
+    },
+    {
+      "sport_slug": "soccer",
+      "title": "[WEEK] Inter Milan vs Juventus - spreads",
+      "description": "regions=eu,uk,us | bookmaker=betonlineag",
+      "order_index": 35,
+      "options": [
+        {
+          "label": "Inter Milan -0.25",
+          "odds": 1.82
+        },
+        {
+          "label": "Juventus 0.25",
+          "odds": 2.02
+        }
+      ],
+      "metadata": {
+        "league": "Serie A - Italy",
+        "event": "Inter Milan vs Juventus",
+        "start_time": "2026-02-14T19:45:00Z"
+      }
+    },
+    {
+      "sport_slug": "soccer",
+      "title": "[WEEK] Real Madrid vs Real Sociedad - spreads",
+      "description": "regions=eu,uk,us | bookmaker=betonlineag",
+      "order_index": 36,
+      "options": [
+        {
+          "label": "Real Madrid -1.25",
+          "odds": 1.82
+        },
+        {
+          "label": "Real Sociedad 1.25",
+          "odds": 2.02
+        }
+      ],
+      "metadata": {
+        "league": "La Liga - Spain",
+        "event": "Real Madrid vs Real Sociedad",
+        "start_time": "2026-02-14T20:00:00Z"
+      }
+    },
+    {
+      "sport_slug": "soccer",
+      "title": "[WEEK] Augsburg vs 1. FC Heidenheim - spreads",
+      "description": "regions=eu,uk,us | bookmaker=betonlineag",
+      "order_index": 37,
+      "options": [
+        {
+          "label": "1. FC Heidenheim 0.5",
+          "odds": 2.03
+        },
+        {
+          "label": "Augsburg -0.5",
+          "odds": 1.81
+        }
+      ],
+      "metadata": {
+        "league": "Bundesliga - Germany",
+        "event": "Augsburg vs 1. FC Heidenheim",
+        "start_time": "2026-02-15T14:30:00Z"
+      }
+    },
+    {
+      "sport_slug": "soccer",
+      "title": "[WEEK] AS Roma vs Cagliari - totals",
+      "description": "regions=eu,uk,us | bookmaker=betanysports",
+      "order_index": 38,
+      "options": [
+        {
+          "label": "Over 2.25",
+          "odds": 1.83
+        },
+        {
+          "label": "Under 2.25",
+          "odds": 2.0
+        }
+      ],
+      "metadata": {
+        "league": "Serie A - Italy",
+        "event": "AS Roma vs Cagliari",
+        "start_time": "2026-02-09T19:45:00Z"
+      }
+    },
+    {
+      "sport_slug": "soccer",
+      "title": "[WEEK] Espanyol vs Celta Vigo - spreads",
+      "description": "regions=eu,uk,us | bookmaker=betonlineag",
+      "order_index": 39,
+      "options": [
+        {
+          "label": "Celta Vigo 0.25",
+          "odds": 1.83
+        },
+        {
+          "label": "Espanyol -0.25",
+          "odds": 2.0
+        }
+      ],
+      "metadata": {
+        "league": "La Liga - Spain",
+        "event": "Espanyol vs Celta Vigo",
+        "start_time": "2026-02-14T13:00:00Z"
+      }
+    },
+    {
+      "sport_slug": "soccer",
+      "title": "[WEEK] VfB Stuttgart vs 1. FC K\u00f6ln - spreads",
+      "description": "regions=eu,uk,us | bookmaker=betonlineag",
+      "order_index": 40,
+      "options": [
+        {
+          "label": "1. FC K\u00f6ln 1.25",
+          "odds": 1.83
+        },
+        {
+          "label": "VfB Stuttgart -1.25",
+          "odds": 2.0
+        }
+      ],
+      "metadata": {
+        "league": "Bundesliga - Germany",
+        "event": "VfB Stuttgart vs 1. FC K\u00f6ln",
+        "start_time": "2026-02-14T17:30:00Z"
+      }
+    },
+    {
+      "sport_slug": "soccer",
+      "title": "[WEEK] Udinese vs Sassuolo - spreads",
+      "description": "regions=eu,uk,us | bookmaker=betonlineag",
+      "order_index": 41,
+      "options": [
+        {
+          "label": "Sassuolo 0.25",
+          "odds": 1.83
+        },
+        {
+          "label": "Udinese -0.25",
+          "odds": 2.0
+        }
+      ],
+      "metadata": {
+        "league": "Serie A - Italy",
+        "event": "Udinese vs Sassuolo",
+        "start_time": "2026-02-15T11:30:00Z"
+      }
+    },
+    {
+      "sport_slug": "soccer",
+      "title": "[WEEK] Rayo Vallecano vs Atl\u00e9tico Madrid - spreads",
+      "description": "regions=eu,uk,us | bookmaker=betonlineag",
+      "order_index": 42,
+      "options": [
+        {
+          "label": "Atl\u00e9tico Madrid -0.75",
+          "odds": 1.99
+        },
+        {
+          "label": "Rayo Vallecano 0.75",
+          "odds": 1.84
+        }
+      ],
+      "metadata": {
+        "league": "La Liga - Spain",
+        "event": "Rayo Vallecano vs Atl\u00e9tico Madrid",
+        "start_time": "2026-02-15T15:15:00Z"
+      }
+    },
+    {
+      "sport_slug": "basketball",
+      "title": "[WEEK] Miami Heat vs Utah Jazz - totals",
+      "description": "regions=eu,uk,us | bookmaker=betanysports",
+      "order_index": 43,
+      "options": [
+        {
+          "label": "Over 242.5",
+          "odds": 1.91
+        },
+        {
+          "label": "Under 242.5",
+          "odds": 1.91
+        }
+      ],
+      "metadata": {
+        "league": "NBA",
+        "event": "Miami Heat vs Utah Jazz",
+        "start_time": "2026-02-10T00:40:00Z"
+      }
+    },
+    {
+      "sport_slug": "basketball",
+      "title": "[WEEK] Orlando Magic vs Milwaukee Bucks - totals",
+      "description": "regions=eu,uk,us | bookmaker=betanysports",
+      "order_index": 44,
+      "options": [
+        {
+          "label": "Over 219",
+          "odds": 1.91
+        },
+        {
+          "label": "Under 219",
+          "odds": 1.91
+        }
+      ],
+      "metadata": {
+        "league": "NBA",
+        "event": "Orlando Magic vs Milwaukee Bucks",
+        "start_time": "2026-02-10T00:40:00Z"
+      }
+    },
+    {
+      "sport_slug": "basketball",
+      "title": "[WEEK] Denver Nuggets vs Cleveland Cavaliers - totals",
+      "description": "regions=eu,uk,us | bookmaker=betanysports",
+      "order_index": 45,
+      "options": [
+        {
+          "label": "Over 235.5",
+          "odds": 1.91
+        },
+        {
+          "label": "Under 235.5",
+          "odds": 1.91
+        }
+      ],
+      "metadata": {
+        "league": "NBA",
+        "event": "Denver Nuggets vs Cleveland Cavaliers",
+        "start_time": "2026-02-10T02:10:00Z"
+      }
+    },
+    {
+      "sport_slug": "basketball",
+      "title": "[WEEK] FC Barcelona B\u00e0squet vs Paris Basketball - totals",
+      "description": "regions=eu,uk,us | bookmaker=betmgm",
+      "order_index": 46,
+      "options": [
+        {
+          "label": "Over 181.5",
+          "odds": 1.91
+        },
+        {
+          "label": "Under 181.5",
+          "odds": 1.91
+        }
+      ],
+      "metadata": {
+        "league": "Basketball Euroleague",
+        "event": "FC Barcelona B\u00e0squet vs Paris Basketball",
+        "start_time": "2026-02-12T19:30:00Z"
+      }
+    },
+    {
+      "sport_slug": "basketball",
+      "title": "[WEEK] Valencia Basket vs ASVEL Lyon Villeurbanne - totals",
+      "description": "regions=eu,uk,us | bookmaker=betmgm",
+      "order_index": 47,
+      "options": [
+        {
+          "label": "Over 174.5",
+          "odds": 1.91
+        },
+        {
+          "label": "Under 174.5",
+          "odds": 1.91
+        }
+      ],
+      "metadata": {
+        "league": "Basketball Euroleague",
+        "event": "Valencia Basket vs ASVEL Lyon Villeurbanne",
+        "start_time": "2026-02-12T19:30:00Z"
+      }
+    },
+    {
+      "sport_slug": "basketball",
+      "title": "[WEEK] \u017dalgiris vs Hapoel Tel Aviv - h2h",
+      "description": "regions=eu,uk,us | bookmaker=betmgm",
+      "order_index": 48,
+      "options": [
+        {
+          "label": "Hapoel Tel Aviv",
+          "odds": 2.05
+        },
+        {
+          "label": "\u017dalgiris",
+          "odds": 1.77
+        }
+      ],
+      "metadata": {
+        "league": "Basketball Euroleague",
+        "event": "\u017dalgiris vs Hapoel Tel Aviv",
+        "start_time": "2026-02-13T18:00:00Z"
+      }
+    },
+    {
+      "sport_slug": "basketball",
+      "title": "[WEEK] AS Monaco vs Saski Baskonia - totals",
+      "description": "regions=eu,uk,us | bookmaker=betmgm",
+      "order_index": 49,
+      "options": [
+        {
+          "label": "Over 174.5",
+          "odds": 1.91
+        },
+        {
+          "label": "Under 174.5",
+          "odds": 1.91
+        }
+      ],
+      "metadata": {
+        "league": "Basketball Euroleague",
+        "event": "AS Monaco vs Saski Baskonia",
+        "start_time": "2026-02-13T18:30:00Z"
+      }
+    },
+    {
+      "sport_slug": "soccer",
+      "title": "[WEEK] TSG Hoffenheim vs SC Freiburg - spreads",
+      "description": "regions=eu,uk,us | bookmaker=betonlineag",
+      "order_index": 50,
+      "options": [
+        {
+          "label": "SC Freiburg 0.75",
+          "odds": 1.85
+        },
+        {
+          "label": "TSG Hoffenheim -0.75",
+          "odds": 1.97
+        }
+      ],
+      "metadata": {
+        "league": "Bundesliga - Germany",
+        "event": "TSG Hoffenheim vs SC Freiburg",
+        "start_time": "2026-02-14T14:30:00Z"
+      }
+    },
+    {
+      "sport_slug": "soccer",
+      "title": "[WEEK] Villarreal vs Espanyol - spreads",
+      "description": "regions=eu,uk,us | bookmaker=betonlineag",
+      "order_index": 51,
+      "options": [
+        {
+          "label": "Espanyol 0.75",
+          "odds": 1.91
+        },
+        {
+          "label": "Villarreal -0.75",
+          "odds": 1.91
+        }
+      ],
+      "metadata": {
+        "league": "La Liga - Spain",
+        "event": "Villarreal vs Espanyol",
+        "start_time": "2026-02-09T20:00:00Z"
+      }
+    },
+    {
+      "sport_slug": "soccer",
+      "title": "[WEEK] Elche CF vs CA Osasuna - spreads",
+      "description": "regions=eu,uk,us | bookmaker=betonlineag",
+      "order_index": 52,
+      "options": [
+        {
+          "label": "CA Osasuna 0",
+          "odds": 1.88
+        },
+        {
+          "label": "Elche CF 0",
+          "odds": 1.94
+        }
+      ],
+      "metadata": {
+        "league": "La Liga - Spain",
+        "event": "Elche CF vs CA Osasuna",
+        "start_time": "2026-02-13T20:00:00Z"
+      }
+    },
+    {
+      "sport_slug": "soccer",
+      "title": "[WEEK] Como vs Fiorentina - spreads",
+      "description": "regions=eu,uk,us | bookmaker=betonlineag",
+      "order_index": 53,
+      "options": [
+        {
+          "label": "Como -0.75",
+          "odds": 1.89
+        },
+        {
+          "label": "Fiorentina 0.75",
+          "odds": 1.93
+        }
+      ],
+      "metadata": {
+        "league": "Serie A - Italy",
+        "event": "Como vs Fiorentina",
+        "start_time": "2026-02-14T14:00:00Z"
+      }
+    },
+    {
+      "sport_slug": "soccer",
+      "title": "[WEEK] Eintracht Frankfurt vs Borussia Monchengladbach - spreads",
+      "description": "regions=eu,uk,us | bookmaker=betonlineag",
+      "order_index": 54,
+      "options": [
+        {
+          "label": "Borussia Monchengladbach 0.5",
+          "odds": 1.89
+        },
+        {
+          "label": "Eintracht Frankfurt -0.5",
+          "odds": 1.93
+        }
+      ],
+      "metadata": {
+        "league": "Bundesliga - Germany",
+        "event": "Eintracht Frankfurt vs Borussia Monchengladbach",
+        "start_time": "2026-02-14T14:30:00Z"
+      }
+    },
+    {
+      "sport_slug": "soccer",
+      "title": "[WEEK] Werder Bremen vs Bayern Munich - spreads",
+      "description": "regions=eu,uk,us | bookmaker=betonlineag",
+      "order_index": 55,
+      "options": [
+        {
+          "label": "Bayern Munich -1.5",
+          "odds": 1.93
+        },
+        {
+          "label": "Werder Bremen 1.5",
+          "odds": 1.89
+        }
+      ],
+      "metadata": {
+        "league": "Bundesliga - Germany",
+        "event": "Werder Bremen vs Bayern Munich",
+        "start_time": "2026-02-14T14:30:00Z"
+      }
+    },
+    {
+      "sport_slug": "soccer",
+      "title": "[WEEK] Lazio vs Atalanta BC - spreads",
+      "description": "regions=eu,uk,us | bookmaker=betonlineag",
+      "order_index": 56,
+      "options": [
+        {
+          "label": "Atalanta BC -0.25",
+          "odds": 1.93
+        },
+        {
+          "label": "Lazio 0.25",
+          "odds": 1.89
+        }
+      ],
+      "metadata": {
+        "league": "Serie A - Italy",
+        "event": "Lazio vs Atalanta BC",
+        "start_time": "2026-02-14T17:00:00Z"
+      }
+    },
+    {
+      "sport_slug": "soccer",
+      "title": "[WEEK] RB Leipzig vs VfL Wolfsburg - spreads",
+      "description": "regions=eu,uk,us | bookmaker=betonlineag",
+      "order_index": 57,
+      "options": [
+        {
+          "label": "RB Leipzig -1.25",
+          "odds": 1.93
+        },
+        {
+          "label": "VfL Wolfsburg 1.25",
+          "odds": 1.89
+        }
+      ],
+      "metadata": {
+        "league": "Bundesliga - Germany",
+        "event": "RB Leipzig vs VfL Wolfsburg",
+        "start_time": "2026-02-15T16:30:00Z"
+      }
+    },
+    {
+      "sport_slug": "soccer",
+      "title": "[WEEK] Torino vs Bologna - spreads",
+      "description": "regions=eu,uk,us | bookmaker=betonlineag",
+      "order_index": 58,
+      "options": [
+        {
+          "label": "Bologna -0.25",
+          "odds": 1.93
+        },
+        {
+          "label": "Torino 0.25",
+          "odds": 1.89
+        }
+      ],
+      "metadata": {
+        "league": "Serie A - Italy",
+        "event": "Torino vs Bologna",
+        "start_time": "2026-02-15T17:00:00Z"
+      }
+    },
+    {
+      "sport_slug": "soccer",
+      "title": "[WEEK] Pisa vs AC Milan - spreads",
+      "description": "regions=eu,uk,us | bookmaker=betonlineag",
+      "order_index": 59,
+      "options": [
+        {
+          "label": "AC Milan -1",
+          "odds": 1.93
+        },
+        {
+          "label": "Pisa 1",
+          "odds": 1.88
+        }
+      ],
+      "metadata": {
+        "league": "Serie A - Italy",
+        "event": "Pisa vs AC Milan",
+        "start_time": "2026-02-13T19:45:00Z"
+      }
+    },
+    {
+      "sport_slug": "soccer",
+      "title": "[WEEK] Cremonese vs Genoa - totals",
+      "description": "regions=eu,uk,us | bookmaker=betmgm",
+      "order_index": 60,
+      "options": [
+        {
+          "label": "Over 2.5",
+          "odds": 2.38
+        },
+        {
+          "label": "Under 2.5",
+          "odds": 1.5
+        }
+      ],
+      "metadata": {
+        "league": "Serie A - Italy",
+        "event": "Cremonese vs Genoa",
+        "start_time": "2026-02-15T14:00:00Z"
+      }
+    },
+    {
+      "sport_slug": "soccer",
+      "title": "[WEEK] Getafe vs Villarreal - spreads",
+      "description": "regions=eu,uk,us | bookmaker=betonlineag",
+      "order_index": 61,
+      "options": [
+        {
+          "label": "Getafe 0.25",
+          "odds": 1.77
+        },
+        {
+          "label": "Villarreal -0.25",
+          "odds": 2.1
+        }
+      ],
+      "metadata": {
+        "league": "La Liga - Spain",
+        "event": "Getafe vs Villarreal",
+        "start_time": "2026-02-14T15:15:00Z"
+      }
+    },
+    {
+      "sport_slug": "soccer",
+      "title": "[WEEK] West Ham United vs Manchester United - spreads",
+      "description": "regions=eu,uk,us | bookmaker=betonlineag",
+      "order_index": 62,
+      "options": [
+        {
+          "label": "Manchester United -0.75",
+          "odds": 1.93
+        },
+        {
+          "label": "West Ham United 0.75",
+          "odds": 1.93
+        }
+      ],
+      "metadata": {
+        "league": "EPL",
+        "event": "West Ham United vs Manchester United",
+        "start_time": "2026-02-10T20:15:00Z"
+      }
+    },
+    {
+      "sport_slug": "soccer",
+      "title": "[WEEK] Sevilla vs Alav\u00e9s - spreads",
+      "description": "regions=eu,uk,us | bookmaker=betonlineag",
+      "order_index": 63,
+      "options": [
+        {
+          "label": "Alav\u00e9s 0.5",
+          "odds": 1.79
+        },
+        {
+          "label": "Sevilla -0.5",
+          "odds": 2.06
+        }
+      ],
+      "metadata": {
+        "league": "La Liga - Spain",
+        "event": "Sevilla vs Alav\u00e9s",
+        "start_time": "2026-02-14T17:30:00Z"
+      }
+    },
+    {
+      "sport_slug": "basketball",
+      "title": "[WEEK] Olympiacos vs KK Crvena zvezda - totals",
+      "description": "regions=eu,uk,us | bookmaker=betmgm",
+      "order_index": 64,
+      "options": [
+        {
+          "label": "Over 171.5",
+          "odds": 1.83
+        },
+        {
+          "label": "Under 171.5",
+          "odds": 2.0
+        }
+      ],
+      "metadata": {
+        "league": "Basketball Euroleague",
+        "event": "Olympiacos vs KK Crvena zvezda",
+        "start_time": "2026-02-12T19:15:00Z"
+      }
+    },
+    {
+      "sport_slug": "soccer",
+      "title": "[WEEK] Parma vs Hellas Verona - spreads",
+      "description": "regions=eu,uk,us | bookmaker=betonlineag",
+      "order_index": 65,
+      "options": [
+        {
+          "label": "Hellas Verona 0.25",
+          "odds": 1.84
+        },
+        {
+          "label": "Parma -0.25",
+          "odds": 1.99
+        }
+      ],
+      "metadata": {
+        "league": "Serie A - Italy",
+        "event": "Parma vs Hellas Verona",
+        "start_time": "2026-02-15T14:00:00Z"
+      }
+    },
+    {
+      "sport_slug": "basketball",
+      "title": "[WEEK] Charlotte Hornets vs Detroit Pistons - totals",
+      "description": "regions=eu,uk,us | bookmaker=betanysports",
+      "order_index": 66,
+      "options": [
+        {
+          "label": "Over 223",
+          "odds": 1.91
+        },
+        {
+          "label": "Under 223",
+          "odds": 1.91
+        }
+      ],
+      "metadata": {
+        "league": "NBA",
+        "event": "Charlotte Hornets vs Detroit Pistons",
+        "start_time": "2026-02-10T00:10:00Z"
+      }
+    },
+    {
+      "sport_slug": "basketball",
+      "title": "[WEEK] Brooklyn Nets vs Chicago Bulls - totals",
+      "description": "regions=eu,uk,us | bookmaker=betanysports",
+      "order_index": 67,
+      "options": [
+        {
+          "label": "Over 223.5",
+          "odds": 1.91
+        },
+        {
+          "label": "Under 223.5",
+          "odds": 1.91
+        }
+      ],
+      "metadata": {
+        "league": "NBA",
+        "event": "Brooklyn Nets vs Chicago Bulls",
+        "start_time": "2026-02-10T00:40:00Z"
+      }
+    },
+    {
+      "sport_slug": "basketball",
+      "title": "[WEEK] Minnesota Timberwolves vs Atlanta Hawks - totals",
+      "description": "regions=eu,uk,us | bookmaker=betanysports",
+      "order_index": 68,
+      "options": [
+        {
+          "label": "Over 237",
+          "odds": 1.91
+        },
+        {
+          "label": "Under 237",
+          "odds": 1.91
+        }
+      ],
+      "metadata": {
+        "league": "NBA",
+        "event": "Minnesota Timberwolves vs Atlanta Hawks",
+        "start_time": "2026-02-10T01:10:00Z"
+      }
+    },
+    {
+      "sport_slug": "basketball",
+      "title": "[WEEK] New Orleans Pelicans vs Sacramento Kings - totals",
+      "description": "regions=eu,uk,us | bookmaker=betanysports",
+      "order_index": 69,
+      "options": [
+        {
+          "label": "Over 231.5",
+          "odds": 1.91
+        },
+        {
+          "label": "Under 231.5",
+          "odds": 1.91
+        }
+      ],
+      "metadata": {
+        "league": "NBA",
+        "event": "New Orleans Pelicans vs Sacramento Kings",
+        "start_time": "2026-02-10T01:10:00Z"
+      }
+    },
+    {
+      "sport_slug": "basketball",
+      "title": "[WEEK] Golden State Warriors vs Memphis Grizzlies - totals",
+      "description": "regions=eu,uk,us | bookmaker=betanysports",
+      "order_index": 70,
+      "options": [
+        {
+          "label": "Over 223.5",
+          "odds": 1.91
+        },
+        {
+          "label": "Under 223.5",
+          "odds": 1.91
+        }
+      ],
+      "metadata": {
+        "league": "NBA",
+        "event": "Golden State Warriors vs Memphis Grizzlies",
+        "start_time": "2026-02-10T03:10:00Z"
+      }
+    },
+    {
+      "sport_slug": "basketball",
+      "title": "[WEEK] Portland Trail Blazers vs Philadelphia 76ers - totals",
+      "description": "regions=eu,uk,us | bookmaker=betanysports",
+      "order_index": 71,
+      "options": [
+        {
+          "label": "Over 230.5",
+          "odds": 1.91
+        },
+        {
+          "label": "Under 230.5",
+          "odds": 1.91
+        }
+      ],
+      "metadata": {
+        "league": "NBA",
+        "event": "Portland Trail Blazers vs Philadelphia 76ers",
+        "start_time": "2026-02-10T03:10:00Z"
+      }
+    },
+    {
+      "sport_slug": "basketball",
+      "title": "[WEEK] Los Angeles Lakers vs Oklahoma City Thunder - totals",
+      "description": "regions=eu,uk,us | bookmaker=betanysports",
+      "order_index": 72,
+      "options": [
+        {
+          "label": "Over 219.5",
+          "odds": 1.91
+        },
+        {
+          "label": "Under 219.5",
+          "odds": 1.91
+        }
+      ],
+      "metadata": {
+        "league": "NBA",
+        "event": "Los Angeles Lakers vs Oklahoma City Thunder",
+        "start_time": "2026-02-10T03:10:00Z"
+      }
+    },
+    {
+      "sport_slug": "basketball",
+      "title": "[WEEK] Anadolu Efes vs Virtus Segafredo Bologna - totals",
+      "description": "regions=eu,uk,us | bookmaker=betmgm",
+      "order_index": 73,
+      "options": [
+        {
+          "label": "Over 164.5",
+          "odds": 1.91
+        },
+        {
+          "label": "Under 164.5",
+          "odds": 1.91
+        }
+      ],
+      "metadata": {
+        "league": "Basketball Euroleague",
+        "event": "Anadolu Efes vs Virtus Segafredo Bologna",
+        "start_time": "2026-02-12T17:30:00Z"
+      }
+    },
+    {
+      "sport_slug": "basketball",
+      "title": "[WEEK] Maccabi Tel Aviv vs FC Bayern M\u00fcnchen - totals",
+      "description": "regions=eu,uk,us | bookmaker=betmgm",
+      "order_index": 74,
+      "options": [
+        {
+          "label": "Over 177.5",
+          "odds": 1.91
+        },
+        {
+          "label": "Under 177.5",
+          "odds": 1.91
+        }
+      ],
+      "metadata": {
+        "league": "Basketball Euroleague",
+        "event": "Maccabi Tel Aviv vs FC Bayern M\u00fcnchen",
+        "start_time": "2026-02-12T19:05:00Z"
+      }
+    },
+    {
+      "sport_slug": "basketball",
+      "title": "[WEEK] \u017dalgiris vs Hapoel Tel Aviv - totals",
+      "description": "regions=eu,uk,us | bookmaker=betmgm",
+      "order_index": 75,
+      "options": [
+        {
+          "label": "Over 167.5",
+          "odds": 1.91
+        },
+        {
+          "label": "Under 167.5",
+          "odds": 1.91
+        }
+      ],
+      "metadata": {
+        "league": "Basketball Euroleague",
+        "event": "\u017dalgiris vs Hapoel Tel Aviv",
+        "start_time": "2026-02-13T18:00:00Z"
+      }
+    },
+    {
+      "sport_slug": "basketball",
+      "title": "[WEEK] Pallacanestro Olimpia Milano vs Dubai Basketball - totals",
+      "description": "regions=eu,uk,us | bookmaker=betmgm",
+      "order_index": 76,
+      "options": [
+        {
+          "label": "Over 171.5",
+          "odds": 1.91
+        },
+        {
+          "label": "Under 171.5",
+          "odds": 1.91
+        }
+      ],
+      "metadata": {
+        "league": "Basketball Euroleague",
+        "event": "Pallacanestro Olimpia Milano vs Dubai Basketball",
+        "start_time": "2026-02-13T19:30:00Z"
+      }
+    },
+    {
+      "sport_slug": "basketball",
+      "title": "[WEEK] KK Partizan NIS vs Real Madrid - totals",
+      "description": "regions=eu,uk,us | bookmaker=betmgm",
+      "order_index": 77,
+      "options": [
+        {
+          "label": "Over 171.5",
+          "odds": 1.91
+        },
+        {
+          "label": "Under 171.5",
+          "odds": 1.91
+        }
+      ],
+      "metadata": {
+        "league": "Basketball Euroleague",
+        "event": "KK Partizan NIS vs Real Madrid",
+        "start_time": "2026-02-13T19:30:00Z"
+      }
+    },
+    {
+      "sport_slug": "basketball",
+      "title": "[WEEK] Miami Heat vs Utah Jazz - spreads",
+      "description": "regions=eu,uk,us | bookmaker=betanysports",
+      "order_index": 78,
+      "options": [
+        {
+          "label": "Miami Heat -8.5",
+          "odds": 1.91
+        },
+        {
+          "label": "Utah Jazz 8.5",
+          "odds": 1.91
+        }
+      ],
+      "metadata": {
+        "league": "NBA",
+        "event": "Miami Heat vs Utah Jazz",
+        "start_time": "2026-02-10T00:40:00Z"
+      }
+    },
+    {
+      "sport_slug": "basketball",
+      "title": "[WEEK] Orlando Magic vs Milwaukee Bucks - spreads",
+      "description": "regions=eu,uk,us | bookmaker=betanysports",
+      "order_index": 79,
+      "options": [
+        {
+          "label": "Milwaukee Bucks 9.5",
+          "odds": 1.91
+        },
+        {
+          "label": "Orlando Magic -9.5",
+          "odds": 1.91
+        }
+      ],
+      "metadata": {
+        "league": "NBA",
+        "event": "Orlando Magic vs Milwaukee Bucks",
+        "start_time": "2026-02-10T00:40:00Z"
+      }
+    },
+    {
+      "sport_slug": "basketball",
+      "title": "[WEEK] Denver Nuggets vs Cleveland Cavaliers - spreads",
+      "description": "regions=eu,uk,us | bookmaker=betanysports",
+      "order_index": 80,
+      "options": [
+        {
+          "label": "Cleveland Cavaliers -1",
+          "odds": 1.91
+        },
+        {
+          "label": "Denver Nuggets 1",
+          "odds": 1.91
+        }
+      ],
+      "metadata": {
+        "league": "NBA",
+        "event": "Denver Nuggets vs Cleveland Cavaliers",
+        "start_time": "2026-02-10T02:10:00Z"
+      }
+    },
+    {
+      "sport_slug": "soccer",
+      "title": "[WEEK] Manchester City vs Fulham - totals",
+      "description": "regions=eu,uk,us | bookmaker=betmgm",
+      "order_index": 81,
+      "options": [
+        {
+          "label": "Over 3.5",
+          "odds": 2.25
+        },
+        {
+          "label": "Under 3.5",
+          "odds": 1.57
+        }
+      ],
+      "metadata": {
+        "league": "EPL",
+        "event": "Manchester City vs Fulham",
+        "start_time": "2026-02-11T19:30:00Z"
+      }
+    },
+    {
+      "sport_slug": "soccer",
+      "title": "[WEEK] AS Roma vs Cagliari - spreads",
+      "description": "regions=eu,uk,us | bookmaker=betanysports",
+      "order_index": 82,
+      "options": [
+        {
+          "label": "AS Roma -1",
+          "odds": 1.85
+        },
+        {
+          "label": "Cagliari 1",
+          "odds": 1.97
+        }
+      ],
+      "metadata": {
+        "league": "Serie A - Italy",
+        "event": "AS Roma vs Cagliari",
+        "start_time": "2026-02-09T19:45:00Z"
+      }
+    },
+    {
+      "sport_slug": "soccer",
+      "title": "[WEEK] Oviedo vs Athletic Bilbao - spreads",
+      "description": "regions=eu,uk,us | bookmaker=betonlineag",
+      "order_index": 83,
+      "options": [
+        {
+          "label": "Athletic Bilbao -0.25",
+          "odds": 1.87
+        },
+        {
+          "label": "Oviedo 0.25",
+          "odds": 1.95
+        }
+      ],
+      "metadata": {
+        "league": "La Liga - Spain",
+        "event": "Oviedo vs Athletic Bilbao",
+        "start_time": "2026-02-15T13:00:00Z"
+      }
+    },
+    {
+      "sport_slug": "soccer",
+      "title": "[WEEK] Borussia Dortmund vs FSV Mainz 05 - spreads",
+      "description": "regions=eu,uk,us | bookmaker=betonlineag",
+      "order_index": 84,
+      "options": [
+        {
+          "label": "Borussia Dortmund -1",
+          "odds": 1.89
+        },
+        {
+          "label": "FSV Mainz 05 1",
+          "odds": 1.93
+        }
+      ],
+      "metadata": {
+        "league": "Bundesliga - Germany",
+        "event": "Borussia Dortmund vs FSV Mainz 05",
+        "start_time": "2026-02-13T19:30:00Z"
+      }
+    },
+    {
+      "sport_slug": "soccer",
+      "title": "[WEEK] Napoli vs AS Roma - spreads",
+      "description": "regions=eu,uk,us | bookmaker=betonlineag",
+      "order_index": 85,
+      "options": [
+        {
+          "label": "AS Roma 0.25",
+          "odds": 1.93
+        },
+        {
+          "label": "Napoli -0.25",
+          "odds": 1.89
+        }
+      ],
+      "metadata": {
+        "league": "Serie A - Italy",
+        "event": "Napoli vs AS Roma",
+        "start_time": "2026-02-15T19:45:00Z"
+      }
+    },
+    {
+      "sport_slug": "basketball",
+      "title": "[WEEK] Panathinaikos vs Fenerbahce SK - totals",
+      "description": "regions=eu,uk,us | bookmaker=betmgm",
+      "order_index": 86,
+      "options": [
+        {
+          "label": "Over 165.5",
+          "odds": 1.83
+        },
+        {
+          "label": "Under 165.5",
+          "odds": 1.98
+        }
+      ],
+      "metadata": {
+        "league": "Basketball Euroleague",
+        "event": "Panathinaikos vs Fenerbahce SK",
+        "start_time": "2026-02-13T19:15:00Z"
+      }
+    },
+    {
+      "sport_slug": "soccer",
+      "title": "[WEEK] Chelsea vs Leeds United - totals",
+      "description": "regions=eu,uk,us | bookmaker=betmgm",
+      "order_index": 87,
+      "options": [
+        {
+          "label": "Over 2.5",
+          "odds": 1.61
+        },
+        {
+          "label": "Under 2.5",
+          "odds": 2.2
+        }
+      ],
+      "metadata": {
+        "league": "EPL",
+        "event": "Chelsea vs Leeds United",
+        "start_time": "2026-02-10T19:30:00Z"
+      }
+    },
+    {
+      "sport_slug": "soccer",
+      "title": "[WEEK] Udinese vs Sassuolo - totals",
+      "description": "regions=eu,uk,us | bookmaker=betmgm",
+      "order_index": 88,
+      "options": [
+        {
+          "label": "Over 2.5",
+          "odds": 2.2
+        },
+        {
+          "label": "Under 2.5",
+          "odds": 1.61
+        }
+      ],
+      "metadata": {
+        "league": "Serie A - Italy",
+        "event": "Udinese vs Sassuolo",
+        "start_time": "2026-02-15T11:30:00Z"
+      }
+    },
+    {
+      "sport_slug": "soccer",
+      "title": "[WEEK] Atalanta BC vs Cremonese - totals",
+      "description": "regions=eu,uk,us | bookmaker=betanysports",
+      "order_index": 89,
+      "options": [
+        {
+          "label": "Over 2.75",
+          "odds": 1.93
+        },
+        {
+          "label": "Under 2.75",
+          "odds": 1.88
+        }
+      ],
+      "metadata": {
+        "league": "Serie A - Italy",
+        "event": "Atalanta BC vs Cremonese",
+        "start_time": "2026-02-09T17:30:00Z"
+      }
+    },
+    {
+      "sport_slug": "basketball",
+      "title": "[WEEK] FC Barcelona B\u00e0squet vs Paris Basketball - spreads",
+      "description": "regions=eu,uk,us | bookmaker=betmgm",
+      "order_index": 90,
+      "options": [
+        {
+          "label": "FC Barcelona B\u00e0squet -9.5",
+          "odds": 1.87
+        },
+        {
+          "label": "Paris Basketball 9.5",
+          "odds": 1.91
+        }
+      ],
+      "metadata": {
+        "league": "Basketball Euroleague",
+        "event": "FC Barcelona B\u00e0squet vs Paris Basketball",
+        "start_time": "2026-02-12T19:30:00Z"
+      }
+    },
+    {
+      "sport_slug": "basketball",
+      "title": "[WEEK] Valencia Basket vs ASVEL Lyon Villeurbanne - spreads",
+      "description": "regions=eu,uk,us | bookmaker=betmgm",
+      "order_index": 91,
+      "options": [
+        {
+          "label": "ASVEL Lyon Villeurbanne 12.5",
+          "odds": 1.91
+        },
+        {
+          "label": "Valencia Basket -12.5",
+          "odds": 1.87
+        }
+      ],
+      "metadata": {
+        "league": "Basketball Euroleague",
+        "event": "Valencia Basket vs ASVEL Lyon Villeurbanne",
+        "start_time": "2026-02-12T19:30:00Z"
+      }
+    },
+    {
+      "sport_slug": "soccer",
+      "title": "[WEEK] TSG Hoffenheim vs SC Freiburg - totals",
+      "description": "regions=eu,uk,us | bookmaker=betmgm",
+      "order_index": 92,
+      "options": [
+        {
+          "label": "Over 2.5",
+          "odds": 1.67
+        },
+        {
+          "label": "Under 2.5",
+          "odds": 2.1
+        }
+      ],
+      "metadata": {
+        "league": "Bundesliga - Germany",
+        "event": "TSG Hoffenheim vs SC Freiburg",
+        "start_time": "2026-02-14T14:30:00Z"
+      }
+    },
+    {
+      "sport_slug": "soccer",
+      "title": "[WEEK] VfB Stuttgart vs 1. FC K\u00f6ln - totals",
+      "description": "regions=eu,uk,us | bookmaker=betmgm",
+      "order_index": 93,
+      "options": [
+        {
+          "label": "Over 3.5",
+          "odds": 2.1
+        },
+        {
+          "label": "Under 3.5",
+          "odds": 1.67
+        }
+      ],
+      "metadata": {
+        "league": "Bundesliga - Germany",
+        "event": "VfB Stuttgart vs 1. FC K\u00f6ln",
+        "start_time": "2026-02-14T17:30:00Z"
+      }
+    },
+    {
+      "sport_slug": "soccer",
+      "title": "[WEEK] Real Madrid vs Real Sociedad - totals",
+      "description": "regions=eu,uk,us | bookmaker=betmgm",
+      "order_index": 94,
+      "options": [
+        {
+          "label": "Over 3.5",
+          "odds": 2.1
+        },
+        {
+          "label": "Under 3.5",
+          "odds": 1.67
+        }
+      ],
+      "metadata": {
+        "league": "La Liga - Spain",
+        "event": "Real Madrid vs Real Sociedad",
+        "start_time": "2026-02-14T20:00:00Z"
+      }
+    },
+    {
+      "sport_slug": "basketball",
+      "title": "[WEEK] AS Monaco vs Saski Baskonia - h2h",
+      "description": "regions=eu,uk,us | bookmaker=betmgm",
+      "order_index": 95,
+      "options": [
+        {
+          "label": "AS Monaco",
+          "odds": 1.29
+        },
+        {
+          "label": "Saski Baskonia",
+          "odds": 3.75
+        }
+      ],
+      "metadata": {
+        "league": "Basketball Euroleague",
+        "event": "AS Monaco vs Saski Baskonia",
+        "start_time": "2026-02-13T18:30:00Z"
+      }
+    },
+    {
+      "sport_slug": "soccer",
+      "title": "[WEEK] Eintracht Frankfurt vs Borussia Monchengladbach - totals",
+      "description": "regions=eu,uk,us | bookmaker=betmgm",
+      "order_index": 96,
+      "options": [
+        {
+          "label": "Over 2.5",
+          "odds": 1.65
+        },
+        {
+          "label": "Under 2.5",
+          "odds": 2.1
+        }
+      ],
+      "metadata": {
+        "league": "Bundesliga - Germany",
+        "event": "Eintracht Frankfurt vs Borussia Monchengladbach",
+        "start_time": "2026-02-14T14:30:00Z"
+      }
+    },
+    {
+      "sport_slug": "soccer",
+      "title": "[WEEK] Elche CF vs CA Osasuna - totals",
+      "description": "regions=eu,uk,us | bookmaker=betmgm",
+      "order_index": 97,
+      "options": [
+        {
+          "label": "Over 2.5",
+          "odds": 2.05
+        },
+        {
+          "label": "Under 2.5",
+          "odds": 1.69
+        }
+      ],
+      "metadata": {
+        "league": "La Liga - Spain",
+        "event": "Elche CF vs CA Osasuna",
+        "start_time": "2026-02-13T20:00:00Z"
+      }
+    },
+    {
+      "sport_slug": "soccer",
+      "title": "[WEEK] Espanyol vs Celta Vigo - totals",
+      "description": "regions=eu,uk,us | bookmaker=betmgm",
+      "order_index": 98,
+      "options": [
+        {
+          "label": "Over 2.5",
+          "odds": 2.05
+        },
+        {
+          "label": "Under 2.5",
+          "odds": 1.69
+        }
+      ],
+      "metadata": {
+        "league": "La Liga - Spain",
+        "event": "Espanyol vs Celta Vigo",
+        "start_time": "2026-02-14T13:00:00Z"
+      }
+    },
+    {
+      "sport_slug": "soccer",
+      "title": "[WEEK] Hamburger SV vs Union Berlin - totals",
+      "description": "regions=eu,uk,us | bookmaker=betmgm",
+      "order_index": 99,
+      "options": [
+        {
+          "label": "Over 2.5",
+          "odds": 2.05
+        },
+        {
+          "label": "Under 2.5",
+          "odds": 1.69
+        }
+      ],
+      "metadata": {
+        "league": "Bundesliga - Germany",
+        "event": "Hamburger SV vs Union Berlin",
+        "start_time": "2026-02-14T14:30:00Z"
+      }
+    },
+    {
+      "sport_slug": "soccer",
+      "title": "[WEEK] Lazio vs Atalanta BC - totals",
+      "description": "regions=eu,uk,us | bookmaker=betmgm",
+      "order_index": 100,
+      "options": [
+        {
+          "label": "Over 2.5",
+          "odds": 2.05
+        },
+        {
+          "label": "Under 2.5",
+          "odds": 1.69
+        }
+      ],
+      "metadata": {
+        "league": "Serie A - Italy",
+        "event": "Lazio vs Atalanta BC",
+        "start_time": "2026-02-14T17:00:00Z"
+      }
+    },
+    {
+      "sport_slug": "soccer",
+      "title": "[WEEK] Augsburg vs 1. FC Heidenheim - totals",
+      "description": "regions=eu,uk,us | bookmaker=betmgm",
+      "order_index": 101,
+      "options": [
+        {
+          "label": "Over 2.5",
+          "odds": 1.69
+        },
+        {
+          "label": "Under 2.5",
+          "odds": 2.05
+        }
+      ],
+      "metadata": {
+        "league": "Bundesliga - Germany",
+        "event": "Augsburg vs 1. FC Heidenheim",
+        "start_time": "2026-02-15T14:30:00Z"
+      }
+    },
+    {
+      "sport_slug": "basketball",
+      "title": "[WEEK] Charlotte Hornets vs Detroit Pistons - spreads",
+      "description": "regions=eu,uk,us | bookmaker=betanysports",
+      "order_index": 102,
+      "options": [
+        {
+          "label": "Charlotte Hornets 3",
+          "odds": 1.91
+        },
+        {
+          "label": "Detroit Pistons -3",
+          "odds": 1.91
+        }
+      ],
+      "metadata": {
+        "league": "NBA",
+        "event": "Charlotte Hornets vs Detroit Pistons",
+        "start_time": "2026-02-10T00:10:00Z"
+      }
+    },
+    {
+      "sport_slug": "basketball",
+      "title": "[WEEK] Brooklyn Nets vs Chicago Bulls - spreads",
+      "description": "regions=eu,uk,us | bookmaker=betanysports",
+      "order_index": 103,
+      "options": [
+        {
+          "label": "Brooklyn Nets 3.5",
+          "odds": 1.91
+        },
+        {
+          "label": "Chicago Bulls -3.5",
+          "odds": 1.91
+        }
+      ],
+      "metadata": {
+        "league": "NBA",
+        "event": "Brooklyn Nets vs Chicago Bulls",
+        "start_time": "2026-02-10T00:40:00Z"
+      }
+    },
+    {
+      "sport_slug": "basketball",
+      "title": "[WEEK] Minnesota Timberwolves vs Atlanta Hawks - spreads",
+      "description": "regions=eu,uk,us | bookmaker=betanysports",
+      "order_index": 104,
+      "options": [
+        {
+          "label": "Atlanta Hawks 6.5",
+          "odds": 1.91
+        },
+        {
+          "label": "Minnesota Timberwolves -6.5",
+          "odds": 1.91
+        }
+      ],
+      "metadata": {
+        "league": "NBA",
+        "event": "Minnesota Timberwolves vs Atlanta Hawks",
+        "start_time": "2026-02-10T01:10:00Z"
+      }
+    },
+    {
+      "sport_slug": "basketball",
+      "title": "[WEEK] New Orleans Pelicans vs Sacramento Kings - spreads",
+      "description": "regions=eu,uk,us | bookmaker=betanysports",
+      "order_index": 105,
+      "options": [
+        {
+          "label": "New Orleans Pelicans -6.5",
+          "odds": 1.91
+        },
+        {
+          "label": "Sacramento Kings 6.5",
+          "odds": 1.91
+        }
+      ],
+      "metadata": {
+        "league": "NBA",
+        "event": "New Orleans Pelicans vs Sacramento Kings",
+        "start_time": "2026-02-10T01:10:00Z"
+      }
+    },
+    {
+      "sport_slug": "basketball",
+      "title": "[WEEK] Golden State Warriors vs Memphis Grizzlies - spreads",
+      "description": "regions=eu,uk,us | bookmaker=betanysports",
+      "order_index": 106,
+      "options": [
+        {
+          "label": "Golden State Warriors -7",
+          "odds": 1.91
+        },
+        {
+          "label": "Memphis Grizzlies 7",
+          "odds": 1.91
+        }
+      ],
+      "metadata": {
+        "league": "NBA",
+        "event": "Golden State Warriors vs Memphis Grizzlies",
+        "start_time": "2026-02-10T03:10:00Z"
+      }
+    },
+    {
+      "sport_slug": "basketball",
+      "title": "[WEEK] Portland Trail Blazers vs Philadelphia 76ers - spreads",
+      "description": "regions=eu,uk,us | bookmaker=betanysports",
+      "order_index": 107,
+      "options": [
+        {
+          "label": "Philadelphia 76ers -4",
+          "odds": 1.91
+        },
+        {
+          "label": "Portland Trail Blazers 4",
+          "odds": 1.91
+        }
+      ],
+      "metadata": {
+        "league": "NBA",
+        "event": "Portland Trail Blazers vs Philadelphia 76ers",
+        "start_time": "2026-02-10T03:10:00Z"
+      }
+    },
+    {
+      "sport_slug": "basketball",
+      "title": "[WEEK] Los Angeles Lakers vs Oklahoma City Thunder - spreads",
+      "description": "regions=eu,uk,us | bookmaker=betanysports",
+      "order_index": 108,
+      "options": [
+        {
+          "label": "Los Angeles Lakers 6",
+          "odds": 1.91
+        },
+        {
+          "label": "Oklahoma City Thunder -6",
+          "odds": 1.91
+        }
+      ],
+      "metadata": {
+        "league": "NBA",
+        "event": "Los Angeles Lakers vs Oklahoma City Thunder",
+        "start_time": "2026-02-10T03:10:00Z"
+      }
+    },
+    {
+      "sport_slug": "soccer",
+      "title": "[WEEK] Villarreal vs Espanyol - totals",
+      "description": "regions=eu,uk,us | bookmaker=betmgm",
+      "order_index": 109,
+      "options": [
+        {
+          "label": "Over 2.5",
+          "odds": 1.74
+        },
+        {
+          "label": "Under 2.5",
+          "odds": 1.98
+        }
+      ],
+      "metadata": {
+        "league": "La Liga - Spain",
+        "event": "Villarreal vs Espanyol",
+        "start_time": "2026-02-09T20:00:00Z"
+      }
+    },
+    {
+      "sport_slug": "soccer",
+      "title": "[WEEK] Aston Villa vs Brighton and Hove Albion - totals",
+      "description": "regions=eu,uk,us | bookmaker=betmgm",
+      "order_index": 110,
+      "options": [
+        {
+          "label": "Over 2.5",
+          "odds": 1.74
+        },
+        {
+          "label": "Under 2.5",
+          "odds": 1.98
+        }
+      ],
+      "metadata": {
+        "league": "EPL",
+        "event": "Aston Villa vs Brighton and Hove Albion",
+        "start_time": "2026-02-11T19:30:00Z"
+      }
+    },
+    {
+      "sport_slug": "soccer",
+      "title": "[WEEK] Bayer Leverkusen vs FC St. Pauli - totals",
+      "description": "regions=eu,uk,us | bookmaker=betmgm",
+      "order_index": 111,
+      "options": [
+        {
+          "label": "Over 2.5",
+          "odds": 1.77
+        },
+        {
+          "label": "Under 2.5",
+          "odds": 1.95
+        }
+      ],
+      "metadata": {
+        "league": "Bundesliga - Germany",
+        "event": "Bayer Leverkusen vs FC St. Pauli",
+        "start_time": "2026-02-14T14:30:00Z"
+      }
+    },
+    {
+      "sport_slug": "soccer",
+      "title": "[WEEK] RB Leipzig vs VfL Wolfsburg - totals",
+      "description": "regions=eu,uk,us | bookmaker=betmgm",
+      "order_index": 112,
+      "options": [
+        {
+          "label": "Over 3.5",
+          "odds": 1.95
+        },
+        {
+          "label": "Under 3.5",
+          "odds": 1.77
+        }
+      ],
+      "metadata": {
+        "league": "Bundesliga - Germany",
+        "event": "RB Leipzig vs VfL Wolfsburg",
+        "start_time": "2026-02-15T16:30:00Z"
+      }
+    },
+    {
+      "sport_slug": "soccer",
+      "title": "[WEEK] Torino vs Bologna - totals",
+      "description": "regions=eu,uk,us | bookmaker=betmgm",
+      "order_index": 113,
+      "options": [
+        {
+          "label": "Over 2.5",
+          "odds": 1.98
+        },
+        {
+          "label": "Under 2.5",
+          "odds": 1.74
+        }
+      ],
+      "metadata": {
+        "league": "Serie A - Italy",
+        "event": "Torino vs Bologna",
+        "start_time": "2026-02-15T17:00:00Z"
+      }
+    },
+    {
+      "sport_slug": "soccer",
+      "title": "[WEEK] Mallorca vs Real Betis - totals",
+      "description": "regions=eu,uk,us | bookmaker=betmgm",
+      "order_index": 114,
+      "options": [
+        {
+          "label": "Over 2.5",
+          "odds": 1.98
+        },
+        {
+          "label": "Under 2.5",
+          "odds": 1.74
+        }
+      ],
+      "metadata": {
+        "league": "La Liga - Spain",
+        "event": "Mallorca vs Real Betis",
+        "start_time": "2026-02-15T20:00:00Z"
+      }
+    },
+    {
+      "sport_slug": "basketball",
+      "title": "[WEEK] Denver Nuggets vs Cleveland Cavaliers - h2h",
+      "description": "regions=eu,uk,us | bookmaker=betclic_fr",
+      "order_index": 115,
+      "options": [
+        {
+          "label": "Cleveland Cavaliers",
+          "odds": 1.86
+        },
+        {
+          "label": "Denver Nuggets",
+          "odds": 1.95
+        }
+      ],
+      "metadata": {
+        "league": "NBA",
+        "event": "Denver Nuggets vs Cleveland Cavaliers",
+        "start_time": "2026-02-10T02:10:00Z"
+      }
+    },
+    {
+      "sport_slug": "soccer",
+      "title": "[WEEK] Everton vs Bournemouth - totals",
+      "description": "regions=eu,uk,us | bookmaker=betmgm",
+      "order_index": 116,
+      "options": [
+        {
+          "label": "Over 2.5",
+          "odds": 1.8
+        },
+        {
+          "label": "Under 2.5",
+          "odds": 1.91
+        }
+      ],
+      "metadata": {
+        "league": "EPL",
+        "event": "Everton vs Bournemouth",
+        "start_time": "2026-02-10T19:30:00Z"
+      }
+    },
+    {
+      "sport_slug": "soccer",
+      "title": "[WEEK] Tottenham Hotspur vs Newcastle United - totals",
+      "description": "regions=eu,uk,us | bookmaker=betmgm",
+      "order_index": 117,
+      "options": [
+        {
+          "label": "Over 2.5",
+          "odds": 1.71
+        },
+        {
+          "label": "Under 2.5",
+          "odds": 2.0
+        }
+      ],
+      "metadata": {
+        "league": "EPL",
+        "event": "Tottenham Hotspur vs Newcastle United",
+        "start_time": "2026-02-10T19:30:00Z"
+      }
+    },
+    {
+      "sport_slug": "soccer",
+      "title": "[WEEK] Crystal Palace vs Burnley - totals",
+      "description": "regions=eu,uk,us | bookmaker=betmgm",
+      "order_index": 118,
+      "options": [
+        {
+          "label": "Over 2.5",
+          "odds": 1.91
+        },
+        {
+          "label": "Under 2.5",
+          "odds": 1.8
+        }
+      ],
+      "metadata": {
+        "league": "EPL",
+        "event": "Crystal Palace vs Burnley",
+        "start_time": "2026-02-11T19:30:00Z"
+      }
+    },
+    {
+      "sport_slug": "soccer",
+      "title": "[WEEK] Inter Milan vs Juventus - totals",
+      "description": "regions=eu,uk,us | bookmaker=betmgm",
+      "order_index": 119,
+      "options": [
+        {
+          "label": "Over 2.5",
+          "odds": 1.91
+        },
+        {
+          "label": "Under 2.5",
+          "odds": 1.8
+        }
+      ],
+      "metadata": {
+        "league": "Serie A - Italy",
+        "event": "Inter Milan vs Juventus",
+        "start_time": "2026-02-14T19:45:00Z"
+      }
+    }
+  ]
+}

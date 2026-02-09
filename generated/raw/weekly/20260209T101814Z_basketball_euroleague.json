@@ -1,0 +1,7081 @@
+{
+  "fetched_at": "2026-02-09T10:18:14.234650Z",
+  "request_context": {
+    "bookmakers": [],
+    "commenceTimeFrom": "2026-02-09T10:18:14Z",
+    "commenceTimeTo": "2026-02-16T10:18:14Z",
+    "dateFormat": "iso",
+    "markets": [
+      "h2h",
+      "totals",
+      "spreads"
+    ],
+    "oddsFormat": "decimal",
+    "regions": [
+      "eu",
+      "uk",
+      "us"
+    ]
+  },
+  "response": [
+    {
+      "away_team": "Virtus Segafredo Bologna",
+      "bookmakers": [
+        {
+          "key": "coolbet",
+          "last_update": "2026-02-09T10:18:05Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:18:05Z",
+              "outcomes": [
+                {
+                  "name": "Anadolu Efes",
+                  "price": 1.5
+                },
+                {
+                  "name": "Virtus Segafredo Bologna",
+                  "price": 2.6
+                }
+              ]
+            },
+            {
+              "key": "spreads",
+              "last_update": "2026-02-09T10:18:05Z",
+              "outcomes": [
+                {
+                  "name": "Anadolu Efes",
+                  "point": -4.5,
+                  "price": 1.91
+                },
+                {
+                  "name": "Virtus Segafredo Bologna",
+                  "point": 4.5,
+                  "price": 1.91
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2026-02-09T10:18:05Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "point": 164.5,
+                  "price": 1.91
+                },
+                {
+                  "name": "Under",
+                  "point": 164.5,
+                  "price": 1.91
+                }
+              ]
+            }
+          ],
+          "title": "Coolbet"
+        },
+        {
+          "key": "winamax_fr",
+          "last_update": "2026-02-09T10:17:31Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:17:31Z",
+              "outcomes": [
+                {
+                  "name": "Anadolu Efes",
+                  "price": 1.39
+                },
+                {
+                  "name": "Virtus Segafredo Bologna",
+                  "price": 2.25
+                }
+              ]
+            }
+          ],
+          "title": "Winamax (FR)"
+        },
+        {
+          "key": "winamax_de",
+          "last_update": "2026-02-09T10:17:32Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:17:32Z",
+              "outcomes": [
+                {
+                  "name": "Anadolu Efes",
+                  "price": 1.48
+                },
+                {
+                  "name": "Virtus Segafredo Bologna",
+                  "price": 2.5
+                }
+              ]
+            }
+          ],
+          "title": "Winamax (DE)"
+        },
+        {
+          "key": "parionssport_fr",
+          "last_update": "2026-02-09T10:17:48Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:17:48Z",
+              "outcomes": [
+                {
+                  "name": "Anadolu Efes",
+                  "price": 1.43
+                },
+                {
+                  "name": "Virtus Segafredo Bologna",
+                  "price": 2.35
+                }
+              ]
+            }
+          ],
+          "title": "Parions Sport (FR)"
+        },
+        {
+          "key": "unibet_uk",
+          "last_update": "2026-02-09T10:17:47Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:17:47Z",
+              "outcomes": [
+                {
+                  "name": "Anadolu Efes",
+                  "price": 1.5
+                },
+                {
+                  "name": "Virtus Segafredo Bologna",
+                  "price": 2.6
+                }
+              ]
+            }
+          ],
+          "title": "Unibet (UK)"
+        },
+        {
+          "key": "fanduel",
+          "last_update": "2026-02-09T10:18:03Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:18:03Z",
+              "outcomes": [
+                {
+                  "name": "Anadolu Efes",
+                  "price": 1.49
+                },
+                {
+                  "name": "Virtus Segafredo Bologna",
+                  "price": 2.62
+                }
+              ]
+            },
+            {
+              "key": "spreads",
+              "last_update": "2026-02-09T10:18:03Z",
+              "outcomes": [
+                {
+                  "name": "Anadolu Efes",
+                  "point": -4.5,
+                  "price": 1.91
+                },
+                {
+                  "name": "Virtus Segafredo Bologna",
+                  "point": 4.5,
+                  "price": 1.91
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2026-02-09T10:18:03Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "point": 164.5,
+                  "price": 1.94
+                },
+                {
+                  "name": "Under",
+                  "point": 164.5,
+                  "price": 1.86
+                }
+              ]
+            }
+          ],
+          "title": "FanDuel"
+        },
+        {
+          "key": "gtbets",
+          "last_update": "2026-02-09T10:17:31Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:17:31Z",
+              "outcomes": [
+                {
+                  "name": "Anadolu Efes",
+                  "price": 1.47
+                },
+                {
+                  "name": "Virtus Segafredo Bologna",
+                  "price": 2.5
+                }
+              ]
+            },
+            {
+              "key": "spreads",
+              "last_update": "2026-02-09T10:17:31Z",
+              "outcomes": [
+                {
+                  "name": "Anadolu Efes",
+                  "point": -4.5,
+                  "price": 1.88
+                },
+                {
+                  "name": "Virtus Segafredo Bologna",
+                  "point": 4.5,
+                  "price": 1.88
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2026-02-09T10:17:31Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "point": 164.5,
+                  "price": 1.88
+                },
+                {
+                  "name": "Under",
+                  "point": 164.5,
+                  "price": 1.88
+                }
+              ]
+            }
+          ],
+          "title": "GTbets"
+        },
+        {
+          "key": "paddypower",
+          "last_update": "2026-02-09T10:17:47Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:17:47Z",
+              "outcomes": [
+                {
+                  "name": "Anadolu Efes",
+                  "price": 1.44
+                },
+                {
+                  "name": "Virtus Segafredo Bologna",
+                  "price": 2.62
+                }
+              ]
+            }
+          ],
+          "title": "Paddy Power"
+        },
+        {
+          "key": "mybookieag",
+          "last_update": "2026-02-09T10:18:04Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:18:04Z",
+              "outcomes": [
+                {
+                  "name": "Anadolu Efes",
+                  "price": 1.47
+                },
+                {
+                  "name": "Virtus Segafredo Bologna",
+                  "price": 2.5
+                }
+              ]
+            },
+            {
+              "key": "spreads",
+              "last_update": "2026-02-09T10:18:04Z",
+              "outcomes": [
+                {
+                  "name": "Anadolu Efes",
+                  "point": -4.5,
+                  "price": 1.85
+                },
+                {
+                  "name": "Virtus Segafredo Bologna",
+                  "point": 4.5,
+                  "price": 1.86
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2026-02-09T10:18:04Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "point": 164.0,
+                  "price": 1.85
+                },
+                {
+                  "name": "Under",
+                  "point": 164.0,
+                  "price": 1.86
+                }
+              ]
+            }
+          ],
+          "title": "MyBookie.ag"
+        },
+        {
+          "key": "marathonbet",
+          "last_update": "2026-02-09T10:18:04Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:18:04Z",
+              "outcomes": [
+                {
+                  "name": "Anadolu Efes",
+                  "price": 1.51
+                },
+                {
+                  "name": "Virtus Segafredo Bologna",
+                  "price": 2.62
+                }
+              ]
+            }
+          ],
+          "title": "Marathon Bet"
+        },
+        {
+          "key": "williamhill",
+          "last_update": "2026-02-09T10:17:48Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:17:48Z",
+              "outcomes": [
+                {
+                  "name": "Anadolu Efes",
+                  "price": 1.53
+                },
+                {
+                  "name": "Virtus Segafredo Bologna",
+                  "price": 2.58
+                }
+              ]
+            }
+          ],
+          "title": "William Hill"
+        },
+        {
+          "key": "betfair_ex_uk",
+          "last_update": "2026-02-09T10:18:04Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:18:04Z",
+              "outcomes": [
+                {
+                  "name": "Anadolu Efes",
+                  "price": 1.01
+                },
+                {
+                  "name": "Virtus Segafredo Bologna",
+                  "price": 1.01
+                }
+              ]
+            },
+            {
+              "key": "h2h_lay",
+              "last_update": "2026-02-09T10:18:04Z",
+              "outcomes": [
+                {
+                  "name": "Anadolu Efes",
+                  "price": 300.0
+                },
+                {
+                  "name": "Virtus Segafredo Bologna",
+                  "price": 300.0
+                }
+              ]
+            }
+          ],
+          "title": "Betfair"
+        },
+        {
+          "key": "betfair_ex_eu",
+          "last_update": "2026-02-09T10:17:47Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:17:47Z",
+              "outcomes": [
+                {
+                  "name": "Anadolu Efes",
+                  "price": 1.01
+                },
+                {
+                  "name": "Virtus Segafredo Bologna",
+                  "price": 1.01
+                }
+              ]
+            },
+            {
+              "key": "h2h_lay",
+              "last_update": "2026-02-09T10:17:47Z",
+              "outcomes": [
+                {
+                  "name": "Anadolu Efes",
+                  "price": 300.0
+                },
+                {
+                  "name": "Virtus Segafredo Bologna",
+                  "price": 300.0
+                }
+              ]
+            }
+          ],
+          "title": "Betfair"
+        },
+        {
+          "key": "boylesports",
+          "last_update": "2026-02-09T10:12:16Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:12:16Z",
+              "outcomes": [
+                {
+                  "name": "Anadolu Efes",
+                  "price": 1.5
+                },
+                {
+                  "name": "Virtus Segafredo Bologna",
+                  "price": 2.6
+                }
+              ]
+            }
+          ],
+          "title": "BoyleSports"
+        },
+        {
+          "key": "betmgm",
+          "last_update": "2026-02-09T10:17:17Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:17:16Z",
+              "outcomes": [
+                {
+                  "name": "Anadolu Efes",
+                  "price": 1.48
+                },
+                {
+                  "name": "Virtus Segafredo Bologna",
+                  "price": 2.7
+                }
+              ]
+            },
+            {
+              "key": "spreads",
+              "last_update": "2026-02-09T10:17:16Z",
+              "outcomes": [
+                {
+                  "name": "Anadolu Efes",
+                  "point": -4.5,
+                  "price": 1.83
+                },
+                {
+                  "name": "Virtus Segafredo Bologna",
+                  "point": 4.5,
+                  "price": 1.95
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2026-02-09T10:17:16Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "point": 164.5,
+                  "price": 1.91
+                },
+                {
+                  "name": "Under",
+                  "point": 164.5,
+                  "price": 1.91
+                }
+              ]
+            }
+          ],
+          "title": "BetMGM"
+        },
+        {
+          "key": "coral",
+          "last_update": "2026-02-09T10:17:48Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:17:48Z",
+              "outcomes": [
+                {
+                  "name": "Anadolu Efes",
+                  "price": 1.44
+                },
+                {
+                  "name": "Virtus Segafredo Bologna",
+                  "price": 2.6
+                }
+              ]
+            },
+            {
+              "key": "spreads",
+              "last_update": "2026-02-09T10:17:48Z",
+              "outcomes": [
+                {
+                  "name": "Anadolu Efes",
+                  "point": -11.5,
+                  "price": 3.0
+                },
+                {
+                  "name": "Virtus Segafredo Bologna",
+                  "point": 11.5,
+                  "price": 1.33
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2026-02-09T10:17:48Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "point": 155.5,
+                  "price": 1.36
+                },
+                {
+                  "name": "Under",
+                  "point": 155.5,
+                  "price": 2.8
+                }
+              ]
+            }
+          ],
+          "title": "Coral"
+        },
+        {
+          "key": "nordicbet",
+          "last_update": "2026-02-09T10:18:04Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:18:04Z",
+              "outcomes": [
+                {
+                  "name": "Anadolu Efes",
+                  "price": 1.5
+                },
+                {
+                  "name": "Virtus Segafredo Bologna",
+                  "price": 2.6
+                }
+              ]
+            },
+            {
+              "key": "spreads",
+              "last_update": "2026-02-09T10:18:04Z",
+              "outcomes": [
+                {
+                  "name": "Anadolu Efes",
+                  "point": -4.5,
+                  "price": 1.88
+                },
+                {
+                  "name": "Virtus Segafredo Bologna",
+                  "point": 4.5,
+                  "price": 1.88
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2026-02-09T10:18:04Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "point": 161.5,
+                  "price": 1.68
+                },
+                {
+                  "name": "Under",
+                  "point": 161.5,
+                  "price": 2.12
+                }
+              ]
+            }
+          ],
+          "title": "Nordic Bet"
+        },
+        {
+          "key": "betsson",
+          "last_update": "2026-02-09T10:17:17Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:17:17Z",
+              "outcomes": [
+                {
+                  "name": "Anadolu Efes",
+                  "price": 1.5
+                },
+                {
+                  "name": "Virtus Segafredo Bologna",
+                  "price": 2.6
+                }
+              ]
+            },
+            {
+              "key": "spreads",
+              "last_update": "2026-02-09T10:17:17Z",
+              "outcomes": [
+                {
+                  "name": "Anadolu Efes",
+                  "point": -4.5,
+                  "price": 1.88
+                },
+                {
+                  "name": "Virtus Segafredo Bologna",
+                  "point": 4.5,
+                  "price": 1.88
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2026-02-09T10:17:17Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "point": 161.5,
+                  "price": 1.68
+                },
+                {
+                  "name": "Under",
+                  "point": 161.5,
+                  "price": 2.12
+                }
+              ]
+            }
+          ],
+          "title": "Betsson"
+        }
+      ],
+      "commence_time": "2026-02-12T17:30:00Z",
+      "home_team": "Anadolu Efes",
+      "id": "0010b5be02fa7febb0243a024010a7eb",
+      "sport_key": "basketball_euroleague",
+      "sport_title": "Basketball Euroleague"
+    },
+    {
+      "away_team": "FC Bayern M\u00fcnchen",
+      "bookmakers": [
+        {
+          "key": "parionssport_fr",
+          "last_update": "2026-02-09T10:17:48Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:17:48Z",
+              "outcomes": [
+                {
+                  "name": "FC Bayern M\u00fcnchen",
+                  "price": 2.55
+                },
+                {
+                  "name": "Maccabi Tel Aviv",
+                  "price": 1.38
+                }
+              ]
+            }
+          ],
+          "title": "Parions Sport (FR)"
+        },
+        {
+          "key": "fanduel",
+          "last_update": "2026-02-09T10:18:03Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:18:03Z",
+              "outcomes": [
+                {
+                  "name": "FC Bayern M\u00fcnchen",
+                  "price": 2.86
+                },
+                {
+                  "name": "Maccabi Tel Aviv",
+                  "price": 1.43
+                }
+              ]
+            },
+            {
+              "key": "spreads",
+              "last_update": "2026-02-09T10:18:03Z",
+              "outcomes": [
+                {
+                  "name": "FC Bayern M\u00fcnchen",
+                  "point": 5.5,
+                  "price": 1.94
+                },
+                {
+                  "name": "Maccabi Tel Aviv",
+                  "point": -5.5,
+                  "price": 1.86
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2026-02-09T10:18:03Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "point": 177.5,
+                  "price": 1.91
+                },
+                {
+                  "name": "Under",
+                  "point": 177.5,
+                  "price": 1.91
+                }
+              ]
+            }
+          ],
+          "title": "FanDuel"
+        },
+        {
+          "key": "coolbet",
+          "last_update": "2026-02-09T10:18:05Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:18:05Z",
+              "outcomes": [
+                {
+                  "name": "FC Bayern M\u00fcnchen",
+                  "price": 2.85
+                },
+                {
+                  "name": "Maccabi Tel Aviv",
+                  "price": 1.43
+                }
+              ]
+            },
+            {
+              "key": "spreads",
+              "last_update": "2026-02-09T10:18:05Z",
+              "outcomes": [
+                {
+                  "name": "FC Bayern M\u00fcnchen",
+                  "point": 5.5,
+                  "price": 1.95
+                },
+                {
+                  "name": "Maccabi Tel Aviv",
+                  "point": -5.5,
+                  "price": 1.87
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2026-02-09T10:18:05Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "point": 177.5,
+                  "price": 1.92
+                },
+                {
+                  "name": "Under",
+                  "point": 177.5,
+                  "price": 1.89
+                }
+              ]
+            }
+          ],
+          "title": "Coolbet"
+        },
+        {
+          "key": "unibet_uk",
+          "last_update": "2026-02-09T10:17:47Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:17:47Z",
+              "outcomes": [
+                {
+                  "name": "FC Bayern M\u00fcnchen",
+                  "price": 2.8
+                },
+                {
+                  "name": "Maccabi Tel Aviv",
+                  "price": 1.44
+                }
+              ]
+            }
+          ],
+          "title": "Unibet (UK)"
+        },
+        {
+          "key": "onexbet",
+          "last_update": "2026-02-09T10:17:50Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:17:50Z",
+              "outcomes": [
+                {
+                  "name": "FC Bayern M\u00fcnchen",
+                  "price": 2.92
+                },
+                {
+                  "name": "Maccabi Tel Aviv",
+                  "price": 1.44
+                }
+              ]
+            },
+            {
+              "key": "spreads",
+              "last_update": "2026-02-09T10:17:50Z",
+              "outcomes": [
+                {
+                  "name": "FC Bayern M\u00fcnchen",
+                  "point": 5.5,
+                  "price": 1.95
+                },
+                {
+                  "name": "Maccabi Tel Aviv",
+                  "point": -5.5,
+                  "price": 1.91
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2026-02-09T10:17:50Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "point": 177.5,
+                  "price": 1.92
+                },
+                {
+                  "name": "Under",
+                  "point": 177.5,
+                  "price": 1.94
+                }
+              ]
+            }
+          ],
+          "title": "1xBet"
+        },
+        {
+          "key": "mybookieag",
+          "last_update": "2026-02-09T10:18:04Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:18:04Z",
+              "outcomes": [
+                {
+                  "name": "FC Bayern M\u00fcnchen",
+                  "price": 2.69
+                },
+                {
+                  "name": "Maccabi Tel Aviv",
+                  "price": 1.41
+                }
+              ]
+            },
+            {
+              "key": "spreads",
+              "last_update": "2026-02-09T10:18:04Z",
+              "outcomes": [
+                {
+                  "name": "FC Bayern M\u00fcnchen",
+                  "point": 5.5,
+                  "price": 1.88
+                },
+                {
+                  "name": "Maccabi Tel Aviv",
+                  "point": -5.5,
+                  "price": 1.82
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2026-02-09T10:18:04Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "point": 177.5,
+                  "price": 1.86
+                },
+                {
+                  "name": "Under",
+                  "point": 177.5,
+                  "price": 1.85
+                }
+              ]
+            }
+          ],
+          "title": "MyBookie.ag"
+        },
+        {
+          "key": "paddypower",
+          "last_update": "2026-02-09T10:17:47Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:17:47Z",
+              "outcomes": [
+                {
+                  "name": "FC Bayern M\u00fcnchen",
+                  "price": 2.75
+                },
+                {
+                  "name": "Maccabi Tel Aviv",
+                  "price": 1.4
+                }
+              ]
+            }
+          ],
+          "title": "Paddy Power"
+        },
+        {
+          "key": "winamax_de",
+          "last_update": "2026-02-09T10:17:32Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:17:32Z",
+              "outcomes": [
+                {
+                  "name": "FC Bayern M\u00fcnchen",
+                  "price": 2.7
+                },
+                {
+                  "name": "Maccabi Tel Aviv",
+                  "price": 1.42
+                }
+              ]
+            }
+          ],
+          "title": "Winamax (DE)"
+        },
+        {
+          "key": "winamax_fr",
+          "last_update": "2026-02-09T10:17:31Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:17:31Z",
+              "outcomes": [
+                {
+                  "name": "FC Bayern M\u00fcnchen",
+                  "price": 2.4
+                },
+                {
+                  "name": "Maccabi Tel Aviv",
+                  "price": 1.34
+                }
+              ]
+            }
+          ],
+          "title": "Winamax (FR)"
+        },
+        {
+          "key": "boylesports",
+          "last_update": "2026-02-09T10:12:16Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:12:16Z",
+              "outcomes": [
+                {
+                  "name": "FC Bayern M\u00fcnchen",
+                  "price": 2.8
+                },
+                {
+                  "name": "Maccabi Tel Aviv",
+                  "price": 1.44
+                }
+              ]
+            }
+          ],
+          "title": "BoyleSports"
+        },
+        {
+          "key": "williamhill",
+          "last_update": "2026-02-09T10:17:48Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:17:48Z",
+              "outcomes": [
+                {
+                  "name": "FC Bayern M\u00fcnchen",
+                  "price": 2.9
+                },
+                {
+                  "name": "Maccabi Tel Aviv",
+                  "price": 1.43
+                }
+              ]
+            }
+          ],
+          "title": "William Hill"
+        },
+        {
+          "key": "betsson",
+          "last_update": "2026-02-09T10:17:17Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:17:17Z",
+              "outcomes": [
+                {
+                  "name": "FC Bayern M\u00fcnchen",
+                  "price": 2.8
+                },
+                {
+                  "name": "Maccabi Tel Aviv",
+                  "price": 1.44
+                }
+              ]
+            },
+            {
+              "key": "spreads",
+              "last_update": "2026-02-09T10:17:17Z",
+              "outcomes": [
+                {
+                  "name": "FC Bayern M\u00fcnchen",
+                  "point": 5.5,
+                  "price": 1.92
+                },
+                {
+                  "name": "Maccabi Tel Aviv",
+                  "point": -5.5,
+                  "price": 1.85
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2026-02-09T10:17:17Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "point": 177.5,
+                  "price": 1.9
+                },
+                {
+                  "name": "Under",
+                  "point": 177.5,
+                  "price": 1.88
+                }
+              ]
+            }
+          ],
+          "title": "Betsson"
+        },
+        {
+          "key": "nordicbet",
+          "last_update": "2026-02-09T10:18:04Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:18:04Z",
+              "outcomes": [
+                {
+                  "name": "FC Bayern M\u00fcnchen",
+                  "price": 2.8
+                },
+                {
+                  "name": "Maccabi Tel Aviv",
+                  "price": 1.44
+                }
+              ]
+            },
+            {
+              "key": "spreads",
+              "last_update": "2026-02-09T10:18:04Z",
+              "outcomes": [
+                {
+                  "name": "FC Bayern M\u00fcnchen",
+                  "point": 5.5,
+                  "price": 1.92
+                },
+                {
+                  "name": "Maccabi Tel Aviv",
+                  "point": -5.5,
+                  "price": 1.85
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2026-02-09T10:18:04Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "point": 177.5,
+                  "price": 1.9
+                },
+                {
+                  "name": "Under",
+                  "point": 177.5,
+                  "price": 1.88
+                }
+              ]
+            }
+          ],
+          "title": "Nordic Bet"
+        },
+        {
+          "key": "betfair_ex_uk",
+          "last_update": "2026-02-09T10:18:04Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:18:04Z",
+              "outcomes": [
+                {
+                  "name": "FC Bayern M\u00fcnchen",
+                  "price": 1.01
+                },
+                {
+                  "name": "Maccabi Tel Aviv",
+                  "price": 1.01
+                }
+              ]
+            },
+            {
+              "key": "h2h_lay",
+              "last_update": "2026-02-09T10:18:04Z",
+              "outcomes": [
+                {
+                  "name": "FC Bayern M\u00fcnchen",
+                  "price": 300.0
+                },
+                {
+                  "name": "Maccabi Tel Aviv",
+                  "price": 300.0
+                }
+              ]
+            }
+          ],
+          "title": "Betfair"
+        },
+        {
+          "key": "betfair_ex_eu",
+          "last_update": "2026-02-09T10:17:47Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:17:47Z",
+              "outcomes": [
+                {
+                  "name": "FC Bayern M\u00fcnchen",
+                  "price": 1.01
+                },
+                {
+                  "name": "Maccabi Tel Aviv",
+                  "price": 1.01
+                }
+              ]
+            },
+            {
+              "key": "h2h_lay",
+              "last_update": "2026-02-09T10:17:47Z",
+              "outcomes": [
+                {
+                  "name": "FC Bayern M\u00fcnchen",
+                  "price": 300.0
+                },
+                {
+                  "name": "Maccabi Tel Aviv",
+                  "price": 300.0
+                }
+              ]
+            }
+          ],
+          "title": "Betfair"
+        },
+        {
+          "key": "gtbets",
+          "last_update": "2026-02-09T10:17:31Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:17:31Z",
+              "outcomes": [
+                {
+                  "name": "FC Bayern M\u00fcnchen",
+                  "price": 2.85
+                },
+                {
+                  "name": "Maccabi Tel Aviv",
+                  "price": 1.42
+                }
+              ]
+            },
+            {
+              "key": "spreads",
+              "last_update": "2026-02-09T10:17:31Z",
+              "outcomes": [
+                {
+                  "name": "FC Bayern M\u00fcnchen",
+                  "point": 5.5,
+                  "price": 1.88
+                },
+                {
+                  "name": "Maccabi Tel Aviv",
+                  "point": -5.5,
+                  "price": 1.88
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2026-02-09T10:17:31Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "point": 177.5,
+                  "price": 1.87
+                },
+                {
+                  "name": "Under",
+                  "point": 177.5,
+                  "price": 1.89
+                }
+              ]
+            }
+          ],
+          "title": "GTbets"
+        },
+        {
+          "key": "marathonbet",
+          "last_update": "2026-02-09T10:18:04Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:18:04Z",
+              "outcomes": [
+                {
+                  "name": "FC Bayern M\u00fcnchen",
+                  "price": 2.84
+                },
+                {
+                  "name": "Maccabi Tel Aviv",
+                  "price": 1.44
+                }
+              ]
+            }
+          ],
+          "title": "Marathon Bet"
+        },
+        {
+          "key": "betmgm",
+          "last_update": "2026-02-09T10:17:17Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:17:17Z",
+              "outcomes": [
+                {
+                  "name": "FC Bayern M\u00fcnchen",
+                  "price": 2.75
+                },
+                {
+                  "name": "Maccabi Tel Aviv",
+                  "price": 1.45
+                }
+              ]
+            },
+            {
+              "key": "spreads",
+              "last_update": "2026-02-09T10:17:17Z",
+              "outcomes": [
+                {
+                  "name": "FC Bayern M\u00fcnchen",
+                  "point": 5.5,
+                  "price": 1.91
+                },
+                {
+                  "name": "Maccabi Tel Aviv",
+                  "point": -5.5,
+                  "price": 1.87
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2026-02-09T10:17:17Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "point": 177.5,
+                  "price": 1.91
+                },
+                {
+                  "name": "Under",
+                  "point": 177.5,
+                  "price": 1.91
+                }
+              ]
+            }
+          ],
+          "title": "BetMGM"
+        },
+        {
+          "key": "coral",
+          "last_update": "2026-02-09T10:17:48Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:17:48Z",
+              "outcomes": [
+                {
+                  "name": "FC Bayern M\u00fcnchen",
+                  "price": 2.62
+                },
+                {
+                  "name": "Maccabi Tel Aviv",
+                  "price": 1.4
+                }
+              ]
+            },
+            {
+              "key": "spreads",
+              "last_update": "2026-02-09T10:17:48Z",
+              "outcomes": [
+                {
+                  "name": "FC Bayern M\u00fcnchen",
+                  "point": 12.5,
+                  "price": 1.3
+                },
+                {
+                  "name": "Maccabi Tel Aviv",
+                  "point": -12.5,
+                  "price": 3.1
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2026-02-09T10:17:48Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "point": 184.5,
+                  "price": 2.6
+                },
+                {
+                  "name": "Under",
+                  "point": 184.5,
+                  "price": 1.44
+                }
+              ]
+            }
+          ],
+          "title": "Coral"
+        }
+      ],
+      "commence_time": "2026-02-12T19:05:00Z",
+      "home_team": "Maccabi Tel Aviv",
+      "id": "3bdbcfe08ced4386d9737f572e98dcb8",
+      "sport_key": "basketball_euroleague",
+      "sport_title": "Basketball Euroleague"
+    },
+    {
+      "away_team": "KK Crvena zvezda",
+      "bookmakers": [
+        {
+          "key": "onexbet",
+          "last_update": "2026-02-09T10:17:50Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:17:50Z",
+              "outcomes": [
+                {
+                  "name": "KK Crvena zvezda",
+                  "price": 3.52
+                },
+                {
+                  "name": "Olympiacos",
+                  "price": 1.33
+                }
+              ]
+            },
+            {
+              "key": "spreads",
+              "last_update": "2026-02-09T10:17:50Z",
+              "outcomes": [
+                {
+                  "name": "KK Crvena zvezda",
+                  "point": 7.5,
+                  "price": 1.93
+                },
+                {
+                  "name": "Olympiacos",
+                  "point": -7.5,
+                  "price": 1.93
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2026-02-09T10:17:50Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "point": 172.5,
+                  "price": 1.93
+                },
+                {
+                  "name": "Under",
+                  "point": 172.5,
+                  "price": 1.93
+                }
+              ]
+            }
+          ],
+          "title": "1xBet"
+        },
+        {
+          "key": "unibet_uk",
+          "last_update": "2026-02-09T10:17:47Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:17:47Z",
+              "outcomes": [
+                {
+                  "name": "KK Crvena zvezda",
+                  "price": 3.6
+                },
+                {
+                  "name": "Olympiacos",
+                  "price": 1.29
+                }
+              ]
+            }
+          ],
+          "title": "Unibet (UK)"
+        },
+        {
+          "key": "parionssport_fr",
+          "last_update": "2026-02-09T10:17:48Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:17:48Z",
+              "outcomes": [
+                {
+                  "name": "KK Crvena zvezda",
+                  "price": 3.2
+                },
+                {
+                  "name": "Olympiacos",
+                  "price": 1.24
+                }
+              ]
+            }
+          ],
+          "title": "Parions Sport (FR)"
+        },
+        {
+          "key": "coolbet",
+          "last_update": "2026-02-09T10:18:05Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:18:05Z",
+              "outcomes": [
+                {
+                  "name": "KK Crvena zvezda",
+                  "price": 3.55
+                },
+                {
+                  "name": "Olympiacos",
+                  "price": 1.3
+                }
+              ]
+            },
+            {
+              "key": "spreads",
+              "last_update": "2026-02-09T10:18:05Z",
+              "outcomes": [
+                {
+                  "name": "KK Crvena zvezda",
+                  "point": 7.5,
+                  "price": 1.91
+                },
+                {
+                  "name": "Olympiacos",
+                  "point": -7.5,
+                  "price": 1.91
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2026-02-09T10:18:05Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "point": 172.5,
+                  "price": 1.95
+                },
+                {
+                  "name": "Under",
+                  "point": 172.5,
+                  "price": 1.87
+                }
+              ]
+            }
+          ],
+          "title": "Coolbet"
+        },
+        {
+          "key": "fanduel",
+          "last_update": "2026-02-09T10:18:03Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:18:03Z",
+              "outcomes": [
+                {
+                  "name": "KK Crvena zvezda",
+                  "price": 3.7
+                },
+                {
+                  "name": "Olympiacos",
+                  "price": 1.27
+                }
+              ]
+            },
+            {
+              "key": "spreads",
+              "last_update": "2026-02-09T10:18:03Z",
+              "outcomes": [
+                {
+                  "name": "KK Crvena zvezda",
+                  "point": 7.5,
+                  "price": 1.91
+                },
+                {
+                  "name": "Olympiacos",
+                  "point": -7.5,
+                  "price": 1.91
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2026-02-09T10:18:03Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "point": 171.5,
+                  "price": 1.89
+                },
+                {
+                  "name": "Under",
+                  "point": 171.5,
+                  "price": 1.93
+                }
+              ]
+            }
+          ],
+          "title": "FanDuel"
+        },
+        {
+          "key": "paddypower",
+          "last_update": "2026-02-09T10:17:47Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:17:47Z",
+              "outcomes": [
+                {
+                  "name": "KK Crvena zvezda",
+                  "price": 3.5
+                },
+                {
+                  "name": "Olympiacos",
+                  "price": 1.25
+                }
+              ]
+            }
+          ],
+          "title": "Paddy Power"
+        },
+        {
+          "key": "mybookieag",
+          "last_update": "2026-02-09T10:18:04Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:18:04Z",
+              "outcomes": [
+                {
+                  "name": "KK Crvena zvezda",
+                  "price": 3.44
+                },
+                {
+                  "name": "Olympiacos",
+                  "price": 1.27
+                }
+              ]
+            },
+            {
+              "key": "spreads",
+              "last_update": "2026-02-09T10:18:04Z",
+              "outcomes": [
+                {
+                  "name": "KK Crvena zvezda",
+                  "point": 7.0,
+                  "price": 1.87
+                },
+                {
+                  "name": "Olympiacos",
+                  "point": -7.0,
+                  "price": 1.83
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2026-02-09T10:18:04Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "point": 171.5,
+                  "price": 1.83
+                },
+                {
+                  "name": "Under",
+                  "point": 171.5,
+                  "price": 1.87
+                }
+              ]
+            }
+          ],
+          "title": "MyBookie.ag"
+        },
+        {
+          "key": "williamhill",
+          "last_update": "2026-02-09T10:17:48Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:17:48Z",
+              "outcomes": [
+                {
+                  "name": "KK Crvena zvezda",
+                  "price": 3.6
+                },
+                {
+                  "name": "Olympiacos",
+                  "price": 1.3
+                }
+              ]
+            }
+          ],
+          "title": "William Hill"
+        },
+        {
+          "key": "winamax_de",
+          "last_update": "2026-02-09T10:17:32Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:17:32Z",
+              "outcomes": [
+                {
+                  "name": "KK Crvena zvezda",
+                  "price": 3.5
+                },
+                {
+                  "name": "Olympiacos",
+                  "price": 1.27
+                }
+              ]
+            }
+          ],
+          "title": "Winamax (DE)"
+        },
+        {
+          "key": "winamax_fr",
+          "last_update": "2026-02-09T10:17:31Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:17:31Z",
+              "outcomes": [
+                {
+                  "name": "KK Crvena zvezda",
+                  "price": 2.95
+                },
+                {
+                  "name": "Olympiacos",
+                  "price": 1.21
+                }
+              ]
+            }
+          ],
+          "title": "Winamax (FR)"
+        },
+        {
+          "key": "betfair_ex_eu",
+          "last_update": "2026-02-09T10:17:47Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:17:47Z",
+              "outcomes": [
+                {
+                  "name": "KK Crvena zvezda",
+                  "price": 1.01
+                },
+                {
+                  "name": "Olympiacos",
+                  "price": 1.31
+                }
+              ]
+            },
+            {
+              "key": "h2h_lay",
+              "last_update": "2026-02-09T10:17:47Z",
+              "outcomes": [
+                {
+                  "name": "KK Crvena zvezda",
+                  "price": 300.0
+                },
+                {
+                  "name": "Olympiacos",
+                  "price": 1.35
+                }
+              ]
+            }
+          ],
+          "title": "Betfair"
+        },
+        {
+          "key": "betfair_ex_uk",
+          "last_update": "2026-02-09T10:18:04Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:18:04Z",
+              "outcomes": [
+                {
+                  "name": "KK Crvena zvezda",
+                  "price": 1.01
+                },
+                {
+                  "name": "Olympiacos",
+                  "price": 1.31
+                }
+              ]
+            },
+            {
+              "key": "h2h_lay",
+              "last_update": "2026-02-09T10:18:04Z",
+              "outcomes": [
+                {
+                  "name": "KK Crvena zvezda",
+                  "price": 300.0
+                },
+                {
+                  "name": "Olympiacos",
+                  "price": 1.35
+                }
+              ]
+            }
+          ],
+          "title": "Betfair"
+        },
+        {
+          "key": "betsson",
+          "last_update": "2026-02-09T10:17:17Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:17:17Z",
+              "outcomes": [
+                {
+                  "name": "KK Crvena zvezda",
+                  "price": 3.7
+                },
+                {
+                  "name": "Olympiacos",
+                  "price": 1.28
+                }
+              ]
+            },
+            {
+              "key": "spreads",
+              "last_update": "2026-02-09T10:17:17Z",
+              "outcomes": [
+                {
+                  "name": "KK Crvena zvezda",
+                  "point": 6.5,
+                  "price": 1.98
+                },
+                {
+                  "name": "Olympiacos",
+                  "point": -6.5,
+                  "price": 1.78
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2026-02-09T10:17:17Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "point": 172.5,
+                  "price": 1.95
+                },
+                {
+                  "name": "Under",
+                  "point": 172.5,
+                  "price": 1.82
+                }
+              ]
+            }
+          ],
+          "title": "Betsson"
+        },
+        {
+          "key": "nordicbet",
+          "last_update": "2026-02-09T10:18:04Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:18:04Z",
+              "outcomes": [
+                {
+                  "name": "KK Crvena zvezda",
+                  "price": 3.7
+                },
+                {
+                  "name": "Olympiacos",
+                  "price": 1.28
+                }
+              ]
+            },
+            {
+              "key": "spreads",
+              "last_update": "2026-02-09T10:18:04Z",
+              "outcomes": [
+                {
+                  "name": "KK Crvena zvezda",
+                  "point": 6.5,
+                  "price": 1.98
+                },
+                {
+                  "name": "Olympiacos",
+                  "point": -6.5,
+                  "price": 1.78
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2026-02-09T10:18:04Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "point": 172.5,
+                  "price": 1.95
+                },
+                {
+                  "name": "Under",
+                  "point": 172.5,
+                  "price": 1.82
+                }
+              ]
+            }
+          ],
+          "title": "Nordic Bet"
+        },
+        {
+          "key": "boylesports",
+          "last_update": "2026-02-09T10:12:16Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:12:16Z",
+              "outcomes": [
+                {
+                  "name": "KK Crvena zvezda",
+                  "price": 3.6
+                },
+                {
+                  "name": "Olympiacos",
+                  "price": 1.29
+                }
+              ]
+            }
+          ],
+          "title": "BoyleSports"
+        },
+        {
+          "key": "gtbets",
+          "last_update": "2026-02-09T10:17:31Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:17:31Z",
+              "outcomes": [
+                {
+                  "name": "KK Crvena zvezda",
+                  "price": 3.43
+                },
+                {
+                  "name": "Olympiacos",
+                  "price": 1.29
+                }
+              ]
+            },
+            {
+              "key": "spreads",
+              "last_update": "2026-02-09T10:17:31Z",
+              "outcomes": [
+                {
+                  "name": "KK Crvena zvezda",
+                  "point": 7.5,
+                  "price": 1.88
+                },
+                {
+                  "name": "Olympiacos",
+                  "point": -7.5,
+                  "price": 1.88
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2026-02-09T10:17:31Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "point": 172.0,
+                  "price": 1.89
+                },
+                {
+                  "name": "Under",
+                  "point": 172.0,
+                  "price": 1.87
+                }
+              ]
+            }
+          ],
+          "title": "GTbets"
+        },
+        {
+          "key": "marathonbet",
+          "last_update": "2026-02-09T10:18:04Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:18:04Z",
+              "outcomes": [
+                {
+                  "name": "KK Crvena zvezda",
+                  "price": 3.5
+                },
+                {
+                  "name": "Olympiacos",
+                  "price": 1.32
+                }
+              ]
+            }
+          ],
+          "title": "Marathon Bet"
+        },
+        {
+          "key": "betmgm",
+          "last_update": "2026-02-09T10:17:17Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:17:17Z",
+              "outcomes": [
+                {
+                  "name": "KK Crvena zvezda",
+                  "price": 3.5
+                },
+                {
+                  "name": "Olympiacos",
+                  "price": 1.31
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2026-02-09T10:17:17Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "point": 171.5,
+                  "price": 1.83
+                },
+                {
+                  "name": "Under",
+                  "point": 171.5,
+                  "price": 2.0
+                }
+              ]
+            }
+          ],
+          "title": "BetMGM"
+        },
+        {
+          "key": "coral",
+          "last_update": "2026-02-09T10:17:48Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:17:48Z",
+              "outcomes": [
+                {
+                  "name": "KK Crvena zvezda",
+                  "price": 3.3
+                },
+                {
+                  "name": "Olympiacos",
+                  "price": 1.28
+                }
+              ]
+            },
+            {
+              "key": "spreads",
+              "last_update": "2026-02-09T10:17:48Z",
+              "outcomes": [
+                {
+                  "name": "KK Crvena zvezda",
+                  "point": 7.5,
+                  "price": 1.85
+                },
+                {
+                  "name": "Olympiacos",
+                  "point": -7.5,
+                  "price": 1.83
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2026-02-09T10:17:48Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "point": 171.5,
+                  "price": 1.75
+                },
+                {
+                  "name": "Under",
+                  "point": 171.5,
+                  "price": 1.91
+                }
+              ]
+            }
+          ],
+          "title": "Coral"
+        }
+      ],
+      "commence_time": "2026-02-12T19:15:00Z",
+      "home_team": "Olympiacos",
+      "id": "d6ee829cfbf93d01b6f6223492cf31e9",
+      "sport_key": "basketball_euroleague",
+      "sport_title": "Basketball Euroleague"
+    },
+    {
+      "away_team": "ASVEL Lyon Villeurbanne",
+      "bookmakers": [
+        {
+          "key": "onexbet",
+          "last_update": "2026-02-09T10:17:50Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:17:50Z",
+              "outcomes": [
+                {
+                  "name": "ASVEL Lyon Villeurbanne",
+                  "price": 6.25
+                },
+                {
+                  "name": "Valencia Basket",
+                  "price": 1.14
+                }
+              ]
+            },
+            {
+              "key": "spreads",
+              "last_update": "2026-02-09T10:17:50Z",
+              "outcomes": [
+                {
+                  "name": "ASVEL Lyon Villeurbanne",
+                  "point": 12.5,
+                  "price": 1.91
+                },
+                {
+                  "name": "Valencia Basket",
+                  "point": -12.5,
+                  "price": 1.95
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2026-02-09T10:17:50Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "point": 174.5,
+                  "price": 1.94
+                },
+                {
+                  "name": "Under",
+                  "point": 174.5,
+                  "price": 1.92
+                }
+              ]
+            }
+          ],
+          "title": "1xBet"
+        },
+        {
+          "key": "parionssport_fr",
+          "last_update": "2026-02-09T10:17:48Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:17:48Z",
+              "outcomes": [
+                {
+                  "name": "ASVEL Lyon Villeurbanne",
+                  "price": 5.3
+                },
+                {
+                  "name": "Valencia Basket",
+                  "price": 1.07
+                }
+              ]
+            }
+          ],
+          "title": "Parions Sport (FR)"
+        },
+        {
+          "key": "coolbet",
+          "last_update": "2026-02-09T10:18:05Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:18:05Z",
+              "outcomes": [
+                {
+                  "name": "ASVEL Lyon Villeurbanne",
+                  "price": 6.4
+                },
+                {
+                  "name": "Valencia Basket",
+                  "price": 1.12
+                }
+              ]
+            },
+            {
+              "key": "spreads",
+              "last_update": "2026-02-09T10:18:05Z",
+              "outcomes": [
+                {
+                  "name": "ASVEL Lyon Villeurbanne",
+                  "point": 12.5,
+                  "price": 1.89
+                },
+                {
+                  "name": "Valencia Basket",
+                  "point": -12.5,
+                  "price": 1.92
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2026-02-09T10:18:05Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "point": 174.5,
+                  "price": 1.92
+                },
+                {
+                  "name": "Under",
+                  "point": 174.5,
+                  "price": 1.89
+                }
+              ]
+            }
+          ],
+          "title": "Coolbet"
+        },
+        {
+          "key": "fanduel",
+          "last_update": "2026-02-09T10:18:03Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:18:03Z",
+              "outcomes": [
+                {
+                  "name": "ASVEL Lyon Villeurbanne",
+                  "price": 7.8
+                },
+                {
+                  "name": "Valencia Basket",
+                  "price": 1.08
+                }
+              ]
+            },
+            {
+              "key": "spreads",
+              "last_update": "2026-02-09T10:18:03Z",
+              "outcomes": [
+                {
+                  "name": "ASVEL Lyon Villeurbanne",
+                  "point": 12.5,
+                  "price": 1.91
+                },
+                {
+                  "name": "Valencia Basket",
+                  "point": -12.5,
+                  "price": 1.91
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2026-02-09T10:18:03Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "point": 173.5,
+                  "price": 1.86
+                },
+                {
+                  "name": "Under",
+                  "point": 173.5,
+                  "price": 1.94
+                }
+              ]
+            }
+          ],
+          "title": "FanDuel"
+        },
+        {
+          "key": "paddypower",
+          "last_update": "2026-02-09T10:17:47Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:17:47Z",
+              "outcomes": [
+                {
+                  "name": "ASVEL Lyon Villeurbanne",
+                  "price": 6.5
+                },
+                {
+                  "name": "Valencia Basket",
+                  "price": 1.08
+                }
+              ]
+            }
+          ],
+          "title": "Paddy Power"
+        },
+        {
+          "key": "mybookieag",
+          "last_update": "2026-02-09T10:18:04Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:18:04Z",
+              "outcomes": [
+                {
+                  "name": "ASVEL Lyon Villeurbanne",
+                  "price": 6.2
+                },
+                {
+                  "name": "Valencia Basket",
+                  "price": 1.09
+                }
+              ]
+            },
+            {
+              "key": "spreads",
+              "last_update": "2026-02-09T10:18:04Z",
+              "outcomes": [
+                {
+                  "name": "ASVEL Lyon Villeurbanne",
+                  "point": 11.5,
+                  "price": 1.87
+                },
+                {
+                  "name": "Valencia Basket",
+                  "point": -11.5,
+                  "price": 1.84
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2026-02-09T10:18:04Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "point": 174.0,
+                  "price": 1.86
+                },
+                {
+                  "name": "Under",
+                  "point": 174.0,
+                  "price": 1.85
+                }
+              ]
+            }
+          ],
+          "title": "MyBookie.ag"
+        },
+        {
+          "key": "williamhill",
+          "last_update": "2026-02-09T10:17:48Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:17:48Z",
+              "outcomes": [
+                {
+                  "name": "ASVEL Lyon Villeurbanne",
+                  "price": 7.0
+                },
+                {
+                  "name": "Valencia Basket",
+                  "price": 1.11
+                }
+              ]
+            }
+          ],
+          "title": "William Hill"
+        },
+        {
+          "key": "winamax_de",
+          "last_update": "2026-02-09T10:17:32Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:17:32Z",
+              "outcomes": [
+                {
+                  "name": "ASVEL Lyon Villeurbanne",
+                  "price": 6.25
+                },
+                {
+                  "name": "Valencia Basket",
+                  "price": 1.09
+                }
+              ]
+            }
+          ],
+          "title": "Winamax (DE)"
+        },
+        {
+          "key": "winamax_fr",
+          "last_update": "2026-02-09T10:17:31Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:17:31Z",
+              "outcomes": [
+                {
+                  "name": "ASVEL Lyon Villeurbanne",
+                  "price": 4.6
+                },
+                {
+                  "name": "Valencia Basket",
+                  "price": 1.06
+                }
+              ]
+            }
+          ],
+          "title": "Winamax (FR)"
+        },
+        {
+          "key": "betfair_ex_uk",
+          "last_update": "2026-02-09T10:18:04Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:18:04Z",
+              "outcomes": [
+                {
+                  "name": "ASVEL Lyon Villeurbanne",
+                  "price": 1.01
+                },
+                {
+                  "name": "Valencia Basket",
+                  "price": 1.11
+                }
+              ]
+            },
+            {
+              "key": "h2h_lay",
+              "last_update": "2026-02-09T10:18:04Z",
+              "outcomes": [
+                {
+                  "name": "ASVEL Lyon Villeurbanne",
+                  "price": 300.0
+                },
+                {
+                  "name": "Valencia Basket",
+                  "price": 1.14
+                }
+              ]
+            }
+          ],
+          "title": "Betfair"
+        },
+        {
+          "key": "betfair_ex_eu",
+          "last_update": "2026-02-09T10:17:47Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:17:47Z",
+              "outcomes": [
+                {
+                  "name": "ASVEL Lyon Villeurbanne",
+                  "price": 1.01
+                },
+                {
+                  "name": "Valencia Basket",
+                  "price": 1.11
+                }
+              ]
+            },
+            {
+              "key": "h2h_lay",
+              "last_update": "2026-02-09T10:17:47Z",
+              "outcomes": [
+                {
+                  "name": "ASVEL Lyon Villeurbanne",
+                  "price": 300.0
+                },
+                {
+                  "name": "Valencia Basket",
+                  "price": 1.14
+                }
+              ]
+            }
+          ],
+          "title": "Betfair"
+        },
+        {
+          "key": "nordicbet",
+          "last_update": "2026-02-09T10:18:04Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:18:04Z",
+              "outcomes": [
+                {
+                  "name": "ASVEL Lyon Villeurbanne",
+                  "price": 7.0
+                },
+                {
+                  "name": "Valencia Basket",
+                  "price": 1.1
+                }
+              ]
+            },
+            {
+              "key": "spreads",
+              "last_update": "2026-02-09T10:18:04Z",
+              "outcomes": [
+                {
+                  "name": "ASVEL Lyon Villeurbanne",
+                  "point": 11.5,
+                  "price": 1.88
+                },
+                {
+                  "name": "Valencia Basket",
+                  "point": -11.5,
+                  "price": 1.88
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2026-02-09T10:18:04Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "point": 171.5,
+                  "price": 1.68
+                },
+                {
+                  "name": "Under",
+                  "point": 171.5,
+                  "price": 2.12
+                }
+              ]
+            }
+          ],
+          "title": "Nordic Bet"
+        },
+        {
+          "key": "betsson",
+          "last_update": "2026-02-09T10:17:17Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:17:17Z",
+              "outcomes": [
+                {
+                  "name": "ASVEL Lyon Villeurbanne",
+                  "price": 7.0
+                },
+                {
+                  "name": "Valencia Basket",
+                  "price": 1.1
+                }
+              ]
+            },
+            {
+              "key": "spreads",
+              "last_update": "2026-02-09T10:17:17Z",
+              "outcomes": [
+                {
+                  "name": "ASVEL Lyon Villeurbanne",
+                  "point": 11.5,
+                  "price": 1.88
+                },
+                {
+                  "name": "Valencia Basket",
+                  "point": -11.5,
+                  "price": 1.88
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2026-02-09T10:17:17Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "point": 171.5,
+                  "price": 1.68
+                },
+                {
+                  "name": "Under",
+                  "point": 171.5,
+                  "price": 2.12
+                }
+              ]
+            }
+          ],
+          "title": "Betsson"
+        },
+        {
+          "key": "boylesports",
+          "last_update": "2026-02-09T10:12:16Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:12:16Z",
+              "outcomes": [
+                {
+                  "name": "ASVEL Lyon Villeurbanne",
+                  "price": 7.0
+                },
+                {
+                  "name": "Valencia Basket",
+                  "price": 1.1
+                }
+              ]
+            }
+          ],
+          "title": "BoyleSports"
+        },
+        {
+          "key": "gtbets",
+          "last_update": "2026-02-09T10:17:31Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:17:31Z",
+              "outcomes": [
+                {
+                  "name": "ASVEL Lyon Villeurbanne",
+                  "price": 6.28
+                },
+                {
+                  "name": "Valencia Basket",
+                  "price": 1.11
+                }
+              ]
+            },
+            {
+              "key": "spreads",
+              "last_update": "2026-02-09T10:17:31Z",
+              "outcomes": [
+                {
+                  "name": "ASVEL Lyon Villeurbanne",
+                  "point": 12.5,
+                  "price": 1.87
+                },
+                {
+                  "name": "Valencia Basket",
+                  "point": -12.5,
+                  "price": 1.89
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2026-02-09T10:17:31Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "point": 174.5,
+                  "price": 1.88
+                },
+                {
+                  "name": "Under",
+                  "point": 174.5,
+                  "price": 1.88
+                }
+              ]
+            }
+          ],
+          "title": "GTbets"
+        },
+        {
+          "key": "marathonbet",
+          "last_update": "2026-02-09T10:18:04Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:18:04Z",
+              "outcomes": [
+                {
+                  "name": "ASVEL Lyon Villeurbanne",
+                  "price": 6.2
+                },
+                {
+                  "name": "Valencia Basket",
+                  "price": 1.13
+                }
+              ]
+            }
+          ],
+          "title": "Marathon Bet"
+        },
+        {
+          "key": "betmgm",
+          "last_update": "2026-02-09T10:17:17Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:17:17Z",
+              "outcomes": [
+                {
+                  "name": "ASVEL Lyon Villeurbanne",
+                  "price": 6.0
+                },
+                {
+                  "name": "Valencia Basket",
+                  "price": 1.12
+                }
+              ]
+            },
+            {
+              "key": "spreads",
+              "last_update": "2026-02-09T10:17:17Z",
+              "outcomes": [
+                {
+                  "name": "ASVEL Lyon Villeurbanne",
+                  "point": 12.5,
+                  "price": 1.91
+                },
+                {
+                  "name": "Valencia Basket",
+                  "point": -12.5,
+                  "price": 1.87
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2026-02-09T10:17:17Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "point": 174.5,
+                  "price": 1.91
+                },
+                {
+                  "name": "Under",
+                  "point": 174.5,
+                  "price": 1.91
+                }
+              ]
+            }
+          ],
+          "title": "BetMGM"
+        },
+        {
+          "key": "coral",
+          "last_update": "2026-02-09T10:17:48Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:17:48Z",
+              "outcomes": [
+                {
+                  "name": "ASVEL Lyon Villeurbanne",
+                  "price": 5.75
+                },
+                {
+                  "name": "Valencia Basket",
+                  "price": 1.11
+                }
+              ]
+            },
+            {
+              "key": "spreads",
+              "last_update": "2026-02-09T10:17:48Z",
+              "outcomes": [
+                {
+                  "name": "ASVEL Lyon Villeurbanne",
+                  "point": 12.5,
+                  "price": 1.85
+                },
+                {
+                  "name": "Valencia Basket",
+                  "point": -12.5,
+                  "price": 1.83
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2026-02-09T10:17:48Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "point": 174.5,
+                  "price": 1.83
+                },
+                {
+                  "name": "Under",
+                  "point": 174.5,
+                  "price": 1.83
+                }
+              ]
+            }
+          ],
+          "title": "Coral"
+        }
+      ],
+      "commence_time": "2026-02-12T19:30:00Z",
+      "home_team": "Valencia Basket",
+      "id": "d3f919aca925718df48c3bfe2745214f",
+      "sport_key": "basketball_euroleague",
+      "sport_title": "Basketball Euroleague"
+    },
+    {
+      "away_team": "Paris Basketball",
+      "bookmakers": [
+        {
+          "key": "coolbet",
+          "last_update": "2026-02-09T10:18:05Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:18:05Z",
+              "outcomes": [
+                {
+                  "name": "FC Barcelona B\u00e0squet",
+                  "price": 1.22
+                },
+                {
+                  "name": "Paris Basketball",
+                  "price": 4.3
+                }
+              ]
+            },
+            {
+              "key": "spreads",
+              "last_update": "2026-02-09T10:18:05Z",
+              "outcomes": [
+                {
+                  "name": "FC Barcelona B\u00e0squet",
+                  "point": -9.5,
+                  "price": 1.95
+                },
+                {
+                  "name": "Paris Basketball",
+                  "point": 9.5,
+                  "price": 1.87
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2026-02-09T10:18:05Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "point": 181.5,
+                  "price": 1.95
+                },
+                {
+                  "name": "Under",
+                  "point": 181.5,
+                  "price": 1.87
+                }
+              ]
+            }
+          ],
+          "title": "Coolbet"
+        },
+        {
+          "key": "fanduel",
+          "last_update": "2026-02-09T10:18:03Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:18:03Z",
+              "outcomes": [
+                {
+                  "name": "FC Barcelona B\u00e0squet",
+                  "price": 1.18
+                },
+                {
+                  "name": "Paris Basketball",
+                  "price": 4.8
+                }
+              ]
+            },
+            {
+              "key": "spreads",
+              "last_update": "2026-02-09T10:18:03Z",
+              "outcomes": [
+                {
+                  "name": "FC Barcelona B\u00e0squet",
+                  "point": -9.5,
+                  "price": 1.91
+                },
+                {
+                  "name": "Paris Basketball",
+                  "point": 9.5,
+                  "price": 1.91
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2026-02-09T10:18:03Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "point": 181.5,
+                  "price": 1.91
+                },
+                {
+                  "name": "Under",
+                  "point": 181.5,
+                  "price": 1.91
+                }
+              ]
+            }
+          ],
+          "title": "FanDuel"
+        },
+        {
+          "key": "parionssport_fr",
+          "last_update": "2026-02-09T10:17:48Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:17:48Z",
+              "outcomes": [
+                {
+                  "name": "FC Barcelona B\u00e0squet",
+                  "price": 1.16
+                },
+                {
+                  "name": "Paris Basketball",
+                  "price": 3.85
+                }
+              ]
+            }
+          ],
+          "title": "Parions Sport (FR)"
+        },
+        {
+          "key": "onexbet",
+          "last_update": "2026-02-09T10:17:50Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:17:50Z",
+              "outcomes": [
+                {
+                  "name": "FC Barcelona B\u00e0squet",
+                  "price": 1.26
+                },
+                {
+                  "name": "Paris Basketball",
+                  "price": 4.13
+                }
+              ]
+            },
+            {
+              "key": "spreads",
+              "last_update": "2026-02-09T10:17:50Z",
+              "outcomes": [
+                {
+                  "name": "FC Barcelona B\u00e0squet",
+                  "point": -9.5,
+                  "price": 1.97
+                },
+                {
+                  "name": "Paris Basketball",
+                  "point": 9.5,
+                  "price": 1.89
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2026-02-09T10:17:50Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "point": 180.5,
+                  "price": 1.9
+                },
+                {
+                  "name": "Under",
+                  "point": 180.5,
+                  "price": 1.96
+                }
+              ]
+            }
+          ],
+          "title": "1xBet"
+        },
+        {
+          "key": "unibet_uk",
+          "last_update": "2026-02-09T10:17:47Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:17:47Z",
+              "outcomes": [
+                {
+                  "name": "FC Barcelona B\u00e0squet",
+                  "price": 1.2
+                },
+                {
+                  "name": "Paris Basketball",
+                  "price": 4.5
+                }
+              ]
+            }
+          ],
+          "title": "Unibet (UK)"
+        },
+        {
+          "key": "winamax_fr",
+          "last_update": "2026-02-09T10:17:31Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:17:31Z",
+              "outcomes": [
+                {
+                  "name": "FC Barcelona B\u00e0squet",
+                  "price": 1.14
+                },
+                {
+                  "name": "Paris Basketball",
+                  "price": 3.45
+                }
+              ]
+            }
+          ],
+          "title": "Winamax (FR)"
+        },
+        {
+          "key": "winamax_de",
+          "last_update": "2026-02-09T10:17:32Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:17:32Z",
+              "outcomes": [
+                {
+                  "name": "FC Barcelona B\u00e0squet",
+                  "price": 1.19
+                },
+                {
+                  "name": "Paris Basketball",
+                  "price": 4.3
+                }
+              ]
+            }
+          ],
+          "title": "Winamax (DE)"
+        },
+        {
+          "key": "mybookieag",
+          "last_update": "2026-02-09T10:18:04Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:18:04Z",
+              "outcomes": [
+                {
+                  "name": "FC Barcelona B\u00e0squet",
+                  "price": 1.19
+                },
+                {
+                  "name": "Paris Basketball",
+                  "price": 4.2
+                }
+              ]
+            },
+            {
+              "key": "spreads",
+              "last_update": "2026-02-09T10:18:04Z",
+              "outcomes": [
+                {
+                  "name": "FC Barcelona B\u00e0squet",
+                  "point": -9.5,
+                  "price": 1.86
+                },
+                {
+                  "name": "Paris Basketball",
+                  "point": 9.5,
+                  "price": 1.85
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2026-02-09T10:18:04Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "point": 181.5,
+                  "price": 1.86
+                },
+                {
+                  "name": "Under",
+                  "point": 181.5,
+                  "price": 1.84
+                }
+              ]
+            }
+          ],
+          "title": "MyBookie.ag"
+        },
+        {
+          "key": "paddypower",
+          "last_update": "2026-02-09T10:17:47Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:17:47Z",
+              "outcomes": [
+                {
+                  "name": "FC Barcelona B\u00e0squet",
+                  "price": 1.17
+                },
+                {
+                  "name": "Paris Basketball",
+                  "price": 4.5
+                }
+              ]
+            }
+          ],
+          "title": "Paddy Power"
+        },
+        {
+          "key": "gtbets",
+          "last_update": "2026-02-09T10:17:31Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:17:31Z",
+              "outcomes": [
+                {
+                  "name": "FC Barcelona B\u00e0squet",
+                  "price": 1.24
+                },
+                {
+                  "name": "Paris Basketball",
+                  "price": 4.21
+                }
+              ]
+            },
+            {
+              "key": "spreads",
+              "last_update": "2026-02-09T10:17:31Z",
+              "outcomes": [
+                {
+                  "name": "FC Barcelona B\u00e0squet",
+                  "point": -9.5,
+                  "price": 1.88
+                },
+                {
+                  "name": "Paris Basketball",
+                  "point": 9.5,
+                  "price": 1.88
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2026-02-09T10:17:31Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "point": 181.5,
+                  "price": 1.9
+                },
+                {
+                  "name": "Under",
+                  "point": 181.5,
+                  "price": 1.86
+                }
+              ]
+            }
+          ],
+          "title": "GTbets"
+        },
+        {
+          "key": "marathonbet",
+          "last_update": "2026-02-09T10:18:04Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:18:04Z",
+              "outcomes": [
+                {
+                  "name": "FC Barcelona B\u00e0squet",
+                  "price": 1.25
+                },
+                {
+                  "name": "Paris Basketball",
+                  "price": 4.1
+                }
+              ]
+            }
+          ],
+          "title": "Marathon Bet"
+        },
+        {
+          "key": "williamhill",
+          "last_update": "2026-02-09T10:17:48Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:17:48Z",
+              "outcomes": [
+                {
+                  "name": "FC Barcelona B\u00e0squet",
+                  "price": 1.21
+                },
+                {
+                  "name": "Paris Basketball",
+                  "price": 4.6
+                }
+              ]
+            }
+          ],
+          "title": "William Hill"
+        },
+        {
+          "key": "betfair_ex_uk",
+          "last_update": "2026-02-09T10:18:04Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:18:04Z",
+              "outcomes": [
+                {
+                  "name": "FC Barcelona B\u00e0squet",
+                  "price": 1.22
+                },
+                {
+                  "name": "Paris Basketball",
+                  "price": 1.01
+                }
+              ]
+            },
+            {
+              "key": "h2h_lay",
+              "last_update": "2026-02-09T10:18:04Z",
+              "outcomes": [
+                {
+                  "name": "FC Barcelona B\u00e0squet",
+                  "price": 1.25
+                },
+                {
+                  "name": "Paris Basketball",
+                  "price": 300.0
+                }
+              ]
+            }
+          ],
+          "title": "Betfair"
+        },
+        {
+          "key": "betfair_ex_eu",
+          "last_update": "2026-02-09T10:17:47Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:17:47Z",
+              "outcomes": [
+                {
+                  "name": "FC Barcelona B\u00e0squet",
+                  "price": 1.22
+                },
+                {
+                  "name": "Paris Basketball",
+                  "price": 1.01
+                }
+              ]
+            },
+            {
+              "key": "h2h_lay",
+              "last_update": "2026-02-09T10:17:47Z",
+              "outcomes": [
+                {
+                  "name": "FC Barcelona B\u00e0squet",
+                  "price": 1.25
+                },
+                {
+                  "name": "Paris Basketball",
+                  "price": 300.0
+                }
+              ]
+            }
+          ],
+          "title": "Betfair"
+        },
+        {
+          "key": "boylesports",
+          "last_update": "2026-02-09T10:12:16Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:12:16Z",
+              "outcomes": [
+                {
+                  "name": "FC Barcelona B\u00e0squet",
+                  "price": 1.2
+                },
+                {
+                  "name": "Paris Basketball",
+                  "price": 4.5
+                }
+              ]
+            }
+          ],
+          "title": "BoyleSports"
+        },
+        {
+          "key": "betmgm",
+          "last_update": "2026-02-09T10:17:17Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:17:17Z",
+              "outcomes": [
+                {
+                  "name": "FC Barcelona B\u00e0squet",
+                  "price": 1.22
+                },
+                {
+                  "name": "Paris Basketball",
+                  "price": 4.33
+                }
+              ]
+            },
+            {
+              "key": "spreads",
+              "last_update": "2026-02-09T10:17:17Z",
+              "outcomes": [
+                {
+                  "name": "FC Barcelona B\u00e0squet",
+                  "point": -9.5,
+                  "price": 1.87
+                },
+                {
+                  "name": "Paris Basketball",
+                  "point": 9.5,
+                  "price": 1.91
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2026-02-09T10:17:17Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "point": 181.5,
+                  "price": 1.91
+                },
+                {
+                  "name": "Under",
+                  "point": 181.5,
+                  "price": 1.91
+                }
+              ]
+            }
+          ],
+          "title": "BetMGM"
+        },
+        {
+          "key": "coral",
+          "last_update": "2026-02-09T10:17:48Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:17:48Z",
+              "outcomes": [
+                {
+                  "name": "FC Barcelona B\u00e0squet",
+                  "price": 1.2
+                },
+                {
+                  "name": "Paris Basketball",
+                  "price": 4.0
+                }
+              ]
+            },
+            {
+              "key": "spreads",
+              "last_update": "2026-02-09T10:17:48Z",
+              "outcomes": [
+                {
+                  "name": "FC Barcelona B\u00e0squet",
+                  "point": -9.5,
+                  "price": 1.8
+                },
+                {
+                  "name": "Paris Basketball",
+                  "point": 9.5,
+                  "price": 1.85
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2026-02-09T10:17:48Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "point": 181.5,
+                  "price": 1.83
+                },
+                {
+                  "name": "Under",
+                  "point": 181.5,
+                  "price": 1.83
+                }
+              ]
+            }
+          ],
+          "title": "Coral"
+        },
+        {
+          "key": "nordicbet",
+          "last_update": "2026-02-09T10:18:04Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:18:04Z",
+              "outcomes": [
+                {
+                  "name": "FC Barcelona B\u00e0squet",
+                  "price": 1.2
+                },
+                {
+                  "name": "Paris Basketball",
+                  "price": 4.55
+                }
+              ]
+            },
+            {
+              "key": "spreads",
+              "last_update": "2026-02-09T10:18:04Z",
+              "outcomes": [
+                {
+                  "name": "FC Barcelona B\u00e0squet",
+                  "point": -8.5,
+                  "price": 1.78
+                },
+                {
+                  "name": "Paris Basketball",
+                  "point": 8.5,
+                  "price": 2.02
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2026-02-09T10:18:04Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "point": 180.5,
+                  "price": 1.8
+                },
+                {
+                  "name": "Under",
+                  "point": 180.5,
+                  "price": 1.95
+                }
+              ]
+            }
+          ],
+          "title": "Nordic Bet"
+        },
+        {
+          "key": "betsson",
+          "last_update": "2026-02-09T10:17:17Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:17:17Z",
+              "outcomes": [
+                {
+                  "name": "FC Barcelona B\u00e0squet",
+                  "price": 1.2
+                },
+                {
+                  "name": "Paris Basketball",
+                  "price": 4.55
+                }
+              ]
+            },
+            {
+              "key": "spreads",
+              "last_update": "2026-02-09T10:17:17Z",
+              "outcomes": [
+                {
+                  "name": "FC Barcelona B\u00e0squet",
+                  "point": -8.5,
+                  "price": 1.78
+                },
+                {
+                  "name": "Paris Basketball",
+                  "point": 8.5,
+                  "price": 2.02
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2026-02-09T10:17:17Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "point": 180.5,
+                  "price": 1.8
+                },
+                {
+                  "name": "Under",
+                  "point": 180.5,
+                  "price": 1.95
+                }
+              ]
+            }
+          ],
+          "title": "Betsson"
+        }
+      ],
+      "commence_time": "2026-02-12T19:30:00Z",
+      "home_team": "FC Barcelona B\u00e0squet",
+      "id": "bb3a779cc5e349dfd6d73b16baef005d",
+      "sport_key": "basketball_euroleague",
+      "sport_title": "Basketball Euroleague"
+    },
+    {
+      "away_team": "Hapoel Tel Aviv",
+      "bookmakers": [
+        {
+          "key": "onexbet",
+          "last_update": "2026-02-09T10:17:50Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:17:50Z",
+              "outcomes": [
+                {
+                  "name": "Hapoel Tel Aviv",
+                  "price": 2.02
+                },
+                {
+                  "name": "\u017dalgiris",
+                  "price": 1.84
+                }
+              ]
+            },
+            {
+              "key": "spreads",
+              "last_update": "2026-02-09T10:17:50Z",
+              "outcomes": [
+                {
+                  "name": "Hapoel Tel Aviv",
+                  "point": 1.5,
+                  "price": 1.89
+                },
+                {
+                  "name": "\u017dalgiris",
+                  "point": -1.5,
+                  "price": 1.97
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2026-02-09T10:17:50Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "point": 167.5,
+                  "price": 1.93
+                },
+                {
+                  "name": "Under",
+                  "point": 167.5,
+                  "price": 1.93
+                }
+              ]
+            }
+          ],
+          "title": "1xBet"
+        },
+        {
+          "key": "unibet_uk",
+          "last_update": "2026-02-09T10:17:47Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:17:47Z",
+              "outcomes": [
+                {
+                  "name": "Hapoel Tel Aviv",
+                  "price": 2.0
+                },
+                {
+                  "name": "\u017dalgiris",
+                  "price": 1.83
+                }
+              ]
+            }
+          ],
+          "title": "Unibet (UK)"
+        },
+        {
+          "key": "coolbet",
+          "last_update": "2026-02-09T10:18:05Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:18:05Z",
+              "outcomes": [
+                {
+                  "name": "Hapoel Tel Aviv",
+                  "price": 2.0
+                },
+                {
+                  "name": "\u017dalgiris",
+                  "price": 1.82
+                }
+              ]
+            },
+            {
+              "key": "spreads",
+              "last_update": "2026-02-09T10:18:05Z",
+              "outcomes": [
+                {
+                  "name": "Hapoel Tel Aviv",
+                  "point": 1.5,
+                  "price": 1.91
+                },
+                {
+                  "name": "\u017dalgiris",
+                  "point": -1.5,
+                  "price": 1.91
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2026-02-09T10:18:05Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "point": 167.5,
+                  "price": 1.95
+                },
+                {
+                  "name": "Under",
+                  "point": 167.5,
+                  "price": 1.87
+                }
+              ]
+            }
+          ],
+          "title": "Coolbet"
+        },
+        {
+          "key": "parionssport_fr",
+          "last_update": "2026-02-09T10:17:48Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:17:48Z",
+              "outcomes": [
+                {
+                  "name": "Hapoel Tel Aviv",
+                  "price": 1.86
+                },
+                {
+                  "name": "\u017dalgiris",
+                  "price": 1.72
+                }
+              ]
+            }
+          ],
+          "title": "Parions Sport (FR)"
+        },
+        {
+          "key": "gtbets",
+          "last_update": "2026-02-09T10:17:31Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:17:31Z",
+              "outcomes": [
+                {
+                  "name": "Hapoel Tel Aviv",
+                  "price": 2.0
+                },
+                {
+                  "name": "\u017dalgiris",
+                  "price": 1.79
+                }
+              ]
+            },
+            {
+              "key": "spreads",
+              "last_update": "2026-02-09T10:17:31Z",
+              "outcomes": [
+                {
+                  "name": "Hapoel Tel Aviv",
+                  "point": 1.5,
+                  "price": 1.89
+                },
+                {
+                  "name": "\u017dalgiris",
+                  "point": -1.5,
+                  "price": 1.87
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2026-02-09T10:17:31Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "point": 167.5,
+                  "price": 1.88
+                },
+                {
+                  "name": "Under",
+                  "point": 167.5,
+                  "price": 1.88
+                }
+              ]
+            }
+          ],
+          "title": "GTbets"
+        },
+        {
+          "key": "paddypower",
+          "last_update": "2026-02-09T10:17:47Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:17:47Z",
+              "outcomes": [
+                {
+                  "name": "Hapoel Tel Aviv",
+                  "price": 2.0
+                },
+                {
+                  "name": "\u017dalgiris",
+                  "price": 1.73
+                }
+              ]
+            }
+          ],
+          "title": "Paddy Power"
+        },
+        {
+          "key": "fanduel",
+          "last_update": "2026-02-09T10:18:03Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:18:03Z",
+              "outcomes": [
+                {
+                  "name": "Hapoel Tel Aviv",
+                  "price": 1.98
+                },
+                {
+                  "name": "\u017dalgiris",
+                  "price": 1.83
+                }
+              ]
+            },
+            {
+              "key": "spreads",
+              "last_update": "2026-02-09T10:18:03Z",
+              "outcomes": [
+                {
+                  "name": "Hapoel Tel Aviv",
+                  "point": 1.5,
+                  "price": 1.89
+                },
+                {
+                  "name": "\u017dalgiris",
+                  "point": -1.5,
+                  "price": 1.93
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2026-02-09T10:18:03Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "point": 167.5,
+                  "price": 1.94
+                },
+                {
+                  "name": "Under",
+                  "point": 167.5,
+                  "price": 1.86
+                }
+              ]
+            }
+          ],
+          "title": "FanDuel"
+        },
+        {
+          "key": "mybookieag",
+          "last_update": "2026-02-09T10:18:04Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:18:04Z",
+              "outcomes": [
+                {
+                  "name": "Hapoel Tel Aviv",
+                  "price": 1.93
+                },
+                {
+                  "name": "\u017dalgiris",
+                  "price": 1.78
+                }
+              ]
+            },
+            {
+              "key": "spreads",
+              "last_update": "2026-02-09T10:18:04Z",
+              "outcomes": [
+                {
+                  "name": "Hapoel Tel Aviv",
+                  "point": 1.5,
+                  "price": 1.83
+                },
+                {
+                  "name": "\u017dalgiris",
+                  "point": -1.5,
+                  "price": 1.87
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2026-02-09T10:18:04Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "point": 167.0,
+                  "price": 1.84
+                },
+                {
+                  "name": "Under",
+                  "point": 167.0,
+                  "price": 1.86
+                }
+              ]
+            }
+          ],
+          "title": "MyBookie.ag"
+        },
+        {
+          "key": "marathonbet",
+          "last_update": "2026-02-09T10:18:04Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:18:04Z",
+              "outcomes": [
+                {
+                  "name": "Hapoel Tel Aviv",
+                  "price": 2.01
+                },
+                {
+                  "name": "\u017dalgiris",
+                  "price": 1.83
+                }
+              ]
+            }
+          ],
+          "title": "Marathon Bet"
+        },
+        {
+          "key": "winamax_de",
+          "last_update": "2026-02-09T10:17:32Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:17:32Z",
+              "outcomes": [
+                {
+                  "name": "Hapoel Tel Aviv",
+                  "price": 1.94
+                },
+                {
+                  "name": "\u017dalgiris",
+                  "price": 1.78
+                }
+              ]
+            }
+          ],
+          "title": "Winamax (DE)"
+        },
+        {
+          "key": "winamax_fr",
+          "last_update": "2026-02-09T10:17:31Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:17:31Z",
+              "outcomes": [
+                {
+                  "name": "Hapoel Tel Aviv",
+                  "price": 1.78
+                },
+                {
+                  "name": "\u017dalgiris",
+                  "price": 1.66
+                }
+              ]
+            }
+          ],
+          "title": "Winamax (FR)"
+        },
+        {
+          "key": "williamhill",
+          "last_update": "2026-02-09T10:17:48Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:17:48Z",
+              "outcomes": [
+                {
+                  "name": "Hapoel Tel Aviv",
+                  "price": 1.99
+                },
+                {
+                  "name": "\u017dalgiris",
+                  "price": 1.85
+                }
+              ]
+            }
+          ],
+          "title": "William Hill"
+        },
+        {
+          "key": "boylesports",
+          "last_update": "2026-02-09T10:12:16Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:12:16Z",
+              "outcomes": [
+                {
+                  "name": "Hapoel Tel Aviv",
+                  "price": 2.0
+                },
+                {
+                  "name": "\u017dalgiris",
+                  "price": 1.83
+                }
+              ]
+            }
+          ],
+          "title": "BoyleSports"
+        },
+        {
+          "key": "betmgm",
+          "last_update": "2026-02-09T10:17:17Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:17:17Z",
+              "outcomes": [
+                {
+                  "name": "Hapoel Tel Aviv",
+                  "price": 2.05
+                },
+                {
+                  "name": "\u017dalgiris",
+                  "price": 1.77
+                }
+              ]
+            },
+            {
+              "key": "spreads",
+              "last_update": "2026-02-09T10:17:17Z",
+              "outcomes": [
+                {
+                  "name": "Hapoel Tel Aviv",
+                  "point": 1.5,
+                  "price": 1.87
+                },
+                {
+                  "name": "\u017dalgiris",
+                  "point": -1.5,
+                  "price": 1.91
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2026-02-09T10:17:17Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "point": 167.5,
+                  "price": 1.91
+                },
+                {
+                  "name": "Under",
+                  "point": 167.5,
+                  "price": 1.91
+                }
+              ]
+            }
+          ],
+          "title": "BetMGM"
+        },
+        {
+          "key": "coral",
+          "last_update": "2026-02-09T10:17:48Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:17:48Z",
+              "outcomes": [
+                {
+                  "name": "Hapoel Tel Aviv",
+                  "price": 1.95
+                },
+                {
+                  "name": "\u017dalgiris",
+                  "price": 1.73
+                }
+              ]
+            },
+            {
+              "key": "spreads",
+              "last_update": "2026-02-09T10:17:48Z",
+              "outcomes": [
+                {
+                  "name": "Hapoel Tel Aviv",
+                  "point": 1.5,
+                  "price": 1.83
+                },
+                {
+                  "name": "\u017dalgiris",
+                  "point": -1.5,
+                  "price": 1.85
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2026-02-09T10:17:48Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "point": 167.5,
+                  "price": 1.83
+                },
+                {
+                  "name": "Under",
+                  "point": 167.5,
+                  "price": 1.83
+                }
+              ]
+            }
+          ],
+          "title": "Coral"
+        },
+        {
+          "key": "nordicbet",
+          "last_update": "2026-02-09T10:18:04Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:18:04Z",
+              "outcomes": [
+                {
+                  "name": "Hapoel Tel Aviv",
+                  "price": 1.98
+                },
+                {
+                  "name": "\u017dalgiris",
+                  "price": 1.82
+                }
+              ]
+            },
+            {
+              "key": "spreads",
+              "last_update": "2026-02-09T10:18:04Z",
+              "outcomes": [
+                {
+                  "name": "Hapoel Tel Aviv",
+                  "point": 1.5,
+                  "price": 1.85
+                },
+                {
+                  "name": "\u017dalgiris",
+                  "point": -1.5,
+                  "price": 1.9
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2026-02-09T10:18:04Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "point": 166.5,
+                  "price": 1.82
+                },
+                {
+                  "name": "Under",
+                  "point": 166.5,
+                  "price": 1.92
+                }
+              ]
+            }
+          ],
+          "title": "Nordic Bet"
+        },
+        {
+          "key": "betsson",
+          "last_update": "2026-02-09T10:17:17Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:17:17Z",
+              "outcomes": [
+                {
+                  "name": "Hapoel Tel Aviv",
+                  "price": 1.98
+                },
+                {
+                  "name": "\u017dalgiris",
+                  "price": 1.82
+                }
+              ]
+            },
+            {
+              "key": "spreads",
+              "last_update": "2026-02-09T10:17:17Z",
+              "outcomes": [
+                {
+                  "name": "Hapoel Tel Aviv",
+                  "point": 1.5,
+                  "price": 1.85
+                },
+                {
+                  "name": "\u017dalgiris",
+                  "point": -1.5,
+                  "price": 1.9
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2026-02-09T10:17:17Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "point": 166.5,
+                  "price": 1.82
+                },
+                {
+                  "name": "Under",
+                  "point": 166.5,
+                  "price": 1.92
+                }
+              ]
+            }
+          ],
+          "title": "Betsson"
+        }
+      ],
+      "commence_time": "2026-02-13T18:00:00Z",
+      "home_team": "\u017dalgiris",
+      "id": "17c5fa811f08760382c05e3c66bc70b1",
+      "sport_key": "basketball_euroleague",
+      "sport_title": "Basketball Euroleague"
+    },
+    {
+      "away_team": "Saski Baskonia",
+      "bookmakers": [
+        {
+          "key": "betmgm",
+          "last_update": "2026-02-09T10:17:17Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:17:17Z",
+              "outcomes": [
+                {
+                  "name": "AS Monaco",
+                  "price": 1.29
+                },
+                {
+                  "name": "Saski Baskonia",
+                  "price": 3.75
+                }
+              ]
+            },
+            {
+              "key": "spreads",
+              "last_update": "2026-02-09T10:17:17Z",
+              "outcomes": [
+                {
+                  "name": "AS Monaco",
+                  "point": -8.5,
+                  "price": 1.85
+                },
+                {
+                  "name": "Saski Baskonia",
+                  "point": 8.5,
+                  "price": 1.91
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2026-02-09T10:17:17Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "point": 174.5,
+                  "price": 1.91
+                },
+                {
+                  "name": "Under",
+                  "point": 174.5,
+                  "price": 1.91
+                }
+              ]
+            }
+          ],
+          "title": "BetMGM"
+        },
+        {
+          "key": "gtbets",
+          "last_update": "2026-02-09T10:17:31Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:17:31Z",
+              "outcomes": [
+                {
+                  "name": "AS Monaco",
+                  "price": 1.25
+                },
+                {
+                  "name": "Saski Baskonia",
+                  "price": 3.81
+                }
+              ]
+            },
+            {
+              "key": "spreads",
+              "last_update": "2026-02-09T10:17:31Z",
+              "outcomes": [
+                {
+                  "name": "AS Monaco",
+                  "point": -8.5,
+                  "price": 1.88
+                },
+                {
+                  "name": "Saski Baskonia",
+                  "point": 8.5,
+                  "price": 1.88
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2026-02-09T10:17:31Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "point": 174.5,
+                  "price": 1.88
+                },
+                {
+                  "name": "Under",
+                  "point": 174.5,
+                  "price": 1.88
+                }
+              ]
+            }
+          ],
+          "title": "GTbets"
+        },
+        {
+          "key": "parionssport_fr",
+          "last_update": "2026-02-09T10:17:48Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:17:48Z",
+              "outcomes": [
+                {
+                  "name": "AS Monaco",
+                  "price": 1.2
+                },
+                {
+                  "name": "Saski Baskonia",
+                  "price": 3.5
+                }
+              ]
+            }
+          ],
+          "title": "Parions Sport (FR)"
+        },
+        {
+          "key": "unibet_uk",
+          "last_update": "2026-02-09T10:17:47Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:17:47Z",
+              "outcomes": [
+                {
+                  "name": "AS Monaco",
+                  "price": 1.24
+                },
+                {
+                  "name": "Saski Baskonia",
+                  "price": 4.0
+                }
+              ]
+            }
+          ],
+          "title": "Unibet (UK)"
+        },
+        {
+          "key": "coral",
+          "last_update": "2026-02-09T10:17:48Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:17:48Z",
+              "outcomes": [
+                {
+                  "name": "AS Monaco",
+                  "price": 1.25
+                },
+                {
+                  "name": "Saski Baskonia",
+                  "price": 3.5
+                }
+              ]
+            },
+            {
+              "key": "spreads",
+              "last_update": "2026-02-09T10:17:48Z",
+              "outcomes": [
+                {
+                  "name": "AS Monaco",
+                  "point": -8.5,
+                  "price": 1.8
+                },
+                {
+                  "name": "Saski Baskonia",
+                  "point": 8.5,
+                  "price": 1.85
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2026-02-09T10:17:48Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "point": 174.5,
+                  "price": 1.83
+                },
+                {
+                  "name": "Under",
+                  "point": 174.5,
+                  "price": 1.83
+                }
+              ]
+            }
+          ],
+          "title": "Coral"
+        },
+        {
+          "key": "boylesports",
+          "last_update": "2026-02-09T10:12:16Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:12:16Z",
+              "outcomes": [
+                {
+                  "name": "AS Monaco",
+                  "price": 1.25
+                },
+                {
+                  "name": "Saski Baskonia",
+                  "price": 4.1
+                }
+              ]
+            }
+          ],
+          "title": "BoyleSports"
+        },
+        {
+          "key": "fanduel",
+          "last_update": "2026-02-09T10:18:03Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:18:03Z",
+              "outcomes": [
+                {
+                  "name": "AS Monaco",
+                  "price": 1.23
+                },
+                {
+                  "name": "Saski Baskonia",
+                  "price": 4.2
+                }
+              ]
+            },
+            {
+              "key": "spreads",
+              "last_update": "2026-02-09T10:18:03Z",
+              "outcomes": [
+                {
+                  "name": "AS Monaco",
+                  "point": -8.5,
+                  "price": 1.91
+                },
+                {
+                  "name": "Saski Baskonia",
+                  "point": 8.5,
+                  "price": 1.91
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2026-02-09T10:18:03Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "point": 174.5,
+                  "price": 1.91
+                },
+                {
+                  "name": "Under",
+                  "point": 174.5,
+                  "price": 1.91
+                }
+              ]
+            }
+          ],
+          "title": "FanDuel"
+        },
+        {
+          "key": "winamax_fr",
+          "last_update": "2026-02-09T10:17:31Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:17:31Z",
+              "outcomes": [
+                {
+                  "name": "AS Monaco",
+                  "price": 1.17
+                },
+                {
+                  "name": "Saski Baskonia",
+                  "price": 3.2
+                }
+              ]
+            }
+          ],
+          "title": "Winamax (FR)"
+        },
+        {
+          "key": "winamax_de",
+          "last_update": "2026-02-09T10:17:32Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:17:32Z",
+              "outcomes": [
+                {
+                  "name": "AS Monaco",
+                  "price": 1.22
+                },
+                {
+                  "name": "Saski Baskonia",
+                  "price": 3.9
+                }
+              ]
+            }
+          ],
+          "title": "Winamax (DE)"
+        },
+        {
+          "key": "coolbet",
+          "last_update": "2026-02-09T10:18:05Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:18:05Z",
+              "outcomes": [
+                {
+                  "name": "AS Monaco",
+                  "price": 1.26
+                },
+                {
+                  "name": "Saski Baskonia",
+                  "price": 3.9
+                }
+              ]
+            },
+            {
+              "key": "spreads",
+              "last_update": "2026-02-09T10:18:05Z",
+              "outcomes": [
+                {
+                  "name": "AS Monaco",
+                  "point": -8.5,
+                  "price": 1.89
+                },
+                {
+                  "name": "Saski Baskonia",
+                  "point": 8.5,
+                  "price": 1.92
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2026-02-09T10:18:05Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "point": 174.5,
+                  "price": 1.95
+                },
+                {
+                  "name": "Under",
+                  "point": 174.5,
+                  "price": 1.87
+                }
+              ]
+            }
+          ],
+          "title": "Coolbet"
+        },
+        {
+          "key": "mybookieag",
+          "last_update": "2026-02-09T10:18:04Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:18:04Z",
+              "outcomes": [
+                {
+                  "name": "AS Monaco",
+                  "price": 1.22
+                },
+                {
+                  "name": "Saski Baskonia",
+                  "price": 3.8
+                }
+              ]
+            },
+            {
+              "key": "spreads",
+              "last_update": "2026-02-09T10:18:04Z",
+              "outcomes": [
+                {
+                  "name": "AS Monaco",
+                  "point": -8.5,
+                  "price": 1.85
+                },
+                {
+                  "name": "Saski Baskonia",
+                  "point": 8.5,
+                  "price": 1.85
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2026-02-09T10:18:04Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "point": 174.5,
+                  "price": 1.85
+                },
+                {
+                  "name": "Under",
+                  "point": 174.5,
+                  "price": 1.85
+                }
+              ]
+            }
+          ],
+          "title": "MyBookie.ag"
+        },
+        {
+          "key": "paddypower",
+          "last_update": "2026-02-09T10:17:47Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:17:47Z",
+              "outcomes": [
+                {
+                  "name": "AS Monaco",
+                  "price": 1.2
+                },
+                {
+                  "name": "Saski Baskonia",
+                  "price": 4.0
+                }
+              ]
+            }
+          ],
+          "title": "Paddy Power"
+        },
+        {
+          "key": "betsson",
+          "last_update": "2026-02-09T10:17:17Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:17:17Z",
+              "outcomes": [
+                {
+                  "name": "AS Monaco",
+                  "price": 1.24
+                },
+                {
+                  "name": "Saski Baskonia",
+                  "price": 4.05
+                }
+              ]
+            },
+            {
+              "key": "spreads",
+              "last_update": "2026-02-09T10:17:17Z",
+              "outcomes": [
+                {
+                  "name": "AS Monaco",
+                  "point": -8.5,
+                  "price": 1.88
+                },
+                {
+                  "name": "Saski Baskonia",
+                  "point": 8.5,
+                  "price": 1.88
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2026-02-09T10:17:17Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "point": 172.5,
+                  "price": 1.72
+                },
+                {
+                  "name": "Under",
+                  "point": 172.5,
+                  "price": 2.08
+                }
+              ]
+            }
+          ],
+          "title": "Betsson"
+        },
+        {
+          "key": "nordicbet",
+          "last_update": "2026-02-09T10:18:04Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:18:04Z",
+              "outcomes": [
+                {
+                  "name": "AS Monaco",
+                  "price": 1.24
+                },
+                {
+                  "name": "Saski Baskonia",
+                  "price": 4.05
+                }
+              ]
+            },
+            {
+              "key": "spreads",
+              "last_update": "2026-02-09T10:18:04Z",
+              "outcomes": [
+                {
+                  "name": "AS Monaco",
+                  "point": -8.5,
+                  "price": 1.88
+                },
+                {
+                  "name": "Saski Baskonia",
+                  "point": 8.5,
+                  "price": 1.88
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2026-02-09T10:18:04Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "point": 172.5,
+                  "price": 1.72
+                },
+                {
+                  "name": "Under",
+                  "point": 172.5,
+                  "price": 2.08
+                }
+              ]
+            }
+          ],
+          "title": "Nordic Bet"
+        },
+        {
+          "key": "onexbet",
+          "last_update": "2026-02-09T10:17:50Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:17:50Z",
+              "outcomes": [
+                {
+                  "name": "AS Monaco",
+                  "price": 1.29
+                },
+                {
+                  "name": "Saski Baskonia",
+                  "price": 3.83
+                }
+              ]
+            },
+            {
+              "key": "spreads",
+              "last_update": "2026-02-09T10:17:50Z",
+              "outcomes": [
+                {
+                  "name": "AS Monaco",
+                  "point": -8.5,
+                  "price": 1.93
+                },
+                {
+                  "name": "Saski Baskonia",
+                  "point": 8.5,
+                  "price": 1.93
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2026-02-09T10:17:50Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "point": 174.5,
+                  "price": 1.93
+                },
+                {
+                  "name": "Under",
+                  "point": 174.5,
+                  "price": 1.93
+                }
+              ]
+            }
+          ],
+          "title": "1xBet"
+        },
+        {
+          "key": "marathonbet",
+          "last_update": "2026-02-09T10:18:04Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:18:04Z",
+              "outcomes": [
+                {
+                  "name": "AS Monaco",
+                  "price": 1.28
+                },
+                {
+                  "name": "Saski Baskonia",
+                  "price": 3.8
+                }
+              ]
+            }
+          ],
+          "title": "Marathon Bet"
+        },
+        {
+          "key": "williamhill",
+          "last_update": "2026-02-09T10:17:48Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:17:48Z",
+              "outcomes": [
+                {
+                  "name": "AS Monaco",
+                  "price": 1.24
+                },
+                {
+                  "name": "Saski Baskonia",
+                  "price": 4.2
+                }
+              ]
+            }
+          ],
+          "title": "William Hill"
+        },
+        {
+          "key": "betfair_ex_eu",
+          "last_update": "2026-02-09T10:17:47Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:17:47Z",
+              "outcomes": [
+                {
+                  "name": "AS Monaco",
+                  "price": 1.26
+                },
+                {
+                  "name": "Saski Baskonia",
+                  "price": 1.01
+                }
+              ]
+            },
+            {
+              "key": "h2h_lay",
+              "last_update": "2026-02-09T10:17:47Z",
+              "outcomes": [
+                {
+                  "name": "AS Monaco",
+                  "price": 1.3
+                },
+                {
+                  "name": "Saski Baskonia",
+                  "price": 110.0
+                }
+              ]
+            }
+          ],
+          "title": "Betfair"
+        },
+        {
+          "key": "betfair_ex_uk",
+          "last_update": "2026-02-09T10:18:04Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:18:04Z",
+              "outcomes": [
+                {
+                  "name": "AS Monaco",
+                  "price": 1.26
+                },
+                {
+                  "name": "Saski Baskonia",
+                  "price": 1.01
+                }
+              ]
+            },
+            {
+              "key": "h2h_lay",
+              "last_update": "2026-02-09T10:18:04Z",
+              "outcomes": [
+                {
+                  "name": "AS Monaco",
+                  "price": 1.3
+                },
+                {
+                  "name": "Saski Baskonia",
+                  "price": 110.0
+                }
+              ]
+            }
+          ],
+          "title": "Betfair"
+        }
+      ],
+      "commence_time": "2026-02-13T18:30:00Z",
+      "home_team": "AS Monaco",
+      "id": "5409046a8a9ccb3012adcf805bc5539b",
+      "sport_key": "basketball_euroleague",
+      "sport_title": "Basketball Euroleague"
+    },
+    {
+      "away_team": "Fenerbahce SK",
+      "bookmakers": [
+        {
+          "key": "coolbet",
+          "last_update": "2026-02-09T10:18:05Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:18:05Z",
+              "outcomes": [
+                {
+                  "name": "Fenerbahce SK",
+                  "price": 2.05
+                },
+                {
+                  "name": "Panathinaikos",
+                  "price": 1.78
+                }
+              ]
+            },
+            {
+              "key": "spreads",
+              "last_update": "2026-02-09T10:18:05Z",
+              "outcomes": [
+                {
+                  "name": "Fenerbahce SK",
+                  "point": 1.5,
+                  "price": 1.91
+                },
+                {
+                  "name": "Panathinaikos",
+                  "point": -1.5,
+                  "price": 1.91
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2026-02-09T10:18:05Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "point": 166.5,
+                  "price": 1.92
+                },
+                {
+                  "name": "Under",
+                  "point": 166.5,
+                  "price": 1.89
+                }
+              ]
+            }
+          ],
+          "title": "Coolbet"
+        },
+        {
+          "key": "fanduel",
+          "last_update": "2026-02-09T10:18:03Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:18:03Z",
+              "outcomes": [
+                {
+                  "name": "Fenerbahce SK",
+                  "price": 2.06
+                },
+                {
+                  "name": "Panathinaikos",
+                  "price": 1.78
+                }
+              ]
+            },
+            {
+              "key": "spreads",
+              "last_update": "2026-02-09T10:18:03Z",
+              "outcomes": [
+                {
+                  "name": "Fenerbahce SK",
+                  "point": 1.5,
+                  "price": 1.93
+                },
+                {
+                  "name": "Panathinaikos",
+                  "point": -1.5,
+                  "price": 1.88
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2026-02-09T10:18:03Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "point": 166.5,
+                  "price": 1.86
+                },
+                {
+                  "name": "Under",
+                  "point": 166.5,
+                  "price": 1.94
+                }
+              ]
+            }
+          ],
+          "title": "FanDuel"
+        },
+        {
+          "key": "parionssport_fr",
+          "last_update": "2026-02-09T10:17:48Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:17:48Z",
+              "outcomes": [
+                {
+                  "name": "Fenerbahce SK",
+                  "price": 1.9
+                },
+                {
+                  "name": "Panathinaikos",
+                  "price": 1.68
+                }
+              ]
+            }
+          ],
+          "title": "Parions Sport (FR)"
+        },
+        {
+          "key": "onexbet",
+          "last_update": "2026-02-09T10:17:50Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:17:50Z",
+              "outcomes": [
+                {
+                  "name": "Fenerbahce SK",
+                  "price": 2.08
+                },
+                {
+                  "name": "Panathinaikos",
+                  "price": 1.8
+                }
+              ]
+            },
+            {
+              "key": "spreads",
+              "last_update": "2026-02-09T10:17:50Z",
+              "outcomes": [
+                {
+                  "name": "Fenerbahce SK",
+                  "point": 1.5,
+                  "price": 1.93
+                },
+                {
+                  "name": "Panathinaikos",
+                  "point": -1.5,
+                  "price": 1.93
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2026-02-09T10:17:50Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "point": 166.5,
+                  "price": 1.93
+                },
+                {
+                  "name": "Under",
+                  "point": 166.5,
+                  "price": 1.93
+                }
+              ]
+            }
+          ],
+          "title": "1xBet"
+        },
+        {
+          "key": "unibet_uk",
+          "last_update": "2026-02-09T10:17:47Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:17:47Z",
+              "outcomes": [
+                {
+                  "name": "Fenerbahce SK",
+                  "price": 2.04
+                },
+                {
+                  "name": "Panathinaikos",
+                  "price": 1.78
+                }
+              ]
+            }
+          ],
+          "title": "Unibet (UK)"
+        },
+        {
+          "key": "winamax_fr",
+          "last_update": "2026-02-09T10:17:31Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:17:31Z",
+              "outcomes": [
+                {
+                  "name": "Fenerbahce SK",
+                  "price": 1.82
+                },
+                {
+                  "name": "Panathinaikos",
+                  "price": 1.62
+                }
+              ]
+            }
+          ],
+          "title": "Winamax (FR)"
+        },
+        {
+          "key": "winamax_de",
+          "last_update": "2026-02-09T10:17:32Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:17:32Z",
+              "outcomes": [
+                {
+                  "name": "Fenerbahce SK",
+                  "price": 2.0
+                },
+                {
+                  "name": "Panathinaikos",
+                  "price": 1.74
+                }
+              ]
+            }
+          ],
+          "title": "Winamax (DE)"
+        },
+        {
+          "key": "paddypower",
+          "last_update": "2026-02-09T10:17:47Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:17:47Z",
+              "outcomes": [
+                {
+                  "name": "Fenerbahce SK",
+                  "price": 2.1
+                },
+                {
+                  "name": "Panathinaikos",
+                  "price": 1.67
+                }
+              ]
+            }
+          ],
+          "title": "Paddy Power"
+        },
+        {
+          "key": "mybookieag",
+          "last_update": "2026-02-09T10:18:04Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:18:04Z",
+              "outcomes": [
+                {
+                  "name": "Fenerbahce SK",
+                  "price": 1.98
+                },
+                {
+                  "name": "Panathinaikos",
+                  "price": 1.74
+                }
+              ]
+            },
+            {
+              "key": "spreads",
+              "last_update": "2026-02-09T10:18:04Z",
+              "outcomes": [
+                {
+                  "name": "Fenerbahce SK",
+                  "point": 1.5,
+                  "price": 1.88
+                },
+                {
+                  "name": "Panathinaikos",
+                  "point": -1.5,
+                  "price": 1.83
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2026-02-09T10:18:04Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "point": 167.0,
+                  "price": 1.85
+                },
+                {
+                  "name": "Under",
+                  "point": 167.0,
+                  "price": 1.85
+                }
+              ]
+            }
+          ],
+          "title": "MyBookie.ag"
+        },
+        {
+          "key": "gtbets",
+          "last_update": "2026-02-09T10:17:31Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:17:31Z",
+              "outcomes": [
+                {
+                  "name": "Fenerbahce SK",
+                  "price": 2.06
+                },
+                {
+                  "name": "Panathinaikos",
+                  "price": 1.73
+                }
+              ]
+            },
+            {
+              "key": "spreads",
+              "last_update": "2026-02-09T10:17:31Z",
+              "outcomes": [
+                {
+                  "name": "Fenerbahce SK",
+                  "point": 1.5,
+                  "price": 1.89
+                },
+                {
+                  "name": "Panathinaikos",
+                  "point": -1.5,
+                  "price": 1.87
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2026-02-09T10:17:31Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "point": 166.5,
+                  "price": 1.87
+                },
+                {
+                  "name": "Under",
+                  "point": 166.5,
+                  "price": 1.89
+                }
+              ]
+            }
+          ],
+          "title": "GTbets"
+        },
+        {
+          "key": "marathonbet",
+          "last_update": "2026-02-09T10:18:04Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:18:04Z",
+              "outcomes": [
+                {
+                  "name": "Fenerbahce SK",
+                  "price": 2.06
+                },
+                {
+                  "name": "Panathinaikos",
+                  "price": 1.79
+                }
+              ]
+            }
+          ],
+          "title": "Marathon Bet"
+        },
+        {
+          "key": "williamhill",
+          "last_update": "2026-02-09T10:17:48Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:17:48Z",
+              "outcomes": [
+                {
+                  "name": "Fenerbahce SK",
+                  "price": 2.12
+                },
+                {
+                  "name": "Panathinaikos",
+                  "price": 1.75
+                }
+              ]
+            }
+          ],
+          "title": "William Hill"
+        },
+        {
+          "key": "betfair_ex_eu",
+          "last_update": "2026-02-09T10:17:47Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:17:47Z",
+              "outcomes": [
+                {
+                  "name": "Fenerbahce SK",
+                  "price": 1.01
+                },
+                {
+                  "name": "Panathinaikos",
+                  "price": 1.01
+                }
+              ]
+            },
+            {
+              "key": "h2h_lay",
+              "last_update": "2026-02-09T10:17:47Z",
+              "outcomes": [
+                {
+                  "name": "Fenerbahce SK",
+                  "price": 300.0
+                },
+                {
+                  "name": "Panathinaikos",
+                  "price": 300.0
+                }
+              ]
+            }
+          ],
+          "title": "Betfair"
+        },
+        {
+          "key": "betfair_ex_uk",
+          "last_update": "2026-02-09T10:18:04Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:18:04Z",
+              "outcomes": [
+                {
+                  "name": "Fenerbahce SK",
+                  "price": 1.01
+                },
+                {
+                  "name": "Panathinaikos",
+                  "price": 1.01
+                }
+              ]
+            },
+            {
+              "key": "h2h_lay",
+              "last_update": "2026-02-09T10:18:04Z",
+              "outcomes": [
+                {
+                  "name": "Fenerbahce SK",
+                  "price": 300.0
+                },
+                {
+                  "name": "Panathinaikos",
+                  "price": 300.0
+                }
+              ]
+            }
+          ],
+          "title": "Betfair"
+        },
+        {
+          "key": "boylesports",
+          "last_update": "2026-02-09T10:12:16Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:12:16Z",
+              "outcomes": [
+                {
+                  "name": "Fenerbahce SK",
+                  "price": 2.05
+                },
+                {
+                  "name": "Panathinaikos",
+                  "price": 1.8
+                }
+              ]
+            }
+          ],
+          "title": "BoyleSports"
+        },
+        {
+          "key": "betmgm",
+          "last_update": "2026-02-09T10:17:17Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:17:17Z",
+              "outcomes": [
+                {
+                  "name": "Fenerbahce SK",
+                  "price": 2.1
+                },
+                {
+                  "name": "Panathinaikos",
+                  "price": 1.74
+                }
+              ]
+            },
+            {
+              "key": "spreads",
+              "last_update": "2026-02-09T10:17:17Z",
+              "outcomes": [
+                {
+                  "name": "Fenerbahce SK",
+                  "point": 1.5,
+                  "price": 1.91
+                },
+                {
+                  "name": "Panathinaikos",
+                  "point": -1.5,
+                  "price": 1.85
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2026-02-09T10:17:17Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "point": 165.5,
+                  "price": 1.83
+                },
+                {
+                  "name": "Under",
+                  "point": 165.5,
+                  "price": 1.98
+                }
+              ]
+            }
+          ],
+          "title": "BetMGM"
+        },
+        {
+          "key": "coral",
+          "last_update": "2026-02-09T10:17:48Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:17:48Z",
+              "outcomes": [
+                {
+                  "name": "Fenerbahce SK",
+                  "price": 2.0
+                },
+                {
+                  "name": "Panathinaikos",
+                  "price": 1.7
+                }
+              ]
+            },
+            {
+              "key": "spreads",
+              "last_update": "2026-02-09T10:17:48Z",
+              "outcomes": [
+                {
+                  "name": "Fenerbahce SK",
+                  "point": 1.5,
+                  "price": 1.85
+                },
+                {
+                  "name": "Panathinaikos",
+                  "point": -1.5,
+                  "price": 1.8
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2026-02-09T10:17:48Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "point": 165.5,
+                  "price": 1.75
+                },
+                {
+                  "name": "Under",
+                  "point": 165.5,
+                  "price": 1.91
+                }
+              ]
+            }
+          ],
+          "title": "Coral"
+        },
+        {
+          "key": "nordicbet",
+          "last_update": "2026-02-09T10:18:04Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:18:04Z",
+              "outcomes": [
+                {
+                  "name": "Fenerbahce SK",
+                  "price": 2.04
+                },
+                {
+                  "name": "Panathinaikos",
+                  "price": 1.78
+                }
+              ]
+            },
+            {
+              "key": "spreads",
+              "last_update": "2026-02-09T10:18:04Z",
+              "outcomes": [
+                {
+                  "name": "Fenerbahce SK",
+                  "point": 1.5,
+                  "price": 1.9
+                },
+                {
+                  "name": "Panathinaikos",
+                  "point": -1.5,
+                  "price": 1.85
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2026-02-09T10:18:04Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "point": 165.5,
+                  "price": 1.75
+                },
+                {
+                  "name": "Under",
+                  "point": 165.5,
+                  "price": 2.02
+                }
+              ]
+            }
+          ],
+          "title": "Nordic Bet"
+        },
+        {
+          "key": "betsson",
+          "last_update": "2026-02-09T10:17:17Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:17:17Z",
+              "outcomes": [
+                {
+                  "name": "Fenerbahce SK",
+                  "price": 2.04
+                },
+                {
+                  "name": "Panathinaikos",
+                  "price": 1.78
+                }
+              ]
+            },
+            {
+              "key": "spreads",
+              "last_update": "2026-02-09T10:17:17Z",
+              "outcomes": [
+                {
+                  "name": "Fenerbahce SK",
+                  "point": 1.5,
+                  "price": 1.9
+                },
+                {
+                  "name": "Panathinaikos",
+                  "point": -1.5,
+                  "price": 1.85
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2026-02-09T10:17:17Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "point": 165.5,
+                  "price": 1.75
+                },
+                {
+                  "name": "Under",
+                  "point": 165.5,
+                  "price": 2.02
+                }
+              ]
+            }
+          ],
+          "title": "Betsson"
+        }
+      ],
+      "commence_time": "2026-02-13T19:15:00Z",
+      "home_team": "Panathinaikos",
+      "id": "b3074427a148fe27e872e46559581df9",
+      "sport_key": "basketball_euroleague",
+      "sport_title": "Basketball Euroleague"
+    },
+    {
+      "away_team": "Dubai Basketball",
+      "bookmakers": [
+        {
+          "key": "coolbet",
+          "last_update": "2026-02-09T10:18:05Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:18:05Z",
+              "outcomes": [
+                {
+                  "name": "Dubai Basketball",
+                  "price": 2.33
+                },
+                {
+                  "name": "Pallacanestro Olimpia Milano",
+                  "price": 1.61
+                }
+              ]
+            },
+            {
+              "key": "spreads",
+              "last_update": "2026-02-09T10:18:05Z",
+              "outcomes": [
+                {
+                  "name": "Dubai Basketball",
+                  "point": 3.5,
+                  "price": 1.85
+                },
+                {
+                  "name": "Pallacanestro Olimpia Milano",
+                  "point": -3.5,
+                  "price": 1.96
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2026-02-09T10:18:05Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "point": 171.5,
+                  "price": 1.92
+                },
+                {
+                  "name": "Under",
+                  "point": 171.5,
+                  "price": 1.89
+                }
+              ]
+            }
+          ],
+          "title": "Coolbet"
+        },
+        {
+          "key": "unibet_uk",
+          "last_update": "2026-02-09T10:17:47Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:17:47Z",
+              "outcomes": [
+                {
+                  "name": "Dubai Basketball",
+                  "price": 2.38
+                },
+                {
+                  "name": "Pallacanestro Olimpia Milano",
+                  "price": 1.6
+                }
+              ]
+            }
+          ],
+          "title": "Unibet (UK)"
+        },
+        {
+          "key": "parionssport_fr",
+          "last_update": "2026-02-09T10:17:48Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:17:48Z",
+              "outcomes": [
+                {
+                  "name": "Dubai Basketball",
+                  "price": 2.2
+                },
+                {
+                  "name": "Pallacanestro Olimpia Milano",
+                  "price": 1.51
+                }
+              ]
+            }
+          ],
+          "title": "Parions Sport (FR)"
+        },
+        {
+          "key": "onexbet",
+          "last_update": "2026-02-09T10:17:50Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:17:50Z",
+              "outcomes": [
+                {
+                  "name": "Dubai Basketball",
+                  "price": 2.32
+                },
+                {
+                  "name": "Pallacanestro Olimpia Milano",
+                  "price": 1.65
+                }
+              ]
+            },
+            {
+              "key": "spreads",
+              "last_update": "2026-02-09T10:17:50Z",
+              "outcomes": [
+                {
+                  "name": "Dubai Basketball",
+                  "point": 2.5,
+                  "price": 1.98
+                },
+                {
+                  "name": "Pallacanestro Olimpia Milano",
+                  "point": -2.5,
+                  "price": 1.88
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2026-02-09T10:17:50Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "point": 171.5,
+                  "price": 1.93
+                },
+                {
+                  "name": "Under",
+                  "point": 171.5,
+                  "price": 1.93
+                }
+              ]
+            }
+          ],
+          "title": "1xBet"
+        },
+        {
+          "key": "fanduel",
+          "last_update": "2026-02-09T10:18:03Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:18:03Z",
+              "outcomes": [
+                {
+                  "name": "Dubai Basketball",
+                  "price": 2.4
+                },
+                {
+                  "name": "Pallacanestro Olimpia Milano",
+                  "price": 1.59
+                }
+              ]
+            },
+            {
+              "key": "spreads",
+              "last_update": "2026-02-09T10:18:03Z",
+              "outcomes": [
+                {
+                  "name": "Dubai Basketball",
+                  "point": 3.5,
+                  "price": 1.91
+                },
+                {
+                  "name": "Pallacanestro Olimpia Milano",
+                  "point": -3.5,
+                  "price": 1.91
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2026-02-09T10:18:03Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "point": 171.5,
+                  "price": 1.91
+                },
+                {
+                  "name": "Under",
+                  "point": 171.5,
+                  "price": 1.91
+                }
+              ]
+            }
+          ],
+          "title": "FanDuel"
+        },
+        {
+          "key": "mybookieag",
+          "last_update": "2026-02-09T10:18:04Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:18:04Z",
+              "outcomes": [
+                {
+                  "name": "Dubai Basketball",
+                  "price": 2.29
+                },
+                {
+                  "name": "Pallacanestro Olimpia Milano",
+                  "price": 1.56
+                }
+              ]
+            },
+            {
+              "key": "spreads",
+              "last_update": "2026-02-09T10:18:04Z",
+              "outcomes": [
+                {
+                  "name": "Dubai Basketball",
+                  "point": 3.5,
+                  "price": 1.85
+                },
+                {
+                  "name": "Pallacanestro Olimpia Milano",
+                  "point": -3.5,
+                  "price": 1.86
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2026-02-09T10:18:04Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "point": 171.5,
+                  "price": 1.86
+                },
+                {
+                  "name": "Under",
+                  "point": 171.5,
+                  "price": 1.84
+                }
+              ]
+            }
+          ],
+          "title": "MyBookie.ag"
+        },
+        {
+          "key": "paddypower",
+          "last_update": "2026-02-09T10:17:47Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:17:47Z",
+              "outcomes": [
+                {
+                  "name": "Dubai Basketball",
+                  "price": 2.25
+                },
+                {
+                  "name": "Pallacanestro Olimpia Milano",
+                  "price": 1.57
+                }
+              ]
+            }
+          ],
+          "title": "Paddy Power"
+        },
+        {
+          "key": "winamax_fr",
+          "last_update": "2026-02-09T10:17:31Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:17:31Z",
+              "outcomes": [
+                {
+                  "name": "Dubai Basketball",
+                  "price": 2.05
+                },
+                {
+                  "name": "Pallacanestro Olimpia Milano",
+                  "price": 1.46
+                }
+              ]
+            }
+          ],
+          "title": "Winamax (FR)"
+        },
+        {
+          "key": "winamax_de",
+          "last_update": "2026-02-09T10:17:32Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:17:32Z",
+              "outcomes": [
+                {
+                  "name": "Dubai Basketball",
+                  "price": 2.3
+                },
+                {
+                  "name": "Pallacanestro Olimpia Milano",
+                  "price": 1.56
+                }
+              ]
+            }
+          ],
+          "title": "Winamax (DE)"
+        },
+        {
+          "key": "williamhill",
+          "last_update": "2026-02-09T10:17:48Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:17:48Z",
+              "outcomes": [
+                {
+                  "name": "Dubai Basketball",
+                  "price": 2.38
+                },
+                {
+                  "name": "Pallacanestro Olimpia Milano",
+                  "price": 1.61
+                }
+              ]
+            }
+          ],
+          "title": "William Hill"
+        },
+        {
+          "key": "nordicbet",
+          "last_update": "2026-02-09T10:18:04Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:18:04Z",
+              "outcomes": [
+                {
+                  "name": "Dubai Basketball",
+                  "price": 2.38
+                },
+                {
+                  "name": "Pallacanestro Olimpia Milano",
+                  "price": 1.58
+                }
+              ]
+            },
+            {
+              "key": "spreads",
+              "last_update": "2026-02-09T10:18:04Z",
+              "outcomes": [
+                {
+                  "name": "Dubai Basketball",
+                  "point": 2.5,
+                  "price": 2.02
+                },
+                {
+                  "name": "Pallacanestro Olimpia Milano",
+                  "point": -2.5,
+                  "price": 1.75
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2026-02-09T10:18:04Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "point": 170.5,
+                  "price": 1.82
+                },
+                {
+                  "name": "Under",
+                  "point": 170.5,
+                  "price": 1.95
+                }
+              ]
+            }
+          ],
+          "title": "Nordic Bet"
+        },
+        {
+          "key": "betsson",
+          "last_update": "2026-02-09T10:17:17Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:17:17Z",
+              "outcomes": [
+                {
+                  "name": "Dubai Basketball",
+                  "price": 2.38
+                },
+                {
+                  "name": "Pallacanestro Olimpia Milano",
+                  "price": 1.58
+                }
+              ]
+            },
+            {
+              "key": "spreads",
+              "last_update": "2026-02-09T10:17:17Z",
+              "outcomes": [
+                {
+                  "name": "Dubai Basketball",
+                  "point": 2.5,
+                  "price": 2.02
+                },
+                {
+                  "name": "Pallacanestro Olimpia Milano",
+                  "point": -2.5,
+                  "price": 1.75
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2026-02-09T10:17:17Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "point": 170.5,
+                  "price": 1.82
+                },
+                {
+                  "name": "Under",
+                  "point": 170.5,
+                  "price": 1.95
+                }
+              ]
+            }
+          ],
+          "title": "Betsson"
+        },
+        {
+          "key": "betfair_ex_uk",
+          "last_update": "2026-02-09T10:18:04Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:18:04Z",
+              "outcomes": [
+                {
+                  "name": "Dubai Basketball",
+                  "price": 1.01
+                },
+                {
+                  "name": "Pallacanestro Olimpia Milano",
+                  "price": 1.01
+                }
+              ]
+            },
+            {
+              "key": "h2h_lay",
+              "last_update": "2026-02-09T10:18:04Z",
+              "outcomes": [
+                {
+                  "name": "Dubai Basketball",
+                  "price": 300.0
+                },
+                {
+                  "name": "Pallacanestro Olimpia Milano",
+                  "price": 300.0
+                }
+              ]
+            }
+          ],
+          "title": "Betfair"
+        },
+        {
+          "key": "betfair_ex_eu",
+          "last_update": "2026-02-09T10:17:47Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:17:47Z",
+              "outcomes": [
+                {
+                  "name": "Dubai Basketball",
+                  "price": 1.01
+                },
+                {
+                  "name": "Pallacanestro Olimpia Milano",
+                  "price": 1.01
+                }
+              ]
+            },
+            {
+              "key": "h2h_lay",
+              "last_update": "2026-02-09T10:17:47Z",
+              "outcomes": [
+                {
+                  "name": "Dubai Basketball",
+                  "price": 300.0
+                },
+                {
+                  "name": "Pallacanestro Olimpia Milano",
+                  "price": 300.0
+                }
+              ]
+            }
+          ],
+          "title": "Betfair"
+        },
+        {
+          "key": "gtbets",
+          "last_update": "2026-02-09T10:17:31Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:17:31Z",
+              "outcomes": [
+                {
+                  "name": "Dubai Basketball",
+                  "price": 2.32
+                },
+                {
+                  "name": "Pallacanestro Olimpia Milano",
+                  "price": 1.62
+                }
+              ]
+            },
+            {
+              "key": "spreads",
+              "last_update": "2026-02-09T10:17:31Z",
+              "outcomes": [
+                {
+                  "name": "Dubai Basketball",
+                  "point": 3.0,
+                  "price": 1.87
+                },
+                {
+                  "name": "Pallacanestro Olimpia Milano",
+                  "point": -3.0,
+                  "price": 1.89
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2026-02-09T10:17:31Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "point": 171.5,
+                  "price": 1.88
+                },
+                {
+                  "name": "Under",
+                  "point": 171.5,
+                  "price": 1.88
+                }
+              ]
+            }
+          ],
+          "title": "GTbets"
+        },
+        {
+          "key": "marathonbet",
+          "last_update": "2026-02-09T10:18:04Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:18:04Z",
+              "outcomes": [
+                {
+                  "name": "Dubai Basketball",
+                  "price": 2.3
+                },
+                {
+                  "name": "Pallacanestro Olimpia Milano",
+                  "price": 1.64
+                }
+              ]
+            }
+          ],
+          "title": "Marathon Bet"
+        },
+        {
+          "key": "boylesports",
+          "last_update": "2026-02-09T10:12:16Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:12:16Z",
+              "outcomes": [
+                {
+                  "name": "Dubai Basketball",
+                  "price": 2.38
+                },
+                {
+                  "name": "Pallacanestro Olimpia Milano",
+                  "price": 1.62
+                }
+              ]
+            }
+          ],
+          "title": "BoyleSports"
+        },
+        {
+          "key": "coral",
+          "last_update": "2026-02-09T10:17:48Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:17:48Z",
+              "outcomes": [
+                {
+                  "name": "Dubai Basketball",
+                  "price": 2.25
+                },
+                {
+                  "name": "Pallacanestro Olimpia Milano",
+                  "price": 1.55
+                }
+              ]
+            },
+            {
+              "key": "spreads",
+              "last_update": "2026-02-09T10:17:48Z",
+              "outcomes": [
+                {
+                  "name": "Dubai Basketball",
+                  "point": 3.5,
+                  "price": 1.83
+                },
+                {
+                  "name": "Pallacanestro Olimpia Milano",
+                  "point": -3.5,
+                  "price": 1.85
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2026-02-09T10:17:48Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "point": 171.5,
+                  "price": 1.83
+                },
+                {
+                  "name": "Under",
+                  "point": 171.5,
+                  "price": 1.83
+                }
+              ]
+            }
+          ],
+          "title": "Coral"
+        },
+        {
+          "key": "betmgm",
+          "last_update": "2026-02-09T10:17:17Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:17:17Z",
+              "outcomes": [
+                {
+                  "name": "Dubai Basketball",
+                  "price": 2.35
+                },
+                {
+                  "name": "Pallacanestro Olimpia Milano",
+                  "price": 1.61
+                }
+              ]
+            },
+            {
+              "key": "spreads",
+              "last_update": "2026-02-09T10:17:17Z",
+              "outcomes": [
+                {
+                  "name": "Dubai Basketball",
+                  "point": 3.5,
+                  "price": 1.87
+                },
+                {
+                  "name": "Pallacanestro Olimpia Milano",
+                  "point": -3.5,
+                  "price": 1.91
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2026-02-09T10:17:17Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "point": 171.5,
+                  "price": 1.91
+                },
+                {
+                  "name": "Under",
+                  "point": 171.5,
+                  "price": 1.91
+                }
+              ]
+            }
+          ],
+          "title": "BetMGM"
+        }
+      ],
+      "commence_time": "2026-02-13T19:30:00Z",
+      "home_team": "Pallacanestro Olimpia Milano",
+      "id": "6f7f5e3e599729744447546ec59cd3bf",
+      "sport_key": "basketball_euroleague",
+      "sport_title": "Basketball Euroleague"
+    },
+    {
+      "away_team": "Real Madrid",
+      "bookmakers": [
+        {
+          "key": "coolbet",
+          "last_update": "2026-02-09T10:18:05Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:18:05Z",
+              "outcomes": [
+                {
+                  "name": "KK Partizan NIS",
+                  "price": 2.85
+                },
+                {
+                  "name": "Real Madrid",
+                  "price": 1.43
+                }
+              ]
+            },
+            {
+              "key": "spreads",
+              "last_update": "2026-02-09T10:18:05Z",
+              "outcomes": [
+                {
+                  "name": "KK Partizan NIS",
+                  "point": 5.5,
+                  "price": 1.91
+                },
+                {
+                  "name": "Real Madrid",
+                  "point": -5.5,
+                  "price": 1.91
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2026-02-09T10:18:05Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "point": 171.5,
+                  "price": 1.95
+                },
+                {
+                  "name": "Under",
+                  "point": 171.5,
+                  "price": 1.87
+                }
+              ]
+            }
+          ],
+          "title": "Coolbet"
+        },
+        {
+          "key": "unibet_uk",
+          "last_update": "2026-02-09T10:17:47Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:17:47Z",
+              "outcomes": [
+                {
+                  "name": "KK Partizan NIS",
+                  "price": 2.85
+                },
+                {
+                  "name": "Real Madrid",
+                  "price": 1.44
+                }
+              ]
+            }
+          ],
+          "title": "Unibet (UK)"
+        },
+        {
+          "key": "parionssport_fr",
+          "last_update": "2026-02-09T10:17:48Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:17:48Z",
+              "outcomes": [
+                {
+                  "name": "KK Partizan NIS",
+                  "price": 2.55
+                },
+                {
+                  "name": "Real Madrid",
+                  "price": 1.37
+                }
+              ]
+            }
+          ],
+          "title": "Parions Sport (FR)"
+        },
+        {
+          "key": "onexbet",
+          "last_update": "2026-02-09T10:17:50Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:17:50Z",
+              "outcomes": [
+                {
+                  "name": "KK Partizan NIS",
+                  "price": 2.92
+                },
+                {
+                  "name": "Real Madrid",
+                  "price": 1.44
+                }
+              ]
+            },
+            {
+              "key": "spreads",
+              "last_update": "2026-02-09T10:17:50Z",
+              "outcomes": [
+                {
+                  "name": "KK Partizan NIS",
+                  "point": 5.5,
+                  "price": 1.95
+                },
+                {
+                  "name": "Real Madrid",
+                  "point": -5.5,
+                  "price": 1.91
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2026-02-09T10:17:50Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "point": 170.5,
+                  "price": 1.9
+                },
+                {
+                  "name": "Under",
+                  "point": 170.5,
+                  "price": 1.96
+                }
+              ]
+            }
+          ],
+          "title": "1xBet"
+        },
+        {
+          "key": "fanduel",
+          "last_update": "2026-02-09T10:18:03Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:18:03Z",
+              "outcomes": [
+                {
+                  "name": "KK Partizan NIS",
+                  "price": 2.88
+                },
+                {
+                  "name": "Real Madrid",
+                  "price": 1.43
+                }
+              ]
+            },
+            {
+              "key": "spreads",
+              "last_update": "2026-02-09T10:18:03Z",
+              "outcomes": [
+                {
+                  "name": "KK Partizan NIS",
+                  "point": 5.5,
+                  "price": 1.88
+                },
+                {
+                  "name": "Real Madrid",
+                  "point": -5.5,
+                  "price": 1.93
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2026-02-09T10:18:03Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "point": 171.5,
+                  "price": 1.91
+                },
+                {
+                  "name": "Under",
+                  "point": 171.5,
+                  "price": 1.91
+                }
+              ]
+            }
+          ],
+          "title": "FanDuel"
+        },
+        {
+          "key": "mybookieag",
+          "last_update": "2026-02-09T10:18:04Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:18:04Z",
+              "outcomes": [
+                {
+                  "name": "KK Partizan NIS",
+                  "price": 2.71
+                },
+                {
+                  "name": "Real Madrid",
+                  "price": 1.41
+                }
+              ]
+            },
+            {
+              "key": "spreads",
+              "last_update": "2026-02-09T10:18:04Z",
+              "outcomes": [
+                {
+                  "name": "KK Partizan NIS",
+                  "point": 5.5,
+                  "price": 1.84
+                },
+                {
+                  "name": "Real Madrid",
+                  "point": -5.5,
+                  "price": 1.87
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2026-02-09T10:18:04Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "point": 171.5,
+                  "price": 1.86
+                },
+                {
+                  "name": "Under",
+                  "point": 171.5,
+                  "price": 1.85
+                }
+              ]
+            }
+          ],
+          "title": "MyBookie.ag"
+        },
+        {
+          "key": "paddypower",
+          "last_update": "2026-02-09T10:17:47Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:17:47Z",
+              "outcomes": [
+                {
+                  "name": "KK Partizan NIS",
+                  "price": 2.75
+                },
+                {
+                  "name": "Real Madrid",
+                  "price": 1.4
+                }
+              ]
+            }
+          ],
+          "title": "Paddy Power"
+        },
+        {
+          "key": "winamax_fr",
+          "last_update": "2026-02-09T10:17:31Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:17:31Z",
+              "outcomes": [
+                {
+                  "name": "KK Partizan NIS",
+                  "price": 2.4
+                },
+                {
+                  "name": "Real Madrid",
+                  "price": 1.33
+                }
+              ]
+            }
+          ],
+          "title": "Winamax (FR)"
+        },
+        {
+          "key": "winamax_de",
+          "last_update": "2026-02-09T10:17:32Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:17:32Z",
+              "outcomes": [
+                {
+                  "name": "KK Partizan NIS",
+                  "price": 2.7
+                },
+                {
+                  "name": "Real Madrid",
+                  "price": 1.41
+                }
+              ]
+            }
+          ],
+          "title": "Winamax (DE)"
+        },
+        {
+          "key": "williamhill",
+          "last_update": "2026-02-09T10:17:48Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:17:48Z",
+              "outcomes": [
+                {
+                  "name": "KK Partizan NIS",
+                  "price": 2.9
+                },
+                {
+                  "name": "Real Madrid",
+                  "price": 1.43
+                }
+              ]
+            }
+          ],
+          "title": "William Hill"
+        },
+        {
+          "key": "nordicbet",
+          "last_update": "2026-02-09T10:18:04Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:18:04Z",
+              "outcomes": [
+                {
+                  "name": "KK Partizan NIS",
+                  "price": 2.85
+                },
+                {
+                  "name": "Real Madrid",
+                  "price": 1.44
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2026-02-09T10:18:04Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "point": 170.5,
+                  "price": 1.8
+                },
+                {
+                  "name": "Under",
+                  "point": 170.5,
+                  "price": 1.95
+                }
+              ]
+            }
+          ],
+          "title": "Nordic Bet"
+        },
+        {
+          "key": "betsson",
+          "last_update": "2026-02-09T10:17:17Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:17:17Z",
+              "outcomes": [
+                {
+                  "name": "KK Partizan NIS",
+                  "price": 2.85
+                },
+                {
+                  "name": "Real Madrid",
+                  "price": 1.44
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2026-02-09T10:17:17Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "point": 170.5,
+                  "price": 1.8
+                },
+                {
+                  "name": "Under",
+                  "point": 170.5,
+                  "price": 1.95
+                }
+              ]
+            }
+          ],
+          "title": "Betsson"
+        },
+        {
+          "key": "betfair_ex_uk",
+          "last_update": "2026-02-09T10:18:04Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:18:04Z",
+              "outcomes": [
+                {
+                  "name": "KK Partizan NIS",
+                  "price": 1.01
+                },
+                {
+                  "name": "Real Madrid",
+                  "price": 1.01
+                }
+              ]
+            },
+            {
+              "key": "h2h_lay",
+              "last_update": "2026-02-09T10:18:04Z",
+              "outcomes": [
+                {
+                  "name": "KK Partizan NIS",
+                  "price": 300.0
+                },
+                {
+                  "name": "Real Madrid",
+                  "price": 300.0
+                }
+              ]
+            }
+          ],
+          "title": "Betfair"
+        },
+        {
+          "key": "betfair_ex_eu",
+          "last_update": "2026-02-09T10:17:47Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:17:47Z",
+              "outcomes": [
+                {
+                  "name": "KK Partizan NIS",
+                  "price": 1.01
+                },
+                {
+                  "name": "Real Madrid",
+                  "price": 1.01
+                }
+              ]
+            },
+            {
+              "key": "h2h_lay",
+              "last_update": "2026-02-09T10:17:47Z",
+              "outcomes": [
+                {
+                  "name": "KK Partizan NIS",
+                  "price": 300.0
+                },
+                {
+                  "name": "Real Madrid",
+                  "price": 300.0
+                }
+              ]
+            }
+          ],
+          "title": "Betfair"
+        },
+        {
+          "key": "gtbets",
+          "last_update": "2026-02-09T10:17:31Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:17:31Z",
+              "outcomes": [
+                {
+                  "name": "KK Partizan NIS",
+                  "price": 2.81
+                },
+                {
+                  "name": "Real Madrid",
+                  "price": 1.41
+                }
+              ]
+            },
+            {
+              "key": "spreads",
+              "last_update": "2026-02-09T10:17:31Z",
+              "outcomes": [
+                {
+                  "name": "KK Partizan NIS",
+                  "point": 5.5,
+                  "price": 1.88
+                },
+                {
+                  "name": "Real Madrid",
+                  "point": -5.5,
+                  "price": 1.88
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2026-02-09T10:17:31Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "point": 171.5,
+                  "price": 1.89
+                },
+                {
+                  "name": "Under",
+                  "point": 171.5,
+                  "price": 1.86
+                }
+              ]
+            }
+          ],
+          "title": "GTbets"
+        },
+        {
+          "key": "marathonbet",
+          "last_update": "2026-02-09T10:18:04Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:18:04Z",
+              "outcomes": [
+                {
+                  "name": "KK Partizan NIS",
+                  "price": 2.9
+                },
+                {
+                  "name": "Real Madrid",
+                  "price": 1.43
+                }
+              ]
+            }
+          ],
+          "title": "Marathon Bet"
+        },
+        {
+          "key": "boylesports",
+          "last_update": "2026-02-09T10:12:16Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:12:16Z",
+              "outcomes": [
+                {
+                  "name": "KK Partizan NIS",
+                  "price": 2.88
+                },
+                {
+                  "name": "Real Madrid",
+                  "price": 1.44
+                }
+              ]
+            }
+          ],
+          "title": "BoyleSports"
+        },
+        {
+          "key": "betmgm",
+          "last_update": "2026-02-09T10:17:17Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:17:17Z",
+              "outcomes": [
+                {
+                  "name": "KK Partizan NIS",
+                  "price": 2.85
+                },
+                {
+                  "name": "Real Madrid",
+                  "price": 1.44
+                }
+              ]
+            },
+            {
+              "key": "spreads",
+              "last_update": "2026-02-09T10:17:17Z",
+              "outcomes": [
+                {
+                  "name": "KK Partizan NIS",
+                  "point": 5.5,
+                  "price": 1.95
+                },
+                {
+                  "name": "Real Madrid",
+                  "point": -5.5,
+                  "price": 1.83
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2026-02-09T10:17:17Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "point": 171.5,
+                  "price": 1.91
+                },
+                {
+                  "name": "Under",
+                  "point": 171.5,
+                  "price": 1.91
+                }
+              ]
+            }
+          ],
+          "title": "BetMGM"
+        },
+        {
+          "key": "coral",
+          "last_update": "2026-02-09T10:17:48Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-02-09T10:17:48Z",
+              "outcomes": [
+                {
+                  "name": "KK Partizan NIS",
+                  "price": 2.7
+                },
+                {
+                  "name": "Real Madrid",
+                  "price": 1.4
+                }
+              ]
+            },
+            {
+              "key": "spreads",
+              "last_update": "2026-02-09T10:17:48Z",
+              "outcomes": [
+                {
+                  "name": "KK Partizan NIS",
+                  "point": 5.5,
+                  "price": 1.91
+                },
+                {
+                  "name": "Real Madrid",
+                  "point": -5.5,
+                  "price": 1.8
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2026-02-09T10:17:48Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "point": 171.5,
+                  "price": 1.83
+                },
+                {
+                  "name": "Under",
+                  "point": 171.5,
+                  "price": 1.83
+                }
+              ]
+            }
+          ],
+          "title": "Coral"
+        }
+      ],
+      "commence_time": "2026-02-13T19:30:00Z",
+      "home_team": "KK Partizan NIS",
+      "id": "c02ebba5e6c91a9eb2f918b6ff608c04",
+      "sport_key": "basketball_euroleague",
+      "sport_title": "Basketball Euroleague"
+    }
+  ],
+  "sport_key": "basketball_euroleague"
+}

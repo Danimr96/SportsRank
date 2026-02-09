@@ -1,0 +1,113 @@
+soccer_epl:
+  app_slug: soccer
+  league: EPL
+  allow_daily: true
+  allow_weekly: true
+
+soccer_spain_la_liga:
+  app_slug: soccer
+  league: La Liga
+  allow_daily: true
+  allow_weekly: true
+
+soccer_uefa_champs_league:
+  app_slug: soccer
+  league: UEFA Champions League
+  allow_daily: true
+  allow_weekly: true
+
+soccer_italy_serie_a:
+  app_slug: soccer
+  league: Serie A
+  allow_daily: true
+  allow_weekly: true
+
+soccer_germany_bundesliga:
+  app_slug: soccer
+  league: Bundesliga
+  allow_daily: true
+  allow_weekly: true
+
+soccer_usa_mls:
+  app_slug: soccer
+  league: MLS
+  allow_daily: true
+  allow_weekly: true
+
+basketball_nba:
+  app_slug: basketball
+  league: NBA
+  allow_daily: true
+  allow_weekly: true
+
+basketball_euroleague:
+  app_slug: basketball
+  league: Euroleague
+  allow_daily: true
+  allow_weekly: true
+
+basketball_ncaab:
+  app_slug: basketball
+  league: NCAAB
+  allow_daily: true
+  allow_weekly: true
+
+americanfootball_nfl:
+  app_slug: american-football
+  league: NFL
+  allow_daily: true
+  allow_weekly: true
+
+baseball_mlb:
+  app_slug: baseball
+  league: MLB
+  allow_daily: true
+  allow_weekly: true
+
+icehockey_nhl:
+  app_slug: hockey
+  league: NHL
+  allow_daily: true
+  allow_weekly: true
+
+mma_mixed_martial_arts:
+  app_slug: combat
+  league: MMA
+  allow_daily: true
+  allow_weekly: true
+
+boxing_boxing:
+  app_slug: combat
+  league: Boxing
+  allow_daily: true
+  allow_weekly: true
+
+tennis_atp_aus_open_singles:
+  app_slug: tennis
+  league: ATP Australian Open Singles
+  allow_daily: true
+  allow_weekly: true
+
+tennis_wta_aus_open_singles:
+  app_slug: tennis
+  league: WTA Australian Open Singles
+  allow_daily: true
+  allow_weekly: true
+
+motorsport_f1_winner:
+  app_slug: motor
+  league: Formula 1
+  allow_daily: true
+  allow_weekly: true
+
+motorsport_nascar_cup:
+  app_slug: motor
+  league: NASCAR Cup
+  allow_daily: true
+  allow_weekly: true
+
+golf_the_masters_tournament_winner:
+  app_slug: golf
+  league: The Masters
+  allow_daily: true
+  allow_weekly: true

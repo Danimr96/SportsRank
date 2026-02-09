@@ -1,0 +1,836 @@
+{
+  "round_id": "fa9e00eb-1c1a-4391-9d4a-84389f7c50c2",
+  "picks": [
+    {
+      "sport_slug": "soccer",
+      "title": "[DAILY] Atalanta BC vs Cremonese - spreads",
+      "description": "regions=eu,uk,us | bookmaker=betanysports",
+      "order_index": 0,
+      "options": [
+        {
+          "label": "Atalanta BC -1.5",
+          "odds": 2.04
+        },
+        {
+          "label": "Cremonese 1.5",
+          "odds": 1.81
+        }
+      ],
+      "metadata": {
+        "league": "Serie A - Italy",
+        "event": "Atalanta BC vs Cremonese",
+        "start_time": "2026-02-09T17:30:00Z"
+      }
+    },
+    {
+      "sport_slug": "soccer",
+      "title": "[DAILY] AS Roma vs Cagliari - totals",
+      "description": "regions=eu,uk,us | bookmaker=betanysports",
+      "order_index": 1,
+      "options": [
+        {
+          "label": "Over 2.25",
+          "odds": 1.83
+        },
+        {
+          "label": "Under 2.25",
+          "odds": 2.0
+        }
+      ],
+      "metadata": {
+        "league": "Serie A - Italy",
+        "event": "AS Roma vs Cagliari",
+        "start_time": "2026-02-09T19:45:00Z"
+      }
+    },
+    {
+      "sport_slug": "soccer",
+      "title": "[DAILY] Villarreal vs Espanyol - spreads",
+      "description": "regions=eu,uk,us | bookmaker=betonlineag",
+      "order_index": 2,
+      "options": [
+        {
+          "label": "Espanyol 0.75",
+          "odds": 1.91
+        },
+        {
+          "label": "Villarreal -0.75",
+          "odds": 1.91
+        }
+      ],
+      "metadata": {
+        "league": "La Liga - Spain",
+        "event": "Villarreal vs Espanyol",
+        "start_time": "2026-02-09T20:00:00Z"
+      }
+    },
+    {
+      "sport_slug": "soccer",
+      "title": "[DAILY] AS Roma vs Cagliari - spreads",
+      "description": "regions=eu,uk,us | bookmaker=betanysports",
+      "order_index": 3,
+      "options": [
+        {
+          "label": "AS Roma -1",
+          "odds": 1.85
+        },
+        {
+          "label": "Cagliari 1",
+          "odds": 1.97
+        }
+      ],
+      "metadata": {
+        "league": "Serie A - Italy",
+        "event": "AS Roma vs Cagliari",
+        "start_time": "2026-02-09T19:45:00Z"
+      }
+    },
+    {
+      "sport_slug": "soccer",
+      "title": "[DAILY] Atalanta BC vs Cremonese - totals",
+      "description": "regions=eu,uk,us | bookmaker=betanysports",
+      "order_index": 4,
+      "options": [
+        {
+          "label": "Over 2.75",
+          "odds": 1.93
+        },
+        {
+          "label": "Under 2.75",
+          "odds": 1.88
+        }
+      ],
+      "metadata": {
+        "league": "Serie A - Italy",
+        "event": "Atalanta BC vs Cremonese",
+        "start_time": "2026-02-09T17:30:00Z"
+      }
+    },
+    {
+      "sport_slug": "basketball",
+      "title": "[DAILY] Minnesota Timberwolves vs Atlanta Hawks - h2h",
+      "description": "regions=eu,uk,us | bookmaker=betclic_fr",
+      "order_index": 5,
+      "options": [
+        {
+          "label": "Atlanta Hawks",
+          "odds": 3.07
+        },
+        {
+          "label": "Minnesota Timberwolves",
+          "odds": 1.38
+        }
+      ],
+      "metadata": {
+        "league": "NBA",
+        "event": "Minnesota Timberwolves vs Atlanta Hawks",
+        "start_time": "2026-02-10T01:10:00Z"
+      }
+    },
+    {
+      "sport_slug": "basketball",
+      "title": "[DAILY] New Orleans Pelicans vs Sacramento Kings - h2h",
+      "description": "regions=eu,uk,us | bookmaker=betclic_fr",
+      "order_index": 6,
+      "options": [
+        {
+          "label": "New Orleans Pelicans",
+          "odds": 1.37
+        },
+        {
+          "label": "Sacramento Kings",
+          "odds": 3.13
+        }
+      ],
+      "metadata": {
+        "league": "NBA",
+        "event": "New Orleans Pelicans vs Sacramento Kings",
+        "start_time": "2026-02-10T01:10:00Z"
+      }
+    },
+    {
+      "sport_slug": "basketball",
+      "title": "[DAILY] Los Angeles Lakers vs Oklahoma City Thunder - h2h",
+      "description": "regions=eu,uk,us | bookmaker=betclic_fr",
+      "order_index": 7,
+      "options": [
+        {
+          "label": "Los Angeles Lakers",
+          "odds": 2.8
+        },
+        {
+          "label": "Oklahoma City Thunder",
+          "odds": 1.44
+        }
+      ],
+      "metadata": {
+        "league": "NBA",
+        "event": "Los Angeles Lakers vs Oklahoma City Thunder",
+        "start_time": "2026-02-10T03:10:00Z"
+      }
+    },
+    {
+      "sport_slug": "basketball",
+      "title": "[DAILY] Golden State Warriors vs Memphis Grizzlies - h2h",
+      "description": "regions=eu,uk,us | bookmaker=betclic_fr",
+      "order_index": 8,
+      "options": [
+        {
+          "label": "Golden State Warriors",
+          "odds": 1.33
+        },
+        {
+          "label": "Memphis Grizzlies",
+          "odds": 3.37
+        }
+      ],
+      "metadata": {
+        "league": "NBA",
+        "event": "Golden State Warriors vs Memphis Grizzlies",
+        "start_time": "2026-02-10T03:10:00Z"
+      }
+    },
+    {
+      "sport_slug": "basketball",
+      "title": "[DAILY] Portland Trail Blazers vs Philadelphia 76ers - h2h",
+      "description": "regions=eu,uk,us | bookmaker=betclic_fr",
+      "order_index": 9,
+      "options": [
+        {
+          "label": "Philadelphia 76ers",
+          "odds": 1.56
+        },
+        {
+          "label": "Portland Trail Blazers",
+          "odds": 2.43
+        }
+      ],
+      "metadata": {
+        "league": "NBA",
+        "event": "Portland Trail Blazers vs Philadelphia 76ers",
+        "start_time": "2026-02-10T03:10:00Z"
+      }
+    },
+    {
+      "sport_slug": "soccer",
+      "title": "[DAILY] Villarreal vs Espanyol - totals",
+      "description": "regions=eu,uk,us | bookmaker=betmgm",
+      "order_index": 10,
+      "options": [
+        {
+          "label": "Over 2.5",
+          "odds": 1.74
+        },
+        {
+          "label": "Under 2.5",
+          "odds": 1.98
+        }
+      ],
+      "metadata": {
+        "league": "La Liga - Spain",
+        "event": "Villarreal vs Espanyol",
+        "start_time": "2026-02-09T20:00:00Z"
+      }
+    },
+    {
+      "sport_slug": "soccer",
+      "title": "[DAILY] Villarreal vs Espanyol - h2h",
+      "description": "regions=eu,uk,us | bookmaker=betclic_fr",
+      "order_index": 11,
+      "options": [
+        {
+          "label": "Espanyol",
+          "odds": 4.55
+        },
+        {
+          "label": "Villarreal",
+          "odds": 1.67
+        },
+        {
+          "label": "Draw",
+          "odds": 4.15
+        }
+      ],
+      "metadata": {
+        "league": "La Liga - Spain",
+        "event": "Villarreal vs Espanyol",
+        "start_time": "2026-02-09T20:00:00Z"
+      }
+    },
+    {
+      "sport_slug": "soccer",
+      "title": "[DAILY] AS Roma vs Cagliari - h2h",
+      "description": "regions=eu,uk,us | bookmaker=betanysports",
+      "order_index": 12,
+      "options": [
+        {
+          "label": "AS Roma",
+          "odds": 1.49
+        },
+        {
+          "label": "Cagliari",
+          "odds": 8.0
+        },
+        {
+          "label": "Draw",
+          "odds": 4.2
+        }
+      ],
+      "metadata": {
+        "league": "Serie A - Italy",
+        "event": "AS Roma vs Cagliari",
+        "start_time": "2026-02-09T19:45:00Z"
+      }
+    },
+    {
+      "sport_slug": "soccer",
+      "title": "[DAILY] Atalanta BC vs Cremonese - h2h",
+      "description": "regions=eu,uk,us | bookmaker=betanysports",
+      "order_index": 13,
+      "options": [
+        {
+          "label": "Atalanta BC",
+          "odds": 1.35
+        },
+        {
+          "label": "Cremonese",
+          "odds": 9.31
+        },
+        {
+          "label": "Draw",
+          "odds": 5.25
+        }
+      ],
+      "metadata": {
+        "league": "Serie A - Italy",
+        "event": "Atalanta BC vs Cremonese",
+        "start_time": "2026-02-09T17:30:00Z"
+      }
+    },
+    {
+      "sport_slug": "basketball",
+      "title": "[DAILY] Brooklyn Nets vs Chicago Bulls - h2h",
+      "description": "regions=eu,uk,us | bookmaker=betclic_fr",
+      "order_index": 14,
+      "options": [
+        {
+          "label": "Brooklyn Nets",
+          "odds": 2.37
+        },
+        {
+          "label": "Chicago Bulls",
+          "odds": 1.59
+        }
+      ],
+      "metadata": {
+        "league": "NBA",
+        "event": "Brooklyn Nets vs Chicago Bulls",
+        "start_time": "2026-02-10T00:40:00Z"
+      }
+    },
+    {
+      "sport_slug": "basketball",
+      "title": "[DAILY] Charlotte Hornets vs Detroit Pistons - h2h",
+      "description": "regions=eu,uk,us | bookmaker=betclic_fr",
+      "order_index": 15,
+      "options": [
+        {
+          "label": "Charlotte Hornets",
+          "odds": 2.3
+        },
+        {
+          "label": "Detroit Pistons",
+          "odds": 1.62
+        }
+      ],
+      "metadata": {
+        "league": "NBA",
+        "event": "Charlotte Hornets vs Detroit Pistons",
+        "start_time": "2026-02-10T00:10:00Z"
+      }
+    },
+    {
+      "sport_slug": "basketball",
+      "title": "[DAILY] Miami Heat vs Utah Jazz - totals",
+      "description": "regions=eu,uk,us | bookmaker=betanysports",
+      "order_index": 16,
+      "options": [
+        {
+          "label": "Over 242.5",
+          "odds": 1.91
+        },
+        {
+          "label": "Under 242.5",
+          "odds": 1.91
+        }
+      ],
+      "metadata": {
+        "league": "NBA",
+        "event": "Miami Heat vs Utah Jazz",
+        "start_time": "2026-02-10T00:40:00Z"
+      }
+    },
+    {
+      "sport_slug": "basketball",
+      "title": "[DAILY] Orlando Magic vs Milwaukee Bucks - spreads",
+      "description": "regions=eu,uk,us | bookmaker=betanysports",
+      "order_index": 17,
+      "options": [
+        {
+          "label": "Milwaukee Bucks 9.5",
+          "odds": 1.91
+        },
+        {
+          "label": "Orlando Magic -9.5",
+          "odds": 1.91
+        }
+      ],
+      "metadata": {
+        "league": "NBA",
+        "event": "Orlando Magic vs Milwaukee Bucks",
+        "start_time": "2026-02-10T00:40:00Z"
+      }
+    },
+    {
+      "sport_slug": "basketball",
+      "title": "[DAILY] Denver Nuggets vs Cleveland Cavaliers - totals",
+      "description": "regions=eu,uk,us | bookmaker=betanysports",
+      "order_index": 18,
+      "options": [
+        {
+          "label": "Over 235.5",
+          "odds": 1.91
+        },
+        {
+          "label": "Under 235.5",
+          "odds": 1.91
+        }
+      ],
+      "metadata": {
+        "league": "NBA",
+        "event": "Denver Nuggets vs Cleveland Cavaliers",
+        "start_time": "2026-02-10T02:10:00Z"
+      }
+    },
+    {
+      "sport_slug": "basketball",
+      "title": "[DAILY] Charlotte Hornets vs Detroit Pistons - totals",
+      "description": "regions=eu,uk,us | bookmaker=betanysports",
+      "order_index": 19,
+      "options": [
+        {
+          "label": "Over 223",
+          "odds": 1.91
+        },
+        {
+          "label": "Under 223",
+          "odds": 1.91
+        }
+      ],
+      "metadata": {
+        "league": "NBA",
+        "event": "Charlotte Hornets vs Detroit Pistons",
+        "start_time": "2026-02-10T00:10:00Z"
+      }
+    },
+    {
+      "sport_slug": "basketball",
+      "title": "[DAILY] Brooklyn Nets vs Chicago Bulls - spreads",
+      "description": "regions=eu,uk,us | bookmaker=betanysports",
+      "order_index": 20,
+      "options": [
+        {
+          "label": "Brooklyn Nets 3.5",
+          "odds": 1.91
+        },
+        {
+          "label": "Chicago Bulls -3.5",
+          "odds": 1.91
+        }
+      ],
+      "metadata": {
+        "league": "NBA",
+        "event": "Brooklyn Nets vs Chicago Bulls",
+        "start_time": "2026-02-10T00:40:00Z"
+      }
+    },
+    {
+      "sport_slug": "basketball",
+      "title": "[DAILY] Orlando Magic vs Milwaukee Bucks - totals",
+      "description": "regions=eu,uk,us | bookmaker=betanysports",
+      "order_index": 21,
+      "options": [
+        {
+          "label": "Over 219",
+          "odds": 1.91
+        },
+        {
+          "label": "Under 219",
+          "odds": 1.91
+        }
+      ],
+      "metadata": {
+        "league": "NBA",
+        "event": "Orlando Magic vs Milwaukee Bucks",
+        "start_time": "2026-02-10T00:40:00Z"
+      }
+    },
+    {
+      "sport_slug": "basketball",
+      "title": "[DAILY] Miami Heat vs Utah Jazz - spreads",
+      "description": "regions=eu,uk,us | bookmaker=betanysports",
+      "order_index": 22,
+      "options": [
+        {
+          "label": "Miami Heat -8.5",
+          "odds": 1.91
+        },
+        {
+          "label": "Utah Jazz 8.5",
+          "odds": 1.91
+        }
+      ],
+      "metadata": {
+        "league": "NBA",
+        "event": "Miami Heat vs Utah Jazz",
+        "start_time": "2026-02-10T00:40:00Z"
+      }
+    },
+    {
+      "sport_slug": "basketball",
+      "title": "[DAILY] Minnesota Timberwolves vs Atlanta Hawks - totals",
+      "description": "regions=eu,uk,us | bookmaker=betanysports",
+      "order_index": 23,
+      "options": [
+        {
+          "label": "Over 237",
+          "odds": 1.91
+        },
+        {
+          "label": "Under 237",
+          "odds": 1.91
+        }
+      ],
+      "metadata": {
+        "league": "NBA",
+        "event": "Minnesota Timberwolves vs Atlanta Hawks",
+        "start_time": "2026-02-10T01:10:00Z"
+      }
+    },
+    {
+      "sport_slug": "basketball",
+      "title": "[DAILY] New Orleans Pelicans vs Sacramento Kings - spreads",
+      "description": "regions=eu,uk,us | bookmaker=betanysports",
+      "order_index": 24,
+      "options": [
+        {
+          "label": "New Orleans Pelicans -6.5",
+          "odds": 1.91
+        },
+        {
+          "label": "Sacramento Kings 6.5",
+          "odds": 1.91
+        }
+      ],
+      "metadata": {
+        "league": "NBA",
+        "event": "New Orleans Pelicans vs Sacramento Kings",
+        "start_time": "2026-02-10T01:10:00Z"
+      }
+    },
+    {
+      "sport_slug": "basketball",
+      "title": "[DAILY] Golden State Warriors vs Memphis Grizzlies - totals",
+      "description": "regions=eu,uk,us | bookmaker=betanysports",
+      "order_index": 25,
+      "options": [
+        {
+          "label": "Over 223.5",
+          "odds": 1.91
+        },
+        {
+          "label": "Under 223.5",
+          "odds": 1.91
+        }
+      ],
+      "metadata": {
+        "league": "NBA",
+        "event": "Golden State Warriors vs Memphis Grizzlies",
+        "start_time": "2026-02-10T03:10:00Z"
+      }
+    },
+    {
+      "sport_slug": "basketball",
+      "title": "[DAILY] Denver Nuggets vs Cleveland Cavaliers - spreads",
+      "description": "regions=eu,uk,us | bookmaker=betanysports",
+      "order_index": 26,
+      "options": [
+        {
+          "label": "Cleveland Cavaliers -1",
+          "odds": 1.91
+        },
+        {
+          "label": "Denver Nuggets 1",
+          "odds": 1.91
+        }
+      ],
+      "metadata": {
+        "league": "NBA",
+        "event": "Denver Nuggets vs Cleveland Cavaliers",
+        "start_time": "2026-02-10T02:10:00Z"
+      }
+    },
+    {
+      "sport_slug": "basketball",
+      "title": "[DAILY] Portland Trail Blazers vs Philadelphia 76ers - totals",
+      "description": "regions=eu,uk,us | bookmaker=betanysports",
+      "order_index": 27,
+      "options": [
+        {
+          "label": "Over 230.5",
+          "odds": 1.91
+        },
+        {
+          "label": "Under 230.5",
+          "odds": 1.91
+        }
+      ],
+      "metadata": {
+        "league": "NBA",
+        "event": "Portland Trail Blazers vs Philadelphia 76ers",
+        "start_time": "2026-02-10T03:10:00Z"
+      }
+    },
+    {
+      "sport_slug": "basketball",
+      "title": "[DAILY] Los Angeles Lakers vs Oklahoma City Thunder - spreads",
+      "description": "regions=eu,uk,us | bookmaker=betanysports",
+      "order_index": 28,
+      "options": [
+        {
+          "label": "Los Angeles Lakers 6",
+          "odds": 1.91
+        },
+        {
+          "label": "Oklahoma City Thunder -6",
+          "odds": 1.91
+        }
+      ],
+      "metadata": {
+        "league": "NBA",
+        "event": "Los Angeles Lakers vs Oklahoma City Thunder",
+        "start_time": "2026-02-10T03:10:00Z"
+      }
+    },
+    {
+      "sport_slug": "basketball",
+      "title": "[DAILY] Charlotte Hornets vs Detroit Pistons - spreads",
+      "description": "regions=eu,uk,us | bookmaker=betanysports",
+      "order_index": 29,
+      "options": [
+        {
+          "label": "Charlotte Hornets 3",
+          "odds": 1.91
+        },
+        {
+          "label": "Detroit Pistons -3",
+          "odds": 1.91
+        }
+      ],
+      "metadata": {
+        "league": "NBA",
+        "event": "Charlotte Hornets vs Detroit Pistons",
+        "start_time": "2026-02-10T00:10:00Z"
+      }
+    },
+    {
+      "sport_slug": "basketball",
+      "title": "[DAILY] Brooklyn Nets vs Chicago Bulls - totals",
+      "description": "regions=eu,uk,us | bookmaker=betanysports",
+      "order_index": 30,
+      "options": [
+        {
+          "label": "Over 223.5",
+          "odds": 1.91
+        },
+        {
+          "label": "Under 223.5",
+          "odds": 1.91
+        }
+      ],
+      "metadata": {
+        "league": "NBA",
+        "event": "Brooklyn Nets vs Chicago Bulls",
+        "start_time": "2026-02-10T00:40:00Z"
+      }
+    },
+    {
+      "sport_slug": "basketball",
+      "title": "[DAILY] Minnesota Timberwolves vs Atlanta Hawks - spreads",
+      "description": "regions=eu,uk,us | bookmaker=betanysports",
+      "order_index": 31,
+      "options": [
+        {
+          "label": "Atlanta Hawks 6.5",
+          "odds": 1.91
+        },
+        {
+          "label": "Minnesota Timberwolves -6.5",
+          "odds": 1.91
+        }
+      ],
+      "metadata": {
+        "league": "NBA",
+        "event": "Minnesota Timberwolves vs Atlanta Hawks",
+        "start_time": "2026-02-10T01:10:00Z"
+      }
+    },
+    {
+      "sport_slug": "basketball",
+      "title": "[DAILY] New Orleans Pelicans vs Sacramento Kings - totals",
+      "description": "regions=eu,uk,us | bookmaker=betanysports",
+      "order_index": 32,
+      "options": [
+        {
+          "label": "Over 231.5",
+          "odds": 1.91
+        },
+        {
+          "label": "Under 231.5",
+          "odds": 1.91
+        }
+      ],
+      "metadata": {
+        "league": "NBA",
+        "event": "New Orleans Pelicans vs Sacramento Kings",
+        "start_time": "2026-02-10T01:10:00Z"
+      }
+    },
+    {
+      "sport_slug": "basketball",
+      "title": "[DAILY] Golden State Warriors vs Memphis Grizzlies - spreads",
+      "description": "regions=eu,uk,us | bookmaker=betanysports",
+      "order_index": 33,
+      "options": [
+        {
+          "label": "Golden State Warriors -7",
+          "odds": 1.91
+        },
+        {
+          "label": "Memphis Grizzlies 7",
+          "odds": 1.91
+        }
+      ],
+      "metadata": {
+        "league": "NBA",
+        "event": "Golden State Warriors vs Memphis Grizzlies",
+        "start_time": "2026-02-10T03:10:00Z"
+      }
+    },
+    {
+      "sport_slug": "basketball",
+      "title": "[DAILY] Portland Trail Blazers vs Philadelphia 76ers - spreads",
+      "description": "regions=eu,uk,us | bookmaker=betanysports",
+      "order_index": 34,
+      "options": [
+        {
+          "label": "Philadelphia 76ers -4",
+          "odds": 1.91
+        },
+        {
+          "label": "Portland Trail Blazers 4",
+          "odds": 1.91
+        }
+      ],
+      "metadata": {
+        "league": "NBA",
+        "event": "Portland Trail Blazers vs Philadelphia 76ers",
+        "start_time": "2026-02-10T03:10:00Z"
+      }
+    },
+    {
+      "sport_slug": "basketball",
+      "title": "[DAILY] Los Angeles Lakers vs Oklahoma City Thunder - totals",
+      "description": "regions=eu,uk,us | bookmaker=betanysports",
+      "order_index": 35,
+      "options": [
+        {
+          "label": "Over 219.5",
+          "odds": 1.91
+        },
+        {
+          "label": "Under 219.5",
+          "odds": 1.91
+        }
+      ],
+      "metadata": {
+        "league": "NBA",
+        "event": "Los Angeles Lakers vs Oklahoma City Thunder",
+        "start_time": "2026-02-10T03:10:00Z"
+      }
+    },
+    {
+      "sport_slug": "basketball",
+      "title": "[DAILY] Denver Nuggets vs Cleveland Cavaliers - h2h",
+      "description": "regions=eu,uk,us | bookmaker=betclic_fr",
+      "order_index": 36,
+      "options": [
+        {
+          "label": "Cleveland Cavaliers",
+          "odds": 1.86
+        },
+        {
+          "label": "Denver Nuggets",
+          "odds": 1.95
+        }
+      ],
+      "metadata": {
+        "league": "NBA",
+        "event": "Denver Nuggets vs Cleveland Cavaliers",
+        "start_time": "2026-02-10T02:10:00Z"
+      }
+    },
+    {
+      "sport_slug": "basketball",
+      "title": "[DAILY] Miami Heat vs Utah Jazz - h2h",
+      "description": "regions=eu,uk,us | bookmaker=betclic_fr",
+      "order_index": 37,
+      "options": [
+        {
+          "label": "Miami Heat",
+          "odds": 1.28
+        },
+        {
+          "label": "Utah Jazz",
+          "odds": 3.73
+        }
+      ],
+      "metadata": {
+        "league": "NBA",
+        "event": "Miami Heat vs Utah Jazz",
+        "start_time": "2026-02-10T00:40:00Z"
+      }
+    },
+    {
+      "sport_slug": "basketball",
+      "title": "[DAILY] Orlando Magic vs Milwaukee Bucks - h2h",
+      "description": "regions=eu,uk,us | bookmaker=betclic_fr",
+      "order_index": 38,
+      "options": [
+        {
+          "label": "Milwaukee Bucks",
+          "odds": 4.2
+        },
+        {
+          "label": "Orlando Magic",
+          "odds": 1.23
+        }
+      ],
+      "metadata": {
+        "league": "NBA",
+        "event": "Orlando Magic vs Milwaukee Bucks",
+        "start_time": "2026-02-10T00:40:00Z"
+      }
+    }
+  ]
+}

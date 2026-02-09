@@ -1,0 +1,86 @@
+limits:
+  daily_default_target: 25
+  weekly_default_target: 50
+  daily_max: 50
+  weekly_max: 200
+
+sports:
+  basketball_nba:
+    app_slug: basketball
+    league: NBA
+
+  basketball_euroleague:
+    app_slug: basketball
+    league: Euroleague
+
+  basketball_ncaab:
+    app_slug: basketball
+    league: NCAAB
+
+  americanfootball_nfl:
+    app_slug: american-football
+    league: NFL
+
+  baseball_mlb:
+    app_slug: baseball
+    league: MLB
+
+  icehockey_nhl:
+    app_slug: hockey
+    league: NHL
+
+  mma_mixed_martial_arts:
+    app_slug: combat
+    league: MMA
+
+  boxing_boxing:
+    app_slug: combat
+    league: Boxing
+
+  soccer_epl:
+    app_slug: soccer
+    league: EPL
+
+  soccer_spain_la_liga:
+    app_slug: soccer
+    league: La Liga
+
+  soccer_italy_serie_a:
+    app_slug: soccer
+    league: Serie A
+
+  soccer_germany_bundesliga:
+    app_slug: soccer
+    league: Bundesliga
+
+  soccer_usa_mls:
+    app_slug: soccer
+    league: MLS
+
+  tennis_atp_aus_open_singles:
+    app_slug: tennis
+    league: ATP Australian Open Singles
+
+  tennis_atp_french_open:
+    app_slug: tennis
+    league: ATP French Open
+
+  tennis_wta_aus_open_singles:
+    app_slug: tennis
+    league: WTA Australian Open Singles
+
+  golf_us_open_winner:
+    app_slug: golf
+    league: US Open (Golf)
+
+  golf_the_masters_tournament_winner:
+    app_slug: golf
+    league: The Masters
+
+  motorsport_f1_winner:
+    app_slug: motor
+    league: Formula 1
+
+  motorsport_nascar_cup:
+    app_slug: motor
+    league: NASCAR Cup

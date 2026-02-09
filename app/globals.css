@@ -1,0 +1,117 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 210 44% 97%;
+  --foreground: 224 42% 14%;
+  --card: 0 0% 100%;
+  --card-foreground: 224 42% 14%;
+  --primary: 200 89% 36%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 210 35% 94%;
+  --secondary-foreground: 224 34% 20%;
+  --muted: 210 35% 94%;
+  --muted-foreground: 224 14% 40%;
+  --accent: 158 62% 34%;
+  --accent-foreground: 0 0% 100%;
+  --border: 214 26% 78%;
+  --input: 214 26% 78%;
+  --ring: 200 89% 36%;
+  --destructive: 0 80% 58%;
+  --destructive-foreground: 210 45% 98%;
+  --radius: 1rem;
+}
+
+* {
+  @apply border-border;
+}
+
+@keyframes aurora-shift {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(2%, -2%, 0) scale(1.04);
+  }
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
+body {
+  @apply min-h-screen bg-background text-foreground antialiased;
+  font-family: var(--font-main), "Segoe UI", sans-serif;
+  background:
+    radial-gradient(circle at 14% 8%, rgba(14, 116, 144, 0.2), transparent 34%),
+    radial-gradient(circle at 88% 10%, rgba(91, 33, 182, 0.14), transparent 32%),
+    radial-gradient(circle at 70% 92%, rgba(6, 95, 70, 0.16), transparent 36%),
+    linear-gradient(180deg, #f7f8f6, #eef2f2 52%, #e8efef);
+}
+
+h1,
+h2,
+h3,
+h4,
+.font-display {
+  font-family: var(--font-display), var(--font-main), "Segoe UI", sans-serif;
+  letter-spacing: -0.02em;
+}
+
+::selection {
+  background: rgba(56, 189, 248, 0.35);
+  color: #f8fafc;
+}
+
+.app-shell {
+  position: relative;
+  background:
+    radial-gradient(circle at 10% 10%, rgba(14, 116, 144, 0.22), transparent 34%),
+    radial-gradient(circle at 84% 12%, rgba(109, 40, 217, 0.14), transparent 34%),
+    radial-gradient(circle at 52% 100%, rgba(6, 95, 70, 0.18), transparent 34%),
+    linear-gradient(180deg, #f7f8f6 0%, #eef2f2 52%, #e7efef 100%);
+}
+
+.app-shell::before {
+  content: "";
+  position: fixed;
+  inset: -30%;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.76;
+  filter: blur(52px);
+  background:
+    radial-gradient(circle at 22% 28%, rgba(14, 165, 233, 0.24), transparent 27%),
+    radial-gradient(circle at 78% 24%, rgba(99, 102, 241, 0.18), transparent 30%),
+    radial-gradient(circle at 70% 72%, rgba(5, 150, 105, 0.22), transparent 27%),
+    radial-gradient(circle at 44% 46%, rgba(168, 85, 247, 0.16), transparent 26%);
+  animation: aurora-shift 18s ease-in-out infinite;
+}
+
+.app-shell::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.22;
+  background-image:
+    linear-gradient(rgba(15, 23, 42, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(15, 23, 42, 0.04) 1px, transparent 1px);
+  background-size: 38px 38px;
+  mask-image: radial-gradient(circle at 40% 10%, rgba(0, 0, 0, 1), transparent 72%);
+}
+
+.app-shell > * {
+  position: relative;
+  z-index: 1;
+}
+
+.panel-vibrant {
+  border: 1px solid rgba(100, 116, 139, 0.34);
+  background:
+    linear-gradient(140deg, rgba(255, 255, 255, 0.94), rgba(255, 255, 255, 0.82)),
+    radial-gradient(circle at 20% 8%, rgba(14, 165, 233, 0.24), transparent 44%),
+    radial-gradient(circle at 90% 0%, rgba(99, 102, 241, 0.14), transparent 40%);
+  backdrop-filter: blur(14px);
+}

@@ -1,0 +1,21 @@
+{
+  "fetched_at": "2026-02-09T09:35:25.798557Z",
+  "request_context": {
+    "bookmakers": [],
+    "commenceTimeFrom": "2026-02-09T09:35:25Z",
+    "commenceTimeTo": "2026-02-10T09:35:25Z",
+    "dateFormat": "iso",
+    "markets": [
+      "h2h",
+      "totals",
+      "spreads"
+    ],
+    "oddsFormat": "decimal",
+    "regions": [
+      "eu",
+      "uk"
+    ]
+  },
+  "response": [],
+  "sport_key": "soccer_uefa_champs_league"
+}

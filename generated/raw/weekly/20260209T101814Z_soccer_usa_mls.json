@@ -1,0 +1,22 @@
+{
+  "fetched_at": "2026-02-09T10:18:14.234650Z",
+  "request_context": {
+    "bookmakers": [],
+    "commenceTimeFrom": "2026-02-09T10:18:14Z",
+    "commenceTimeTo": "2026-02-16T10:18:14Z",
+    "dateFormat": "iso",
+    "markets": [
+      "h2h",
+      "totals",
+      "spreads"
+    ],
+    "oddsFormat": "decimal",
+    "regions": [
+      "eu",
+      "uk",
+      "us"
+    ]
+  },
+  "response": [],
+  "sport_key": "soccer_usa_mls"
+}
