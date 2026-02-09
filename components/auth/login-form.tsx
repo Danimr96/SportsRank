@@ -2,15 +2,40 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import {
-  signInWithPasswordAction,
-  signUpWithPasswordAction,
-} from "@/app/actions/auth";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { getActionButtonClass } from "@/lib/ui/color-system";
+
+interface AuthApiResponse {
+  ok: boolean;
+  error?: string;
+  needsEmailConfirmation?: boolean;
+}
+
+async function callAuthApi(
+  endpoint: string,
+  payload: { email: string; password: string },
+): Promise<AuthApiResponse> {
+  const response = await fetch(endpoint, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(payload),
+  });
+
+  const data = (await response.json()) as AuthApiResponse;
+  if (!response.ok) {
+    return {
+      ok: false,
+      error: data.error ?? "Authentication failed.",
+    };
+  }
+
+  return data;
+}
 
 export function LoginForm() {
   const router = useRouter();
@@ -27,7 +52,7 @@ export function LoginForm() {
 
     try {
       if (isSignup) {
-        const result = await signUpWithPasswordAction({ email, password });
+        const result = await callAuthApi("/api/auth/sign-up", { email, password });
         if (!result.ok) {
           throw new Error(result.error ?? "Sign up failed.");
         }
@@ -37,7 +62,7 @@ export function LoginForm() {
           return;
         }
       } else {
-        const result = await signInWithPasswordAction({ email, password });
+        const result = await callAuthApi("/api/auth/sign-in", { email, password });
         if (!result.ok) {
           throw new Error(result.error ?? "Log in failed.");
         }
