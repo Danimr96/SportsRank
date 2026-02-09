@@ -15,52 +15,66 @@ interface BoardVisualTheme {
 
 const SPORT_THEMES: Record<string, SportVisualTheme> = {
   soccer: {
-    sectionClassName: "border-emerald-500/55 bg-emerald-100/85",
-    accentClassName: "from-emerald-600/32 via-emerald-700/90 to-cyan-600/34",
-    chipClassName: "border-emerald-500/45 bg-emerald-100 text-emerald-900",
+    sectionClassName:
+      "border-emerald-700/30 bg-gradient-to-br from-emerald-200/90 via-emerald-100/85 to-cyan-100/80",
+    accentClassName: "from-emerald-700/35 via-emerald-800/95 to-cyan-700/35",
+    chipClassName:
+      "border-emerald-700/40 bg-emerald-200/75 text-emerald-950 shadow-[0_10px_24px_-18px_rgba(6,95,70,0.55)]",
   },
   basketball: {
-    sectionClassName: "border-orange-500/55 bg-orange-100/85",
-    accentClassName: "from-amber-600/34 via-orange-700/90 to-rose-600/34",
-    chipClassName: "border-orange-500/45 bg-orange-100 text-orange-900",
+    sectionClassName:
+      "border-orange-700/30 bg-gradient-to-br from-amber-200/88 via-orange-100/85 to-rose-100/75",
+    accentClassName: "from-amber-700/35 via-orange-800/95 to-rose-700/35",
+    chipClassName:
+      "border-orange-700/40 bg-amber-200/75 text-orange-950 shadow-[0_10px_24px_-18px_rgba(154,52,18,0.55)]",
   },
   tennis: {
-    sectionClassName: "border-cyan-500/55 bg-cyan-100/85",
-    accentClassName: "from-cyan-600/34 via-blue-700/88 to-indigo-600/32",
-    chipClassName: "border-cyan-500/45 bg-cyan-100 text-cyan-900",
+    sectionClassName:
+      "border-cyan-700/30 bg-gradient-to-br from-cyan-200/90 via-sky-100/85 to-indigo-100/78",
+    accentClassName: "from-cyan-700/35 via-blue-800/95 to-indigo-700/35",
+    chipClassName:
+      "border-cyan-700/40 bg-cyan-200/75 text-cyan-950 shadow-[0_10px_24px_-18px_rgba(12,74,110,0.55)]",
   },
   golf: {
-    sectionClassName: "border-lime-500/55 bg-lime-100/85",
-    accentClassName: "from-lime-600/34 via-emerald-700/88 to-cyan-600/30",
-    chipClassName: "border-lime-500/45 bg-lime-100 text-lime-900",
+    sectionClassName:
+      "border-lime-700/30 bg-gradient-to-br from-lime-200/88 via-emerald-100/82 to-teal-100/75",
+    accentClassName: "from-lime-700/35 via-emerald-800/95 to-teal-700/35",
+    chipClassName:
+      "border-lime-700/40 bg-lime-200/75 text-lime-950 shadow-[0_10px_24px_-18px_rgba(63,98,18,0.55)]",
   },
   motor: {
-    sectionClassName: "border-violet-500/55 bg-violet-100/85",
-    accentClassName: "from-violet-600/34 via-fuchsia-700/88 to-blue-700/32",
-    chipClassName: "border-violet-500/45 bg-violet-100 text-violet-900",
+    sectionClassName:
+      "border-violet-700/30 bg-gradient-to-br from-violet-200/90 via-fuchsia-100/80 to-blue-100/75",
+    accentClassName: "from-violet-700/35 via-fuchsia-800/95 to-blue-700/35",
+    chipClassName:
+      "border-violet-700/40 bg-violet-200/75 text-violet-950 shadow-[0_10px_24px_-18px_rgba(76,29,149,0.55)]",
   },
 };
 
 const DEFAULT_SPORT_THEME: SportVisualTheme = {
-  sectionClassName: "border-fuchsia-500/50 bg-fuchsia-100/80",
-  accentClassName: "from-fuchsia-600/30 via-violet-700/90 to-cyan-600/30",
-  chipClassName: "border-fuchsia-500/45 bg-fuchsia-100 text-fuchsia-900",
+  sectionClassName:
+    "border-fuchsia-700/30 bg-gradient-to-br from-fuchsia-200/88 via-violet-100/80 to-cyan-100/72",
+  accentClassName: "from-fuchsia-700/34 via-violet-800/95 to-cyan-700/35",
+  chipClassName:
+    "border-fuchsia-700/40 bg-fuchsia-200/75 text-fuchsia-950 shadow-[0_10px_24px_-18px_rgba(134,25,143,0.55)]",
 };
 
 const BOARD_THEMES: Record<BoardType, BoardVisualTheme> = {
   daily: {
-    panelClassName: "border-emerald-500/55 bg-emerald-100/80",
-    badgeClassName: "border-emerald-500/60 bg-emerald-200 text-emerald-900",
+    panelClassName:
+      "border-emerald-700/30 bg-gradient-to-r from-emerald-200/85 via-emerald-100/80 to-cyan-100/75",
+    badgeClassName: "border-emerald-700/40 bg-emerald-200/80 text-emerald-950",
     dotClassName: "text-emerald-700",
     statCardClassName:
-      "border-emerald-500/50 bg-emerald-100/85 shadow-[0_16px_34px_-24px_rgba(5,150,105,0.5)]",
+      "border-emerald-700/30 bg-gradient-to-br from-emerald-200/88 to-cyan-100/72 shadow-[0_18px_38px_-26px_rgba(5,150,105,0.55)]",
   },
   weekly: {
-    panelClassName: "border-violet-500/55 bg-violet-100/80",
-    badgeClassName: "border-violet-500/60 bg-violet-200 text-violet-900",
+    panelClassName:
+      "border-violet-700/30 bg-gradient-to-r from-violet-200/85 via-violet-100/80 to-fuchsia-100/75",
+    badgeClassName: "border-violet-700/40 bg-violet-200/80 text-violet-950",
     dotClassName: "text-violet-700",
     statCardClassName:
-      "border-violet-500/50 bg-violet-100/85 shadow-[0_16px_34px_-24px_rgba(109,40,217,0.5)]",
+      "border-violet-700/30 bg-gradient-to-br from-violet-200/88 to-fuchsia-100/72 shadow-[0_18px_38px_-26px_rgba(109,40,217,0.55)]",
   },
   other: {
     panelClassName: "border-slate-300/80 bg-white/88",

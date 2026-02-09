@@ -81,10 +81,20 @@ soccer_epl:
 
 The generator never invents odds. Odds in output always come from The Odds API raw responses.
 
-Selection is deterministic and distribution-aware:
+Selection is deterministic and distribution-aware (no invented odds, ever):
 
-- Football (`soccer`) is prioritized.
-- The selector attempts a balanced multi-sport pack (targeting at least 5 sports and minimum quotas per sport when available).
+- Daily portfolio minimums (when candidates are available):
+  - Football: 5 picks (coverage priority: La Liga, Premier League, Serie A, Bundesliga, then Europe)
+  - Basketball (NBA): 10 picks
+  - Tennis: 5 picks (match picks)
+  - Other sports mix: 5 picks
+- Weekly portfolio minimums (when candidates are available):
+  - Football: 2 picks (Europe priority: Champions/Europa)
+  - Basketball (NBA): 10 picks
+  - Basketball (Euroleague): 2 picks
+  - Tennis winners: 2 picks (ATP + WTA preferred; deterministic fallback if unavailable)
+  - Other sports mix: 5 picks
+- Remaining slots (if target is higher than these minimums) are filled with deterministic heuristic ranking.
 - If a configured sport key is unavailable or fails to fetch, it is skipped with a warning (generation continues).
 
 Supported app slugs in generator mappings:

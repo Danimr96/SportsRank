@@ -247,7 +247,7 @@ export function EntryBuilder({
 
   return (
     <div className="space-y-6 pb-32">
-      <Card className="relative overflow-hidden rounded-3xl border border-slate-200/85 bg-[linear-gradient(145deg,rgba(255,255,255,0.96),rgba(245,247,254,0.95)),radial-gradient(circle_at_16%_8%,rgba(14,116,144,0.14),transparent_42%),radial-gradient(circle_at_86%_6%,rgba(109,40,217,0.12),transparent_38%),radial-gradient(circle_at_56%_100%,rgba(5,150,105,0.12),transparent_42%)] text-slate-900 shadow-[0_56px_150px_-74px_rgba(30,64,175,0.58)]">
+      <Card className="relative overflow-hidden rounded-3xl border border-slate-300/70 bg-[linear-gradient(145deg,rgba(255,251,242,0.97),rgba(250,246,236,0.95)),radial-gradient(circle_at_16%_8%,rgba(8,145,178,0.14),transparent_42%),radial-gradient(circle_at_86%_6%,rgba(109,40,217,0.12),transparent_38%),radial-gradient(circle_at_56%_100%,rgba(5,150,105,0.12),transparent_42%)] text-slate-900 shadow-[0_56px_150px_-74px_rgba(37,99,235,0.42)]">
         <div className="pointer-events-none absolute inset-0 opacity-85">
           <div className="absolute -top-16 left-8 h-52 w-52 rounded-full bg-cyan-600/26 blur-3xl" />
           <div className="absolute right-12 top-6 h-44 w-44 rounded-full bg-violet-600/18 blur-3xl" />
@@ -257,7 +257,7 @@ export function EntryBuilder({
         <CardHeader className="relative space-y-4">
           <div className="flex flex-wrap items-center justify-between gap-3">
             <div className="space-y-2">
-              <Badge className="w-fit border border-cyan-400/60 bg-cyan-100 text-cyan-900">
+              <Badge className="w-fit border border-cyan-700/35 bg-cyan-200/70 text-cyan-950">
                 Friday Main Screen
               </Badge>
               <CardTitle className="text-2xl tracking-tight">{round.name}</CardTitle>
@@ -265,7 +265,7 @@ export function EntryBuilder({
                 Portfolio flow: Sport → Board → Country → League → Event.
               </p>
             </div>
-            <div className="rounded-xl border border-slate-200/75 bg-white/75 px-3 py-2">
+            <div className="rounded-xl border border-slate-300/70 bg-[#fff9ef]/85 px-3 py-2">
               <Countdown closesAt={round.closes_at} />
             </div>
           </div>
@@ -301,7 +301,7 @@ export function EntryBuilder({
           <div className="grid gap-4 lg:grid-cols-[1.35fr_0.9fr]">
             <div className="space-y-4">
               <div className="grid gap-3 sm:grid-cols-3">
-                <div className="rounded-xl border border-slate-300/80 bg-white/90 p-3 shadow-[0_14px_34px_-24px_rgba(30,64,175,0.3)]">
+                <div className="rounded-xl border border-slate-300/80 bg-[#fff9ef]/90 p-3 shadow-[0_14px_34px_-24px_rgba(30,64,175,0.24)]">
                   <p className="flex items-center gap-2 text-xs uppercase tracking-wide text-slate-600">
                     <CircleDollarSign className="size-4 text-cyan-600" />
                     Credits spent
@@ -310,14 +310,14 @@ export function EntryBuilder({
                     {formatCredits(creditsSpent)} / {formatCredits(entry.credits_start)}
                   </p>
                 </div>
-                <div className="rounded-xl border border-slate-300/80 bg-white/90 p-3 shadow-[0_14px_34px_-24px_rgba(30,64,175,0.3)]">
+                <div className="rounded-xl border border-slate-300/80 bg-[#fff9ef]/90 p-3 shadow-[0_14px_34px_-24px_rgba(30,64,175,0.24)]">
                   <p className="flex items-center gap-2 text-xs uppercase tracking-wide text-slate-600">
                     <Wallet className="size-4 text-cyan-600" />
                     Remaining cash
                   </p>
                   <p className="mt-1 text-xl font-semibold">{formatCredits(creditsRemaining)}</p>
                 </div>
-                <div className="rounded-xl border border-slate-300/80 bg-white/90 p-3 shadow-[0_14px_34px_-24px_rgba(30,64,175,0.3)]">
+                <div className="rounded-xl border border-slate-300/80 bg-[#fff9ef]/90 p-3 shadow-[0_14px_34px_-24px_rgba(30,64,175,0.24)]">
                   <p className="flex items-center gap-2 text-xs uppercase tracking-wide text-slate-600">
                     <Layers3 className="size-4 text-cyan-600" />
                     Picks selected
@@ -339,7 +339,7 @@ export function EntryBuilder({
                     {boardStats.weeklyCount} picks
                   </p>
                 </div>
-                <div className="rounded-xl border border-cyan-500/45 bg-cyan-100/80 p-3 shadow-[0_16px_34px_-24px_rgba(8,145,178,0.5)]">
+                <div className="rounded-xl border border-cyan-700/35 bg-gradient-to-br from-cyan-200/78 to-blue-100/72 p-3 shadow-[0_16px_34px_-24px_rgba(8,145,178,0.48)]">
                   <p className="flex items-center gap-2 text-xs uppercase tracking-wide text-cyan-800">
                     <Gem className="size-3.5" />
                     Active sports
@@ -348,7 +348,7 @@ export function EntryBuilder({
                 </div>
               </div>
 
-              <div className="rounded-xl border border-slate-300/80 bg-white/90 p-3">
+              <div className="rounded-xl border border-slate-300/80 bg-[#fff9ef]/90 p-3">
                 <div className="mb-2 flex items-center justify-between text-xs uppercase tracking-wide text-slate-500">
                   <span>Budget flow</span>
                   <span>{Math.round(progressValue)}%</span>
@@ -356,7 +356,7 @@ export function EntryBuilder({
                 <Progress value={progressValue} className="h-2 bg-white/80" />
               </div>
 
-              <div className="rounded-xl border border-slate-300/80 bg-white/90 p-3">
+              <div className="rounded-xl border border-slate-300/80 bg-[#fff9ef]/90 p-3">
                 <p className="mb-2 flex items-center gap-2 text-xs uppercase tracking-wide text-slate-600">
                   <Flame className="size-3.5 text-cyan-600" />
                   Weekly constraints
@@ -371,19 +371,19 @@ export function EntryBuilder({
             </div>
 
             <div className="space-y-4">
-              <div className="rounded-2xl border border-slate-300/80 bg-white/90 p-4">
+              <div className="rounded-2xl border border-slate-300/80 bg-[#fff9ef]/90 p-4">
                 <p className="mb-3 flex items-center gap-2 text-xs uppercase tracking-wide text-slate-600">
                   <Zap className="size-3.5 text-cyan-600" />
                   Live posture
                 </p>
                 <div className="flex items-center gap-4">
-                  <div
-                    className="relative grid h-28 w-28 place-items-center rounded-full"
-                    style={{
-                      background: `conic-gradient(rgba(14,116,144,0.95) ${progressValue}%, rgba(148,163,184,0.2) ${progressValue}% 100%)`,
-                    }}
-                  >
-                    <div className="grid h-20 w-20 place-items-center rounded-full bg-white">
+                    <div
+                      className="relative grid h-28 w-28 place-items-center rounded-full"
+                      style={{
+                        background: `conic-gradient(rgba(12,74,110,0.92) ${progressValue}%, rgba(100,116,139,0.22) ${progressValue}% 100%)`,
+                      }}
+                    >
+                    <div className="grid h-20 w-20 place-items-center rounded-full bg-[#fff9ef]">
                       <p className="text-sm font-semibold">{Math.round(progressValue)}%</p>
                       <p className="text-[10px] uppercase tracking-wide text-slate-500">spent</p>
                     </div>
@@ -405,7 +405,7 @@ export function EntryBuilder({
                 </div>
               </div>
 
-              <div className="rounded-2xl border border-slate-300/80 bg-white/90 p-4">
+              <div className="rounded-2xl border border-slate-300/80 bg-[#fff9ef]/90 p-4">
                 <p className="mb-2 text-xs uppercase tracking-wide text-slate-600">
                   Sport exposure
                 </p>
@@ -424,7 +424,7 @@ export function EntryBuilder({
                             {selected}/{pulse?.total ?? sport.picksCount} · {formatCredits(spent)}
                           </span>
                         </div>
-                        <div className="h-1.5 overflow-hidden rounded-full bg-white/80">
+                        <div className="h-1.5 overflow-hidden rounded-full bg-[#fff6ea]/85">
                           <motion.div
                             className="h-full rounded-full bg-gradient-to-r from-cyan-600 via-violet-600 to-emerald-600"
                             initial={{ width: 0 }}
@@ -464,7 +464,7 @@ export function EntryBuilder({
         return (
           <section
             key={sportKey}
-            className="space-y-3 rounded-3xl border border-slate-300/75 bg-white/90 p-3 shadow-[0_32px_78px_-52px_rgba(30,64,175,0.5)]"
+            className="space-y-3 rounded-3xl border border-slate-300/75 bg-[#fff9ef]/90 p-3 shadow-[0_32px_78px_-52px_rgba(30,64,175,0.36)]"
           >
             <div
               className={cn(
@@ -563,7 +563,7 @@ export function EntryBuilder({
                                 return (
                                   <section
                                     key={countryKey}
-                                    className="rounded-2xl border border-slate-200/75 bg-white/84 p-3"
+                                    className="rounded-2xl border border-slate-200/75 bg-[#fffaf2]/84 p-3"
                                   >
                                     <div className="mb-2 flex items-center justify-between">
                                       <button
@@ -599,7 +599,7 @@ export function EntryBuilder({
 
                                             return (
                                               <section key={leagueKey}>
-                                                <div className="mb-2 flex items-center justify-between rounded-xl border border-slate-200/75 bg-slate-100/80 px-3 py-2">
+                                                <div className="mb-2 flex items-center justify-between rounded-xl border border-slate-200/75 bg-[#f7f1e7]/85 px-3 py-2">
                                                   <button
                                                     type="button"
                                                     className="inline-flex items-center gap-2 text-left text-sm font-medium text-slate-900"
@@ -632,7 +632,7 @@ export function EntryBuilder({
                                                         return (
                                                           <section
                                                             key={eventKey}
-                                                            className="rounded-xl border border-slate-200/75 bg-white/86 p-3"
+                                                            className="rounded-xl border border-slate-200/75 bg-[#fffdf8]/86 p-3"
                                                           >
                                                             <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
                                                               <button
@@ -701,6 +701,7 @@ export function EntryBuilder({
                                                                         pick={pick}
                                                                         selectedLabel={selectedOption?.label}
                                                                         selectedStake={selection?.stake}
+                                                                        selectedOdds={selectedOption?.odds}
                                                                         eventStartText={eventStartText}
                                                                         lockReason={pickLockReason}
                                                                         disabled={Boolean(pickLockReason) || !canEditEntry}
@@ -744,7 +745,7 @@ export function EntryBuilder({
       })}
 
       {organizedSports.length === 0 ? (
-        <Card className="border border-slate-200/75 bg-white/84 text-slate-700">
+        <Card className="border border-slate-200/75 bg-[#fffaf2]/84 text-slate-700">
           <CardContent className="pt-6">
             <p className="text-sm">No picks available for this round.</p>
           </CardContent>

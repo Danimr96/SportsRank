@@ -2,17 +2,46 @@ from __future__ import annotations
 
 import json
 from collections import Counter
-from collections.abc import Sequence
+from collections.abc import Callable, Sequence
 from typing import Any
 
 import httpx
 
-from .models import CandidatePick, compact_candidate
+from .models import CandidatePick, Mode, compact_candidate
 
 FOOTBALL_SPORT_SLUG = "soccer"
-MIN_SPORTS_TARGET = 5
-MIN_PICKS_PER_SPORT = 5
-FOOTBALL_MIN_PICKS = 10
+BASKETBALL_SPORT_SLUG = "basketball"
+TENNIS_SPORT_SLUG = "tennis"
+
+DAILY_FOOTBALL_TARGET = 5
+DAILY_NBA_TARGET = 10
+DAILY_TENNIS_TARGET = 5
+DAILY_OTHERS_TARGET = 5
+
+WEEKLY_FOOTBALL_TARGET = 2
+WEEKLY_NBA_TARGET = 10
+WEEKLY_EUROLEAGUE_TARGET = 2
+WEEKLY_TENNIS_WINNER_TARGET = 2
+WEEKLY_OTHERS_TARGET = 5
+
+FOOTBALL_PRIORITY_LEAGUES: list[tuple[str, tuple[str, ...]]] = [
+    ("La Liga", ("la liga", "spain")),
+    ("Premier League", ("premier league", "epl", "england")),
+    ("Serie A", ("serie a", "italy")),
+    ("Bundesliga", ("bundesliga", "germany")),
+]
+
+EUROPEAN_FOOTBALL_KEYWORDS = (
+    "champions league",
+    "uefa champions",
+    "europa league",
+    "uefa europa",
+)
+NBA_KEYWORDS = ("nba",)
+EUROLEAGUE_KEYWORDS = ("euroleague",)
+TENNIS_WINNER_KEYWORDS = ("winner", "outright", "futures", "tournament")
+TENNIS_ATP_KEYWORDS = ("atp", "men")
+TENNIS_WTA_KEYWORDS = ("wta", "women")
 
 
 def _base_score(candidate: CandidatePick) -> float:
@@ -23,6 +52,81 @@ def _base_score(candidate: CandidatePick) -> float:
 
 def _candidate_sort_key(candidate: CandidatePick) -> tuple[str, str, str]:
     return (candidate.start_time, candidate.sport_slug, candidate.candidate_id)
+
+
+def _normalize(value: str) -> str:
+    return value.strip().lower().replace("_", " ")
+
+
+def _contains_any(value: str, keywords: Sequence[str]) -> bool:
+    normalized = _normalize(value)
+    return any(keyword in normalized for keyword in keywords)
+
+
+def _is_football(candidate: CandidatePick) -> bool:
+    return candidate.sport_slug == FOOTBALL_SPORT_SLUG
+
+
+def _is_basketball(candidate: CandidatePick) -> bool:
+    return candidate.sport_slug == BASKETBALL_SPORT_SLUG
+
+
+def _is_tennis(candidate: CandidatePick) -> bool:
+    return candidate.sport_slug == TENNIS_SPORT_SLUG
+
+
+def _is_other_sport(candidate: CandidatePick) -> bool:
+    return candidate.sport_slug not in {
+        FOOTBALL_SPORT_SLUG,
+        BASKETBALL_SPORT_SLUG,
+        TENNIS_SPORT_SLUG,
+    }
+
+
+def _is_top_football_league(candidate: CandidatePick) -> bool:
+    return _contains_any(
+        candidate.league,
+        tuple(keyword for _, keywords in FOOTBALL_PRIORITY_LEAGUES for keyword in keywords),
+    )
+
+
+def _is_european_football(candidate: CandidatePick) -> bool:
+    return _contains_any(candidate.league, EUROPEAN_FOOTBALL_KEYWORDS)
+
+
+def _is_nba(candidate: CandidatePick) -> bool:
+    return _is_basketball(candidate) and _contains_any(candidate.league, NBA_KEYWORDS)
+
+
+def _is_euroleague(candidate: CandidatePick) -> bool:
+    return _is_basketball(candidate) and _contains_any(candidate.league, EUROLEAGUE_KEYWORDS)
+
+
+def _is_tennis_tournament_winner(candidate: CandidatePick) -> bool:
+    return _is_tennis(candidate) and (
+        _contains_any(candidate.market, TENNIS_WINNER_KEYWORDS)
+        or _contains_any(candidate.league, TENNIS_WINNER_KEYWORDS)
+        or _contains_any(candidate.event, TENNIS_WINNER_KEYWORDS)
+    )
+
+
+def _is_tennis_atp_winner(candidate: CandidatePick) -> bool:
+    return _is_tennis_tournament_winner(candidate) and (
+        _contains_any(candidate.league, TENNIS_ATP_KEYWORDS)
+        or _contains_any(candidate.event, TENNIS_ATP_KEYWORDS)
+    )
+
+
+def _is_tennis_wta_winner(candidate: CandidatePick) -> bool:
+    return _is_tennis_tournament_winner(candidate) and (
+        _contains_any(candidate.league, TENNIS_WTA_KEYWORDS)
+        or _contains_any(candidate.event, TENNIS_WTA_KEYWORDS)
+    )
+
+
+def _is_daily_tennis(candidate: CandidatePick) -> bool:
+    # Daily board prioritizes match picks over outrights.
+    return _is_tennis(candidate) and not _is_tennis_tournament_winner(candidate)
 
 
 def _heuristic_ranked_order(
@@ -66,67 +170,135 @@ def _heuristic_ranked_order(
     return ranked
 
 
-def _sport_order_key(
-    sport_slug: str,
-    sport_counts: Counter[str],
-) -> tuple[int, int, str]:
-    return (
-        0 if sport_slug == FOOTBALL_SPORT_SLUG else 1,
-        -sport_counts[sport_slug],
-        sport_slug,
-    )
+def _take_from_ranked(
+    ranked_candidates: Sequence[CandidatePick],
+    selected: list[CandidatePick],
+    selected_ids: set[str],
+    *,
+    limit: int,
+    label: str,
+    warnings: list[str],
+    predicate: Callable[[CandidatePick], bool],
+) -> int:
+    if limit <= 0:
+        return 0
+
+    taken = 0
+    for candidate in ranked_candidates:
+        if candidate.candidate_id in selected_ids:
+            continue
+        if not predicate(candidate):
+            continue
+
+        selected.append(candidate)
+        selected_ids.add(candidate.candidate_id)
+        taken += 1
+        if taken >= limit:
+            break
+
+    if taken < limit:
+        warnings.append(
+            f"{label}: requested {limit}, selected {taken} (insufficient candidates).",
+        )
+
+    return taken
 
 
-def _apply_distribution(
+def _apply_mode_portfolio_with_mode(
     ranked_candidates: Sequence[CandidatePick],
     target: int,
-) -> list[CandidatePick]:
+    mode: Mode,
+) -> tuple[list[CandidatePick], list[str]]:
     if target <= 0:
-        return []
-
-    by_sport: dict[str, list[CandidatePick]] = {}
-    for candidate in ranked_candidates:
-        by_sport.setdefault(candidate.sport_slug, []).append(candidate)
-
-    if not by_sport:
-        return []
-
-    sport_counts = Counter({sport_slug: len(items) for sport_slug, items in by_sport.items()})
-    ordered_sports = sorted(by_sport.keys(), key=lambda sport_slug: _sport_order_key(sport_slug, sport_counts))
-    selected_sports = ordered_sports[: min(MIN_SPORTS_TARGET, len(ordered_sports))]
-
-    min_quota = MIN_PICKS_PER_SPORT
-    if len(selected_sports) * min_quota > target:
-        min_quota = max(1, target // len(selected_sports))
+        return [], []
 
     selected: list[CandidatePick] = []
     selected_ids: set[str] = set()
+    warnings: list[str] = []
 
-    def take_for_sport(sport_slug: str, amount: int) -> int:
-        taken = 0
-        for candidate in by_sport.get(sport_slug, []):
-            if len(selected) >= target:
-                break
-            if candidate.candidate_id in selected_ids:
-                continue
-
-            selected.append(candidate)
-            selected_ids.add(candidate.candidate_id)
-            taken += 1
-            if taken >= amount:
-                break
-        return taken
-
-    for sport_slug in selected_sports:
-        take_for_sport(sport_slug, min_quota)
-
-    if FOOTBALL_SPORT_SLUG in selected_sports and len(selected) < target:
-        football_count = sum(
-            1 for candidate in selected if candidate.sport_slug == FOOTBALL_SPORT_SLUG
+    def take(limit: int, label: str, predicate: Callable[[CandidatePick], bool]) -> int:
+        if len(selected) >= target:
+            return 0
+        allowed = min(limit, target - len(selected))
+        return _take_from_ranked(
+            ranked_candidates,
+            selected,
+            selected_ids,
+            limit=allowed,
+            label=label,
+            warnings=warnings,
+            predicate=predicate,
         )
-        extra_needed = max(0, FOOTBALL_MIN_PICKS - football_count)
-        take_for_sport(FOOTBALL_SPORT_SLUG, extra_needed)
 
+    if mode == "daily":
+        for league_label, league_keywords in FOOTBALL_PRIORITY_LEAGUES:
+            take(
+                1,
+                f"daily football coverage ({league_label})",
+                lambda candidate, keywords=league_keywords: _is_football(candidate)
+                and _contains_any(candidate.league, keywords),
+            )
+
+        football_selected = sum(1 for candidate in selected if _is_football(candidate))
+        if football_selected < DAILY_FOOTBALL_TARGET:
+            european_taken = take(
+                DAILY_FOOTBALL_TARGET - football_selected,
+                "daily football Europe priority",
+                lambda candidate: _is_football(candidate) and _is_european_football(candidate),
+            )
+            football_selected += european_taken
+        if football_selected < DAILY_FOOTBALL_TARGET:
+            take(
+                DAILY_FOOTBALL_TARGET - football_selected,
+                "daily football fallback",
+                _is_football,
+            )
+
+        take(DAILY_NBA_TARGET, "daily basketball (NBA)", _is_nba)
+        take(DAILY_TENNIS_TARGET, "daily tennis", _is_daily_tennis)
+        take(DAILY_OTHERS_TARGET, "daily other sports mix", _is_other_sport)
+    else:
+        european_taken = take(
+            1,
+            "weekly football (Europe priority)",
+            lambda candidate: _is_football(candidate) and _is_european_football(candidate),
+        )
+        take(
+            WEEKLY_FOOTBALL_TARGET - european_taken,
+            "weekly football fallback",
+            _is_football,
+        )
+
+        take(WEEKLY_NBA_TARGET, "weekly basketball (NBA)", _is_nba)
+        take(WEEKLY_EUROLEAGUE_TARGET, "weekly basketball (Euroleague)", _is_euroleague)
+
+        atp_taken = take(1, "weekly tennis winner (ATP)", _is_tennis_atp_winner)
+        wta_taken = take(1, "weekly tennis winner (WTA)", _is_tennis_wta_winner)
+
+        winners_selected = atp_taken + wta_taken
+        if winners_selected < WEEKLY_TENNIS_WINNER_TARGET:
+            winner_fallback = take(
+                WEEKLY_TENNIS_WINNER_TARGET - winners_selected,
+                "weekly tennis winner fallback",
+                _is_tennis_tournament_winner,
+            )
+            winners_selected += winner_fallback
+
+        if winners_selected < WEEKLY_TENNIS_WINNER_TARGET:
+            fallback_need = WEEKLY_TENNIS_WINNER_TARGET - winners_selected
+            fallback_taken = take(
+                fallback_need,
+                "weekly tennis match fallback",
+                _is_tennis,
+            )
+            if fallback_taken > 0:
+                warnings.append(
+                    "weekly tennis: tournament-winner markets unavailable; fallback to match picks.",
+                )
+
+        take(WEEKLY_OTHERS_TARGET, "weekly other sports mix", _is_other_sport)
+
+    # Fill with remaining best-ranked candidates until target.
     if len(selected) < target:
         for candidate in ranked_candidates:
             if candidate.candidate_id in selected_ids:
@@ -136,15 +308,17 @@ def _apply_distribution(
             if len(selected) >= target:
                 break
 
-    return selected[:target]
+    return selected[:target], warnings
 
 
 def select_candidates_heuristic(
     candidates: Sequence[CandidatePick],
     target: int,
+    mode: Mode = "daily",
 ) -> list[CandidatePick]:
     ranked = _heuristic_ranked_order(candidates, len(candidates))
-    return _apply_distribution(ranked, target)
+    selected, _warnings = _apply_mode_portfolio_with_mode(ranked, target, mode)
+    return selected
 
 
 def rank_candidate_ids_with_openai(
@@ -190,17 +364,17 @@ def rank_candidate_ids_with_openai(
     }
 
     with httpx.Client(timeout=timeout_seconds) as client:
-        response = client.post(f"{base_url.rstrip('/')}/chat/completions", headers=headers, json=body)
+        response = client.post(
+            f"{base_url.rstrip('/')}/chat/completions",
+            headers=headers,
+            json=body,
+        )
 
     if response.status_code >= 400:
         raise RuntimeError(f"OpenAI ranking failed: {response.status_code} {response.text}")
 
     payload = response.json()
-    content = (
-        payload.get("choices", [{}])[0]
-        .get("message", {})
-        .get("content", "{}")
-    )
+    content = payload.get("choices", [{}])[0].get("message", {}).get("content", "{}")
 
     parsed = json.loads(content)
     ranked_ids_raw = parsed.get("ranked_ids", [])
@@ -228,11 +402,17 @@ def select_candidates(
     target: int,
     use_openai: bool,
     openai_api_key: str | None,
-) -> tuple[list[CandidatePick], str | None]:
+    mode: Mode = "daily",
+) -> tuple[list[CandidatePick], str | None, list[str]]:
     ordered_candidates = sorted(candidates, key=_candidate_sort_key)
 
     if not use_openai:
-        return select_candidates_heuristic(ordered_candidates, target), None
+        selected, warnings = _apply_mode_portfolio_with_mode(
+            _heuristic_ranked_order(ordered_candidates, len(ordered_candidates)),
+            target,
+            mode,
+        )
+        return selected, None, warnings
 
     if not openai_api_key:
         raise RuntimeError("OPENAI_API_KEY is required when --use-openai=true")
@@ -244,22 +424,28 @@ def select_candidates(
             openai_api_key,
         )
     except Exception as error:
-        fallback = select_candidates_heuristic(ordered_candidates, target)
-        return fallback, f"OpenAI ranking failed; fell back to heuristic: {error}"
+        fallback, warnings = _apply_mode_portfolio_with_mode(
+            _heuristic_ranked_order(ordered_candidates, len(ordered_candidates)),
+            target,
+            mode,
+        )
+        warnings.append("OpenAI ranking failed and heuristic fallback was used.")
+        return fallback, f"OpenAI ranking failed; fell back to heuristic: {error}", warnings
 
     by_id = {candidate.candidate_id: candidate for candidate in ordered_candidates}
+    openai_ranked: list[CandidatePick] = [
+        by_id[candidate_id] for candidate_id in ranked_ids if candidate_id in by_id
+    ]
 
-    selected = [by_id[candidate_id] for candidate_id in ranked_ids if candidate_id in by_id]
-
-    if len(selected) < target:
-        fallback = select_candidates_heuristic(ordered_candidates, target)
-        selected_ids = {candidate.candidate_id for candidate in selected}
-        for candidate in fallback:
-            if candidate.candidate_id in selected_ids:
+    if len(openai_ranked) < len(ordered_candidates):
+        # Complete list deterministically for quota filling and fallback.
+        fallback_ranked = _heuristic_ranked_order(ordered_candidates, len(ordered_candidates))
+        seen_ids = {candidate.candidate_id for candidate in openai_ranked}
+        for candidate in fallback_ranked:
+            if candidate.candidate_id in seen_ids:
                 continue
-            selected.append(candidate)
-            selected_ids.add(candidate.candidate_id)
-            if len(selected) >= target:
-                break
+            openai_ranked.append(candidate)
+            seen_ids.add(candidate.candidate_id)
 
-    return selected[:target], rationale
+    selected, warnings = _apply_mode_portfolio_with_mode(openai_ranked, target, mode)
+    return selected, rationale, warnings

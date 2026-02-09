@@ -2,7 +2,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { getPickBoardType } from "@/lib/domain/pick-organization";
-import { formatCredits } from "@/lib/format";
+import { formatCredits, formatOddsEuropean } from "@/lib/format";
 import { getBoardVisualTheme, getSportVisualTheme } from "@/lib/ui/color-system";
 import { getSportEmoji } from "@/lib/visuals";
 import { cn } from "@/lib/utils";
@@ -12,6 +12,7 @@ interface PickCardProps {
   pick: PickWithOptions;
   selectedLabel?: string;
   selectedStake?: number;
+  selectedOdds?: number;
   eventStartText: string;
   lockReason?: string;
   onOpen: () => void;
@@ -23,6 +24,7 @@ export function PickCard({
   pick,
   selectedLabel,
   selectedStake,
+  selectedOdds,
   eventStartText,
   lockReason,
   onOpen,
@@ -34,7 +36,7 @@ export function PickCard({
   const sportTone = getSportVisualTheme(pick.sport.slug);
 
   return (
-    <Card className="relative overflow-hidden rounded-2xl border border-slate-300/75 bg-white/92 text-slate-900 shadow-[0_26px_74px_-48px_rgba(30,64,175,0.5)]">
+    <Card className="relative overflow-hidden rounded-2xl border border-slate-300/75 bg-[#fffaf1]/92 text-slate-900 shadow-[0_26px_74px_-48px_rgba(30,64,175,0.34)]">
       <div className="pointer-events-none absolute inset-0 opacity-60">
         <div className="absolute -right-8 -top-10 h-20 w-20 rounded-full bg-cyan-500/20 blur-2xl" />
       </div>
@@ -74,7 +76,15 @@ export function PickCard({
           {selectedLabel ? (
             <div className="space-y-1">
               <p className="font-medium text-slate-900">{selectedLabel}</p>
-              <p className="text-xs text-cyan-800">{formatCredits(selectedStake ?? 0)}</p>
+              <p className="text-xs text-cyan-800">
+                Stake {formatCredits(selectedStake ?? 0)}
+                {selectedOdds ? ` · Cuota ${formatOddsEuropean(selectedOdds)}` : ""}
+              </p>
+              {selectedOdds && selectedStake ? (
+                <p className="text-xs text-slate-600">
+                  Potencial: {formatCredits(Math.floor(selectedStake * selectedOdds))}
+                </p>
+              ) : null}
             </div>
           ) : (
             <p className="text-slate-500">No selection yet</p>
@@ -83,7 +93,7 @@ export function PickCard({
         <Button
           type="button"
           variant="outline"
-          className="border-slate-300/80 bg-white/75 text-slate-900 hover:bg-white/80"
+          className="border-slate-300/80 bg-[#fff7ea]/85 text-slate-900 hover:bg-[#fff3e0]"
           onClick={onOpen}
           disabled={disabled}
         >

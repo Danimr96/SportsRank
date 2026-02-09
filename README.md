@@ -123,6 +123,11 @@ on conflict (user_id) do nothing;
   - Filters by board (`daily|weekly|other`) and sport.
   - Visual breakdowns by sport, weekday, and stake profile.
 
+## Bet UX notes
+- Odds are shown in European decimal style on pick UI (`1,85` format).
+- Pick drawer shows potential return from selected stake and odds (`floor(stake * odds)`).
+- Dashboard hierarchy stays organized as Sport → Board (Daily/Weekly) → Country → League → Event.
+
 ### JSON import schema
 ```json
 {

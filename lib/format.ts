@@ -13,6 +13,27 @@ export function formatCredits(value: number): string {
 }
 
 /**
+ * Formats decimal odds using European style decimal separator.
+ * Example: 1.85 -> "1,85"
+ */
+export function formatOddsEuropean(value: number): string {
+  const fixed = (Math.round(value * 100) / 100).toFixed(2);
+  return fixed.replace(".", ",");
+}
+
+/**
+ * Stable implied probability formatter for decimal odds.
+ * Example: 2.00 -> "50,0%"
+ */
+export function formatImpliedProbability(value: number): string {
+  if (value <= 0) {
+    return "0,0%";
+  }
+  const pct = ((1 / value) * 100).toFixed(1);
+  return `${pct.replace(".", ",")}%`;
+}
+
+/**
  * Stable UTC datetime formatting for client-rendered content.
  */
 export function formatUtcDateTime(value: Date): string {

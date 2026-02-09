@@ -5,7 +5,12 @@ import { AnimatePresence, motion } from "framer-motion";
 import { X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { formatCredits } from "@/lib/format";
+import {
+  formatCredits,
+  formatImpliedProbability,
+  formatOddsEuropean,
+  formatUtcDateTime,
+} from "@/lib/format";
 import { getSportEmoji } from "@/lib/visuals";
 import type { PickWithOptions } from "@/lib/types";
 
@@ -60,10 +65,19 @@ export function PickDrawer({
 
   const eventLabel =
     typeof pick?.metadata?.["event"] === "string" ? pick.metadata["event"] : "Unknown event";
-  const startLabel =
+  const parsedStart =
     typeof pick?.metadata?.["start_time"] === "string"
-      ? pick.metadata["start_time"]
+      ? new Date(pick.metadata["start_time"])
+      : null;
+  const startLabel =
+    parsedStart && !Number.isNaN(parsedStart.getTime())
+      ? formatUtcDateTime(parsedStart)
       : "Missing start_time";
+  const selectedOption = pick?.options.find((option) => option.id === optionId);
+  const potentialReturn =
+    selectedOption && Number.isInteger(stake)
+      ? Math.floor(stake * selectedOption.odds)
+      : 0;
 
   return (
     <AnimatePresence>
@@ -79,7 +93,7 @@ export function PickDrawer({
             aria-label="Close drawer"
           />
           <motion.aside
-            className="fixed right-0 top-0 z-50 h-full w-full max-w-md border-l border-slate-200/75 bg-white p-5 text-slate-900 shadow-2xl"
+            className="fixed right-0 top-0 z-50 h-full w-full max-w-md border-l border-slate-300/70 bg-[#fff7ea] p-5 text-slate-900 shadow-2xl"
             initial={{ x: "100%" }}
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
@@ -91,7 +105,7 @@ export function PickDrawer({
                   <span className="mr-1">{getSportEmoji(pick.sport.slug)}</span>
                   {pick.title}
                 </h3>
-                <p className="text-sm text-slate-600">Select option and stake.</p>
+                <p className="text-sm text-slate-600">Elige opción y stake en créditos.</p>
                 <p className="mt-1 text-xs text-slate-500">
                   {eventLabel} · {startLabel}
                 </p>
@@ -111,11 +125,14 @@ export function PickDrawer({
               {pick.options.map((option) => (
                 <label
                   key={option.id}
-                  className="flex cursor-pointer items-center justify-between rounded-lg border border-slate-200/75 bg-white/75 p-3 hover:bg-cyan-50"
+                  className="flex cursor-pointer items-center justify-between rounded-lg border border-slate-200/75 bg-[#fffdf8]/85 p-3 hover:bg-cyan-100/55"
                 >
                   <span className="text-sm font-medium">{option.label}</span>
-                  <span className="flex items-center gap-3 text-sm">
-                    <span className="text-slate-600">{option.odds.toFixed(2)}x</span>
+                  <span className="flex items-center gap-3 text-sm text-right">
+                    <span className="text-slate-600">
+                      Cuota {formatOddsEuropean(option.odds)} · Prob.{" "}
+                      {formatImpliedProbability(option.odds)}
+                    </span>
                     <input
                       type="radio"
                       name="option"
@@ -129,7 +146,15 @@ export function PickDrawer({
             </div>
 
             <div className="mt-6 space-y-2">
-              <p className="text-sm font-medium">Stake: {formatCredits(stake)}</p>
+              <p className="text-sm font-medium">
+                Stake: {formatCredits(stake)} créditos
+              </p>
+              {selectedOption ? (
+                <p className="text-xs text-slate-600">
+                  Retorno potencial: {formatCredits(potentialReturn)} (
+                  {formatCredits(stake)} x cuota {formatOddsEuropean(selectedOption.odds)})
+                </p>
+              ) : null}
               <input
                 type="range"
                 min={minStake}
@@ -145,7 +170,7 @@ export function PickDrawer({
                 min={minStake}
                 max={maxStake}
                 value={stake}
-                className="border-slate-200/75 bg-slate-50 text-slate-900"
+                className="border-slate-200/75 bg-[#fffdf8] text-slate-900"
                 onChange={(event) => {
                   const next = Number(event.target.value);
                   if (Number.isNaN(next)) {
@@ -174,7 +199,7 @@ export function PickDrawer({
                   });
                 }}
               >
-                {pending ? "Saving..." : "Confirm selection"}
+                {pending ? "Guardando..." : "Guardar apuesta"}
               </Button>
             </div>
           </motion.aside>

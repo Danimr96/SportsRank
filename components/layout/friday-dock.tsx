@@ -41,7 +41,7 @@ export function FridayDock({
     creditsStart <= 0 ? 0 : Math.max(0, Math.min(100, (creditsSpent / creditsStart) * 100));
 
   return (
-    <Card className="fixed bottom-3 left-1/2 z-30 w-[min(68rem,calc(100%-1.25rem))] -translate-x-1/2 overflow-hidden rounded-2xl border border-slate-300/80 bg-white/94 px-4 py-3 text-slate-900 shadow-[0_26px_60px_-36px_rgba(30,64,175,0.45)] backdrop-blur">
+    <Card className="fixed bottom-3 left-1/2 z-30 w-[min(68rem,calc(100%-1.25rem))] -translate-x-1/2 overflow-hidden rounded-2xl border border-slate-300/80 bg-[#fff7ea]/95 px-4 py-3 text-slate-900 shadow-[0_26px_60px_-36px_rgba(30,64,175,0.34)] backdrop-blur">
       <div className="pointer-events-none absolute inset-0 opacity-70">
         <div className="absolute -left-8 top-2 h-20 w-20 rounded-full bg-cyan-600/22 blur-2xl" />
         <div className="absolute right-8 top-0 h-20 w-20 rounded-full bg-violet-600/20 blur-2xl" />

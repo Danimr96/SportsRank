@@ -516,12 +516,14 @@ def main(argv: Sequence[str] | None = None) -> int:
         mode_candidates = deduplicate_candidates(mode_candidates)
 
         target = daily_target if mode == "daily" else weekly_target
-        selected, rationale = select_candidates(
+        selected, rationale, selection_warnings = select_candidates(
             candidates=mode_candidates,
             target=target,
             use_openai=args.use_openai,
             openai_api_key=openai_api_key,
+            mode=mode,
         )
+        mode_warnings.extend(selection_warnings)
         if not selected:
             raise RuntimeError(
                 f"No valid candidates selected for mode='{mode}'. "
