@@ -57,7 +57,7 @@ def test_daily_selection_hits_minimum_targets_when_available() -> None:
         candidates.append(make_candidate(idx, sport="soccer", market="h2h", league=league))
 
     # NBA volume.
-    for i in range(12):
+    for i in range(16):
         idx += 1
         candidates.append(
             make_candidate(
@@ -70,7 +70,7 @@ def test_daily_selection_hits_minimum_targets_when_available() -> None:
         )
 
     # Tennis daily (non winner).
-    for i in range(6):
+    for i in range(8):
         idx += 1
         candidates.append(
             make_candidate(
@@ -87,12 +87,12 @@ def test_daily_selection_hits_minimum_targets_when_available() -> None:
         idx += 1
         candidates.append(make_candidate(idx, sport=sport, market="h2h", league="Other League"))
 
-    selected = select_candidates_heuristic(candidates, target=25, mode="daily")
+    selected = select_candidates_heuristic(candidates, target=30, mode="daily")
     counts = Counter(candidate.sport_slug for candidate in selected)
 
-    assert len(selected) == 25
+    assert len(selected) == 30
     assert counts["soccer"] >= 5
-    assert counts["basketball"] >= 5
+    assert counts["basketball"] >= 10
     assert counts["tennis"] >= 5
     other_count = len(selected) - counts["soccer"] - counts["basketball"] - counts["tennis"]
     assert other_count >= 5
@@ -173,8 +173,13 @@ def test_weekly_prioritizes_atp_wta_winner_picks() -> None:
         candidates.append(make_candidate(idx, sport=sport, market="h2h", league="Other League"))
 
     selected = select_candidates_heuristic(candidates, target=30, mode="weekly")
+    counts = Counter(candidate.sport_slug for candidate in selected)
     selected_tennis = [pick for pick in selected if pick.sport_slug == "tennis"]
 
+    assert counts["soccer"] >= 2
+    assert counts["basketball"] >= 12
+    other_count = len(selected) - counts["soccer"] - counts["basketball"] - counts["tennis"]
+    assert other_count >= 5
     assert any("atp" in pick.league.lower() and "winner" in pick.market.lower() for pick in selected_tennis)
     assert any("wta" in pick.league.lower() and "winner" in pick.market.lower() for pick in selected_tennis)
 

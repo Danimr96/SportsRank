@@ -14,12 +14,12 @@ BASKETBALL_SPORT_SLUG = "basketball"
 TENNIS_SPORT_SLUG = "tennis"
 
 DAILY_FOOTBALL_TARGET = 5
-DAILY_NBA_TARGET = 5
+DAILY_NBA_TARGET = 10
 DAILY_TENNIS_TARGET = 5
 DAILY_OTHERS_TARGET = 5
 
 WEEKLY_FOOTBALL_TARGET = 2
-WEEKLY_NBA_TARGET = 5
+WEEKLY_NBA_TARGET = 10
 WEEKLY_EUROLEAGUE_TARGET = 2
 WEEKLY_TENNIS_WINNER_TARGET = 2
 WEEKLY_OTHERS_TARGET = 5
@@ -288,9 +288,36 @@ def _apply_mode_portfolio_with_mode(
                 _is_football,
             )
 
-        take(DAILY_NBA_TARGET, "daily basketball (NBA)", _is_nba)
-        take(DAILY_TENNIS_TARGET, "daily tennis", _is_daily_tennis)
-        take(DAILY_OTHERS_TARGET, "daily other sports mix", _is_other_sport)
+        nba_taken = take(DAILY_NBA_TARGET, "daily basketball (NBA)", _is_nba)
+        tennis_taken = take(DAILY_TENNIS_TARGET, "daily tennis", _is_daily_tennis)
+        other_taken = take(DAILY_OTHERS_TARGET, "daily other sports mix", _is_other_sport)
+
+        # Reallocate missing quotas to football first, then basketball.
+        missing_quota = (
+            max(0, DAILY_NBA_TARGET - nba_taken)
+            + max(0, DAILY_TENNIS_TARGET - tennis_taken)
+            + max(0, DAILY_OTHERS_TARGET - other_taken)
+        )
+        if missing_quota > 0:
+            football_reallocated = take(
+                missing_quota,
+                "daily quota reallocation (football)",
+                _is_football,
+            )
+            remaining = missing_quota - football_reallocated
+            if remaining > 0:
+                basketball_reallocated = take(
+                    remaining,
+                    "daily quota reallocation (basketball)",
+                    _is_basketball,
+                )
+                remaining -= basketball_reallocated
+            if remaining > 0:
+                take(
+                    remaining,
+                    "daily quota reallocation (any)",
+                    lambda _candidate: True,
+                )
     else:
         football_selected = take(
             1,
@@ -313,8 +340,21 @@ def _apply_mode_portfolio_with_mode(
                 _is_football,
             )
 
-        take(WEEKLY_NBA_TARGET, "weekly basketball (NBA)", _is_nba)
-        take(WEEKLY_EUROLEAGUE_TARGET, "weekly basketball (Euroleague)", _is_euroleague)
+        nba_taken = take(WEEKLY_NBA_TARGET, "weekly basketball (NBA)", _is_nba)
+        euroleague_taken = take(
+            WEEKLY_EUROLEAGUE_TARGET,
+            "weekly basketball (Euroleague)",
+            _is_euroleague,
+        )
+
+        basketball_selected = nba_taken + euroleague_taken
+        min_basketball_total = WEEKLY_NBA_TARGET + WEEKLY_EUROLEAGUE_TARGET
+        if basketball_selected < min_basketball_total:
+            take(
+                min_basketball_total - basketball_selected,
+                "weekly basketball fallback",
+                _is_basketball,
+            )
 
         atp_taken = take(1, "weekly tennis winner (ATP)", _is_tennis_atp_winner)
         wta_taken = take(1, "weekly tennis winner (WTA)", _is_tennis_wta_winner)
@@ -339,8 +379,36 @@ def _apply_mode_portfolio_with_mode(
                 warnings.append(
                     "weekly tennis: tournament-winner markets unavailable; fallback to match picks.",
                 )
+            winners_selected += fallback_taken
 
-        take(WEEKLY_OTHERS_TARGET, "weekly other sports mix", _is_other_sport)
+        others_taken = take(WEEKLY_OTHERS_TARGET, "weekly other sports mix", _is_other_sport)
+
+        # Reallocate missing quotas to football first, then basketball.
+        missing_quota = (
+            max(0, min_basketball_total - basketball_selected)
+            + max(0, WEEKLY_TENNIS_WINNER_TARGET - winners_selected)
+            + max(0, WEEKLY_OTHERS_TARGET - others_taken)
+        )
+        if missing_quota > 0:
+            football_reallocated = take(
+                missing_quota,
+                "weekly quota reallocation (football)",
+                _is_football,
+            )
+            remaining = missing_quota - football_reallocated
+            if remaining > 0:
+                basketball_reallocated = take(
+                    remaining,
+                    "weekly quota reallocation (basketball)",
+                    _is_basketball,
+                )
+                remaining -= basketball_reallocated
+            if remaining > 0:
+                take(
+                    remaining,
+                    "weekly quota reallocation (any)",
+                    lambda _candidate: True,
+                )
 
     # Fill with remaining best-ranked candidates until target.
     if len(selected) < target:
