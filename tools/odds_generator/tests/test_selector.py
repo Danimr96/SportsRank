@@ -51,10 +51,19 @@ def test_daily_selection_hits_minimum_targets_when_available() -> None:
     candidates: list[CandidatePick] = []
     idx = 0
 
-    # Football: top leagues + Europe.
+    # Football: rich inventory across top leagues + Europe.
     for league in ("La Liga", "Premier League", "Serie A", "Bundesliga", "UEFA Champions League"):
-        idx += 1
-        candidates.append(make_candidate(idx, sport="soccer", market="h2h", league=league))
+        for i in range(7):
+            idx += 1
+            candidates.append(
+                make_candidate(
+                    idx,
+                    sport="soccer",
+                    market="h2h",
+                    league=league,
+                    event=f"{league} Match {i}",
+                ),
+            )
 
     # NBA volume.
     for i in range(16):
@@ -69,48 +78,148 @@ def test_daily_selection_hits_minimum_targets_when_available() -> None:
             ),
         )
 
-    # Tennis daily (non winner).
-    for i in range(8):
+    # Euroleague should not be selected in daily mode.
+    for i in range(4):
+        idx += 1
+        candidates.append(
+            make_candidate(
+                idx,
+                sport="basketball",
+                market="h2h",
+                league="Euroleague",
+                event=f"Euroleague Event {i}",
+            ),
+        )
+
+    # Tennis daily matches + winners (ATP/WTA).
+    for i in range(5):
         idx += 1
         candidates.append(
             make_candidate(
                 idx,
                 sport="tennis",
                 market="h2h",
-                league="ATP",
-                event=f"Tennis Match {i}",
+                league="ATP Tour",
+                event=f"ATP Match {i}",
             ),
         )
+    for i in range(5):
+        idx += 1
+        candidates.append(
+            make_candidate(
+                idx,
+                sport="tennis",
+                market="h2h",
+                league="WTA Tour",
+                event=f"WTA Match {i}",
+            ),
+        )
+    idx += 1
+    candidates.append(
+        make_candidate(
+            idx,
+            sport="tennis",
+            market="winner",
+            league="ATP Masters",
+            event="ATP Winner",
+        ),
+    )
+    idx += 1
+    candidates.append(
+        make_candidate(
+            idx,
+            sport="tennis",
+            market="winner",
+            league="WTA 1000",
+            event="WTA Winner",
+        ),
+    )
 
     # Others mix.
     for sport in ("golf", "motor", "hockey", "combat", "baseball", "american-football"):
-        idx += 1
-        candidates.append(make_candidate(idx, sport=sport, market="h2h", league="Other League"))
+        for i in range(3):
+            idx += 1
+            candidates.append(
+                make_candidate(
+                    idx,
+                    sport=sport,
+                    market="h2h",
+                    league=f"{sport} League",
+                    event=f"{sport} Event {i}",
+                ),
+            )
 
-    selected = select_candidates_heuristic(candidates, target=30, mode="daily")
+    selected = select_candidates_heuristic(candidates, target=40, mode="daily")
     counts = Counter(candidate.sport_slug for candidate in selected)
 
-    assert len(selected) == 30
+    assert len(selected) == 40
     assert counts["soccer"] >= 5
-    assert counts["basketball"] >= 10
-    assert counts["tennis"] >= 5
+    assert counts["basketball"] <= 5
+    assert counts["tennis"] <= 6
     other_count = len(selected) - counts["soccer"] - counts["basketball"] - counts["tennis"]
     assert other_count >= 5
 
-    selected_football_leagues = {pick.league for pick in selected if pick.sport_slug == "soccer"}
-    assert "La Liga" in selected_football_leagues
-    assert "Premier League" in selected_football_leagues
-    assert "Serie A" in selected_football_leagues
-    assert "Bundesliga" in selected_football_leagues
+    selected_football_leagues = [pick.league for pick in selected if pick.sport_slug == "soccer"]
+    league_counts = Counter(selected_football_leagues)
+    assert all(count <= 5 for count in league_counts.values())
+
+    selected_football_leagues_set = set(selected_football_leagues)
+    assert "La Liga" in selected_football_leagues_set
+    assert "Premier League" in selected_football_leagues_set
+    assert "Serie A" in selected_football_leagues_set
+    assert "Bundesliga" in selected_football_leagues_set
+
+    atp_matches = [
+        pick
+        for pick in selected
+        if pick.sport_slug == "tennis"
+        and pick.market == "h2h"
+        and "atp" in pick.league.lower()
+    ]
+    wta_matches = [
+        pick
+        for pick in selected
+        if pick.sport_slug == "tennis"
+        and pick.market == "h2h"
+        and "wta" in pick.league.lower()
+    ]
+    atp_winners = [
+        pick
+        for pick in selected
+        if pick.sport_slug == "tennis"
+        and "winner" in pick.market.lower()
+        and "atp" in pick.league.lower()
+    ]
+    wta_winners = [
+        pick
+        for pick in selected
+        if pick.sport_slug == "tennis"
+        and "winner" in pick.market.lower()
+        and "wta" in pick.league.lower()
+    ]
+
+    assert len(atp_matches) <= 2
+    assert len(wta_matches) <= 2
+    assert len(atp_winners) <= 1
+    assert len(wta_winners) <= 1
 
 
 def test_weekly_prioritizes_atp_wta_winner_picks() -> None:
     candidates: list[CandidatePick] = []
     idx = 0
 
-    for league in ("UEFA Champions League", "La Liga", "Premier League", "Serie A"):
-        idx += 1
-        candidates.append(make_candidate(idx, sport="soccer", market="h2h", league=league))
+    for league in ("UEFA Champions League", "La Liga", "Premier League", "Serie A", "Bundesliga"):
+        for i in range(4):
+            idx += 1
+            candidates.append(
+                make_candidate(
+                    idx,
+                    sport="soccer",
+                    market="h2h",
+                    league=league,
+                    event=f"{league} Week {i}",
+                ),
+            )
 
     for i in range(12):
         idx += 1
@@ -169,19 +278,42 @@ def test_weekly_prioritizes_atp_wta_winner_picks() -> None:
         )
 
     for sport in ("golf", "motor", "hockey", "combat", "baseball", "american-football"):
-        idx += 1
-        candidates.append(make_candidate(idx, sport=sport, market="h2h", league="Other League"))
+        for i in range(3):
+            idx += 1
+            candidates.append(
+                make_candidate(
+                    idx,
+                    sport=sport,
+                    market="h2h",
+                    league="Other League",
+                    event=f"{sport} Week {i}",
+                ),
+            )
 
-    selected = select_candidates_heuristic(candidates, target=30, mode="weekly")
+    selected = select_candidates_heuristic(candidates, target=40, mode="weekly")
     counts = Counter(candidate.sport_slug for candidate in selected)
     selected_tennis = [pick for pick in selected if pick.sport_slug == "tennis"]
 
     assert counts["soccer"] >= 2
-    assert counts["basketball"] >= 12
+    assert counts["basketball"] <= 4
     other_count = len(selected) - counts["soccer"] - counts["basketball"] - counts["tennis"]
     assert other_count >= 5
     assert any("atp" in pick.league.lower() and "winner" in pick.market.lower() for pick in selected_tennis)
     assert any("wta" in pick.league.lower() and "winner" in pick.market.lower() for pick in selected_tennis)
+
+    soccer_by_league = Counter(pick.league for pick in selected if pick.sport_slug == "soccer")
+    assert all(count <= 2 for count in soccer_by_league.values())
+
+    nba_count = sum(
+        1 for pick in selected if pick.sport_slug == "basketball" and "nba" in pick.league.lower()
+    )
+    euroleague_count = sum(
+        1
+        for pick in selected
+        if pick.sport_slug == "basketball" and "euroleague" in pick.league.lower()
+    )
+    assert nba_count <= 2
+    assert euroleague_count <= 2
 
 
 def test_weekly_warns_when_tennis_winner_markets_missing() -> None:
@@ -212,8 +344,9 @@ def test_weekly_warns_when_tennis_winner_markets_missing() -> None:
         mode="weekly",
     )
 
-    assert len(selected) == 25
-    assert any("tournament-winner markets unavailable" in warning for warning in warnings)
+    assert len(selected) <= 25
+    assert any("weekly tennis winner (ATP)" in warning for warning in warnings)
+    assert any("weekly tennis winner (WTA)" in warning for warning in warnings)
 
 
 def test_weekly_football_is_ordered_by_league_priority() -> None:

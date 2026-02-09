@@ -14,12 +14,14 @@ BASKETBALL_SPORT_SLUG = "basketball"
 TENNIS_SPORT_SLUG = "tennis"
 
 DAILY_FOOTBALL_TARGET = 5
-DAILY_NBA_TARGET = 10
-DAILY_TENNIS_TARGET = 5
+DAILY_NBA_TARGET = 5
+DAILY_TENNIS_MATCH_ATP_TARGET = 2
+DAILY_TENNIS_MATCH_WTA_TARGET = 2
+DAILY_TENNIS_WINNER_TARGET = 2
 DAILY_OTHERS_TARGET = 5
 
 WEEKLY_FOOTBALL_TARGET = 2
-WEEKLY_NBA_TARGET = 10
+WEEKLY_NBA_TARGET = 2
 WEEKLY_EUROLEAGUE_TARGET = 2
 WEEKLY_TENNIS_WINNER_TARGET = 2
 WEEKLY_OTHERS_TARGET = 5
@@ -40,8 +42,8 @@ EUROPEAN_FOOTBALL_KEYWORDS = (
 NBA_KEYWORDS = ("nba",)
 EUROLEAGUE_KEYWORDS = ("euroleague",)
 TENNIS_WINNER_KEYWORDS = ("winner", "outright", "futures", "tournament")
-TENNIS_ATP_KEYWORDS = ("atp", "men")
-TENNIS_WTA_KEYWORDS = ("wta", "women")
+TENNIS_ATP_KEYWORDS = ("atp",)
+TENNIS_WTA_KEYWORDS = ("wta",)
 
 
 def _base_score(candidate: CandidatePick) -> float:
@@ -106,6 +108,20 @@ def _football_league_priority(league: str) -> int:
     return len(FOOTBALL_PRIORITY_LEAGUES) + 1
 
 
+def _football_league_key(league: str) -> str:
+    normalized = _normalize(league)
+    for label, keywords in FOOTBALL_PRIORITY_LEAGUES:
+        if any(keyword in normalized for keyword in keywords):
+            return label.lower().replace(" ", "_")
+
+    if "champions league" in normalized or "uefa champions" in normalized:
+        return "uefa_champions_league"
+    if "europa league" in normalized or "uefa europa" in normalized:
+        return "uefa_europa_league"
+
+    return normalized
+
+
 def _order_weekly_with_football_league_priority(
     selected: Sequence[CandidatePick],
 ) -> list[CandidatePick]:
@@ -158,6 +174,28 @@ def _is_tennis_wta_winner(candidate: CandidatePick) -> bool:
     )
 
 
+def _is_tennis_atp_context(candidate: CandidatePick) -> bool:
+    return _contains_any(candidate.league, TENNIS_ATP_KEYWORDS) or _contains_any(
+        candidate.event,
+        TENNIS_ATP_KEYWORDS,
+    )
+
+
+def _is_tennis_wta_context(candidate: CandidatePick) -> bool:
+    return _contains_any(candidate.league, TENNIS_WTA_KEYWORDS) or _contains_any(
+        candidate.event,
+        TENNIS_WTA_KEYWORDS,
+    )
+
+
+def _is_tennis_atp_match(candidate: CandidatePick) -> bool:
+    return _is_daily_tennis(candidate) and _is_tennis_atp_context(candidate)
+
+
+def _is_tennis_wta_match(candidate: CandidatePick) -> bool:
+    return _is_daily_tennis(candidate) and _is_tennis_wta_context(candidate)
+
+
 def _is_daily_tennis(candidate: CandidatePick) -> bool:
     # Daily board prioritizes match picks over outrights.
     return _is_tennis(candidate) and not _is_tennis_tournament_winner(candidate)
@@ -204,40 +242,6 @@ def _heuristic_ranked_order(
     return ranked
 
 
-def _take_from_ranked(
-    ranked_candidates: Sequence[CandidatePick],
-    selected: list[CandidatePick],
-    selected_ids: set[str],
-    *,
-    limit: int,
-    label: str,
-    warnings: list[str],
-    predicate: Callable[[CandidatePick], bool],
-) -> int:
-    if limit <= 0:
-        return 0
-
-    taken = 0
-    for candidate in ranked_candidates:
-        if candidate.candidate_id in selected_ids:
-            continue
-        if not predicate(candidate):
-            continue
-
-        selected.append(candidate)
-        selected_ids.add(candidate.candidate_id)
-        taken += 1
-        if taken >= limit:
-            break
-
-    if taken < limit:
-        warnings.append(
-            f"{label}: requested {limit}, selected {taken} (insufficient candidates).",
-        )
-
-    return taken
-
-
 def _apply_mode_portfolio_with_mode(
     ranked_candidates: Sequence[CandidatePick],
     target: int,
@@ -250,19 +254,96 @@ def _apply_mode_portfolio_with_mode(
     selected_ids: set[str] = set()
     warnings: list[str] = []
 
+    football_cap_per_league = 5 if mode == "daily" else 2
+    football_league_counts: Counter[str] = Counter()
+    basketball_counts: Counter[str] = Counter()
+    tennis_daily_match_counts: Counter[str] = Counter()
+    tennis_winner_counts: Counter[str] = Counter()
+
+    def can_add_candidate(candidate: CandidatePick) -> bool:
+        if _is_football(candidate):
+            return football_league_counts[_football_league_key(candidate.league)] < football_cap_per_league
+
+        if _is_basketball(candidate):
+            if _is_nba(candidate):
+                max_nba = DAILY_NBA_TARGET if mode == "daily" else WEEKLY_NBA_TARGET
+                return basketball_counts["nba"] < max_nba
+            if _is_euroleague(candidate):
+                return mode == "weekly" and basketball_counts["euroleague"] < WEEKLY_EUROLEAGUE_TARGET
+            # Keep basketball constrained to NBA / Euroleague.
+            return False
+
+        if _is_tennis(candidate):
+            if _is_tennis_tournament_winner(candidate):
+                if _is_tennis_atp_winner(candidate):
+                    return tennis_winner_counts["atp"] < 1
+                if _is_tennis_wta_winner(candidate):
+                    return tennis_winner_counts["wta"] < 1
+                return False
+
+            if mode != "daily":
+                return False
+
+            if _is_tennis_atp_match(candidate):
+                return tennis_daily_match_counts["atp"] < DAILY_TENNIS_MATCH_ATP_TARGET
+            if _is_tennis_wta_match(candidate):
+                return tennis_daily_match_counts["wta"] < DAILY_TENNIS_MATCH_WTA_TARGET
+            return False
+
+        return True
+
+    def register_candidate(candidate: CandidatePick) -> None:
+        if _is_football(candidate):
+            football_league_counts[_football_league_key(candidate.league)] += 1
+            return
+
+        if _is_nba(candidate):
+            basketball_counts["nba"] += 1
+            return
+        if _is_euroleague(candidate):
+            basketball_counts["euroleague"] += 1
+            return
+
+        if _is_tennis_tournament_winner(candidate):
+            if _is_tennis_atp_winner(candidate):
+                tennis_winner_counts["atp"] += 1
+            elif _is_tennis_wta_winner(candidate):
+                tennis_winner_counts["wta"] += 1
+            return
+
+        if mode == "daily":
+            if _is_tennis_atp_match(candidate):
+                tennis_daily_match_counts["atp"] += 1
+            elif _is_tennis_wta_match(candidate):
+                tennis_daily_match_counts["wta"] += 1
+
     def take(limit: int, label: str, predicate: Callable[[CandidatePick], bool]) -> int:
-        if len(selected) >= target:
+        if limit <= 0 or len(selected) >= target:
             return 0
+
         allowed = min(limit, target - len(selected))
-        return _take_from_ranked(
-            ranked_candidates,
-            selected,
-            selected_ids,
-            limit=allowed,
-            label=label,
-            warnings=warnings,
-            predicate=predicate,
-        )
+        taken = 0
+        for candidate in ranked_candidates:
+            if candidate.candidate_id in selected_ids:
+                continue
+            if not predicate(candidate):
+                continue
+            if not can_add_candidate(candidate):
+                continue
+
+            selected.append(candidate)
+            selected_ids.add(candidate.candidate_id)
+            register_candidate(candidate)
+            taken += 1
+            if taken >= allowed:
+                break
+
+        if taken < allowed:
+            warnings.append(
+                f"{label}: requested {allowed}, selected {taken} (insufficient candidates).",
+            )
+
+        return taken
 
     if mode == "daily":
         for league_label, league_keywords in FOOTBALL_PRIORITY_LEAGUES:
@@ -289,13 +370,26 @@ def _apply_mode_portfolio_with_mode(
             )
 
         nba_taken = take(DAILY_NBA_TARGET, "daily basketball (NBA)", _is_nba)
-        tennis_taken = take(DAILY_TENNIS_TARGET, "daily tennis", _is_daily_tennis)
+        tennis_match_atp_taken = take(
+            DAILY_TENNIS_MATCH_ATP_TARGET,
+            "daily tennis ATP matches",
+            _is_tennis_atp_match,
+        )
+        tennis_match_wta_taken = take(
+            DAILY_TENNIS_MATCH_WTA_TARGET,
+            "daily tennis WTA matches",
+            _is_tennis_wta_match,
+        )
+        atp_winner_daily = take(1, "daily tennis winner (ATP)", _is_tennis_atp_winner)
+        wta_winner_daily = take(1, "daily tennis winner (WTA)", _is_tennis_wta_winner)
         other_taken = take(DAILY_OTHERS_TARGET, "daily other sports mix", _is_other_sport)
 
         # Reallocate missing quotas to football first, then basketball.
         missing_quota = (
             max(0, DAILY_NBA_TARGET - nba_taken)
-            + max(0, DAILY_TENNIS_TARGET - tennis_taken)
+            + max(0, DAILY_TENNIS_MATCH_ATP_TARGET - tennis_match_atp_taken)
+            + max(0, DAILY_TENNIS_MATCH_WTA_TARGET - tennis_match_wta_taken)
+            + max(0, DAILY_TENNIS_WINNER_TARGET - (atp_winner_daily + wta_winner_daily))
             + max(0, DAILY_OTHERS_TARGET - other_taken)
         )
         if missing_quota > 0:
@@ -305,13 +399,6 @@ def _apply_mode_portfolio_with_mode(
                 _is_football,
             )
             remaining = missing_quota - football_reallocated
-            if remaining > 0:
-                basketball_reallocated = take(
-                    remaining,
-                    "daily quota reallocation (basketball)",
-                    _is_basketball,
-                )
-                remaining -= basketball_reallocated
             if remaining > 0:
                 take(
                     remaining,
@@ -347,15 +434,6 @@ def _apply_mode_portfolio_with_mode(
             _is_euroleague,
         )
 
-        basketball_selected = nba_taken + euroleague_taken
-        min_basketball_total = WEEKLY_NBA_TARGET + WEEKLY_EUROLEAGUE_TARGET
-        if basketball_selected < min_basketball_total:
-            take(
-                min_basketball_total - basketball_selected,
-                "weekly basketball fallback",
-                _is_basketball,
-            )
-
         atp_taken = take(1, "weekly tennis winner (ATP)", _is_tennis_atp_winner)
         wta_taken = take(1, "weekly tennis winner (WTA)", _is_tennis_wta_winner)
 
@@ -368,24 +446,12 @@ def _apply_mode_portfolio_with_mode(
             )
             winners_selected += winner_fallback
 
-        if winners_selected < WEEKLY_TENNIS_WINNER_TARGET:
-            fallback_need = WEEKLY_TENNIS_WINNER_TARGET - winners_selected
-            fallback_taken = take(
-                fallback_need,
-                "weekly tennis match fallback",
-                _is_tennis,
-            )
-            if fallback_taken > 0:
-                warnings.append(
-                    "weekly tennis: tournament-winner markets unavailable; fallback to match picks.",
-                )
-            winners_selected += fallback_taken
-
         others_taken = take(WEEKLY_OTHERS_TARGET, "weekly other sports mix", _is_other_sport)
 
         # Reallocate missing quotas to football first, then basketball.
         missing_quota = (
-            max(0, min_basketball_total - basketball_selected)
+            max(0, WEEKLY_NBA_TARGET - nba_taken)
+            + max(0, WEEKLY_EUROLEAGUE_TARGET - euroleague_taken)
             + max(0, WEEKLY_TENNIS_WINNER_TARGET - winners_selected)
             + max(0, WEEKLY_OTHERS_TARGET - others_taken)
         )
@@ -396,13 +462,6 @@ def _apply_mode_portfolio_with_mode(
                 _is_football,
             )
             remaining = missing_quota - football_reallocated
-            if remaining > 0:
-                basketball_reallocated = take(
-                    remaining,
-                    "weekly quota reallocation (basketball)",
-                    _is_basketball,
-                )
-                remaining -= basketball_reallocated
             if remaining > 0:
                 take(
                     remaining,
@@ -415,8 +474,11 @@ def _apply_mode_portfolio_with_mode(
         for candidate in ranked_candidates:
             if candidate.candidate_id in selected_ids:
                 continue
+            if not can_add_candidate(candidate):
+                continue
             selected.append(candidate)
             selected_ids.add(candidate.candidate_id)
+            register_candidate(candidate)
             if len(selected) >= target:
                 break
 
