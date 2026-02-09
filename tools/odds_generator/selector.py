@@ -94,6 +94,40 @@ def _is_european_football(candidate: CandidatePick) -> bool:
     return _contains_any(candidate.league, EUROPEAN_FOOTBALL_KEYWORDS)
 
 
+def _football_league_priority(league: str) -> int:
+    normalized = _normalize(league)
+    for idx, (_label, keywords) in enumerate(FOOTBALL_PRIORITY_LEAGUES):
+        if any(keyword in normalized for keyword in keywords):
+            return idx
+
+    if any(keyword in normalized for keyword in EUROPEAN_FOOTBALL_KEYWORDS):
+        return len(FOOTBALL_PRIORITY_LEAGUES)
+
+    return len(FOOTBALL_PRIORITY_LEAGUES) + 1
+
+
+def _order_weekly_with_football_league_priority(
+    selected: Sequence[CandidatePick],
+) -> list[CandidatePick]:
+    football = [candidate for candidate in selected if _is_football(candidate)]
+    non_football = [candidate for candidate in selected if not _is_football(candidate)]
+
+    football_sorted = sorted(
+        football,
+        key=lambda candidate: (
+            _football_league_priority(candidate.league),
+            _normalize(candidate.league),
+            candidate.start_time,
+            candidate.event,
+            candidate.market,
+            candidate.candidate_id,
+        ),
+    )
+
+    # Keep non-football picks in their original selected order.
+    return football_sorted + non_football
+
+
 def _is_nba(candidate: CandidatePick) -> bool:
     return _is_basketball(candidate) and _contains_any(candidate.league, NBA_KEYWORDS)
 
@@ -258,16 +292,26 @@ def _apply_mode_portfolio_with_mode(
         take(DAILY_TENNIS_TARGET, "daily tennis", _is_daily_tennis)
         take(DAILY_OTHERS_TARGET, "daily other sports mix", _is_other_sport)
     else:
-        european_taken = take(
+        football_selected = take(
             1,
             "weekly football (Europe priority)",
             lambda candidate: _is_football(candidate) and _is_european_football(candidate),
         )
-        take(
-            WEEKLY_FOOTBALL_TARGET - european_taken,
-            "weekly football fallback",
-            _is_football,
-        )
+        for league_label, league_keywords in FOOTBALL_PRIORITY_LEAGUES:
+            if football_selected >= WEEKLY_FOOTBALL_TARGET:
+                break
+            football_selected += take(
+                1,
+                f"weekly football coverage ({league_label})",
+                lambda candidate, keywords=league_keywords: _is_football(candidate)
+                and _contains_any(candidate.league, keywords),
+            )
+        if football_selected < WEEKLY_FOOTBALL_TARGET:
+            take(
+                WEEKLY_FOOTBALL_TARGET - football_selected,
+                "weekly football fallback",
+                _is_football,
+            )
 
         take(WEEKLY_NBA_TARGET, "weekly basketball (NBA)", _is_nba)
         take(WEEKLY_EUROLEAGUE_TARGET, "weekly basketball (Euroleague)", _is_euroleague)
@@ -307,6 +351,9 @@ def _apply_mode_portfolio_with_mode(
             selected_ids.add(candidate.candidate_id)
             if len(selected) >= target:
                 break
+
+    if mode == "weekly":
+        selected = _order_weekly_with_football_league_priority(selected)
 
     return selected[:target], warnings
 

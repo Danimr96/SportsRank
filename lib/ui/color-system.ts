@@ -59,15 +59,15 @@ export type ActionTone = "primary" | "secondary" | "success" | "neutral";
 
 export function getActionButtonClass(tone: ActionTone): string {
   if (tone === "primary") {
-    return "bg-accent text-white hover:bg-accent-700";
+    return "bg-forest text-bone hover:bg-forest-700";
   }
   if (tone === "secondary") {
-    return "bg-graphite text-white hover:bg-graphite-700";
+    return "bg-clay text-ink hover:bg-[#c47d53]";
   }
   if (tone === "success") {
-    return "bg-accent text-white hover:bg-accent-700";
+    return "bg-forest text-bone hover:bg-forest-700";
   }
-  return "border-stone-300 bg-white text-stone-700 hover:border-stone-400 hover:bg-stone-50";
+  return "border-stone-400/70 bg-transparent text-ink hover:border-stone-500 hover:bg-bone-100";
 }
 
 export function getSportVisualTheme(sportSlug: string): SportVisualTheme {

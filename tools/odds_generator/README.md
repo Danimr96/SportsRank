@@ -89,7 +89,7 @@ Selection is deterministic and distribution-aware (no invented odds, ever):
   - Tennis: 5 picks (match picks)
   - Other sports mix: 5 picks
 - Weekly portfolio minimums (when candidates are available):
-  - Football: 2 picks (Europe priority: Champions/Europa)
+  - Football: 2 picks (Europe priority + league coverage order: La Liga, Premier League, Serie A, Bundesliga)
   - Basketball (NBA): 5 picks
   - Basketball (Euroleague): 2 picks
   - Tennis winners: 2 picks (ATP + WTA preferred; deterministic fallback if unavailable)

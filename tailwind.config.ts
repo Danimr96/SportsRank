@@ -11,24 +11,32 @@ const config: Config = {
     extend: {
       colors: {
         bone: {
-          DEFAULT: "#FAF9F7",
-          100: "#F4F1EC",
-          200: "#EBE6DF",
+          DEFAULT: "#E3DCD2",
+          50: "#F7F3ED",
+          100: "#EFE7DC",
+          200: "#E6DDCF",
+          300: "#D8CCBA",
         },
         ink: {
-          DEFAULT: "#111111",
-          600: "#272727",
-          500: "#3A3A3A",
+          DEFAULT: "#100C0D",
+          600: "#2A2123",
+          500: "#413639",
         },
-        graphite: {
-          DEFAULT: "#1C1C1E",
-          700: "#131315",
+        forest: {
+          DEFAULT: "#013328",
+          700: "#01291F",
+          800: "#011F18",
+        },
+        clay: {
+          DEFAULT: "#CC8B65",
+          100: "#F4E2D8",
+          200: "#E9C5AE",
         },
         accent: {
           DEFAULT: "hsl(var(--accent))",
-          700: "#33756E",
-          100: "#EAF4F2",
-          50: "#F4FAF9",
+          700: "hsl(var(--accent-700))",
+          100: "hsl(var(--accent-100))",
+          50: "hsl(var(--accent-50))",
         },
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
@@ -54,12 +62,12 @@ const config: Config = {
       },
       fontSize: {
         "display-lg": [
-          "clamp(2.15rem, 2.1vw + 1.45rem, 3.35rem)",
-          { lineHeight: "1.02", letterSpacing: "-0.035em", fontWeight: "650" },
+          "clamp(2.4rem, 2.1vw + 1.55rem, 3.6rem)",
+          { lineHeight: "1.02", letterSpacing: "-0.038em", fontWeight: "650" },
         ],
         "display-md": [
-          "clamp(1.8rem, 1.5vw + 1.2rem, 2.6rem)",
-          { lineHeight: "1.06", letterSpacing: "-0.03em", fontWeight: "630" },
+          "clamp(2rem, 1.5vw + 1.2rem, 2.8rem)",
+          { lineHeight: "1.05", letterSpacing: "-0.032em", fontWeight: "630" },
         ],
       },
     },

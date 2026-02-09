@@ -8,7 +8,7 @@ export const Card = React.forwardRef<
   <div
     ref={ref}
     className={cn(
-      "panel-vibrant rounded-xl text-card-foreground shadow-[0_1px_0_rgba(17,17,17,0.04),0_10px_24px_-18px_rgba(17,17,17,0.25)]",
+      "panel-vibrant rounded-2xl text-card-foreground",
       className,
     )}
     {...props}

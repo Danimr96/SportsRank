@@ -41,28 +41,28 @@ export function PickCard({
     selectedStake && selectedOdds ? Math.floor(selectedStake * selectedOdds) : null;
 
   return (
-    <article className="grid gap-3 border-b border-stone-200 py-4 last:border-b-0 md:grid-cols-[1fr_auto] md:items-center">
+    <article className="hover-lift grid gap-3 border-b border-stone-300/55 py-4 last:border-b-0 md:grid-cols-[1fr_auto] md:items-center">
       <div className="space-y-1.5">
-        <p className="text-[11px] uppercase tracking-[0.14em] text-stone-500">
+        <p className="text-[11px] uppercase tracking-[0.14em] text-ink/60">
           {boardLabel} · {pick.is_required ? "Required" : "Optional"}
         </p>
-        <h4 className="text-base font-medium text-stone-900">
+        <h4 className="text-base font-medium text-ink">
           <span className="mr-1.5">{getSportEmoji(pick.sport.slug)}</span>
           {pick.title}
         </h4>
-        {pick.description ? <p className="text-sm text-stone-600">{pick.description}</p> : null}
-        <p className="text-xs text-stone-500">Starts {eventStartText}</p>
+        {pick.description ? <p className="text-sm text-ink/75">{pick.description}</p> : null}
+        <p className="text-xs text-ink/60">Starts {eventStartText}</p>
         {selectedLabel ? (
-          <p className="text-sm text-stone-700">
-            Selected <span className="font-medium text-stone-900">{selectedLabel}</span>
+          <p className="text-sm text-ink/75">
+            Selected <span className="font-medium text-ink">{selectedLabel}</span>
             {selectedStake ? ` · Stake ${formatCredits(selectedStake)}` : ""}
             {selectedOdds ? ` · Odds ${formatOddsEuropean(selectedOdds)}` : ""}
             {potential ? ` · Potential ${formatCredits(potential)}` : ""}
           </p>
         ) : (
-          <p className="text-sm text-stone-500">No selection yet.</p>
+          <p className="text-sm text-ink/55">No selection yet.</p>
         )}
-        {lockReason ? <p className="text-xs text-rose-600">{lockReason}</p> : null}
+        {lockReason ? <p className="text-xs text-rose-700">{lockReason}</p> : null}
       </div>
 
       <div className="flex items-center justify-end gap-2">

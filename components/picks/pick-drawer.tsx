@@ -87,7 +87,7 @@ export function PickDrawer({
         <>
           <motion.button
             type="button"
-            className="fixed inset-0 z-40 bg-stone-900/35 backdrop-blur-[2px]"
+            className="fixed inset-0 z-40 bg-ink/25 backdrop-blur-[1px]"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -95,7 +95,7 @@ export function PickDrawer({
             aria-label="Close drawer"
           />
           <motion.aside
-            className="fixed right-0 top-0 z-50 h-full w-full max-w-md border-l border-stone-200 bg-[#faf9f7] p-6 text-stone-900 shadow-[0_18px_36px_-28px_rgba(17,17,17,0.65)]"
+            className="fixed right-0 top-0 z-50 h-full w-full max-w-md border-l border-stone-300 bg-bone-50 p-6 text-ink shadow-[0_18px_36px_-30px_rgba(16,12,13,0.6)]"
             initial={{ x: "100%" }}
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
@@ -107,8 +107,8 @@ export function PickDrawer({
                   <span className="mr-1">{getSportEmoji(pick.sport.slug)}</span>
                   {pick.title}
                 </h3>
-                <p className="text-sm text-stone-600">Select option and stake.</p>
-                <p className="mt-1 text-xs text-stone-500">
+                <p className="text-sm text-ink/70">Select option and stake.</p>
+                <p className="mt-1 text-xs text-ink/60">
                   {eventLabel} · {startLabel}
                 </p>
               </div>
@@ -117,7 +117,7 @@ export function PickDrawer({
                 variant="ghost"
                 size="sm"
                 onClick={onClose}
-                className="text-stone-700 hover:bg-stone-100"
+                className="text-ink/80 hover:bg-bone-100"
               >
                 <X className="h-4 w-4" />
               </Button>
@@ -127,11 +127,11 @@ export function PickDrawer({
               {pick.options.map((option) => (
                 <label
                   key={option.id}
-                  className="flex cursor-pointer items-center justify-between rounded-md border border-stone-200 bg-white px-3 py-2.5 hover:border-accent/50"
+                  className="flex cursor-pointer items-center justify-between rounded-xl border border-stone-300 bg-bone px-3 py-2.5 hover:border-forest/40"
                 >
                   <span className="text-sm font-medium">{option.label}</span>
                   <span className="flex items-center gap-3 text-sm text-right">
-                    <span className="text-stone-600">
+                    <span className="text-ink/70">
                       Cuota {formatOddsEuropean(option.odds)} · Prob.{" "}
                       {formatPercentSpanish(
                         normalizedProbabilityFromOdds(option.odds, marketOdds),
@@ -154,7 +154,7 @@ export function PickDrawer({
                 Stake: {formatCredits(stake)} créditos
               </p>
               {selectedOption ? (
-                <p className="text-xs text-stone-600">
+                <p className="text-xs text-ink/70">
                   Retorno potencial: {formatCredits(potentialReturn)} (
                   {formatCredits(stake)} x cuota {formatOddsEuropean(selectedOption.odds)})
                 </p>
@@ -167,14 +167,14 @@ export function PickDrawer({
                 onChange={(event) =>
                   setStake(Math.max(minStake, Math.min(maxStake, Number(event.target.value))))
                 }
-                className="w-full accent-accent"
+                className="w-full accent-forest"
               />
               <Input
                 type="number"
                 min={minStake}
                 max={maxStake}
                 value={stake}
-                className="border-stone-200 bg-white text-stone-900"
+                className="border-stone-300 bg-bone text-ink"
                 onChange={(event) => {
                   const next = Number(event.target.value);
                   if (Number.isNaN(next)) {

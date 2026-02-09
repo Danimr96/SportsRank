@@ -209,3 +209,24 @@ def test_weekly_warns_when_tennis_winner_markets_missing() -> None:
 
     assert len(selected) == 25
     assert any("tournament-winner markets unavailable" in warning for warning in warnings)
+
+
+def test_weekly_football_is_ordered_by_league_priority() -> None:
+    candidates = [
+        make_candidate(1, sport="soccer", market="h2h", league="Bundesliga"),
+        make_candidate(2, sport="soccer", market="h2h", league="UEFA Champions League"),
+        make_candidate(3, sport="soccer", market="h2h", league="Serie A"),
+        make_candidate(4, sport="soccer", market="h2h", league="Premier League"),
+        make_candidate(5, sport="soccer", market="h2h", league="La Liga"),
+    ]
+
+    selected = select_candidates_heuristic(candidates, target=5, mode="weekly")
+    selected_leagues = [pick.league for pick in selected if pick.sport_slug == "soccer"]
+
+    assert selected_leagues == [
+        "La Liga",
+        "Premier League",
+        "Serie A",
+        "Bundesliga",
+        "UEFA Champions League",
+    ]

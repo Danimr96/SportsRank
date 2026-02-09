@@ -32,19 +32,19 @@ export function AppHeader({ userEmail }: AppHeaderProps) {
   const pathname = usePathname();
 
   return (
-    <header className="sticky top-0 z-30 border-b border-stone-200/90 bg-[#faf9f7]/92 backdrop-blur">
+    <header className="sticky top-0 z-30 border-b border-stone-300/70 bg-bone/95 backdrop-blur-sm">
       <div className="mx-auto flex w-full max-w-[1200px] items-center justify-between gap-4 px-4 py-4 md:px-6">
         <Link href="/" className="inline-flex items-center gap-3">
-          <span className="grid h-9 w-9 place-items-center rounded-md bg-graphite text-white">
+          <span className="grid h-10 w-10 place-items-center rounded-xl bg-forest text-bone">
             <Trophy className="h-4 w-4" />
           </span>
           <div>
             <p className="font-display text-lg leading-none text-ink">SportsRank</p>
-            <p className="text-xs text-stone-500">Weekly portfolio picks</p>
+            <p className="text-xs uppercase tracking-[0.12em] text-ink/60">Weekly portfolio picks</p>
           </div>
         </Link>
 
-        <nav className="hidden items-center gap-1 rounded-lg border border-stone-200 bg-white p-1 md:flex">
+        <nav className="hidden items-center gap-1 rounded-full border border-stone-400/50 bg-bone-50 p-1 md:flex">
           {NAV_ITEMS.map((item) => {
             const active = isActivePath(pathname, item.href);
             const Icon = item.icon;
@@ -56,10 +56,10 @@ export function AppHeader({ userEmail }: AppHeaderProps) {
                 variant="ghost"
                 size="sm"
                 className={cn(
-                  "h-8 px-3 text-sm",
+                  "h-8 px-3.5 text-sm",
                   active
-                    ? "bg-stone-900 text-white hover:bg-stone-900"
-                    : "text-stone-600 hover:bg-stone-100 hover:text-stone-900",
+                    ? "bg-forest text-bone hover:bg-forest"
+                    : "text-ink/75 hover:bg-bone-100 hover:text-ink",
                 )}
               >
                 <Link href={item.href} className="inline-flex items-center gap-1.5">
@@ -73,7 +73,7 @@ export function AppHeader({ userEmail }: AppHeaderProps) {
 
         <div className="flex items-center gap-3">
           {userEmail ? (
-            <span className="hidden text-sm text-stone-500 lg:inline">{userEmail}</span>
+            <span className="hidden text-sm text-ink/65 lg:inline">{userEmail}</span>
           ) : null}
           {userEmail ? (
             <form action={signOutAction}>

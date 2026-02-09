@@ -22,32 +22,34 @@ export default async function DashboardPage() {
 
   if (!profile) {
     return (
-      <main className="min-h-screen app-shell text-slate-900">
+      <main className="min-h-screen app-shell text-ink">
         <AppHeader userEmail={user.email} />
-        <section className="mx-auto w-full max-w-xl px-4 py-14 md:px-6">
-          <Card className="border-stone-200 bg-white">
-            <CardHeader>
-              <CardTitle className="font-display text-2xl">Create your profile</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <form action={saveProfileAction} className="space-y-4">
-                <div className="space-y-2">
-                  <Label htmlFor="username" className="text-stone-700">Username</Label>
-                  <Input
-                    id="username"
-                    name="username"
-                    required
-                    minLength={3}
-                    maxLength={32}
-                    className="border-stone-200 bg-white text-stone-900"
-                  />
-                </div>
-                <Button type="submit" className={getActionButtonClass("primary")}>
-                  Save profile
-                </Button>
-              </form>
-            </CardContent>
-          </Card>
+        <section className="mx-auto w-full max-w-3xl px-4 py-14 md:px-6">
+          <div className="surface-canvas rounded-3xl p-6 md:p-8">
+            <Card className="border-stone-300/60 bg-bone-50">
+              <CardHeader>
+                <CardTitle className="font-display text-2xl">Create your profile</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <form action={saveProfileAction} className="space-y-4">
+                  <div className="space-y-2">
+                    <Label htmlFor="username" className="text-ink/80">Username</Label>
+                    <Input
+                      id="username"
+                      name="username"
+                      required
+                      minLength={3}
+                      maxLength={32}
+                      className="border-stone-300 bg-bone-50 text-ink"
+                    />
+                  </div>
+                  <Button type="submit" className={getActionButtonClass("primary")}>
+                    Save profile
+                  </Button>
+                </form>
+              </CardContent>
+            </Card>
+          </div>
         </section>
       </main>
     );
@@ -55,19 +57,21 @@ export default async function DashboardPage() {
 
   if (!round) {
     return (
-      <main className="min-h-screen app-shell text-slate-900">
+      <main className="min-h-screen app-shell text-ink">
         <AppHeader userEmail={user.email} />
         <section className="mx-auto w-full max-w-4xl px-4 py-14 md:px-6">
-          <Card className="border-stone-200 bg-white">
-            <CardHeader>
-              <CardTitle className="font-display text-2xl">No open round right now</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-sm text-stone-600">
-                The next weekly round will appear here once an admin opens it.
-              </p>
-            </CardContent>
-          </Card>
+          <div className="surface-canvas rounded-3xl p-6 md:p-8">
+            <Card className="border-stone-300/60 bg-bone-50">
+              <CardHeader>
+                <CardTitle className="font-display text-2xl">No open round right now</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-sm text-ink/70">
+                  The next weekly round will appear here once an admin opens it.
+                </p>
+              </CardContent>
+            </Card>
+          </div>
         </section>
       </main>
     );
@@ -85,16 +89,18 @@ export default async function DashboardPage() {
   ]);
 
   return (
-    <main className="min-h-screen app-shell text-slate-900">
+    <main className="min-h-screen app-shell text-ink">
       <AppHeader userEmail={user.email} />
-      <section className="mx-auto w-full max-w-[1200px] px-4 py-8 md:px-6 md:py-10">
-        <EntryBuilder
-          round={round}
-          entry={entry}
-          picks={picks}
-          initialSelections={selections}
-          initialNowMs={Date.now()}
-        />
+      <section className="mx-auto w-full max-w-[1240px] px-4 py-8 md:px-6 md:py-10">
+        <div className="surface-canvas rounded-[1.75rem] p-5 md:p-8">
+          <EntryBuilder
+            round={round}
+            entry={entry}
+            picks={picks}
+            initialSelections={selections}
+            initialNowMs={Date.now()}
+          />
+        </div>
       </section>
     </main>
   );
