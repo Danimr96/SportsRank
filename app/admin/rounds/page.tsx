@@ -30,53 +30,44 @@ export default async function AdminRoundsPage() {
   const rounds = await listRounds(supabase);
 
   return (
-    <main className="min-h-screen app-shell text-slate-900">
+    <main className="min-h-screen app-shell text-ink">
       <AppHeader userEmail={user.email} />
-      <section className="mx-auto w-full max-w-5xl space-y-5 px-4 py-8">
-        <div className="flex flex-wrap items-center justify-between gap-2 rounded-3xl border border-slate-200/75 bg-white/84 p-4 shadow-[0_24px_90px_-40px_rgba(8,145,178,0.65)]">
+      <section className="mx-auto w-full max-w-[1240px] space-y-5 px-4 py-8 md:px-6 md:py-10">
+        <div className="surface-canvas space-y-5 rounded-[1.75rem] p-5 md:p-8">
+        <div className="surface-forest-soft flex flex-wrap items-center justify-between gap-2 rounded-2xl p-4">
           <div className="space-y-2">
-            <Badge className="w-fit border border-cyan-300/70 bg-cyan-50 text-cyan-700">
+            <Badge variant="outline">
               Admin Control
             </Badge>
-            <h1 className="text-2xl font-semibold tracking-tight">Rounds</h1>
-            <p className="text-sm text-slate-600">Configure weekly windows, stake limits, and statuses.</p>
+            <h1 className="font-display text-3xl tracking-tight">Rounds</h1>
+            <p className="text-sm text-ink/70">Configure weekly windows, stake limits, and statuses.</p>
           </div>
           <div className="flex gap-2">
-            <Button
-              asChild
-              size="sm"
-              variant="outline"
-              className="border-slate-300/80 bg-white/75 text-slate-900 hover:bg-white/80"
-            >
+            <Button asChild size="sm" variant="outline">
               <Link href="/admin/import">Import JSON</Link>
             </Button>
-            <Button
-              asChild
-              size="sm"
-              variant="outline"
-              className="border-slate-300/80 bg-white/75 text-slate-900 hover:bg-white/80"
-            >
+            <Button asChild size="sm" variant="outline">
               <Link href="/admin/generate">Generate (Mock)</Link>
             </Button>
           </div>
         </div>
 
-        <Card className="border-slate-200/75 bg-white/86 text-slate-900">
+        <Card>
           <CardHeader>
             <CardTitle>Create round</CardTitle>
           </CardHeader>
           <CardContent>
             <form action={createRoundAction} className="grid gap-3 sm:grid-cols-2">
               <div className="space-y-2 sm:col-span-2">
-                <Label htmlFor="name" className="text-slate-700">Name</Label>
-                <Input id="name" name="name" required className="border-slate-200/75 bg-slate-50 text-slate-900" />
+                <Label htmlFor="name" className="text-ink/80">Name</Label>
+                <Input id="name" name="name" required className="border-stone-300/70 bg-bone-50 text-ink" />
               </div>
               <div className="space-y-2">
-                <Label htmlFor="status" className="text-slate-700">Status</Label>
+                <Label htmlFor="status" className="text-ink/80">Status</Label>
                 <select
                   id="status"
                   name="status"
-                  className="h-10 w-full rounded-md border border-slate-200/75 bg-slate-50 px-3 text-sm text-slate-900"
+                  className="h-10 w-full rounded-md border border-stone-300/70 bg-bone-50 px-3 text-sm text-ink"
                   defaultValue="draft"
                 >
                   <option value="draft">draft</option>
@@ -86,50 +77,50 @@ export default async function AdminRoundsPage() {
                 </select>
               </div>
               <div className="space-y-2">
-                <Label htmlFor="starting_credits" className="text-slate-700">Starting credits</Label>
+                <Label htmlFor="starting_credits" className="text-ink/80">Starting credits</Label>
                 <Input
                   id="starting_credits"
                   name="starting_credits"
                   type="number"
                   min={1}
                   defaultValue={10000}
-                  className="border-slate-200/75 bg-slate-50 text-slate-900"
+                  className="border-stone-300/70 bg-bone-50 text-ink"
                   required
                 />
               </div>
               <div className="space-y-2">
-                <Label htmlFor="min_stake" className="text-slate-700">Min stake</Label>
+                <Label htmlFor="min_stake" className="text-ink/80">Min stake</Label>
                 <Input
                   id="min_stake"
                   name="min_stake"
                   type="number"
                   min={1}
                   defaultValue={200}
-                  className="border-slate-200/75 bg-slate-50 text-slate-900"
+                  className="border-stone-300/70 bg-bone-50 text-ink"
                   required
                 />
               </div>
               <div className="space-y-2">
-                <Label htmlFor="max_stake" className="text-slate-700">Max stake</Label>
+                <Label htmlFor="max_stake" className="text-ink/80">Max stake</Label>
                 <Input
                   id="max_stake"
                   name="max_stake"
                   type="number"
                   min={1}
                   defaultValue={800}
-                  className="border-slate-200/75 bg-slate-50 text-slate-900"
+                  className="border-stone-300/70 bg-bone-50 text-ink"
                   required
                 />
               </div>
               <div className="space-y-2">
-                <Label htmlFor="opens_at" className="text-slate-700">Opens at</Label>
-                <Input id="opens_at" name="opens_at" type="datetime-local" className="border-slate-200/75 bg-slate-50 text-slate-900" required />
+                <Label htmlFor="opens_at" className="text-ink/80">Opens at</Label>
+                <Input id="opens_at" name="opens_at" type="datetime-local" className="border-stone-300/70 bg-bone-50 text-ink" required />
               </div>
               <div className="space-y-2">
-                <Label htmlFor="closes_at" className="text-slate-700">Closes at</Label>
-                <Input id="closes_at" name="closes_at" type="datetime-local" className="border-slate-200/75 bg-slate-50 text-slate-900" required />
+                <Label htmlFor="closes_at" className="text-ink/80">Closes at</Label>
+                <Input id="closes_at" name="closes_at" type="datetime-local" className="border-stone-300/70 bg-bone-50 text-ink" required />
               </div>
-              <label className="flex items-center gap-2 text-sm text-slate-600 sm:col-span-2">
+              <label className="flex items-center gap-2 text-sm text-ink/70 sm:col-span-2">
                 <input type="checkbox" name="enforce_full_budget" />
                 Enforce full budget at lock
               </label>
@@ -140,7 +131,7 @@ export default async function AdminRoundsPage() {
           </CardContent>
         </Card>
 
-        <Card className="border-slate-200/75 bg-white/86 text-slate-900">
+        <Card>
           <CardHeader>
             <CardTitle>Existing rounds</CardTitle>
           </CardHeader>
@@ -148,7 +139,7 @@ export default async function AdminRoundsPage() {
             <div className="overflow-x-auto">
               <table className="w-full min-w-[700px] text-left text-sm">
                 <thead>
-                  <tr className="border-b border-slate-200/75 text-slate-500">
+                  <tr className="border-b border-stone-300/70 text-ink/55">
                     <th className="py-2">Name</th>
                     <th className="py-2">Status</th>
                     <th className="py-2">Opens</th>
@@ -160,7 +151,7 @@ export default async function AdminRoundsPage() {
                 </thead>
                 <tbody>
                   {rounds.map((round) => (
-                    <tr key={round.id} className="border-b border-slate-200/75 last:border-b-0">
+                    <tr key={round.id} className="border-b border-stone-300/70 last:border-b-0">
                       <td className="py-2 font-medium">{round.name}</td>
                       <td className="py-2">{round.status}</td>
                       <td className="py-2">{toInputDateTime(round.opens_at)}</td>
@@ -172,15 +163,10 @@ export default async function AdminRoundsPage() {
                       </td>
                       <td className="py-2">
                         <div className="flex gap-2">
-                          <Button
-                            asChild
-                            size="sm"
-                            variant="outline"
-                            className="border-slate-300/80 bg-white/75 text-slate-900 hover:bg-white/80"
-                          >
+                          <Button asChild size="sm" variant="outline">
                             <Link href={`/admin/rounds/${round.id}`}>Edit</Link>
                           </Button>
-                          <Button asChild size="sm" variant="ghost" className="text-slate-700 hover:bg-white/80">
+                          <Button asChild size="sm" variant="ghost" className="text-ink/75 hover:bg-bone-100">
                             <Link href={`/admin/settle/${round.id}`}>Settle</Link>
                           </Button>
                         </div>
@@ -192,6 +178,7 @@ export default async function AdminRoundsPage() {
             </div>
           </CardContent>
         </Card>
+        </div>
       </section>
     </main>
   );

@@ -34,33 +34,33 @@ export default async function AdminGeneratePage() {
   const end = new Date(now.getTime() + 72 * 3600 * 1000);
 
   return (
-    <main className="min-h-screen app-shell text-slate-900">
+    <main className="min-h-screen app-shell text-ink">
       <AppHeader userEmail={user.email} />
-      <section className="mx-auto w-full max-w-5xl space-y-5 px-4 py-8">
-        <div className="flex flex-wrap items-center justify-between gap-2 rounded-3xl border border-slate-200/75 bg-white/84 p-4 shadow-[0_24px_90px_-40px_rgba(8,145,178,0.65)]">
+      <section className="mx-auto w-full max-w-[1240px] space-y-5 px-4 py-8 md:px-6 md:py-10">
+        <div className="surface-canvas space-y-5 rounded-[1.75rem] p-5 md:p-8">
+        <div className="surface-forest-soft flex flex-wrap items-center justify-between gap-2 rounded-2xl p-4">
           <div className="space-y-2">
-            <Badge className="w-fit border border-cyan-300/70 bg-cyan-50 text-cyan-700">
+            <Badge variant="outline">
               Generator Lab
             </Badge>
-            <h1 className="text-2xl font-semibold tracking-tight">Admin · Generate</h1>
-            <p className="text-sm text-slate-600">Create deterministic mock packs before real provider rollout.</p>
+            <h1 className="font-display text-3xl tracking-tight">Admin · Generate</h1>
+            <p className="text-sm text-ink/70">Create deterministic mock packs before real provider rollout.</p>
           </div>
           <Button
             asChild
             variant="outline"
             size="sm"
-            className="border-slate-300/80 bg-white/75 text-slate-900 hover:bg-white/80"
           >
             <Link href="/admin/rounds">Back to rounds</Link>
           </Button>
         </div>
 
-        <Card className="border-slate-200/75 bg-white/86 text-slate-900">
+        <Card>
           <CardHeader>
             <CardTitle>Provider mode</CardTitle>
           </CardHeader>
           <CardContent>
-            <p className="text-sm text-slate-600">
+            <p className="text-sm text-ink/70">
               This route uses MockProvider only. It is deterministic and ready to swap with a real
               odds provider implementation.
             </p>
@@ -68,12 +68,12 @@ export default async function AdminGeneratePage() {
         </Card>
 
         {draftRounds.length === 0 ? (
-          <Card className="border-slate-200/75 bg-white/86 text-slate-900">
+          <Card>
             <CardHeader>
               <CardTitle>No draft rounds available</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-sm text-slate-600">
+              <p className="text-sm text-ink/70">
                 Create a draft round before running generation.
               </p>
             </CardContent>
@@ -86,6 +86,7 @@ export default async function AdminGeneratePage() {
             defaultEnd={toDateTimeLocalInput(end)}
           />
         )}
+        </div>
       </section>
     </main>
   );

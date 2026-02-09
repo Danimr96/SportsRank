@@ -70,8 +70,8 @@ function FeedbackCard({
       <Card
         className={
           tone === "danger"
-            ? "border-rose-300/80 bg-rose-50 text-rose-700"
-            : "border-amber-300/80 bg-amber-50 text-amber-700"
+            ? "border-clay/35 bg-clay/10 text-clay"
+            : "border-stone-300/70 bg-bone-50 text-ink"
         }
       >
         <CardHeader>
@@ -84,8 +84,8 @@ function FeedbackCard({
           <ul
             className={
               tone === "danger"
-                ? "space-y-1 text-sm text-rose-700"
-                : "space-y-1 text-sm text-amber-700"
+                ? "space-y-1 text-sm text-clay"
+                : "space-y-1 text-sm text-ink/75"
             }
           >
             {items.map((item) => (
@@ -111,41 +111,36 @@ export function ImportForm() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4 }}
       >
-        <Card className="relative overflow-hidden rounded-3xl border border-slate-200/75 bg-white/90 text-slate-900 shadow-[0_40px_120px_-50px_rgba(8,145,178,0.65)] backdrop-blur">
-          <div className="pointer-events-none absolute inset-0 opacity-60">
-            <div className="absolute -left-20 top-8 h-56 w-56 rounded-full bg-cyan-500/25 blur-3xl" />
-            <div className="absolute right-0 top-20 h-64 w-64 rounded-full bg-fuchsia-500/20 blur-3xl" />
-            <div className="absolute bottom-0 left-1/3 h-56 w-56 rounded-full bg-emerald-500/20 blur-3xl" />
-          </div>
-          <CardHeader className="relative pb-2">
+        <Card className="rounded-2xl">
+          <CardHeader className="pb-2">
             <div className="flex flex-wrap items-center justify-between gap-2">
               <div className="space-y-2">
-                <Badge className="w-fit border border-cyan-200/70 bg-cyan-50 text-cyan-700">
+                <Badge variant="outline">
                   Import Studio
                 </Badge>
                 <CardTitle className="text-2xl leading-tight">
                   Upload and validate picks in one pass
                 </CardTitle>
-                <CardDescription className="text-slate-600">
+                <CardDescription className="text-ink/70">
                   Preview and validate before writing picks into a draft round.
                 </CardDescription>
               </div>
-              <Sparkles className="size-5 text-cyan-300" />
+              <Sparkles className="size-5 text-forest" />
             </div>
           </CardHeader>
-          <CardContent className="relative">
+          <CardContent>
             <form action={action} className="space-y-5">
               <div className="grid gap-4 lg:grid-cols-[1.65fr_1fr]">
-                <div className="space-y-4 rounded-2xl border border-slate-200/75 bg-white/86 p-4 shadow-inner">
+                <div className="space-y-4 rounded-2xl border border-stone-300/70 bg-bone-50 p-4">
                   <div className="space-y-2">
-                    <Label htmlFor="json_file" className="text-sm font-medium text-slate-700">
+                    <Label htmlFor="json_file" className="text-sm font-medium text-ink/80">
                       JSON file
                     </Label>
                     <label
                       htmlFor="json_file"
-                      className="flex cursor-pointer items-center gap-3 rounded-xl border border-dashed border-cyan-300/60 bg-cyan-50 px-4 py-3 text-sm text-cyan-700 transition hover:bg-cyan-100"
+                      className="flex cursor-pointer items-center gap-3 rounded-xl border border-dashed border-stone-400/70 bg-bone px-4 py-3 text-sm text-ink transition hover:bg-bone-100"
                     >
-                      <Upload className="size-4 text-cyan-300" />
+                      <Upload className="size-4 text-forest" />
                       Select `.json` file
                     </label>
                     <input
@@ -153,31 +148,31 @@ export function ImportForm() {
                       name="json_file"
                       type="file"
                       accept="application/json,.json"
-                      className="block w-full rounded-lg border border-slate-200/75 bg-white/84 p-2 text-sm text-slate-900 file:mr-3 file:rounded-md file:border-0 file:bg-cyan-100 file:px-3 file:py-1.5 file:text-cyan-700 hover:file:bg-cyan-200"
+                      className="block w-full rounded-lg border border-stone-300/70 bg-bone p-2 text-sm text-ink file:mr-3 file:rounded-md file:border-0 file:bg-forest/10 file:px-3 file:py-1.5 file:text-forest hover:file:bg-forest/15"
                     />
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="payload" className="text-sm font-medium text-slate-700">
+                    <Label htmlFor="payload" className="text-sm font-medium text-ink/80">
                       Or paste JSON payload
                     </Label>
                     <textarea
                       id="payload"
                       name="payload"
                       rows={16}
-                      className="w-full rounded-xl border border-slate-200/75 bg-white p-3 font-mono text-xs text-slate-900 shadow-inner outline-none ring-cyan-300/50 transition focus:ring"
+                      className="w-full rounded-xl border border-stone-300/70 bg-bone p-3 font-mono text-xs text-ink outline-none ring-forest/30 transition focus:ring"
                       placeholder={SAMPLE_PAYLOAD}
                     />
                   </div>
                 </div>
 
                 <div className="space-y-4">
-                  <div className="rounded-2xl border border-slate-200/75 bg-white/84 p-4">
-                    <p className="mb-2 flex items-center gap-2 text-sm font-semibold text-slate-900">
-                      <FileJson2 className="size-4 text-cyan-300" />
+                  <div className="rounded-2xl border border-stone-300/70 bg-bone-50 p-4">
+                    <p className="mb-2 flex items-center gap-2 text-sm font-semibold text-ink">
+                      <FileJson2 className="size-4 text-forest" />
                       Quality checklist
                     </p>
-                    <ul className="space-y-2 text-sm text-slate-600">
+                    <ul className="space-y-2 text-sm text-ink/70">
                       <li>Use a draft round id that exists.</li>
                       <li>Each pick must include `metadata.start_time` in UTC ISO.</li>
                       <li>Do not invent odds, use source feed values.</li>
@@ -185,9 +180,9 @@ export function ImportForm() {
                     </ul>
                   </div>
 
-                  <div className="rounded-2xl border border-emerald-300/70 bg-emerald-50 p-4">
-                    <p className="mb-2 text-sm font-semibold text-emerald-700">Tip</p>
-                    <p className="text-sm text-emerald-700/90">
+                  <div className="rounded-2xl border border-forest/30 bg-forest/10 p-4">
+                    <p className="mb-2 text-sm font-semibold text-forest">Tip</p>
+                    <p className="text-sm text-forest/90">
                       Run preview first, then import only when warnings look acceptable.
                     </p>
                   </div>
@@ -210,7 +205,6 @@ export function ImportForm() {
                   value="import"
                   disabled={pending}
                   variant="outline"
-                  className="border-slate-300/80 bg-white/75 text-slate-900 hover:bg-white/80"
                 >
                   {pending ? "Working..." : "Validate and import"}
                 </Button>
@@ -229,17 +223,17 @@ export function ImportForm() {
             exit={{ opacity: 0, y: -6 }}
             transition={{ duration: 0.2 }}
           >
-            <Card className="border-emerald-300/80 bg-emerald-50 text-emerald-700">
-              <CardContent className="pt-6">
-                <p className="flex items-center gap-2 text-sm font-semibold">
-                  <CheckCircle2 className="size-4" />
-                  {state.message}
-                </p>
-                {state.inserted ? (
-                  <p className="mt-2 text-sm text-emerald-700/85">
-                    Inserted picks: {state.inserted.picks} | options: {state.inserted.options}
-                  </p>
-                ) : null}
+        <Card className="border-forest/35 bg-forest/10 text-forest">
+          <CardContent className="pt-6">
+            <p className="flex items-center gap-2 text-sm font-semibold">
+              <CheckCircle2 className="size-4" />
+              {state.message}
+            </p>
+            {state.inserted ? (
+              <p className="mt-2 text-sm text-forest/85">
+                Inserted picks: {state.inserted.picks} | options: {state.inserted.options}
+              </p>
+            ) : null}
               </CardContent>
             </Card>
           </motion.div>
@@ -268,12 +262,12 @@ export function ImportForm() {
 
       {state.preview ? <PicksPreview summary={state.preview} title="Preview summary" /> : null}
 
-      <Card className="rounded-2xl border-slate-200/75 bg-white/86 text-slate-900">
+      <Card className="rounded-2xl">
         <CardHeader>
           <CardTitle className="text-base">Schema sample</CardTitle>
         </CardHeader>
         <CardContent>
-          <pre className="overflow-x-auto rounded-xl border border-slate-200/75 bg-slate-50 p-3 text-xs text-slate-700">
+          <pre className="overflow-x-auto rounded-xl border border-stone-300/70 bg-bone-50 p-3 text-xs text-ink/75">
             <code>{SAMPLE_PAYLOAD}</code>
           </pre>
         </CardContent>

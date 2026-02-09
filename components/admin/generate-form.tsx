@@ -29,19 +29,19 @@ export function GenerateForm({
 
   return (
     <div className="space-y-4">
-      <Card className="border-slate-200/75 bg-white/86 text-slate-900">
+      <Card>
         <CardHeader>
           <CardTitle>Generate draft picks (MockProvider)</CardTitle>
         </CardHeader>
         <CardContent>
           <form action={action} className="grid gap-4 sm:grid-cols-2">
             <div className="space-y-2 sm:col-span-2">
-              <Label htmlFor="round_id" className="text-slate-700">Round (draft only)</Label>
+              <Label htmlFor="round_id" className="text-ink/80">Round (draft only)</Label>
               <select
                 id="round_id"
                 name="round_id"
                 required
-                className="h-10 w-full rounded-md border border-slate-200/75 bg-slate-50 px-3 text-sm text-slate-900"
+                className="h-10 w-full rounded-md border border-stone-300/70 bg-bone-50 px-3 text-sm text-ink"
                 defaultValue={draftRounds[0]?.id}
               >
                 {draftRounds.map((round) => (
@@ -53,48 +53,48 @@ export function GenerateForm({
             </div>
 
             <div className="space-y-2 sm:col-span-2">
-              <Label htmlFor="sports" className="text-slate-700">Sports (comma-separated slugs)</Label>
+              <Label htmlFor="sports" className="text-ink/80">Sports (comma-separated slugs)</Label>
               <Input
                 id="sports"
                 name="sports"
                 defaultValue={sportSlugs.join(",")}
                 placeholder="soccer,basketball"
-                className="border-slate-200/75 bg-slate-50 text-slate-900"
+                className="border-stone-300/70 bg-bone-50 text-ink"
                 required
               />
             </div>
 
             <div className="space-y-2 sm:col-span-2">
-              <Label htmlFor="markets" className="text-slate-700">Markets (comma-separated)</Label>
+              <Label htmlFor="markets" className="text-ink/80">Markets (comma-separated)</Label>
               <Input
                 id="markets"
                 name="markets"
                 defaultValue="moneyline,totals"
                 placeholder="moneyline,totals,spread"
-                className="border-slate-200/75 bg-slate-50 text-slate-900"
+                className="border-stone-300/70 bg-bone-50 text-ink"
               />
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="start" className="text-slate-700">Start</Label>
+              <Label htmlFor="start" className="text-ink/80">Start</Label>
               <Input
                 id="start"
                 name="start"
                 type="datetime-local"
                 defaultValue={defaultStart}
-                className="border-slate-200/75 bg-slate-50 text-slate-900"
+                className="border-stone-300/70 bg-bone-50 text-ink"
                 required
               />
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="end" className="text-slate-700">End</Label>
+              <Label htmlFor="end" className="text-ink/80">End</Label>
               <Input
                 id="end"
                 name="end"
                 type="datetime-local"
                 defaultValue={defaultEnd}
-                className="border-slate-200/75 bg-slate-50 text-slate-900"
+                className="border-stone-300/70 bg-bone-50 text-ink"
                 required
               />
             </div>
@@ -115,7 +115,6 @@ export function GenerateForm({
                 value="import"
                 disabled={pending}
                 variant="outline"
-                className="border-slate-300/80 bg-white/75 text-slate-900 hover:bg-white/80"
               >
                 {pending ? "Working..." : "Generate and import"}
               </Button>
@@ -125,16 +124,16 @@ export function GenerateForm({
       </Card>
 
       {state.message ? (
-        <Card className="border-emerald-300/80 bg-emerald-50 text-emerald-700">
+        <Card className="border-forest/35 bg-forest/10 text-forest">
           <CardContent className="pt-6">
             <p className="text-sm font-medium">{state.message}</p>
             {state.generated ? (
-              <p className="mt-2 text-sm text-emerald-700/85">
+              <p className="mt-2 text-sm text-forest/85">
                 Generated events: {state.generated.events} · odds rows: {state.generated.odds_markets}
               </p>
             ) : null}
             {state.inserted ? (
-              <p className="mt-1 text-sm text-emerald-700/85">
+              <p className="mt-1 text-sm text-forest/85">
                 Inserted picks: {state.inserted.picks} · options: {state.inserted.options}
               </p>
             ) : null}
@@ -143,12 +142,12 @@ export function GenerateForm({
       ) : null}
 
       {state.errors.length > 0 ? (
-        <Card className="border-rose-300/80 bg-rose-50 text-rose-700">
+        <Card className="border-clay/35 bg-clay/10 text-clay">
           <CardHeader>
             <CardTitle>Validation errors</CardTitle>
           </CardHeader>
           <CardContent>
-            <ul className="space-y-1 text-sm text-rose-700">
+            <ul className="space-y-1 text-sm text-clay">
               {state.errors.map((error) => (
                 <li key={error}>{error}</li>
               ))}
@@ -158,12 +157,12 @@ export function GenerateForm({
       ) : null}
 
       {state.warnings.length > 0 ? (
-        <Card className="border-amber-300/80 bg-amber-50 text-amber-700">
+        <Card className="border-clay/35 bg-clay/10 text-clay">
           <CardHeader>
             <CardTitle>Warnings</CardTitle>
           </CardHeader>
           <CardContent>
-            <ul className="space-y-1 text-sm text-amber-700">
+            <ul className="space-y-1 text-sm text-clay">
               {state.warnings.map((warning) => (
                 <li key={warning}>{warning}</li>
               ))}

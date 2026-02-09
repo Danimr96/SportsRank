@@ -38,7 +38,7 @@ export function FridayDock({
     creditsStart <= 0 ? 0 : Math.max(0, Math.min(100, (creditsSpent / creditsStart) * 100));
 
   return (
-    <aside className="fixed bottom-3 left-1/2 z-40 w-[min(1200px,calc(100%-1.5rem))] -translate-x-1/2 rounded-2xl border border-stone-400/60 bg-bone-50/95 px-4 py-3 shadow-[0_18px_28px_-24px_rgba(16,12,13,0.55)] backdrop-blur-sm">
+    <aside className="fixed bottom-[calc(4.9rem+env(safe-area-inset-bottom))] left-1/2 z-40 w-[min(1200px,calc(100%-1.5rem))] -translate-x-1/2 rounded-2xl border border-forest/30 bg-bone-50/95 px-4 py-3 shadow-[0_18px_28px_-24px_rgba(1,51,40,0.45)] backdrop-blur-sm md:bottom-3">
       <div className="grid gap-3 md:grid-cols-[1fr_auto] md:items-end">
         <div className="space-y-2">
           <div className="grid gap-1 text-sm md:grid-cols-3">
@@ -52,7 +52,7 @@ export function FridayDock({
         </div>
 
         <div className="space-y-2 md:min-w-[190px]">
-          {reason ? <p className="text-xs text-rose-700">{reason}</p> : null}
+          {reason ? <p className="text-xs text-clay">{reason}</p> : null}
           {isLocked ? (
             <Button
               onClick={onUnlock}

@@ -8,7 +8,9 @@ import {
   ChevronRight,
   Clock3,
   Coins,
+  Lightbulb,
   Layers3,
+  Sparkles,
   Wallet,
 } from "lucide-react";
 import {
@@ -28,8 +30,17 @@ import {
   organizePicksBySportHierarchy,
   type OrganizedSportBoardGroup,
 } from "@/lib/domain/pick-organization";
+import {
+  buildStakeSuggestions,
+  computeProjectedRankRange,
+  projectEntryRange,
+  type LiveSimulationInput,
+  type SimulationScenario,
+  type SimulationSelectionInput,
+} from "@/lib/domain/simulator";
 import { getPickStartTime } from "@/lib/domain/validation";
 import { formatCredits, formatUtcDateTime } from "@/lib/format";
+import { trackEvent } from "@/lib/telemetry/client";
 import { getCountryFlag, getLeagueEmoji, getSportEmoji } from "@/lib/visuals";
 import { cn } from "@/lib/utils";
 import type { Entry, EntrySelection, PickWithOptions, Round } from "@/lib/types";
@@ -40,6 +51,8 @@ interface EntryBuilderProps {
   picks: PickWithOptions[];
   initialSelections: EntrySelection[];
   initialNowMs: number;
+  coachEntries: LiveSimulationInput[];
+  coachLoadError?: string | null;
 }
 
 interface LocalSelection {
@@ -139,12 +152,31 @@ function boardFilterLabel(value: BoardFilter): string {
   return value;
 }
 
+function scenarioLabel(scenario: SimulationScenario): string {
+  if (scenario === "conservative") {
+    return "Conservador";
+  }
+  if (scenario === "aggressive") {
+    return "Agresivo";
+  }
+  return "Base";
+}
+
+function formatRank(rank: number | null): string {
+  if (!rank) {
+    return "—";
+  }
+  return `#${rank}`;
+}
+
 export function EntryBuilder({
   round,
   entry,
   picks,
   initialSelections,
   initialNowMs,
+  coachEntries,
+  coachLoadError = null,
 }: EntryBuilderProps) {
   const router = useRouter();
   const [selections, setSelections] = useState<Record<string, LocalSelection>>(
@@ -157,6 +189,7 @@ export function EntryBuilder({
   const [collapsedNodes, setCollapsedNodes] = useState<Record<string, boolean>>({});
   const [boardFilter, setBoardFilter] = useState<BoardFilter>("all");
   const [sportFilter, setSportFilter] = useState<string>("all");
+  const [scenario, setScenario] = useState<SimulationScenario>("base");
   const [nowMs, setNowMs] = useState(initialNowMs);
   const [isPendingSelection, startSelectionTransition] = useTransition();
   const [isPendingLock, startLockTransition] = useTransition();
@@ -166,6 +199,15 @@ export function EntryBuilder({
     const timer = window.setInterval(() => setNowMs(Date.now()), 30_000);
     return () => window.clearInterval(timer);
   }, []);
+
+  useEffect(() => {
+    void trackEvent({
+      name: "view_dashboard",
+      payload: {
+        roundId: round.id,
+      },
+    });
+  }, [round.id]);
 
   const isEntryLocked = entry.status === "locked";
   const isSettled = entry.status === "settled";
@@ -317,6 +359,111 @@ export function EntryBuilder({
       .filter((sport) => sport.total > 0);
   }, [organizedSports, sportPulse]);
 
+  const simulationSelections = useMemo<SimulationSelectionInput[]>(() => {
+    const pickById = new Map(picks.map((pick) => [pick.id, pick]));
+    return Object.entries(selections)
+      .map(([pickId, local]) => {
+        const pick = pickById.get(pickId);
+        if (!pick) {
+          return null;
+        }
+
+        const selectedOption = pick.options.find((option) => option.id === local.pickOptionId);
+        if (!selectedOption) {
+          return null;
+        }
+
+        const pickStart = getPickStartTime(pick);
+        const editable =
+          canEditEntry &&
+          Boolean(pickStart) &&
+          (pickStart ? pickStart.getTime() > nowMs : false);
+
+        return {
+          pickId: pick.id,
+          pickTitle: pick.title,
+          sportSlug: pick.sport.slug,
+          stake: local.stake,
+          odds: selectedOption.odds,
+          result: selectedOption.result,
+          marketOdds: pick.options.map((option) => option.odds),
+          editable,
+        };
+      })
+      .filter((selection): selection is SimulationSelectionInput => Boolean(selection));
+  }, [picks, selections, canEditEntry, nowMs]);
+
+  const mergedCoachEntries = useMemo<LiveSimulationInput[]>(() => {
+    const localEntry: LiveSimulationInput = {
+      entryId: entry.id,
+      userId: entry.user_id,
+      username: "You",
+      lockedAt: entry.locked_at,
+      creditsStart: entry.credits_start,
+      selections: simulationSelections,
+    };
+
+    const map = new Map<string, LiveSimulationInput>();
+    for (const externalEntry of coachEntries) {
+      map.set(externalEntry.entryId, externalEntry);
+    }
+    map.set(localEntry.entryId, localEntry);
+    return Array.from(map.values());
+  }, [coachEntries, entry, simulationSelections]);
+
+  const entryProjection = useMemo(
+    () =>
+      projectEntryRange(
+        {
+          entryId: entry.id,
+          userId: entry.user_id,
+          username: "You",
+          lockedAt: entry.locked_at,
+          creditsStart: entry.credits_start,
+          selections: simulationSelections,
+        },
+        scenario,
+      ),
+    [entry, scenario, simulationSelections],
+  );
+
+  const projectedRank = useMemo(
+    () => computeProjectedRankRange(mergedCoachEntries, entry.user_id, scenario),
+    [entry.user_id, mergedCoachEntries, scenario],
+  );
+
+  const coachSuggestions = useMemo(
+    () =>
+      buildStakeSuggestions({
+        round,
+        picks,
+        selections: simulationSelections,
+        creditsStart: entry.credits_start,
+      }),
+    [entry.credits_start, picks, round, simulationSelections],
+  );
+
+  const pulse = useMemo(() => {
+    const upcoming = picks.reduce((sum, pick) => {
+      const start = getPickStartTime(pick);
+      if (!start || start.getTime() <= nowMs) {
+        return sum;
+      }
+      return sum + 1;
+    }, 0);
+
+    const missionsDone =
+      Number(picksCount >= 3) +
+      Number(boardStats.sportsCount >= 2) +
+      Number(creditsSpent >= round.min_stake * 3);
+
+    return {
+      upcoming,
+      missionsDone,
+      missionsTotal: 3,
+    };
+  }, [boardStats.sportsCount, creditsSpent, nowMs, picks, picksCount, round.min_stake]);
+
   function isNodeCollapsed(nodeKey: string): boolean {
     return collapsedNodes[nodeKey] ?? defaultNodeCollapsed(nodeKey);
   }
@@ -338,6 +485,81 @@ export function EntryBuilder({
     });
   }
 
+  function saveSelection(
+    payload: { pickId: string; pickOptionId: string; stake: number },
+    source: "drawer" | "suggestion",
+  ): void {
+    startSelectionTransition(async () => {
+      const result = await upsertSelectionAction({
+        entryId: entry.id,
+        pickId: payload.pickId,
+        pickOptionId: payload.pickOptionId,
+        stake: payload.stake,
+      });
+
+      if (!result.ok) {
+        const details = result.errors?.join(" ");
+        setFeedback(
+          details
+            ? `${result.error ?? "Could not save selection."} ${details}`
+            : result.error ?? "Could not save selection.",
+        );
+        return;
+      }
+
+      setSelections((current) => ({
+        ...current,
+        [payload.pickId]: {
+          pickOptionId: payload.pickOptionId,
+          stake: payload.stake,
+        },
+      }));
+
+      if (source === "drawer") {
+        setActivePickId(null);
+        await trackEvent({
+          name: "save_selection",
+          payload: {
+            roundId: round.id,
+            pickId: payload.pickId,
+            stake: payload.stake,
+          },
+        });
+      } else {
+        await trackEvent({
+          name: "apply_suggestion",
+          payload: {
+            roundId: round.id,
+            pickId: payload.pickId,
+            stake: payload.stake,
+          },
+        });
+      }
+    });
+  }
+
+  function handleApplySuggestion(suggestionId: string): void {
+    const suggestion = coachSuggestions.find((item) => item.id === suggestionId);
+    if (!suggestion?.pickId || !suggestion.suggestedStake) {
+      return;
+    }
+
+    const current = selections[suggestion.pickId];
+    if (!current) {
+      setFeedback("Suggestion cannot be applied because the pick has no active selection yet.");
+      return;
+    }
+
+    saveSelection(
+      {
+        pickId: suggestion.pickId,
+        pickOptionId: current.pickOptionId,
+        stake: suggestion.suggestedStake,
+      },
+      "suggestion",
+    );
+  }
+
   function handleLock(): void {
     startLockTransition(async () => {
       const result = await lockEntryAction({ entryId: entry.id });
@@ -346,6 +568,15 @@ export function EntryBuilder({
         setFeedback(details ? `${result.error} ${details}` : result.error ?? "Lock failed.");
         return;
       }
+
+      await trackEvent({
+        name: "lock_entry",
+        payload: {
+          roundId: round.id,
+          picksCount,
+          creditsSpent,
+        },
+      });
 
       setShowLockSuccess(true);
       window.setTimeout(() => {
@@ -374,7 +605,7 @@ export function EntryBuilder({
   return (
     <div className="space-y-7 pb-32">
       <section className="space-y-5">
-        <header className="surface-subtle rounded-3xl p-5 md:p-7">
+        <header className="surface-subtle surface-forest-soft rounded-3xl p-5 md:p-7">
           <div className="grid gap-6 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)_minmax(240px,0.8fr)] lg:items-end">
             <div className="space-y-3">
               <Badge variant="outline" className="text-[10px]">Friday main screen</Badge>
@@ -386,7 +617,7 @@ export function EntryBuilder({
               </div>
             </div>
 
-            <div className="space-y-3 lg:px-2">
+            <div className="space-y-3 rounded-2xl border border-forest/20 bg-bone-50/80 p-4 lg:px-4">
               <p className="text-[11px] uppercase tracking-[0.14em] text-ink/60">Credits remaining</p>
               <p className="font-display text-[clamp(2rem,1.8vw+1.2rem,3rem)] leading-none text-ink">
                 {formatCredits(creditsRemaining)}
@@ -397,17 +628,17 @@ export function EntryBuilder({
               </div>
             </div>
 
-            <div className="space-y-3 rounded-2xl border border-stone-300/70 bg-bone-50 p-4">
-              <p className="text-[11px] uppercase tracking-[0.14em] text-ink/60">Time to close</p>
-              <div className="flex items-center gap-2 text-ink">
-                <Clock3 className="size-4 text-ink/65" />
-                <Countdown closesAt={round.closes_at} />
+            <div className="surface-forest space-y-3 rounded-2xl p-4">
+              <p className="text-[11px] uppercase tracking-[0.14em] text-on-forest/75">Time to close</p>
+              <div className="flex items-center gap-2 text-on-forest">
+                <Clock3 className="size-4 text-on-forest/75" />
+                <Countdown closesAt={round.closes_at} className="text-on-forest" />
               </div>
               {isEntryLocked ? (
                 <Button
                   type="button"
                   variant="outline"
-                  className="w-full"
+                  className="w-full border-bone/45 bg-bone/15 text-on-forest hover:bg-bone/25"
                   onClick={handleUnlock}
                   disabled={!canUnlock || isPendingUnlock}
                 >
@@ -423,7 +654,7 @@ export function EntryBuilder({
                   {isPendingLock ? "Locking..." : "Lock entry"}
                 </Button>
               )}
-              <p className={cn("text-xs", isEntryLocked ? "text-ink/65" : "text-rose-700")}>
+              <p className={cn("text-xs", isEntryLocked ? "text-on-forest/75" : "text-clay-100")}>
                 {isEntryLocked
                   ? unlockDisabledReason ?? "Entry can be unlocked while round remains open."
                   : lockDisabledReason ?? "Entry is ready to lock."}
@@ -432,7 +663,7 @@ export function EntryBuilder({
           </div>
         </header>
 
-        <section className="surface-subtle space-y-4 rounded-2xl p-4">
+        <section className="surface-subtle surface-forest-soft space-y-4 rounded-2xl p-4">
           <div className="flex flex-wrap items-center gap-2">
             <p className="mr-1 text-[11px] uppercase tracking-[0.14em] text-ink/60">Board</p>
             {BOARD_FILTERS.map((value) => (
@@ -487,7 +718,7 @@ export function EntryBuilder({
         </section>
 
         <section className="grid gap-4 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]">
-          <article className="surface-subtle rounded-2xl p-4">
+          <article className="surface-subtle surface-forest-soft rounded-2xl p-4">
             <p className="text-[11px] uppercase tracking-[0.14em] text-ink/60">Portfolio posture</p>
             <div className="mt-3 grid gap-3 sm:grid-cols-3">
               <div className="space-y-1">
@@ -512,7 +743,7 @@ export function EntryBuilder({
             </div>
           </article>
 
-          <article className="surface-subtle rounded-2xl p-4">
+          <article className="surface-subtle surface-clay-soft rounded-2xl p-4">
             <p className="text-[11px] uppercase tracking-[0.14em] text-ink/60">Board mix & constraints</p>
             <div className="mt-3 space-y-2 text-sm text-ink/75">
               <p className="flex items-center justify-between">
@@ -531,6 +762,202 @@ export function EntryBuilder({
                 Stake limits {round.min_stake} - {round.max_stake} ·{" "}
                 {round.enforce_full_budget ? "Full budget required before lock." : "Unused cash is allowed."}
               </p>
+            </div>
+          </article>
+        </section>
+
+        <section className="grid gap-4 xl:grid-cols-[1.2fr_0.8fr]">
+          <article className="surface-subtle rounded-2xl p-4">
+            <div className="flex flex-wrap items-start justify-between gap-3">
+              <div>
+                <p className="text-[11px] uppercase tracking-[0.14em] text-ink/60">Live coach</p>
+                <h3 className="mt-1 inline-flex items-center gap-1.5 text-lg font-medium text-ink">
+                  <Sparkles className="size-4 text-forest" />
+                  Scenario simulator
+                </h3>
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {(["conservative", "base", "aggressive"] as SimulationScenario[]).map(
+                  (scenarioValue) => (
+                    <button
+                      key={scenarioValue}
+                      type="button"
+                      className={filterChipClass(scenario === scenarioValue)}
+                      onClick={() => {
+                        setScenario(scenarioValue);
+                        void trackEvent({
+                          name: "open_simulator",
+                          payload: {
+                            roundId: round.id,
+                            scenario: scenarioValue,
+                          },
+                        });
+                      }}
+                    >
+                      {scenarioLabel(scenarioValue)}
+                    </button>
+                  ),
+                )}
+              </div>
+            </div>
+
+            <div className="mt-4 grid gap-2 sm:grid-cols-2 lg:grid-cols-4">
+              <div className="rounded-xl border border-stone-300/70 bg-bone-50 px-3 py-2">
+                <p className="text-[11px] uppercase tracking-[0.12em] text-ink/55">Current</p>
+                <p className="mt-1 text-lg font-semibold text-ink">
+                  {formatRank(projectedRank.currentRank)}
+                </p>
+              </div>
+              <div className="rounded-xl border border-stone-300/70 bg-bone-50 px-3 py-2">
+                <p className="text-[11px] uppercase tracking-[0.12em] text-ink/55">
+                  {scenarioLabel(scenario)}
+                </p>
+                <p className="mt-1 text-lg font-semibold text-ink">
+                  {formatRank(projectedRank.scenarioRank)}
+                </p>
+              </div>
+              <div className="rounded-xl border border-forest/30 bg-forest/10 px-3 py-2">
+                <p className="text-[11px] uppercase tracking-[0.12em] text-ink/55">Best</p>
+                <p className="mt-1 text-lg font-semibold text-ink">
+                  {formatRank(projectedRank.bestRank)}
+                </p>
+              </div>
+              <div className="rounded-xl border border-clay/35 bg-clay/12 px-3 py-2">
+                <p className="text-[11px] uppercase tracking-[0.12em] text-ink/55">Worst</p>
+                <p className="mt-1 text-lg font-semibold text-ink">
+                  {formatRank(projectedRank.worstRank)}
+                </p>
+              </div>
+            </div>
+
+            <div className="mt-4 grid gap-3 lg:grid-cols-[1.2fr_1fr]">
+              <div className="rounded-xl border border-stone-300/70 bg-bone-50 px-3 py-3">
+                <p className="text-xs uppercase tracking-[0.12em] text-ink/60">
+                  {scenarioLabel(scenario)} projection
+                </p>
+                <p className="mt-1 text-xl font-semibold text-ink">
+                  {formatCredits(entryProjection.scenarioCreditsEnd)} credits
+                </p>
+                <p className="mt-1 text-xs text-ink/65">
+                  Range {formatCredits(entryProjection.minCreditsEnd)} →{" "}
+                  {formatCredits(entryProjection.maxCreditsEnd)} · Cash{" "}
+                  {formatCredits(entryProjection.cashRemaining)}
+                </p>
+                <p className="mt-1 text-xs text-ink/60">
+                  Volatility {formatCredits(entryProjection.volatilityRange)}
+                </p>
+              </div>
+
+              <div className="rounded-xl border border-stone-300/70 bg-bone-50 px-3 py-3">
+                <p className="text-xs uppercase tracking-[0.12em] text-ink/60">Around your rank</p>
+                <div className="mt-2 space-y-1.5">
+                  {projectedRank.around.map((row) => (
+                    <div
+                      key={row.entryId}
+                      className={cn(
+                        "flex items-center justify-between rounded-lg border border-stone-300/70 px-2.5 py-1.5 text-xs",
+                        row.userId === entry.user_id && "border-forest/40 bg-forest/10",
+                      )}
+                    >
+                      <span className="truncate text-ink/85">
+                        #{row.rank} {row.username}
+                      </span>
+                      <span className="text-ink/70">{formatCredits(row.score)}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {coachLoadError ? (
+              <p className="mt-3 rounded-lg border border-clay/35 bg-clay/10 px-3 py-2 text-xs text-clay">
+                Live coach is running on partial data in this session: {coachLoadError}
+              </p>
+            ) : null}
+
+            <div className="mt-4 space-y-2">
+              <p className="inline-flex items-center gap-1.5 text-xs uppercase tracking-[0.12em] text-ink/60">
+                <Lightbulb className="size-3.5 text-forest" />
+                Suggestions
+              </p>
+              {coachSuggestions.length === 0 ? (
+                <p className="text-sm text-ink/70">
+                  Portfolio balance looks stable for now. Keep monitoring event windows.
+                </p>
+              ) : (
+                <div className="space-y-2">
+                  {coachSuggestions.map((suggestion) => (
+                    <div
+                      key={suggestion.id}
+                      className="rounded-xl border border-stone-300/70 bg-bone-50 px-3 py-2.5"
+                    >
+                      <div className="flex flex-wrap items-start justify-between gap-2">
+                        <div>
+                          <p className="text-sm font-medium text-ink">{suggestion.title}</p>
+                          <p className="text-xs text-ink/65">{suggestion.description}</p>
+                        </div>
+                        {suggestion.suggestedStake && suggestion.pickId ? (
+                          <Button
+                            type="button"
+                            size="sm"
+                            variant="outline"
+                            disabled={isPendingSelection}
+                            onClick={() => handleApplySuggestion(suggestion.id)}
+                          >
+                            Apply {formatCredits(suggestion.suggestedStake)}
+                          </Button>
+                        ) : null}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          </article>
+
+          <article className="surface-subtle surface-clay-soft rounded-2xl p-4">
+            <p className="text-[11px] uppercase tracking-[0.14em] text-ink/60">Daily pulse</p>
+            <h3 className="mt-1 text-lg font-medium text-ink">Habit loop</h3>
+            <div className="mt-3 space-y-3">
+              <div className="rounded-xl border border-stone-300/70 bg-bone-50 px-3 py-3">
+                <p className="text-xs uppercase tracking-[0.12em] text-ink/60">Upcoming events</p>
+                <p className="mt-1 text-2xl font-semibold text-ink">{pulse.upcoming}</p>
+                <p className="text-xs text-ink/65">
+                  Events still available to review before kickoff.
+                </p>
+              </div>
+
+              <div className="rounded-xl border border-stone-300/70 bg-bone-50 px-3 py-3">
+                <p className="text-xs uppercase tracking-[0.12em] text-ink/60">Weekly missions</p>
+                <p className="mt-1 text-sm text-ink/80">
+                  {pulse.missionsDone} of {pulse.missionsTotal} completed
+                </p>
+                <div className="mt-2">
+                  <Progress value={(pulse.missionsDone / pulse.missionsTotal) * 100} />
+                </div>
+                <ul className="mt-2 space-y-1 text-xs text-ink/70">
+                  <li>{picksCount >= 3 ? "✓" : "•"} Build at least 3 picks</li>
+                  <li>{boardStats.sportsCount >= 2 ? "✓" : "•"} Diversify across 2+ sports</li>
+                  <li>
+                    {creditsSpent >= round.min_stake * 3 ? "✓" : "•"} Deploy at least{" "}
+                    {formatCredits(round.min_stake * 3)} credits
+                  </li>
+                </ul>
+              </div>
+
+              <div className="rounded-xl border border-stone-300/70 bg-bone-50 px-3 py-3">
+                <p className="text-xs uppercase tracking-[0.12em] text-ink/60">Reminders</p>
+                <ul className="mt-2 space-y-1 text-xs text-ink/70">
+                  {creditsRemaining >= round.min_stake ? (
+                    <li>• You still have {formatCredits(creditsRemaining)} credits available.</li>
+                  ) : null}
+                  {!isEntryLocked && !isClosed ? (
+                    <li>• Entry remains editable until round close and event start time.</li>
+                  ) : null}
+                  {pulse.upcoming <= 3 ? <li>• Check kickoff windows before they lock edits.</li> : null}
+                  {isEntryLocked ? <li>• Entry is locked. You can unlock while the round is open.</li> : null}
+                </ul>
+              </div>
             </div>
           </article>
         </section>
@@ -701,6 +1128,13 @@ export function EntryBuilder({
                                                     onOpen={() => {
                                                       setFeedback(null);
                                                       setActivePickId(pick.id);
+                                                      void trackEvent({
+                                                        name: "open_pick_drawer",
+                                                        payload: {
+                                                          roundId: round.id,
+                                                          pickId: pick.id,
+                                                        },
+                                                      });
                                                     }}
                                                   />
                                                 );
@@ -726,7 +1160,7 @@ export function EntryBuilder({
         </section>
 
         {sportExposure.length > 0 ? (
-          <section className="surface-subtle rounded-2xl p-4">
+          <section className="surface-subtle surface-forest-soft rounded-2xl p-4">
             <p className="mb-3 text-[11px] uppercase tracking-[0.14em] text-ink/60">Sport exposure</p>
             <div className="space-y-2.5">
               {sportExposure.map((sport) => (
@@ -747,7 +1181,7 @@ export function EntryBuilder({
         ) : null}
       </section>
 
-      {feedback ? <p className="text-sm text-rose-700">{feedback}</p> : null}
+      {feedback ? <p className="text-sm text-clay">{feedback}</p> : null}
 
       <PickDrawer
         pick={activePick}
@@ -759,33 +1193,7 @@ export function EntryBuilder({
         pending={isPendingSelection}
         onClose={() => setActivePickId(null)}
         onConfirm={({ pickId, pickOptionId, stake }) => {
-          startSelectionTransition(async () => {
-            const result = await upsertSelectionAction({
-              entryId: entry.id,
-              pickId,
-              pickOptionId,
-              stake,
-            });
-
-            if (!result.ok) {
-              const details = result.errors?.join(" ");
-              setFeedback(
-                details
-                  ? `${result.error ?? "Could not save selection."} ${details}`
-                  : result.error ?? "Could not save selection.",
-              );
-              return;
-            }
-
-            setSelections((current) => ({
-              ...current,
-              [pickId]: {
-                pickOptionId,
-                stake,
-              },
-            }));
-            setActivePickId(null);
-          });
+          saveSelection({ pickId, pickOptionId, stake }, "drawer");
         }}
       />
 

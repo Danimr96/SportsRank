@@ -8,6 +8,7 @@ import { Label } from "@/components/ui/label";
 import { getUserOrRedirect } from "@/lib/auth";
 import { getOrCreateEntry, listEntrySelections } from "@/lib/data/entries";
 import { getCurrentOpenRound, listRoundPicksWithOptions } from "@/lib/data/rounds";
+import { getCoachSimulationSeed } from "@/lib/data/simulator";
 import { getProfileByUserId } from "@/lib/data/users";
 import { createClient } from "@/lib/supabase/server";
 import { getActionButtonClass } from "@/lib/ui/color-system";
@@ -83,9 +84,10 @@ export default async function DashboardPage() {
     credits_start: round.starting_credits,
   });
 
-  const [picks, selections] = await Promise.all([
+  const [picks, selections, coachSeed] = await Promise.all([
     listRoundPicksWithOptions(supabase, round.id),
     listEntrySelections(supabase, entry.id),
+    getCoachSimulationSeed(supabase, round.id),
   ]);
 
   return (
@@ -99,6 +101,8 @@ export default async function DashboardPage() {
             picks={picks}
             initialSelections={selections}
             initialNowMs={Date.now()}
+            coachEntries={coachSeed.entries}
+            coachLoadError={coachSeed.loadError}
           />
         </div>
       </section>

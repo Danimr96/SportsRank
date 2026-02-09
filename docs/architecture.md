@@ -15,6 +15,7 @@
     - `settlement.ts`
     - `ranking.ts`
     - `analytics.ts`
+    - `simulator.ts` (live coach projections + stake suggestions)
 
 - `/lib/data`
   - Thin query/mutation functions only.
@@ -22,6 +23,7 @@
   - Inputs/outputs are typed DTOs used by pages/actions.
   - Includes:
     - `analytics.ts` for settled selection reads (user/global aggregate rows).
+    - `simulator.ts` for best-effort live leaderboard snapshots used by coach UI.
 
 - `/lib/ingestion`
   - Pure import/generation pipeline logic (no DB access).
@@ -49,6 +51,15 @@
     - `admin/`: import/generate preview and controls
     - `layout/`: app header, countdown, dock
     - `ui/`: shared shadcn-style primitives
+
+- `/app/api/telemetry`
+  - Optional forwarding layer for product events (`view_dashboard`, `save_selection`, etc).
+  - Forwards to PostHog when API key env vars are set.
+
+- PWA shell
+  - `app/manifest.ts`, `app/icon.tsx`, `app/apple-icon.tsx`
+  - `public/sw.js` + `public/offline.html`
+  - client registration via `components/layout/pwa-register.tsx`
 
 - `/app`
   - Route-level composition only.
@@ -78,6 +89,8 @@
 9. Admin settle action runs `settleEntry` per locked entry and persists payouts + `credits_end`.
 10. Leaderboard page fetches settled entries and runs `computeLeaderboard`.
 11. Analytics page fetches settled selection rows (user + global aggregate) and computes charts via `computeAnalyticsDashboard`.
+12. Dashboard live coach computes scenario projections with `projectEntryRange` and `computeProjectedRankRange`, then surfaces explainable stake suggestions.
+13. Client interactions emit best-effort telemetry events to `/api/telemetry`.
 
 ## Why this is not a black box
 - Validation, payout, and ranking are deterministic pure functions with unit tests.

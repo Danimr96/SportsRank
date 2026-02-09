@@ -2,8 +2,9 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { BarChart3, LayoutDashboard, Shield, Trophy } from "lucide-react";
+import { BarChart3, CalendarDays, LayoutDashboard, Shield, Trophy } from "lucide-react";
 import { signOutAction } from "@/app/actions/auth";
+import { MobileNav } from "@/components/layout/mobile-nav";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
@@ -13,6 +14,7 @@ interface AppHeaderProps {
 
 const NAV_ITEMS = [
   { href: "/dashboard", label: "Dashboard", icon: LayoutDashboard },
+  { href: "/calendar", label: "Calendar", icon: CalendarDays },
   { href: "/analytics", label: "Analytics", icon: BarChart3 },
   { href: "/history", label: "History", icon: null },
   { href: "/admin/rounds", label: "Admin", icon: Shield },
@@ -25,6 +27,9 @@ function isActivePath(pathname: string, href: string): boolean {
   if (href === "/admin/rounds") {
     return pathname.startsWith("/admin");
   }
+  if (href === "/calendar") {
+    return pathname === "/calendar";
+  }
   return pathname === href;
 }
 
@@ -32,6 +37,7 @@ export function AppHeader({ userEmail }: AppHeaderProps) {
   const pathname = usePathname();
 
   return (
+    <>
     <header className="sticky top-0 z-30 border-b border-stone-300/70 bg-bone/95 backdrop-blur-sm">
       <div className="mx-auto flex w-full max-w-[1200px] items-center justify-between gap-4 px-4 py-4 md:px-6">
         <Link href="/" className="inline-flex items-center gap-3">
@@ -89,5 +95,7 @@ export function AppHeader({ userEmail }: AppHeaderProps) {
         </div>
       </div>
     </header>
+    {userEmail ? <MobileNav /> : null}
+    </>
   );
 }

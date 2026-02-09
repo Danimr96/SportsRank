@@ -9,6 +9,7 @@ import {
   listEntrySelections,
 } from "@/lib/data/entries";
 import { getRoundById, listRoundPicksWithOptions } from "@/lib/data/rounds";
+import { getCoachSimulationSeed } from "@/lib/data/simulator";
 import { createClient } from "@/lib/supabase/server";
 
 interface RoundPageProps {
@@ -59,9 +60,10 @@ export default async function RoundPage({ params }: RoundPageProps) {
     );
   }
 
-  const [picks, selections] = await Promise.all([
+  const [picks, selections, coachSeed] = await Promise.all([
     listRoundPicksWithOptions(supabase, round.id),
     listEntrySelections(supabase, entry.id),
+    getCoachSimulationSeed(supabase, round.id),
   ]);
 
   return (
@@ -74,6 +76,8 @@ export default async function RoundPage({ params }: RoundPageProps) {
           picks={picks}
           initialSelections={selections}
           initialNowMs={Date.now()}
+          coachEntries={coachSeed.entries}
+          coachLoadError={coachSeed.loadError}
         />
       </section>
     </main>

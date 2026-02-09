@@ -18,6 +18,7 @@ Minimal full-stack MVP for weekly pick portfolios.
 - Framer Motion
 - Supabase Auth + Postgres + RLS
 - Vitest (domain unit tests)
+- PWA shell (manifest + service worker + mobile install support)
 
 ## Project structure
 ```text
@@ -62,6 +63,9 @@ Create `.env.local`:
 ```bash
 NEXT_PUBLIC_SUPABASE_URL=your_supabase_project_url
 NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
+# Optional product analytics forwarding
+POSTHOG_API_KEY=your_posthog_project_api_key
+POSTHOG_HOST=https://us.i.posthog.com
 ```
 
 ## Setup
@@ -121,7 +125,18 @@ on conflict (user_id) do nothing;
 - `/analytics`
   - Interactive analytics for personal and global settled performance.
   - Filters by board (`daily|weekly|other`) and sport.
+  - Tabs for `Live`, `Por jornada`, and `Histórico`.
+  - Live classification shows current/best/worst potential rank bands.
   - Visual breakdowns by sport, weekday, and stake profile.
+
+- `/dashboard`
+  - Includes Live Coach scenario simulator (`Conservador | Base | Agresivo`).
+  - Stake suggestions are explainable and user-confirmed (never auto-applied).
+  - Daily Pulse block with upcoming windows and mission progress.
+
+- `/calendar`
+  - Event-centric timeline with board/sport filters.
+  - Shows option-level implied probabilities and your active selection.
 
 ## Bet UX notes
 - Odds are shown in European decimal style on pick UI (`1,85` format).
@@ -164,8 +179,18 @@ The standalone odds generator defaults now target lighter packs (`daily=20`, `we
 - `npm run typecheck` - strict TypeScript check
 - `npm run test` - domain unit tests
 
+## PWA notes
+- Installable on mobile/desktop via browser install prompt.
+- Includes offline read-only shell (`public/offline.html`).
+- Service worker is registered in production only.
+
 ## UI color logic
 - Centralized color system: `lib/ui/color-system.ts`
+- Core palette:
+  - `bone`: `#E3DCD2`
+  - `ink`: `#100C0D`
+  - `forest`: `#013328`
+  - `clay`: `#CC8B65`
 - Sport palette:
   - `soccer` (Football): emerald
   - `basketball`: orange
@@ -177,10 +202,9 @@ The standalone odds generator defaults now target lighter packs (`daily=20`, `we
   - `weekly`: violet family
   - `other`: neutral slate
 - Action buttons (semantic):
-  - `primary`: cyan/blue/emerald gradient
-  - `secondary`: violet/fuchsia/rose gradient
-  - `success`: emerald/teal/cyan gradient
-  - `neutral`: white/slate outlined
+  - `primary`: forest fill + bone text
+  - `secondary`: clay accent
+  - `neutral`: warm outline
 
 ## Troubleshooting
 - If you see a Next dev manifest error like:

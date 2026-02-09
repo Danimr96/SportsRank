@@ -95,13 +95,13 @@ export function PickDrawer({
             aria-label="Close drawer"
           />
           <motion.aside
-            className="fixed right-0 top-0 z-50 h-full w-full max-w-md border-l border-stone-300 bg-bone-50 p-6 text-ink shadow-[0_18px_36px_-30px_rgba(16,12,13,0.6)]"
+            className="fixed right-0 top-0 z-50 h-full w-full max-w-md border-l border-forest/25 bg-bone-50 p-6 text-ink shadow-[0_18px_36px_-30px_rgba(1,51,40,0.55)]"
             initial={{ x: "100%" }}
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ duration: 0.18, ease: "easeOut" }}
           >
-            <div className="flex items-start justify-between gap-3">
+            <div className="surface-forest-soft flex items-start justify-between gap-3 rounded-2xl p-4">
               <div>
                 <h3 className="text-lg font-medium">
                   <span className="mr-1">{getSportEmoji(pick.sport.slug)}</span>
@@ -117,7 +117,7 @@ export function PickDrawer({
                 variant="ghost"
                 size="sm"
                 onClick={onClose}
-                className="text-ink/80 hover:bg-bone-100"
+                className="text-ink/80 hover:bg-forest/10"
               >
                 <X className="h-4 w-4" />
               </Button>
@@ -127,7 +127,11 @@ export function PickDrawer({
               {pick.options.map((option) => (
                 <label
                   key={option.id}
-                  className="flex cursor-pointer items-center justify-between rounded-xl border border-stone-300 bg-bone px-3 py-2.5 hover:border-forest/40"
+                  className={`flex cursor-pointer items-center justify-between rounded-xl border px-3 py-2.5 ${
+                    optionId === option.id
+                      ? "border-forest/35 bg-forest/10"
+                      : "border-stone-300 bg-bone hover:border-forest/40"
+                  }`}
                 >
                   <span className="text-sm font-medium">{option.label}</span>
                   <span className="flex items-center gap-3 text-sm text-right">

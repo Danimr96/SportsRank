@@ -24,16 +24,17 @@ export default async function AdminImportPage() {
   const draftRounds = rounds.filter((round) => round.status === "draft");
 
   return (
-    <main className="min-h-screen app-shell text-slate-900">
+    <main className="min-h-screen app-shell text-ink">
       <AppHeader userEmail={user.email} />
-      <section className="mx-auto w-full max-w-6xl space-y-5 px-4 py-8">
-        <div className="flex flex-wrap items-center justify-between gap-2 rounded-3xl border border-slate-200/75 bg-white/84 p-4 shadow-[0_24px_90px_-40px_rgba(8,145,178,0.65)] backdrop-blur">
+      <section className="mx-auto w-full max-w-[1240px] space-y-5 px-4 py-8 md:px-6 md:py-10">
+        <div className="surface-canvas space-y-5 rounded-[1.75rem] p-5 md:p-8">
+        <div className="surface-forest-soft flex flex-wrap items-center justify-between gap-2 rounded-2xl p-4">
           <div className="space-y-2">
-            <Badge className="w-fit border border-cyan-300/70 bg-cyan-50 text-cyan-700">
+            <Badge variant="outline">
               Admin Import
             </Badge>
-            <h1 className="text-2xl font-semibold tracking-tight">Draft round ingestion</h1>
-            <p className="text-sm text-slate-600">
+            <h1 className="font-display text-3xl tracking-tight">Draft round ingestion</h1>
+            <p className="text-sm text-ink/70">
               Validate raw JSON, preview sport spread and odds range, then insert safely.
             </p>
           </div>
@@ -41,17 +42,16 @@ export default async function AdminImportPage() {
             asChild
             variant="outline"
             size="sm"
-            className="border-slate-300/80 bg-white/75 text-slate-900 hover:bg-white/80"
           >
             <Link href="/admin/rounds">Back to rounds</Link>
           </Button>
         </div>
 
         <div className="grid gap-4 md:grid-cols-3">
-          <Card className="rounded-2xl border-slate-200/75 bg-white/84">
+          <Card className="rounded-2xl">
             <CardHeader className="pb-2">
               <CardTitle className="flex items-center gap-2 text-base">
-                <PenSquare className="size-4 text-cyan-300" />
+                <PenSquare className="size-4 text-forest" />
                 Draft rounds
               </CardTitle>
             </CardHeader>
@@ -59,46 +59,46 @@ export default async function AdminImportPage() {
               <p className="text-2xl font-semibold">{draftRounds.length}</p>
             </CardContent>
           </Card>
-          <Card className="rounded-2xl border-slate-200/75 bg-white/84">
+          <Card className="rounded-2xl">
             <CardHeader className="pb-2">
               <CardTitle className="flex items-center gap-2 text-base">
-                <DatabaseZap className="size-4 text-cyan-300" />
+                <DatabaseZap className="size-4 text-forest" />
                 Source format
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-sm text-slate-600">JSON payload with sports + options + metadata</p>
+              <p className="text-sm text-ink/70">JSON payload with sports + options + metadata</p>
             </CardContent>
           </Card>
-          <Card className="rounded-2xl border-slate-200/75 bg-white/84">
+          <Card className="rounded-2xl">
             <CardHeader className="pb-2">
               <CardTitle className="flex items-center gap-2 text-base">
-                <CalendarRange className="size-4 text-cyan-300" />
+                <CalendarRange className="size-4 text-forest" />
                 Start time
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-sm text-slate-600">Must be ISO UTC in metadata.start_time</p>
+              <p className="text-sm text-ink/70">Must be ISO UTC in metadata.start_time</p>
             </CardContent>
           </Card>
         </div>
 
-        <Card className="rounded-2xl border-slate-200/75 bg-white/84">
+        <Card className="rounded-2xl">
           <CardHeader>
             <CardTitle>Available draft rounds</CardTitle>
           </CardHeader>
           <CardContent>
             {draftRounds.length === 0 ? (
-              <p className="text-sm text-slate-600">No draft rounds available.</p>
+              <p className="text-sm text-ink/70">No draft rounds available.</p>
             ) : (
               <ul className="space-y-2 text-sm">
                 {draftRounds.map((round) => (
                   <li
                     key={round.id}
-                    className="rounded-xl border border-slate-200/75 bg-white/75 px-3 py-2 text-slate-600"
+                    className="rounded-xl border border-stone-300/70 bg-bone-50 px-3 py-2 text-ink/70"
                   >
-                    <span className="font-medium text-slate-900">{round.name}</span>
-                    <span className="ml-2 font-mono text-xs text-slate-500">{round.id}</span>
+                    <span className="font-medium text-ink">{round.name}</span>
+                    <span className="ml-2 font-mono text-xs text-ink/50">{round.id}</span>
                   </li>
                 ))}
               </ul>
@@ -107,6 +107,7 @@ export default async function AdminImportPage() {
         </Card>
 
         <ImportForm />
+        </div>
       </section>
     </main>
   );

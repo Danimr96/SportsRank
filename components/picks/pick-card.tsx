@@ -26,6 +26,16 @@ function boardLabelFromTitle(title: string): string {
   return "Other";
 }
 
+function boardToneClass(boardLabel: string): string {
+  if (boardLabel === "Daily") {
+    return "border-forest/35 bg-forest/10 text-forest";
+  }
+  if (boardLabel === "Weekly") {
+    return "border-clay/40 bg-clay/15 text-ink";
+  }
+  return "border-stone-300/70 bg-bone-100 text-ink/70";
+}
+
 export function PickCard({
   pick,
   selectedLabel,
@@ -43,9 +53,18 @@ export function PickCard({
   return (
     <article className="hover-lift grid gap-3 border-b border-stone-300/55 py-4 last:border-b-0 md:grid-cols-[1fr_auto] md:items-center">
       <div className="space-y-1.5">
-        <p className="text-[11px] uppercase tracking-[0.14em] text-ink/60">
-          {boardLabel} · {pick.is_required ? "Required" : "Optional"}
-        </p>
+        <div className="flex flex-wrap items-center gap-2">
+          <span
+            className={`rounded-full border px-2.5 py-0.5 text-[10px] font-medium uppercase tracking-[0.12em] ${boardToneClass(
+              boardLabel,
+            )}`}
+          >
+            {boardLabel}
+          </span>
+          <span className="text-[11px] uppercase tracking-[0.14em] text-ink/60">
+            {pick.is_required ? "Required" : "Optional"}
+          </span>
+        </div>
         <h4 className="text-base font-medium text-ink">
           <span className="mr-1.5">{getSportEmoji(pick.sport.slug)}</span>
           {pick.title}

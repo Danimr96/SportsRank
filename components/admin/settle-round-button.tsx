@@ -29,7 +29,7 @@ export function SettleRoundButton({ roundId, disabled = false }: SettleRoundButt
       >
         {pending ? "Settling..." : "Settle round"}
       </Button>
-      {message ? <p className="text-xs text-slate-600">{message}</p> : null}
+      {message ? <p className="text-xs text-ink/65">{message}</p> : null}
     </div>
   );
 }

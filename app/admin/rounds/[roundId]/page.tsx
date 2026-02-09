@@ -49,18 +49,19 @@ export default async function AdminRoundDetailPage({ params }: AdminRoundDetailP
   }
 
   return (
-    <main className="min-h-screen app-shell text-slate-900">
+    <main className="min-h-screen app-shell text-ink">
       <AppHeader userEmail={user.email} />
-      <section className="mx-auto w-full max-w-5xl space-y-5 px-4 py-8">
-        <div className="rounded-3xl border border-slate-200/75 bg-white/84 p-4 shadow-[0_24px_90px_-40px_rgba(8,145,178,0.65)]">
-          <Badge className="w-fit border border-cyan-300/70 bg-cyan-50 text-cyan-700">
+      <section className="mx-auto w-full max-w-[1240px] space-y-5 px-4 py-8 md:px-6 md:py-10">
+        <div className="surface-canvas space-y-5 rounded-[1.75rem] p-5 md:p-8">
+        <div className="surface-forest-soft rounded-2xl p-4">
+          <Badge variant="outline">
             Round Studio
           </Badge>
-          <h1 className="mt-2 text-2xl font-semibold tracking-tight">Admin · {round.name}</h1>
-          <p className="mt-1 text-sm text-slate-600">Edit structure, picks, and options for this round.</p>
+          <h1 className="mt-2 font-display text-3xl tracking-tight">Admin · {round.name}</h1>
+          <p className="mt-1 text-sm text-ink/70">Edit structure, picks, and options for this round.</p>
         </div>
 
-        <Card className="border-slate-200/75 bg-white/86 text-slate-900">
+        <Card>
           <CardHeader>
             <CardTitle>Round settings</CardTitle>
           </CardHeader>
@@ -68,22 +69,22 @@ export default async function AdminRoundDetailPage({ params }: AdminRoundDetailP
             <form action={updateRoundAction} className="grid gap-3 sm:grid-cols-2">
               <input type="hidden" name="round_id" value={round.id} />
               <div className="space-y-2 sm:col-span-2">
-                <Label htmlFor="round_name" className="text-slate-700">Name</Label>
+                <Label htmlFor="round_name" className="text-ink/80">Name</Label>
                 <Input
                   id="round_name"
                   name="name"
                   defaultValue={round.name}
-                  className="border-slate-200/75 bg-slate-50 text-slate-900"
+                  className="border-stone-300/70 bg-bone-50 text-ink"
                   required
                 />
               </div>
               <div className="space-y-2">
-                <Label htmlFor="round_status" className="text-slate-700">Status</Label>
+                <Label htmlFor="round_status" className="text-ink/80">Status</Label>
                 <select
                   id="round_status"
                   name="status"
                   defaultValue={round.status}
-                  className="h-10 w-full rounded-md border border-slate-200/75 bg-slate-50 px-3 text-sm text-slate-900"
+                  className="h-10 w-full rounded-md border border-stone-300/70 bg-bone-50 px-3 text-sm text-ink"
                 >
                   <option value="draft">draft</option>
                   <option value="open">open</option>
@@ -92,64 +93,64 @@ export default async function AdminRoundDetailPage({ params }: AdminRoundDetailP
                 </select>
               </div>
               <div className="space-y-2">
-                <Label htmlFor="round_credits" className="text-slate-700">Starting credits</Label>
+                <Label htmlFor="round_credits" className="text-ink/80">Starting credits</Label>
                 <Input
                   id="round_credits"
                   name="starting_credits"
                   type="number"
                   min={1}
                   defaultValue={round.starting_credits}
-                  className="border-slate-200/75 bg-slate-50 text-slate-900"
+                  className="border-stone-300/70 bg-bone-50 text-ink"
                   required
                 />
               </div>
               <div className="space-y-2">
-                <Label htmlFor="round_min_stake" className="text-slate-700">Min stake</Label>
+                <Label htmlFor="round_min_stake" className="text-ink/80">Min stake</Label>
                 <Input
                   id="round_min_stake"
                   name="min_stake"
                   type="number"
                   min={1}
                   defaultValue={round.min_stake}
-                  className="border-slate-200/75 bg-slate-50 text-slate-900"
+                  className="border-stone-300/70 bg-bone-50 text-ink"
                   required
                 />
               </div>
               <div className="space-y-2">
-                <Label htmlFor="round_max_stake" className="text-slate-700">Max stake</Label>
+                <Label htmlFor="round_max_stake" className="text-ink/80">Max stake</Label>
                 <Input
                   id="round_max_stake"
                   name="max_stake"
                   type="number"
                   min={1}
                   defaultValue={round.max_stake}
-                  className="border-slate-200/75 bg-slate-50 text-slate-900"
+                  className="border-stone-300/70 bg-bone-50 text-ink"
                   required
                 />
               </div>
               <div className="space-y-2">
-                <Label htmlFor="round_opens" className="text-slate-700">Opens at</Label>
+                <Label htmlFor="round_opens" className="text-ink/80">Opens at</Label>
                 <Input
                   id="round_opens"
                   name="opens_at"
                   type="datetime-local"
                   defaultValue={toLocalDateTimeInput(round.opens_at)}
-                  className="border-slate-200/75 bg-slate-50 text-slate-900"
+                  className="border-stone-300/70 bg-bone-50 text-ink"
                   required
                 />
               </div>
               <div className="space-y-2">
-                <Label htmlFor="round_closes" className="text-slate-700">Closes at</Label>
+                <Label htmlFor="round_closes" className="text-ink/80">Closes at</Label>
                 <Input
                   id="round_closes"
                   name="closes_at"
                   type="datetime-local"
                   defaultValue={toLocalDateTimeInput(round.closes_at)}
-                  className="border-slate-200/75 bg-slate-50 text-slate-900"
+                  className="border-stone-300/70 bg-bone-50 text-ink"
                   required
                 />
               </div>
-              <label className="flex items-center gap-2 text-sm text-slate-600 sm:col-span-2">
+              <label className="flex items-center gap-2 text-sm text-ink/70 sm:col-span-2">
                 <input
                   type="checkbox"
                   name="enforce_full_budget"
@@ -164,7 +165,7 @@ export default async function AdminRoundDetailPage({ params }: AdminRoundDetailP
           </CardContent>
         </Card>
 
-        <Card className="border-slate-200/75 bg-white/86 text-slate-900">
+        <Card>
           <CardHeader>
             <CardTitle>Add pick</CardTitle>
           </CardHeader>
@@ -172,19 +173,19 @@ export default async function AdminRoundDetailPage({ params }: AdminRoundDetailP
             <form action={createPickAction} className="grid gap-3 sm:grid-cols-2">
               <input type="hidden" name="round_id" value={round.id} />
               <div className="space-y-2 sm:col-span-2">
-                <Label htmlFor="pick_title" className="text-slate-700">Title</Label>
-                <Input id="pick_title" name="title" className="border-slate-200/75 bg-slate-50 text-slate-900" required />
+                <Label htmlFor="pick_title" className="text-ink/80">Title</Label>
+                <Input id="pick_title" name="title" className="border-stone-300/70 bg-bone-50 text-ink" required />
               </div>
               <div className="space-y-2 sm:col-span-2">
-                <Label htmlFor="pick_description" className="text-slate-700">Description</Label>
-                <Input id="pick_description" name="description" className="border-slate-200/75 bg-slate-50 text-slate-900" />
+                <Label htmlFor="pick_description" className="text-ink/80">Description</Label>
+                <Input id="pick_description" name="description" className="border-stone-300/70 bg-bone-50 text-ink" />
               </div>
               <div className="space-y-2">
-                <Label htmlFor="pick_sport" className="text-slate-700">Sport</Label>
+                <Label htmlFor="pick_sport" className="text-ink/80">Sport</Label>
                 <select
                   id="pick_sport"
                   name="sport_id"
-                  className="h-10 w-full rounded-md border border-slate-200/75 bg-slate-50 px-3 text-sm text-slate-900"
+                  className="h-10 w-full rounded-md border border-stone-300/70 bg-bone-50 px-3 text-sm text-ink"
                   required
                 >
                   {sports.map((sport) => (
@@ -195,17 +196,17 @@ export default async function AdminRoundDetailPage({ params }: AdminRoundDetailP
                 </select>
               </div>
               <div className="space-y-2">
-                <Label htmlFor="pick_order" className="text-slate-700">Order index</Label>
+                <Label htmlFor="pick_order" className="text-ink/80">Order index</Label>
                 <Input
                   id="pick_order"
                   name="order_index"
                   type="number"
                   defaultValue={0}
-                  className="border-slate-200/75 bg-slate-50 text-slate-900"
+                  className="border-stone-300/70 bg-bone-50 text-ink"
                   required
                 />
               </div>
-              <label className="flex items-center gap-2 text-sm text-slate-600">
+              <label className="flex items-center gap-2 text-sm text-ink/70">
                 <input type="checkbox" name="is_required" defaultChecked />
                 Required pick
               </label>
@@ -216,28 +217,28 @@ export default async function AdminRoundDetailPage({ params }: AdminRoundDetailP
           </CardContent>
         </Card>
 
-        <Card className="border-slate-200/75 bg-white/86 text-slate-900">
+        <Card>
           <CardHeader>
             <CardTitle>Picks & options</CardTitle>
           </CardHeader>
           <CardContent className="space-y-5">
             {picks.map((pick) => (
-              <div key={pick.id} className="rounded-lg border border-slate-200/75 bg-white/84 p-4">
+              <div key={pick.id} className="rounded-lg border border-stone-300/70 bg-bone-50 p-4">
                 <div className="mb-3 flex items-start justify-between gap-3">
                   <div>
                     <p className="font-medium">{pick.title}</p>
-                    <p className="text-sm text-slate-500">{getSportDisplayName(pick.sport)}</p>
+                    <p className="text-sm text-ink/60">{getSportDisplayName(pick.sport)}</p>
                   </div>
-                  <span className="text-xs text-slate-500">
+                  <span className="text-xs text-ink/55">
                     {pick.is_required ? "required" : "optional"}
                   </span>
                 </div>
 
                 <ul className="mb-3 space-y-1 text-sm">
                   {pick.options.map((option) => (
-                    <li key={option.id} className="flex justify-between rounded border border-slate-200/75 bg-slate-100/75 px-2 py-1">
+                    <li key={option.id} className="flex justify-between rounded border border-stone-300/70 bg-bone px-2 py-1">
                       <span>{option.label}</span>
-                      <span className="text-slate-500">{option.odds.toFixed(2)}x</span>
+                      <span className="text-ink/55">{option.odds.toFixed(2)}x</span>
                     </li>
                   ))}
                 </ul>
@@ -248,7 +249,7 @@ export default async function AdminRoundDetailPage({ params }: AdminRoundDetailP
                   <Input
                     name="label"
                     placeholder="Option label"
-                    className="border-slate-200/75 bg-slate-50 text-slate-900"
+                    className="border-stone-300/70 bg-bone text-ink"
                     required
                   />
                   <Input
@@ -257,7 +258,7 @@ export default async function AdminRoundDetailPage({ params }: AdminRoundDetailP
                     step="0.01"
                     min="1"
                     placeholder="Odds"
-                    className="border-slate-200/75 bg-slate-50 text-slate-900"
+                    className="border-stone-300/70 bg-bone text-ink"
                     required
                   />
                   <Button type="submit" className={getActionButtonClass("primary")}>Add option</Button>
@@ -266,6 +267,7 @@ export default async function AdminRoundDetailPage({ params }: AdminRoundDetailP
             ))}
           </CardContent>
         </Card>
+        </div>
       </section>
     </main>
   );

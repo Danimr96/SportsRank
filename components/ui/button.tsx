@@ -13,9 +13,9 @@ const buttonVariants = cva(
         secondary:
           "bg-clay text-ink hover:bg-[#c47d53]",
         outline:
-          "border border-stone-400/70 bg-transparent text-ink hover:border-stone-500 hover:bg-bone-100",
+          "border border-stone-400/70 bg-bone-50/65 text-ink hover:border-forest/45 hover:bg-forest/10",
         ghost:
-          "text-ink/80 hover:bg-bone-100 hover:text-ink",
+          "text-ink/80 hover:bg-forest/10 hover:text-ink",
         destructive:
           "bg-destructive text-destructive-foreground hover:bg-destructive/90",
       },

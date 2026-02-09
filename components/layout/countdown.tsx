@@ -1,9 +1,11 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
+import { cn } from "@/lib/utils";
 
 interface CountdownProps {
   closesAt: string;
+  className?: string;
 }
 
 function formatRemaining(ms: number): string {
@@ -20,7 +22,7 @@ function formatRemaining(ms: number): string {
   return `${days}d ${hours}h ${minutes}m ${seconds}s`;
 }
 
-export function Countdown({ closesAt }: CountdownProps) {
+export function Countdown({ closesAt, className }: CountdownProps) {
   const target = useMemo(() => new Date(closesAt).getTime(), [closesAt]);
   const [now, setNow] = useState<number | null>(null);
 
@@ -34,11 +36,11 @@ export function Countdown({ closesAt }: CountdownProps) {
   }, []);
 
   if (now === null) {
-    return <span className="text-base font-medium text-stone-900">--</span>;
+    return <span className={cn("text-base font-medium text-stone-900", className)}>--</span>;
   }
 
   return (
-    <span className="text-base font-medium text-stone-900">
+    <span className={cn("text-base font-medium text-stone-900", className)}>
       {formatRemaining(target - now)}
     </span>
   );

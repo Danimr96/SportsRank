@@ -8,7 +8,7 @@ interface PicksPreviewProps {
 
 export function PicksPreview({ summary, title = "Preview summary" }: PicksPreviewProps) {
   return (
-    <Card className="rounded-2xl border border-slate-200/75 bg-white/86 text-slate-900">
+    <Card className="rounded-2xl">
       <CardHeader>
         <CardTitle>{title}</CardTitle>
       </CardHeader>
@@ -19,7 +19,7 @@ export function PicksPreview({ summary, title = "Preview summary" }: PicksPrevie
         </p>
         <div>
           <p className="mb-2 text-sm font-medium">Counts by sport</p>
-          <ul className="space-y-1 text-sm text-slate-600">
+          <ul className="space-y-1 text-sm text-ink/70">
             {Object.entries(summary.counts_by_sport).map(([sportSlug, count]) => (
               <li key={sportSlug}>
                 {sportSlug}: {count}
