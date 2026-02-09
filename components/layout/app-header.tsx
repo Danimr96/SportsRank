@@ -9,8 +9,8 @@ interface AppHeaderProps {
 
 export function AppHeader({ userEmail }: AppHeaderProps) {
   return (
-    <header className="sticky top-0 z-20 border-b border-slate-200/80 bg-white/90 text-slate-900 backdrop-blur-xl">
-      <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-cyan-300/0 via-blue-500/70 to-violet-400/0" />
+    <header className="sticky top-0 z-20 border-b border-slate-300/70 bg-[#fff7ea]/92 text-slate-900 backdrop-blur-xl">
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-emerald-500/0 via-cyan-600/70 to-violet-600/0" />
       <div className="mx-auto flex w-full max-w-6xl items-center justify-between gap-4 px-4 py-3">
         <Link href="/" className="inline-flex items-center gap-2 font-semibold">
           <span className="grid h-8 w-8 place-items-center rounded-xl bg-gradient-to-br from-cyan-600 via-blue-600 to-emerald-600 text-white shadow-[0_12px_24px_-14px_rgba(37,99,235,0.85)]">
@@ -21,7 +21,7 @@ export function AppHeader({ userEmail }: AppHeaderProps) {
           </span>
         </Link>
 
-        <nav className="flex items-center gap-1 rounded-full border border-slate-300/85 bg-white/95 p-1 shadow-[0_12px_30px_-22px_rgba(30,64,175,0.35)] backdrop-blur">
+        <nav className="flex items-center gap-1 rounded-full border border-slate-300/85 bg-[#fffdf8]/95 p-1 shadow-[0_12px_30px_-22px_rgba(30,64,175,0.35)] backdrop-blur">
           <Button
             asChild
             variant="ghost"

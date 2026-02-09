@@ -92,7 +92,7 @@ def test_daily_selection_hits_minimum_targets_when_available() -> None:
 
     assert len(selected) == 25
     assert counts["soccer"] >= 5
-    assert counts["basketball"] >= 10
+    assert counts["basketball"] >= 5
     assert counts["tennis"] >= 5
     other_count = len(selected) - counts["soccer"] - counts["basketball"] - counts["tennis"]
     assert other_count >= 5

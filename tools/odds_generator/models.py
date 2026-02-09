@@ -57,8 +57,8 @@ class SportConfigEntry(BaseModel):
 
 
 class GeneratorLimits(BaseModel):
-    daily_default_target: int = Field(default=25, ge=1)
-    weekly_default_target: int = Field(default=50, ge=1)
+    daily_default_target: int = Field(default=20, ge=1)
+    weekly_default_target: int = Field(default=16, ge=1)
     daily_max: int = Field(default=50, ge=1)
     weekly_max: int = Field(default=200, ge=1)
 

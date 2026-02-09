@@ -35,8 +35,8 @@ uv run --project tools/odds_generator \
   --sports-config tools/odds_generator/sports_map.base.yaml,tools/odds_generator/sports_map.auto.yaml \
   --markets h2h,totals,spreads \
   --regions eu,uk,us \
-  --daily-target 25 \
-  --weekly-target 50 \
+  --daily-target 20 \
+  --weekly-target 16 \
   --outdir ./generated \
   --use-openai false
 ```
@@ -85,12 +85,12 @@ Selection is deterministic and distribution-aware (no invented odds, ever):
 
 - Daily portfolio minimums (when candidates are available):
   - Football: 5 picks (coverage priority: La Liga, Premier League, Serie A, Bundesliga, then Europe)
-  - Basketball (NBA): 10 picks
+  - Basketball (NBA): 5 picks
   - Tennis: 5 picks (match picks)
   - Other sports mix: 5 picks
 - Weekly portfolio minimums (when candidates are available):
   - Football: 2 picks (Europe priority: Champions/Europa)
-  - Basketball (NBA): 10 picks
+  - Basketball (NBA): 5 picks
   - Basketball (Euroleague): 2 picks
   - Tennis winners: 2 picks (ATP + WTA preferred; deterministic fallback if unavailable)
   - Other sports mix: 5 picks

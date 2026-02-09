@@ -275,7 +275,7 @@ export function EntryBuilder({
               type="button"
               size="sm"
               variant="outline"
-              className={cn("border-slate-300/80 bg-white/90 text-slate-900", getActionButtonClass("neutral"))}
+              className={cn("border-cyan-700/25 bg-cyan-100/70 text-cyan-950", getActionButtonClass("neutral"))}
               onClick={() => setSportPanelsCollapsed(false)}
             >
               Expand sports
@@ -284,7 +284,7 @@ export function EntryBuilder({
               type="button"
               size="sm"
               variant="outline"
-              className={cn("border-slate-300/80 bg-white/90 text-slate-900", getActionButtonClass("neutral"))}
+              className={cn("border-violet-700/25 bg-violet-100/70 text-violet-950", getActionButtonClass("neutral"))}
               onClick={() => setSportPanelsCollapsed(true)}
             >
               Collapse sports
@@ -301,7 +301,7 @@ export function EntryBuilder({
           <div className="grid gap-4 lg:grid-cols-[1.35fr_0.9fr]">
             <div className="space-y-4">
               <div className="grid gap-3 sm:grid-cols-3">
-                <div className="rounded-xl border border-slate-300/80 bg-[#fff9ef]/90 p-3 shadow-[0_14px_34px_-24px_rgba(30,64,175,0.24)]">
+                <div className="rounded-xl border border-cyan-700/25 bg-gradient-to-br from-cyan-200/82 to-blue-100/74 p-3 shadow-[0_14px_34px_-24px_rgba(12,74,110,0.34)]">
                   <p className="flex items-center gap-2 text-xs uppercase tracking-wide text-slate-600">
                     <CircleDollarSign className="size-4 text-cyan-600" />
                     Credits spent
@@ -310,14 +310,14 @@ export function EntryBuilder({
                     {formatCredits(creditsSpent)} / {formatCredits(entry.credits_start)}
                   </p>
                 </div>
-                <div className="rounded-xl border border-slate-300/80 bg-[#fff9ef]/90 p-3 shadow-[0_14px_34px_-24px_rgba(30,64,175,0.24)]">
+                <div className="rounded-xl border border-emerald-700/25 bg-gradient-to-br from-emerald-200/82 to-teal-100/74 p-3 shadow-[0_14px_34px_-24px_rgba(5,150,105,0.3)]">
                   <p className="flex items-center gap-2 text-xs uppercase tracking-wide text-slate-600">
                     <Wallet className="size-4 text-cyan-600" />
                     Remaining cash
                   </p>
                   <p className="mt-1 text-xl font-semibold">{formatCredits(creditsRemaining)}</p>
                 </div>
-                <div className="rounded-xl border border-slate-300/80 bg-[#fff9ef]/90 p-3 shadow-[0_14px_34px_-24px_rgba(30,64,175,0.24)]">
+                <div className="rounded-xl border border-violet-700/25 bg-gradient-to-br from-violet-200/82 to-fuchsia-100/74 p-3 shadow-[0_14px_34px_-24px_rgba(109,40,217,0.3)]">
                   <p className="flex items-center gap-2 text-xs uppercase tracking-wide text-slate-600">
                     <Layers3 className="size-4 text-cyan-600" />
                     Picks selected
@@ -348,7 +348,7 @@ export function EntryBuilder({
                 </div>
               </div>
 
-              <div className="rounded-xl border border-slate-300/80 bg-[#fff9ef]/90 p-3">
+              <div className="rounded-xl border border-blue-700/20 bg-gradient-to-r from-blue-100/66 via-cyan-100/48 to-violet-100/44 p-3">
                 <div className="mb-2 flex items-center justify-between text-xs uppercase tracking-wide text-slate-500">
                   <span>Budget flow</span>
                   <span>{Math.round(progressValue)}%</span>
@@ -356,7 +356,7 @@ export function EntryBuilder({
                 <Progress value={progressValue} className="h-2 bg-white/80" />
               </div>
 
-              <div className="rounded-xl border border-slate-300/80 bg-[#fff9ef]/90 p-3">
+              <div className="rounded-xl border border-amber-700/22 bg-gradient-to-r from-amber-100/68 via-orange-100/45 to-rose-100/40 p-3">
                 <p className="mb-2 flex items-center gap-2 text-xs uppercase tracking-wide text-slate-600">
                   <Flame className="size-3.5 text-cyan-600" />
                   Weekly constraints
@@ -371,7 +371,7 @@ export function EntryBuilder({
             </div>
 
             <div className="space-y-4">
-              <div className="rounded-2xl border border-slate-300/80 bg-[#fff9ef]/90 p-4">
+              <div className="rounded-2xl border border-indigo-700/20 bg-gradient-to-br from-indigo-100/64 via-violet-100/46 to-cyan-100/42 p-4">
                 <p className="mb-3 flex items-center gap-2 text-xs uppercase tracking-wide text-slate-600">
                   <Zap className="size-3.5 text-cyan-600" />
                   Live posture
@@ -405,7 +405,7 @@ export function EntryBuilder({
                 </div>
               </div>
 
-              <div className="rounded-2xl border border-slate-300/80 bg-[#fff9ef]/90 p-4">
+              <div className="rounded-2xl border border-emerald-700/20 bg-gradient-to-br from-emerald-100/62 via-cyan-100/44 to-blue-100/38 p-4">
                 <p className="mb-2 text-xs uppercase tracking-wide text-slate-600">
                   Sport exposure
                 </p>

@@ -154,6 +154,7 @@ on conflict (user_id) do nothing;
 
 Important: odds are never fabricated inside gameplay logic. They must come from admin-imported JSON or a provider pipeline.
 `metadata.start_time` is required for import/generation and is used to lock pick editing when events start.
+The standalone odds generator defaults now target lighter packs (`daily=20`, `weekly=16`) and can be overridden per run.
 
 ## Scripts
 - `npm run dev` - local dev server
