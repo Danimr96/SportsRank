@@ -34,12 +34,12 @@ export function Countdown({ closesAt }: CountdownProps) {
   }, []);
 
   if (now === null) {
-    return <span className="text-sm font-medium text-slate-700">Closes in --</span>;
+    return <span className="text-base font-medium text-stone-900">--</span>;
   }
 
   return (
-    <span className="text-sm font-medium text-slate-700">
-      Closes in {formatRemaining(target - now)}
+    <span className="text-base font-medium text-stone-900">
+      {formatRemaining(target - now)}
     </span>
   );
 }

@@ -24,22 +24,22 @@ export default async function DashboardPage() {
     return (
       <main className="min-h-screen app-shell text-slate-900">
         <AppHeader userEmail={user.email} />
-        <section className="mx-auto w-full max-w-xl px-4 py-12">
-          <Card className="border-slate-200/75 bg-white/86">
+        <section className="mx-auto w-full max-w-xl px-4 py-14 md:px-6">
+          <Card className="border-stone-200 bg-white">
             <CardHeader>
-              <CardTitle>Create your profile</CardTitle>
+              <CardTitle className="font-display text-2xl">Create your profile</CardTitle>
             </CardHeader>
             <CardContent>
               <form action={saveProfileAction} className="space-y-4">
                 <div className="space-y-2">
-                  <Label htmlFor="username" className="text-slate-700">Username</Label>
+                  <Label htmlFor="username" className="text-stone-700">Username</Label>
                   <Input
                     id="username"
                     name="username"
                     required
                     minLength={3}
                     maxLength={32}
-                    className="border-slate-200/75 bg-slate-50 text-slate-900"
+                    className="border-stone-200 bg-white text-stone-900"
                   />
                 </div>
                 <Button type="submit" className={getActionButtonClass("primary")}>
@@ -57,13 +57,13 @@ export default async function DashboardPage() {
     return (
       <main className="min-h-screen app-shell text-slate-900">
         <AppHeader userEmail={user.email} />
-        <section className="mx-auto w-full max-w-4xl px-4 py-12">
-          <Card className="border-slate-200/75 bg-white/86">
+        <section className="mx-auto w-full max-w-4xl px-4 py-14 md:px-6">
+          <Card className="border-stone-200 bg-white">
             <CardHeader>
-              <CardTitle>No open round right now</CardTitle>
+              <CardTitle className="font-display text-2xl">No open round right now</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-sm text-slate-600">
+              <p className="text-sm text-stone-600">
                 The next weekly round will appear here once an admin opens it.
               </p>
             </CardContent>
@@ -87,7 +87,7 @@ export default async function DashboardPage() {
   return (
     <main className="min-h-screen app-shell text-slate-900">
       <AppHeader userEmail={user.email} />
-      <section className="mx-auto w-full max-w-6xl px-4 py-8">
+      <section className="mx-auto w-full max-w-[1200px] px-4 py-8 md:px-6 md:py-10">
         <EntryBuilder
           round={round}
           entry={entry}

@@ -22,15 +22,38 @@ export function formatOddsEuropean(value: number): string {
 }
 
 /**
- * Stable implied probability formatter for decimal odds.
- * Example: 2.00 -> "50,0%"
+ * Returns normalized probability (0-100) from decimal odds against all options in a market.
+ * Example for two-way market odds [1.85, 1.95]:
+ * raw implied sums > 100, normalized probabilities sum to 100.
  */
-export function formatImpliedProbability(value: number): string {
-  if (value <= 0) {
-    return "0,0%";
+export function normalizedProbabilityFromOdds(
+  odds: number,
+  marketOdds: number[],
+): number {
+  if (!Number.isFinite(odds) || odds <= 0) {
+    return 0;
   }
-  const pct = ((1 / value) * 100).toFixed(1);
-  return `${pct.replace(".", ",")}%`;
+
+  const validOdds = marketOdds.filter((value) => Number.isFinite(value) && value > 0);
+  if (validOdds.length === 0) {
+    return 0;
+  }
+
+  const denominator = validOdds.reduce((sum, value) => sum + 1 / value, 0);
+  if (denominator <= 0) {
+    return 0;
+  }
+
+  return (1 / odds / denominator) * 100;
+}
+
+/**
+ * Stable percentage formatter with Spanish decimal separator.
+ * Example: 51.28 -> "51,3%"
+ */
+export function formatPercentSpanish(value: number): string {
+  const safe = Number.isFinite(value) ? value : 0;
+  return `${safe.toFixed(1).replace(".", ",")}%`;
 }
 
 /**

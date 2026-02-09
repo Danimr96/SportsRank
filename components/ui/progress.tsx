@@ -14,7 +14,7 @@ export function Progress({ value, className, ...props }: ProgressProps) {
       {...props}
     >
       <div
-        className="h-full bg-gradient-to-r from-cyan-600 via-blue-600 to-emerald-600 transition-all"
+        className="h-full bg-accent transition-all"
         style={{ width: `${clamped}%` }}
       />
     </div>
