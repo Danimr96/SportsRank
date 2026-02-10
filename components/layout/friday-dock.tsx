@@ -38,21 +38,21 @@ export function FridayDock({
     creditsStart <= 0 ? 0 : Math.max(0, Math.min(100, (creditsSpent / creditsStart) * 100));
 
   return (
-    <aside className="fixed bottom-[calc(4.9rem+env(safe-area-inset-bottom))] left-1/2 z-40 w-[min(1200px,calc(100%-1.5rem))] -translate-x-1/2 rounded-2xl border border-forest/30 bg-bone-50/95 px-4 py-3 shadow-[0_18px_28px_-24px_rgba(1,51,40,0.45)] backdrop-blur-sm md:bottom-3">
-      <div className="grid gap-3 md:grid-cols-[1fr_auto] md:items-end">
+    <aside className="fixed bottom-[calc(4.9rem+env(safe-area-inset-bottom))] left-1/2 z-40 w-[min(1200px,calc(100%-1rem))] -translate-x-1/2 rounded-2xl border border-forest/30 bg-bone-50/95 px-3 py-2.5 shadow-[0_18px_28px_-24px_rgba(1,51,40,0.45)] backdrop-blur-sm md:bottom-3 md:px-4 md:py-3">
+      <div className="grid gap-2.5 md:grid-cols-[1fr_auto] md:items-end">
         <div className="space-y-2">
-          <div className="grid gap-1 text-sm md:grid-cols-3">
-            <p className="font-medium text-ink">Picks selected: {picksCount}</p>
+          <div className="grid gap-0.5 text-xs sm:text-sm md:grid-cols-3">
+            <p className="font-medium text-ink">Picks: {picksCount}</p>
             <p className="text-ink/70">
               Credits spent: {formatCredits(creditsSpent)} / {formatCredits(creditsStart)}
             </p>
-            <p className="text-ink/70">Credits remaining: {formatCredits(creditsRemaining)}</p>
+            <p className="text-ink/70">Remaining: {formatCredits(creditsRemaining)}</p>
           </div>
           <Progress value={spentRatio} className="h-1.5 bg-bone-200" />
         </div>
 
-        <div className="space-y-2 md:min-w-[190px]">
-          {reason ? <p className="text-xs text-clay">{reason}</p> : null}
+        <div className="space-y-1.5 md:min-w-[190px]">
+          {reason ? <p className="text-[11px] text-clay">{reason}</p> : null}
           {isLocked ? (
             <Button
               onClick={onUnlock}

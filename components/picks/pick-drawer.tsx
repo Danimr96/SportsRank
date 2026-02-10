@@ -95,20 +95,20 @@ export function PickDrawer({
             aria-label="Close drawer"
           />
           <motion.aside
-            className="fixed right-0 top-0 z-50 h-full w-full max-w-md border-l border-forest/25 bg-bone-50 p-6 text-ink shadow-[0_18px_36px_-30px_rgba(1,51,40,0.55)]"
+            className="fixed right-0 top-0 z-50 flex h-full w-full max-w-[430px] flex-col border-l border-forest/25 bg-bone-50 p-4 text-ink shadow-[0_18px_36px_-30px_rgba(1,51,40,0.55)] sm:p-5"
             initial={{ x: "100%" }}
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ duration: 0.18, ease: "easeOut" }}
           >
-            <div className="surface-forest-soft flex items-start justify-between gap-3 rounded-2xl p-4">
+            <div className="surface-forest-soft flex items-start justify-between gap-3 rounded-2xl p-3">
               <div>
-                <h3 className="text-lg font-medium">
+                <h3 className="text-base font-medium sm:text-lg">
                   <span className="mr-1">{getSportEmoji(pick.sport.slug)}</span>
                   {pick.title}
                 </h3>
-                <p className="text-sm text-ink/70">Select option and stake.</p>
-                <p className="mt-1 text-xs text-ink/60">
+                <p className="text-xs text-ink/70 sm:text-sm">Select option and stake.</p>
+                <p className="mt-1 text-[11px] text-ink/60 sm:text-xs">
                   {eventLabel} · {startLabel}
                 </p>
               </div>
@@ -123,74 +123,76 @@ export function PickDrawer({
               </Button>
             </div>
 
-            <div className="mt-8 space-y-2">
-              {pick.options.map((option) => (
-                <label
-                  key={option.id}
-                  className={`flex cursor-pointer items-center justify-between rounded-xl border px-3 py-2.5 ${
-                    optionId === option.id
-                      ? "border-forest/35 bg-forest/10"
-                      : "border-stone-300 bg-bone hover:border-forest/40"
-                  }`}
-                >
-                  <span className="text-sm font-medium">{option.label}</span>
-                  <span className="flex items-center gap-3 text-sm text-right">
-                    <span className="text-ink/70">
-                      Cuota {formatOddsEuropean(option.odds)} · Prob.{" "}
-                      {formatPercentSpanish(
-                        normalizedProbabilityFromOdds(option.odds, marketOdds),
-                      )}
+            <div className="mt-5 flex-1 space-y-5 overflow-y-auto pr-1">
+              <div className="space-y-2">
+                {pick.options.map((option) => (
+                  <label
+                    key={option.id}
+                    className={`flex cursor-pointer items-center justify-between rounded-xl border px-3 py-2 ${
+                      optionId === option.id
+                        ? "border-forest/35 bg-forest/10"
+                        : "border-stone-300 bg-bone hover:border-forest/40"
+                    }`}
+                  >
+                    <span className="text-sm font-medium">{option.label}</span>
+                    <span className="flex items-center gap-2.5 text-right">
+                      <span className="text-[11px] text-ink/70 sm:text-xs">
+                        Cuota {formatOddsEuropean(option.odds)} · Prob.{" "}
+                        {formatPercentSpanish(
+                          normalizedProbabilityFromOdds(option.odds, marketOdds),
+                        )}
+                      </span>
+                      <input
+                        type="radio"
+                        name="option"
+                        value={option.id}
+                        checked={optionId === option.id}
+                        onChange={() => setOptionId(option.id)}
+                      />
                     </span>
-                    <input
-                      type="radio"
-                      name="option"
-                      value={option.id}
-                      checked={optionId === option.id}
-                      onChange={() => setOptionId(option.id)}
-                    />
-                  </span>
-                </label>
-              ))}
-            </div>
+                  </label>
+                ))}
+              </div>
 
-            <div className="mt-8 space-y-2">
-              <p className="text-sm font-medium">
-                Stake: {formatCredits(stake)} créditos
-              </p>
-              {selectedOption ? (
-                <p className="text-xs text-ink/70">
-                  Retorno potencial: {formatCredits(potentialReturn)} (
-                  {formatCredits(stake)} x cuota {formatOddsEuropean(selectedOption.odds)})
+              <div className="space-y-2">
+                <p className="text-sm font-medium">
+                  Stake: {formatCredits(stake)} créditos
                 </p>
-              ) : null}
-              <input
-                type="range"
-                min={minStake}
-                max={maxStake}
-                value={stake}
-                onChange={(event) =>
-                  setStake(Math.max(minStake, Math.min(maxStake, Number(event.target.value))))
-                }
-                className="w-full accent-forest"
-              />
-              <Input
-                type="number"
-                min={minStake}
-                max={maxStake}
-                value={stake}
-                className="border-stone-300 bg-bone text-ink"
-                onChange={(event) => {
-                  const next = Number(event.target.value);
-                  if (Number.isNaN(next)) {
-                    setStake(minStake);
-                    return;
+                {selectedOption ? (
+                  <p className="text-xs text-ink/70">
+                    Retorno potencial: {formatCredits(potentialReturn)} (
+                    {formatCredits(stake)} x cuota {formatOddsEuropean(selectedOption.odds)})
+                  </p>
+                ) : null}
+                <input
+                  type="range"
+                  min={minStake}
+                  max={maxStake}
+                  value={stake}
+                  onChange={(event) =>
+                    setStake(Math.max(minStake, Math.min(maxStake, Number(event.target.value))))
                   }
-                  setStake(Math.max(minStake, Math.min(maxStake, Math.floor(next))));
-                }}
-              />
+                  className="w-full accent-forest"
+                />
+                <Input
+                  type="number"
+                  min={minStake}
+                  max={maxStake}
+                  value={stake}
+                  className="border-stone-300 bg-bone text-ink"
+                  onChange={(event) => {
+                    const next = Number(event.target.value);
+                    if (Number.isNaN(next)) {
+                      setStake(minStake);
+                      return;
+                    }
+                    setStake(Math.max(minStake, Math.min(maxStake, Math.floor(next))));
+                  }}
+                />
+              </div>
             </div>
 
-            <div className="mt-8">
+            <div className="mt-4 border-t border-stone-300/60 pt-3">
               <Button
                 type="button"
                 className="w-full"

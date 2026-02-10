@@ -60,15 +60,17 @@ export default async function CalendarPage() {
   return (
     <main className="min-h-screen app-shell text-ink">
       <AppHeader userEmail={user.email} />
-      <section className="mx-auto w-full max-w-[1240px] px-4 py-8 md:px-6 md:py-10">
-        <div className="surface-canvas space-y-5 rounded-[1.75rem] p-5 md:p-8">
-          <header className="surface-subtle rounded-2xl p-5">
+      <section className="mx-auto w-full max-w-[1240px] px-4 py-6 md:px-6 md:py-10">
+        <div className="surface-canvas space-y-4 rounded-[1.75rem] p-4 md:p-8">
+          <header className="surface-subtle rounded-2xl p-4 md:p-5">
             <div className="flex flex-wrap items-start justify-between gap-4">
               <div className="space-y-2">
                 <Badge variant="outline">Calendar</Badge>
-                <h1 className="font-display text-display-md text-ink">Event calendar</h1>
-                <p className="text-sm text-ink/70">
-                  Track upcoming events, compare implied probabilities, and review your active picks.
+                <h1 className="font-display text-[clamp(1.45rem,1.1rem+1.2vw,2.4rem)] leading-[1.05] text-ink">
+                  Event calendar
+                </h1>
+                <p className="text-xs text-ink/70 md:text-sm">
+                  Month/week board with day-level selection and sport grouping.
                 </p>
               </div>
               <div className="rounded-2xl border border-stone-300/70 bg-bone-50 px-4 py-3 text-sm">

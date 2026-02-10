@@ -93,8 +93,8 @@ export default async function DashboardPage() {
   return (
     <main className="min-h-screen app-shell text-ink">
       <AppHeader userEmail={user.email} />
-      <section className="mx-auto w-full max-w-[1240px] px-4 py-8 md:px-6 md:py-10">
-        <div className="surface-canvas rounded-[1.75rem] p-5 md:p-8">
+      <section className="mx-auto w-full max-w-[1240px] px-4 py-6 md:px-6 md:py-10">
+        <div className="surface-canvas rounded-[1.75rem] p-4 md:p-8">
           <EntryBuilder
             round={round}
             entry={entry}

@@ -138,10 +138,10 @@ function defaultNodeCollapsed(nodeKey: string): boolean {
 
 function filterChipClass(active: boolean): string {
   return cn(
-    "inline-flex h-9 items-center rounded-full border px-3.5 text-xs font-medium uppercase tracking-[0.12em] transition-colors",
+    "inline-flex h-8 items-center rounded-full border px-3 text-[11px] font-medium uppercase tracking-[0.11em] transition-colors",
     active
       ? "border-forest bg-forest text-bone"
-      : "border-stone-400/70 bg-transparent text-ink hover:bg-bone-100",
+      : "border-stone-400/70 bg-transparent text-ink hover:bg-bone-100/80",
   );
 }
 
@@ -603,34 +603,40 @@ export function EntryBuilder({
   }
 
   return (
-    <div className="space-y-7 pb-32">
-      <section className="space-y-5">
-        <header className="surface-subtle surface-forest-soft rounded-3xl p-5 md:p-7">
-          <div className="grid gap-6 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)_minmax(240px,0.8fr)] lg:items-end">
-            <div className="space-y-3">
-              <Badge variant="outline" className="text-[10px]">Friday main screen</Badge>
+    <div className="space-y-5 pb-28 md:space-y-6">
+      <section className="space-y-4">
+        <header className="surface-subtle surface-forest-soft rounded-3xl p-4 md:p-6">
+          <div className="grid gap-4 xl:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)_minmax(220px,0.8fr)] xl:items-end">
+            <div className="space-y-2">
+              <Badge variant="outline" className="text-[10px]">
+                Friday main screen
+              </Badge>
               <div className="space-y-1.5">
-                <h1 className="font-display text-display-md text-ink">{round.name}</h1>
-                <p className="max-w-xl text-sm text-ink/70">
+                <h1 className="font-display text-[clamp(1.6rem,1.2rem+1.8vw,2.5rem)] leading-[1.05] text-ink">
+                  {round.name}
+                </h1>
+                <p className="max-w-xl text-xs text-ink/70 md:text-sm">
                   Focus decisions first: deploy credits, track timing, and manage exposure.
                 </p>
               </div>
             </div>
 
-            <div className="space-y-3 rounded-2xl border border-forest/20 bg-bone-50/80 p-4 lg:px-4">
+            <div className="space-y-2 rounded-2xl border border-forest/20 bg-bone-50/85 p-3.5 md:p-4">
               <p className="text-[11px] uppercase tracking-[0.14em] text-ink/60">Credits remaining</p>
-              <p className="font-display text-[clamp(2rem,1.8vw+1.2rem,3rem)] leading-none text-ink">
+              <p className="font-display text-[clamp(1.75rem,1.2rem+2vw,2.8rem)] leading-none text-ink">
                 {formatCredits(creditsRemaining)}
               </p>
               <div className="flex flex-wrap items-center gap-2">
-                <Badge variant="outline">Spent {formatCredits(creditsSpent)} / {formatCredits(entry.credits_start)}</Badge>
+                <Badge variant="outline">
+                  Spent {formatCredits(creditsSpent)} / {formatCredits(entry.credits_start)}
+                </Badge>
                 <Badge variant="outline">Picks selected {picksCount}</Badge>
               </div>
             </div>
 
-            <div className="surface-forest space-y-3 rounded-2xl p-4">
+            <div className="surface-forest space-y-2.5 rounded-2xl p-3.5 md:p-4">
               <p className="text-[11px] uppercase tracking-[0.14em] text-on-forest/75">Time to close</p>
-              <div className="flex items-center gap-2 text-on-forest">
+              <div className="flex items-center gap-2 text-sm text-on-forest">
                 <Clock3 className="size-4 text-on-forest/75" />
                 <Countdown closesAt={round.closes_at} className="text-on-forest" />
               </div>
@@ -654,7 +660,7 @@ export function EntryBuilder({
                   {isPendingLock ? "Locking..." : "Lock entry"}
                 </Button>
               )}
-              <p className={cn("text-xs", isEntryLocked ? "text-on-forest/75" : "text-clay-100")}>
+              <p className={cn("text-[11px]", isEntryLocked ? "text-on-forest/75" : "text-clay-100")}>
                 {isEntryLocked
                   ? unlockDisabledReason ?? "Entry can be unlocked while round remains open."
                   : lockDisabledReason ?? "Entry is ready to lock."}
@@ -663,9 +669,31 @@ export function EntryBuilder({
           </div>
         </header>
 
-        <section className="surface-subtle surface-forest-soft space-y-4 rounded-2xl p-4">
-          <div className="flex flex-wrap items-center gap-2">
-            <p className="mr-1 text-[11px] uppercase tracking-[0.14em] text-ink/60">Board</p>
+        <section className="surface-subtle rounded-2xl p-3.5 md:p-4">
+          <div className="grid gap-2.5 sm:grid-cols-2 xl:grid-cols-4">
+            <div className="rounded-xl border border-forest/20 bg-forest/7 px-3 py-2">
+              <p className="text-[10px] uppercase tracking-[0.12em] text-ink/60">Daily board</p>
+              <p className="mt-1 text-lg font-semibold text-ink">{boardStats.dailyCount}</p>
+            </div>
+            <div className="rounded-xl border border-clay/30 bg-clay/10 px-3 py-2">
+              <p className="text-[10px] uppercase tracking-[0.12em] text-ink/60">Weekly board</p>
+              <p className="mt-1 text-lg font-semibold text-ink">{boardStats.weeklyCount}</p>
+            </div>
+            <div className="rounded-xl border border-stone-300/70 bg-bone-50 px-3 py-2">
+              <p className="text-[10px] uppercase tracking-[0.12em] text-ink/60">Sports active</p>
+              <p className="mt-1 text-lg font-semibold text-ink">{boardStats.sportsCount}</p>
+            </div>
+            <div className="rounded-xl border border-stone-300/70 bg-bone-50 px-3 py-2">
+              <p className="text-[10px] uppercase tracking-[0.12em] text-ink/60">Upcoming windows</p>
+              <p className="mt-1 text-lg font-semibold text-ink">{pulse.upcoming}</p>
+            </div>
+          </div>
+        </section>
+
+        <section className="surface-subtle surface-forest-soft space-y-3 rounded-2xl p-3.5 md:p-4">
+          <div className="space-y-1.5">
+            <p className="text-[11px] uppercase tracking-[0.14em] text-ink/60">Board</p>
+            <div className="flex flex-nowrap items-center gap-2 overflow-x-auto pb-1">
             {BOARD_FILTERS.map((value) => (
               <button
                 key={value}
@@ -676,30 +704,33 @@ export function EntryBuilder({
                 {boardFilterLabel(value)}
               </button>
             ))}
+            </div>
           </div>
 
-          <div className="flex flex-wrap items-center gap-2">
-            <p className="mr-1 text-[11px] uppercase tracking-[0.14em] text-ink/60">Sport</p>
-            <button
-              type="button"
-              className={filterChipClass(sportFilter === "all")}
-              onClick={() => setSportFilter("all")}
-            >
-              All sports
-            </button>
-            {organizedSports.map((sport) => (
+          <div className="space-y-1.5">
+            <p className="text-[11px] uppercase tracking-[0.14em] text-ink/60">Sport</p>
+            <div className="flex flex-nowrap items-center gap-2 overflow-x-auto pb-1">
               <button
-                key={`filter:${sport.sportId}`}
                 type="button"
-                className={filterChipClass(sportFilter === sport.sportSlug)}
-                onClick={() => setSportFilter(sport.sportSlug)}
+                className={filterChipClass(sportFilter === "all")}
+                onClick={() => setSportFilter("all")}
               >
-                {getSportEmoji(sport.sportSlug)} {sport.displayName}
+                All sports
               </button>
-            ))}
+              {organizedSports.map((sport) => (
+                <button
+                  key={`filter:${sport.sportId}`}
+                  type="button"
+                  className={filterChipClass(sportFilter === sport.sportSlug)}
+                  onClick={() => setSportFilter(sport.sportSlug)}
+                >
+                  {getSportEmoji(sport.sportSlug)} {sport.displayName}
+                </button>
+              ))}
+            </div>
           </div>
 
-          <div className="flex flex-wrap items-center gap-2">
+          <div className="flex flex-wrap items-center gap-2 pt-1">
             <button
               type="button"
               className={filterChipClass(false)}
@@ -717,10 +748,10 @@ export function EntryBuilder({
           </div>
         </section>
 
-        <section className="grid gap-4 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]">
-          <article className="surface-subtle surface-forest-soft rounded-2xl p-4">
+        <section className="grid gap-3.5 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]">
+          <article className="surface-subtle surface-forest-soft rounded-2xl p-3.5 md:p-4">
             <p className="text-[11px] uppercase tracking-[0.14em] text-ink/60">Portfolio posture</p>
-            <div className="mt-3 grid gap-3 sm:grid-cols-3">
+            <div className="mt-2.5 grid gap-2.5 sm:grid-cols-3">
               <div className="space-y-1">
                 <p className="text-xs text-ink/65">Window</p>
                 <p className="text-sm font-medium text-ink">{isClosed ? "Closed" : "Open"}</p>
@@ -734,7 +765,7 @@ export function EntryBuilder({
                 <p className="text-sm font-medium text-ink">{canLock ? "Yes" : "No"}</p>
               </div>
             </div>
-            <div className="mt-4 space-y-1.5">
+            <div className="mt-3 space-y-1.5">
               <div className="flex items-center justify-between text-xs text-ink/60">
                 <span>Budget flow</span>
                 <span>{Math.round(progressValue)}%</span>
@@ -743,7 +774,7 @@ export function EntryBuilder({
             </div>
           </article>
 
-          <article className="surface-subtle surface-clay-soft rounded-2xl p-4">
+          <article className="surface-subtle surface-clay-soft rounded-2xl p-3.5 md:p-4">
             <p className="text-[11px] uppercase tracking-[0.14em] text-ink/60">Board mix & constraints</p>
             <div className="mt-3 space-y-2 text-sm text-ink/75">
               <p className="flex items-center justify-between">
@@ -766,8 +797,8 @@ export function EntryBuilder({
           </article>
         </section>
 
-        <section className="grid gap-4 xl:grid-cols-[1.2fr_0.8fr]">
-          <article className="surface-subtle rounded-2xl p-4">
+        <section className="grid gap-3.5 xl:grid-cols-[1.2fr_0.8fr]">
+          <article className="surface-subtle rounded-2xl p-3.5 md:p-4">
             <div className="flex flex-wrap items-start justify-between gap-3">
               <div>
                 <p className="text-[11px] uppercase tracking-[0.14em] text-ink/60">Live coach</p>
@@ -801,7 +832,7 @@ export function EntryBuilder({
               </div>
             </div>
 
-            <div className="mt-4 grid gap-2 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="mt-3.5 grid gap-2 sm:grid-cols-2 lg:grid-cols-4">
               <div className="rounded-xl border border-stone-300/70 bg-bone-50 px-3 py-2">
                 <p className="text-[11px] uppercase tracking-[0.12em] text-ink/55">Current</p>
                 <p className="mt-1 text-lg font-semibold text-ink">
@@ -830,7 +861,7 @@ export function EntryBuilder({
               </div>
             </div>
 
-            <div className="mt-4 grid gap-3 lg:grid-cols-[1.2fr_1fr]">
+            <div className="mt-3.5 grid gap-2.5 lg:grid-cols-[1.2fr_1fr]">
               <div className="rounded-xl border border-stone-300/70 bg-bone-50 px-3 py-3">
                 <p className="text-xs uppercase tracking-[0.12em] text-ink/60">
                   {scenarioLabel(scenario)} projection
@@ -875,7 +906,7 @@ export function EntryBuilder({
               </p>
             ) : null}
 
-            <div className="mt-4 space-y-2">
+            <div className="mt-3.5 space-y-2">
               <p className="inline-flex items-center gap-1.5 text-xs uppercase tracking-[0.12em] text-ink/60">
                 <Lightbulb className="size-3.5 text-forest" />
                 Suggestions
@@ -915,10 +946,10 @@ export function EntryBuilder({
             </div>
           </article>
 
-          <article className="surface-subtle surface-clay-soft rounded-2xl p-4">
+          <article className="surface-subtle surface-clay-soft rounded-2xl p-3.5 md:p-4">
             <p className="text-[11px] uppercase tracking-[0.14em] text-ink/60">Daily pulse</p>
             <h3 className="mt-1 text-lg font-medium text-ink">Habit loop</h3>
-            <div className="mt-3 space-y-3">
+            <div className="mt-2.5 space-y-2.5">
               <div className="rounded-xl border border-stone-300/70 bg-bone-50 px-3 py-3">
                 <p className="text-xs uppercase tracking-[0.12em] text-ink/60">Upcoming events</p>
                 <p className="mt-1 text-2xl font-semibold text-ink">{pulse.upcoming}</p>
@@ -962,7 +993,7 @@ export function EntryBuilder({
           </article>
         </section>
 
-        <section className="space-y-4">
+        <section className="space-y-3.5">
           {filteredSports.length === 0 ? (
             <div className="surface-subtle rounded-2xl p-6">
               <p className="text-sm text-ink/70">No picks for this filter set.</p>
@@ -979,12 +1010,12 @@ export function EntryBuilder({
             return (
               <motion.section
                 key={sportKey}
-                className="surface-subtle hover-lift overflow-hidden rounded-2xl"
+              className="surface-subtle hover-lift overflow-hidden rounded-2xl"
                 initial={{ opacity: 0, y: 8 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.18, delay: sportIndex * 0.03 }}
               >
-                <div className="flex flex-wrap items-center justify-between gap-3 border-b border-stone-300/55 px-4 py-3">
+                <div className="flex flex-wrap items-center justify-between gap-2.5 border-b border-stone-300/55 px-3 py-2.5 md:px-4 md:py-3">
                   <button
                     type="button"
                     className="inline-flex items-center gap-2 text-left"
@@ -1008,7 +1039,7 @@ export function EntryBuilder({
                 <AnimatePresence initial={false}>
                   {!sportCollapsed ? (
                     <motion.div
-                      className="space-y-4 px-4 py-4"
+                      className="space-y-3.5 px-3 py-3 md:px-4 md:py-4"
                       initial={{ opacity: 0, height: 0 }}
                       animate={{ opacity: 1, height: "auto" }}
                       exit={{ opacity: 0, height: 0 }}

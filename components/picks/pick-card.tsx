@@ -51,11 +51,11 @@ export function PickCard({
     selectedStake && selectedOdds ? Math.floor(selectedStake * selectedOdds) : null;
 
   return (
-    <article className="hover-lift grid gap-3 border-b border-stone-300/55 py-4 last:border-b-0 md:grid-cols-[1fr_auto] md:items-center">
+    <article className="hover-lift grid gap-2.5 border-b border-stone-300/55 py-3 last:border-b-0 md:grid-cols-[1fr_auto] md:items-center">
       <div className="space-y-1.5">
-        <div className="flex flex-wrap items-center gap-2">
+        <div className="flex flex-wrap items-center gap-1.5">
           <span
-            className={`rounded-full border px-2.5 py-0.5 text-[10px] font-medium uppercase tracking-[0.12em] ${boardToneClass(
+            className={`rounded-full border px-2 py-0.5 text-[10px] font-medium uppercase tracking-[0.12em] ${boardToneClass(
               boardLabel,
             )}`}
           >
@@ -65,27 +65,27 @@ export function PickCard({
             {pick.is_required ? "Required" : "Optional"}
           </span>
         </div>
-        <h4 className="text-base font-medium text-ink">
+        <h4 className="text-sm font-medium text-ink md:text-base">
           <span className="mr-1.5">{getSportEmoji(pick.sport.slug)}</span>
           {pick.title}
         </h4>
-        {pick.description ? <p className="text-sm text-ink/75">{pick.description}</p> : null}
-        <p className="text-xs text-ink/60">Starts {eventStartText}</p>
+        {pick.description ? <p className="text-xs text-ink/75 md:text-sm">{pick.description}</p> : null}
+        <p className="text-[11px] text-ink/60">Starts {eventStartText}</p>
         {selectedLabel ? (
-          <p className="text-sm text-ink/75">
+          <p className="text-xs text-ink/75 md:text-sm">
             Selected <span className="font-medium text-ink">{selectedLabel}</span>
             {selectedStake ? ` · Stake ${formatCredits(selectedStake)}` : ""}
             {selectedOdds ? ` · Odds ${formatOddsEuropean(selectedOdds)}` : ""}
             {potential ? ` · Potential ${formatCredits(potential)}` : ""}
           </p>
         ) : (
-          <p className="text-sm text-ink/55">No selection yet.</p>
+          <p className="text-xs text-ink/55 md:text-sm">No selection yet.</p>
         )}
-        {lockReason ? <p className="text-xs text-rose-700">{lockReason}</p> : null}
+        {lockReason ? <p className="text-[11px] text-rose-700">{lockReason}</p> : null}
       </div>
 
       <div className="flex items-center justify-end gap-2">
-        <Button type="button" variant="outline" onClick={onOpen} disabled={disabled}>
+        <Button type="button" size="sm" variant="outline" onClick={onOpen} disabled={disabled}>
           {disabled ? "Locked" : selectedLabel ? "Edit pick" : "Select pick"}
         </Button>
       </div>

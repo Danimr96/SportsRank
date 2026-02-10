@@ -35,7 +35,7 @@ export function MobileNav() {
 
   return (
     <nav className="fixed inset-x-0 bottom-0 z-50 border-t border-stone-300/80 bg-bone-50/95 backdrop-blur md:hidden">
-      <div className="mx-auto grid max-w-[620px] grid-cols-5 px-2 pb-[max(env(safe-area-inset-bottom),0.45rem)] pt-1.5">
+      <div className="mx-auto grid max-w-[620px] grid-cols-5 px-1.5 pb-[max(env(safe-area-inset-bottom),0.35rem)] pt-1">
         {MOBILE_NAV_ITEMS.map((item) => {
           const active = isActive(pathname, item.href);
           const Icon = item.icon;
@@ -44,13 +44,13 @@ export function MobileNav() {
               key={item.href}
               href={item.href}
               className={cn(
-                "mx-0.5 flex flex-col items-center gap-0.5 rounded-xl py-2 text-[10px] font-medium transition-colors",
+                "mx-0.5 flex flex-col items-center gap-0.5 rounded-xl py-1.5 text-[10px] font-medium transition-colors",
                 active
                   ? "bg-forest text-bone"
                   : "text-ink/70 hover:bg-bone-100 hover:text-ink",
               )}
             >
-              <Icon className="h-4 w-4" />
+              <Icon className="h-3.5 w-3.5" />
               <span className="truncate">{item.label}</span>
             </Link>
           );

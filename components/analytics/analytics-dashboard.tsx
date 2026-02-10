@@ -254,13 +254,15 @@ export function AnalyticsDashboard({
   }, [currentUserId, leaderboardDatasets, rankingSportFilter]);
 
   return (
-    <div className="space-y-6">
-      <section className="surface-subtle surface-forest-soft rounded-3xl p-6">
-        <div className="flex flex-wrap items-start justify-between gap-4">
+    <div className="space-y-4 md:space-y-6">
+      <section className="surface-subtle surface-forest-soft rounded-3xl p-4 md:p-6">
+        <div className="flex flex-wrap items-start justify-between gap-3">
           <div className="space-y-2">
             <Badge variant="outline">Analytics Studio</Badge>
-            <h1 className="font-display text-display-md text-ink">Performance & live leaderboard</h1>
-            <p className="max-w-2xl text-sm text-ink/70">
+            <h1 className="font-display text-[clamp(1.45rem,1.2rem+1.1vw,2.2rem)] leading-[1.05] text-ink">
+              Performance & live leaderboard
+            </h1>
+            <p className="max-w-2xl text-xs text-ink/70 md:text-sm">
               Control your edge by sport and board, then inspect your potential leaderboard range
               for each jornada.
             </p>
@@ -285,7 +287,7 @@ export function AnalyticsDashboard({
           </div>
         </div>
 
-        <div className="mt-4 flex flex-wrap gap-2">
+        <div className="mt-3 flex flex-wrap gap-2">
           {(
             [
               { key: "live", label: "Live" },
@@ -309,10 +311,10 @@ export function AnalyticsDashboard({
           ))}
         </div>
 
-        <div className="mt-4 grid gap-3 lg:grid-cols-2">
-          <div className="rounded-2xl border border-forest/20 bg-bone-50 p-4">
+        <div className="mt-3 grid gap-2.5 lg:grid-cols-2">
+          <div className="rounded-2xl border border-forest/20 bg-bone-50 p-3 md:p-4">
             <p className="mb-2 text-[11px] uppercase tracking-[0.12em] text-ink/55">Board filter</p>
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-nowrap gap-2 overflow-x-auto pb-1">
               {(["all", "daily", "weekly", "other"] as BoardFilter[]).map((value) => (
                 <button
                   key={value}
@@ -330,9 +332,9 @@ export function AnalyticsDashboard({
               ))}
             </div>
           </div>
-          <div className="rounded-2xl border border-clay/30 bg-bone-50 p-4">
+          <div className="rounded-2xl border border-clay/30 bg-bone-50 p-3 md:p-4">
             <p className="mb-2 text-[11px] uppercase tracking-[0.12em] text-ink/55">Sport filter</p>
-            <div className="flex max-h-24 flex-wrap gap-2 overflow-auto pr-1">
+            <div className="flex max-h-24 flex-nowrap gap-2 overflow-x-auto overflow-y-hidden pb-1 pr-1">
               <button
                 type="button"
                 onClick={() => setSportFilter("all")}
@@ -371,7 +373,7 @@ export function AnalyticsDashboard({
         ) : null}
       </section>
 
-      <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
+      <div className="grid gap-2.5 md:grid-cols-2 xl:grid-cols-4">
         <MetricCard
           title="Selections"
           value={String(dashboard.summary.selections)}
@@ -402,12 +404,12 @@ export function AnalyticsDashboard({
 
       <div
         className={cn(
-          "grid gap-4",
+          "grid gap-3.5",
           view === "historical" ? "xl:grid-cols-[1.2fr_1fr]" : "xl:grid-cols-1",
         )}
       >
         {view === "historical" ? (
-          <section className="space-y-4">
+          <section className="space-y-3.5">
             <Card className="rounded-2xl">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2 text-base">
@@ -449,7 +451,7 @@ export function AnalyticsDashboard({
               </CardContent>
             </Card>
 
-            <div className="grid gap-4 md:grid-cols-2">
+            <div className="grid gap-3.5 md:grid-cols-2">
               <Card className="rounded-2xl">
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2 text-base">
@@ -511,7 +513,7 @@ export function AnalyticsDashboard({
           </section>
         ) : null}
 
-        <section className="space-y-4">
+        <section className="space-y-3.5">
           <Card className="rounded-2xl">
             <CardHeader className="space-y-3">
               <div className="flex items-center justify-between gap-2">
@@ -823,12 +825,12 @@ function MetricCard({
 
   return (
     <Card className="rounded-2xl">
-      <CardContent className="pt-5">
+      <CardContent className="pt-4 md:pt-5">
         <p className={cn("flex items-center gap-2 text-xs uppercase tracking-[0.11em]", toneClass)}>
           <Icon className="size-3.5" />
           {title}
         </p>
-        <p className="mt-2 text-2xl font-semibold text-ink">{value}</p>
+        <p className="mt-1.5 text-xl font-semibold text-ink md:text-2xl">{value}</p>
       </CardContent>
     </Card>
   );
