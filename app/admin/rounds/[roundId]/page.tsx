@@ -13,6 +13,7 @@ import { Label } from "@/components/ui/label";
 import { getUserOrRedirect } from "@/lib/auth";
 import { listRoundPicksForAdmin, listSports } from "@/lib/data/admin";
 import { getRoundById } from "@/lib/data/rounds";
+import { deriveStakeRange } from "@/lib/domain/stake-rules";
 import { isAdminUser } from "@/lib/data/users";
 import { getSportDisplayName } from "@/lib/sports";
 import { createClient } from "@/lib/supabase/server";
@@ -47,6 +48,7 @@ export default async function AdminRoundDetailPage({ params }: AdminRoundDetailP
   if (!round) {
     notFound();
   }
+  const suggestedStakeRange = deriveStakeRange(round.starting_credits, round.stake_step);
 
   return (
     <main className="min-h-screen app-shell text-ink">
@@ -105,12 +107,26 @@ export default async function AdminRoundDetailPage({ params }: AdminRoundDetailP
                 />
               </div>
               <div className="space-y-2">
+                <Label htmlFor="round_stake_step" className="text-ink/80">Stake step</Label>
+                <Input
+                  id="round_stake_step"
+                  name="stake_step"
+                  type="number"
+                  min={1}
+                  step={1}
+                  defaultValue={round.stake_step}
+                  className="border-stone-300/70 bg-bone-50 text-ink"
+                  required
+                />
+              </div>
+              <div className="space-y-2">
                 <Label htmlFor="round_min_stake" className="text-ink/80">Min stake</Label>
                 <Input
                   id="round_min_stake"
                   name="min_stake"
                   type="number"
                   min={1}
+                  step={round.stake_step}
                   defaultValue={round.min_stake}
                   className="border-stone-300/70 bg-bone-50 text-ink"
                   required
@@ -123,6 +139,7 @@ export default async function AdminRoundDetailPage({ params }: AdminRoundDetailP
                   name="max_stake"
                   type="number"
                   min={1}
+                  step={round.stake_step}
                   defaultValue={round.max_stake}
                   className="border-stone-300/70 bg-bone-50 text-ink"
                   required
@@ -158,6 +175,10 @@ export default async function AdminRoundDetailPage({ params }: AdminRoundDetailP
                 />
                 Enforce full budget at lock
               </label>
+              <p className="text-xs text-ink/65 sm:col-span-2">
+                Suggested range for this round is {suggestedStakeRange.minStake} -{" "}
+                {suggestedStakeRange.maxStake} with step {round.stake_step}.
+              </p>
               <div className="sm:col-span-2">
                 <Button type="submit" className={getActionButtonClass("primary")}>Update round</Button>
               </div>

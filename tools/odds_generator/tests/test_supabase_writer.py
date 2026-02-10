@@ -35,29 +35,57 @@ class _FakeClient:
     def post(
         self,
         url: str,
-        params: dict[str, str],
-        headers: dict[str, str],
-        json: Sequence[dict[str, Any]],
+        params: dict[str, str] | None = None,
+        headers: dict[str, str] | None = None,
+        json: Sequence[dict[str, Any]] = (),
     ) -> _FakeResponse:
         self.calls.append(
             {
                 "url": url,
-                "params": params,
-                "headers": headers,
+                "params": params or {},
+                "headers": headers or {},
                 "json": list(json),
+                "method": "post",
             },
         )
 
         row = list(json)[0]
-        key = (row["round_id"], row["pack_type"], row["anchor_date"])
-        existing = self.store.get(key)
-        if existing:
-            row_id = existing["id"]
-        else:
-            row_id = f"row-{len(self.store) + 1}"
-        stored = {**row, "id": row_id}
-        self.store[key] = stored
-        return _FakeResponse(status_code=201, payload=[stored])
+        if "round_id" in row and "pack_type" in row and "anchor_date" in row:
+            key = (row["round_id"], row["pack_type"], row["anchor_date"])
+            existing = self.store.get(key)
+            if existing:
+                row_id = existing["id"]
+            else:
+                row_id = f"row-{len(self.store) + 1}"
+            stored = {**row, "id": row_id}
+            self.store[key] = stored
+            return _FakeResponse(status_code=201, payload=[stored])
+
+        # Generic insert branch for non-pick_pack rows.
+        if "event_id" in row:
+            inserted = {**row, "id": "featured-row-1"}
+            return _FakeResponse(status_code=201, payload=[inserted])
+
+        if "provider_event_id" in row:
+            inserted = {**row, "id": "event-row-1"}
+            return _FakeResponse(status_code=201, payload=[inserted])
+
+        return _FakeResponse(status_code=201, payload=[{**row, "id": "row-generic"}])
+
+    def delete(self, url: str, headers: dict[str, str]) -> _FakeResponse:
+        self.calls.append({"url": url, "headers": headers, "method": "delete"})
+        return _FakeResponse(status_code=204, payload={})
+
+    def get(
+        self,
+        url: str,
+        params: dict[str, str] | list[tuple[str, str]],
+        headers: dict[str, str],
+    ) -> _FakeResponse:
+        self.calls.append(
+            {"url": url, "params": params, "headers": headers, "method": "get"},
+        )
+        return _FakeResponse(status_code=200, payload=[])
 
 
 def test_upsert_uses_conflict_key_and_headers(monkeypatch) -> None:
@@ -131,3 +159,35 @@ def test_same_anchor_overwrites_same_row(monkeypatch) -> None:
     assert len(store) == 1
     key = ("round-1", "weekly", "2026-02-12")
     assert store[key]["summary"]["total_picks"] == 2
+
+
+def test_replace_featured_events_deletes_then_inserts(monkeypatch) -> None:
+    store: dict[tuple[str, str, str], dict[str, Any]] = {}
+    client = _FakeClient(timeout=30.0, store=store)
+
+    class _Factory:
+        def __call__(self, timeout: float) -> _FakeClient:
+            client.timeout = timeout
+            return client
+
+    monkeypatch.setattr(supabase_writer.httpx, "Client", _Factory())
+
+    rows = supabase_writer.replace_featured_events(
+        supabase_url="https://example.supabase.co",
+        service_role_key="service-role",
+        featured_date="2026-02-10",
+        rows=[
+            {
+                "featured_date": "2026-02-10",
+                "sport_slug": "soccer",
+                "league": "la_liga",
+                "event_id": "event-1",
+                "bucket": "today",
+            }
+        ],
+    )
+
+    assert rows[0]["event_id"] == "event-1"
+    delete_calls = [call for call in client.calls if call.get("method") == "delete"]
+    assert len(delete_calls) == 1
+    assert "featured_date=eq.2026-02-10" in delete_calls[0]["url"]

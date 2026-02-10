@@ -221,9 +221,11 @@ export function EntryBuilder({
   const creditsRemaining = entry.credits_start - creditsSpent;
   const picksCount = Object.keys(selections).length;
 
-  const hasStakeOutOfRange = Object.values(selections).some(
+  const hasStakeInvalid = Object.values(selections).some(
     (selection) =>
-      selection.stake < round.min_stake || selection.stake > round.max_stake,
+      selection.stake < round.min_stake ||
+      selection.stake > round.max_stake ||
+      selection.stake % round.stake_step !== 0,
   );
 
   const canLock =
@@ -231,7 +233,7 @@ export function EntryBuilder({
     !isSettled &&
     !isClosed &&
     creditsSpent <= entry.credits_start &&
-    !hasStakeOutOfRange &&
+    !hasStakeInvalid &&
     (!round.enforce_full_budget || creditsSpent === entry.credits_start);
 
   const canUnlock = isEntryLocked && !isSettled && !isClosed;
@@ -245,8 +247,8 @@ export function EntryBuilder({
           ? "Round has already closed."
           : creditsSpent > entry.credits_start
             ? "Credits spent cannot exceed total weekly credits."
-            : hasStakeOutOfRange
-              ? `Each stake must be between ${round.min_stake} and ${round.max_stake}.`
+            : hasStakeInvalid
+              ? `Each stake must be between ${round.min_stake} and ${round.max_stake} in steps of ${round.stake_step}.`
               : round.enforce_full_budget && creditsSpent !== entry.credits_start
                 ? "This round requires spending the full budget before lock."
                 : undefined;
@@ -791,6 +793,7 @@ export function EntryBuilder({
               </p>
               <p className="pt-1 text-xs text-ink/65">
                 Stake limits {round.min_stake} - {round.max_stake} ·{" "}
+                Step {round.stake_step} ·{" "}
                 {round.enforce_full_budget ? "Full budget required before lock." : "Unused cash is allowed."}
               </p>
             </div>
@@ -1219,6 +1222,7 @@ export function EntryBuilder({
         open={Boolean(activePick)}
         minStake={round.min_stake}
         maxStake={round.max_stake}
+        stakeStep={round.stake_step}
         initialOptionId={activePick ? selections[activePick.id]?.pickOptionId : undefined}
         initialStake={activePick ? selections[activePick.id]?.stake : undefined}
         pending={isPendingSelection}

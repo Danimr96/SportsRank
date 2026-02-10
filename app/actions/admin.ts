@@ -16,11 +16,64 @@ import {
   updateSelectionPayout,
 } from "@/lib/data/entries";
 import { settleEntry } from "@/lib/domain/settlement";
+import {
+  deriveStakeRange,
+  normalizeStakeToStep,
+  sanitizeStakeStep,
+} from "@/lib/domain/stake-rules";
 import { isAdminUser } from "@/lib/data/users";
 
 export interface AdminActionResult {
   ok: boolean;
   error?: string;
+}
+
+function parseIntegerField(value: FormDataEntryValue | null): number | null {
+  if (typeof value !== "string" || value.trim().length === 0) {
+    return null;
+  }
+
+  const parsed = Number(value);
+  if (!Number.isFinite(parsed)) {
+    return null;
+  }
+
+  return Math.trunc(parsed);
+}
+
+function parseRoundStakeConfig(formData: FormData): {
+  startingCredits: number;
+  stakeStep: number;
+  minStake: number;
+  maxStake: number;
+} {
+  const parsedStartingCredits = parseIntegerField(formData.get("starting_credits")) ?? 10000;
+  const parsedStakeStep = parseIntegerField(formData.get("stake_step")) ?? 100;
+
+  const stakeStep = sanitizeStakeStep(parsedStakeStep, 100);
+  const startingCredits = Math.max(stakeStep, parsedStartingCredits);
+  const suggested = deriveStakeRange(startingCredits, stakeStep);
+
+  const minStake = normalizeStakeToStep(
+    parseIntegerField(formData.get("min_stake")) ?? suggested.minStake,
+    stakeStep,
+    startingCredits,
+    stakeStep,
+  );
+
+  const maxStake = normalizeStakeToStep(
+    parseIntegerField(formData.get("max_stake")) ?? suggested.maxStake,
+    minStake,
+    startingCredits,
+    stakeStep,
+  );
+
+  return {
+    startingCredits,
+    stakeStep,
+    minStake,
+    maxStake: Math.max(minStake, maxStake),
+  };
 }
 
 export async function requireAdminClient() {
@@ -45,6 +98,7 @@ export async function createRoundAction(
   formData: FormData,
 ): Promise<void> {
   const supabase = await requireAdminClient();
+  const stakeConfig = parseRoundStakeConfig(formData);
 
   await createRound(supabase, {
     name: String(formData.get("name") ?? "").trim(),
@@ -55,9 +109,10 @@ export async function createRoundAction(
       | "settled",
     opens_at: String(formData.get("opens_at") ?? ""),
     closes_at: String(formData.get("closes_at") ?? ""),
-    starting_credits: Number(formData.get("starting_credits") ?? 10000),
-    min_stake: Number(formData.get("min_stake") ?? 200),
-    max_stake: Number(formData.get("max_stake") ?? 800),
+    starting_credits: stakeConfig.startingCredits,
+    stake_step: stakeConfig.stakeStep,
+    min_stake: stakeConfig.minStake,
+    max_stake: stakeConfig.maxStake,
     enforce_full_budget: formData.get("enforce_full_budget") === "on",
   });
 
@@ -69,6 +124,7 @@ export async function updateRoundAction(
 ): Promise<void> {
   const supabase = await requireAdminClient();
   const roundId = String(formData.get("round_id") ?? "");
+  const stakeConfig = parseRoundStakeConfig(formData);
 
   await updateRound(supabase, roundId, {
     name: String(formData.get("name") ?? "").trim(),
@@ -79,9 +135,10 @@ export async function updateRoundAction(
       | "settled",
     opens_at: String(formData.get("opens_at") ?? ""),
     closes_at: String(formData.get("closes_at") ?? ""),
-    starting_credits: Number(formData.get("starting_credits") ?? 10000),
-    min_stake: Number(formData.get("min_stake") ?? 200),
-    max_stake: Number(formData.get("max_stake") ?? 800),
+    starting_credits: stakeConfig.startingCredits,
+    stake_step: stakeConfig.stakeStep,
+    min_stake: stakeConfig.minStake,
+    max_stake: stakeConfig.maxStake,
     enforce_full_budget: formData.get("enforce_full_budget") === "on",
   });
 

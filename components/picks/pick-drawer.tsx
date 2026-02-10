@@ -5,6 +5,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { normalizeStakeToStep } from "@/lib/domain/stake-rules";
 import {
   formatCredits,
   formatOddsEuropean,
@@ -12,6 +13,7 @@ import {
   formatUtcDateTime,
   normalizedProbabilityFromOdds,
 } from "@/lib/format";
+import { cn } from "@/lib/utils";
 import { getSportEmoji } from "@/lib/visuals";
 import type { PickWithOptions } from "@/lib/types";
 
@@ -20,6 +22,7 @@ interface PickDrawerProps {
   open: boolean;
   minStake: number;
   maxStake: number;
+  stakeStep: number;
   initialOptionId?: string;
   initialStake?: number;
   onClose: () => void;
@@ -32,14 +35,31 @@ export function PickDrawer({
   open,
   minStake,
   maxStake,
+  stakeStep,
   initialOptionId,
   initialStake,
   onClose,
   onConfirm,
   pending = false,
 }: PickDrawerProps) {
+  const safeStakeStep = Math.max(1, Math.trunc(stakeStep));
   const [optionId, setOptionId] = useState(initialOptionId ?? "");
-  const [stake, setStake] = useState(initialStake ?? 0);
+  const [stake, setStake] = useState(
+    normalizeStakeToStep(initialStake ?? minStake, minStake, maxStake, safeStakeStep),
+  );
+
+  const presetValues = useMemo(() => {
+    const values: number[] = [];
+    for (let value = minStake; value <= maxStake; value += safeStakeStep) {
+      values.push(value);
+    }
+
+    if (!values.includes(maxStake)) {
+      values.push(maxStake);
+    }
+
+    return values.slice(0, 10);
+  }, [maxStake, minStake, safeStakeStep]);
 
   useEffect(() => {
     if (!pick) {
@@ -47,12 +67,8 @@ export function PickDrawer({
     }
 
     setOptionId(initialOptionId ?? pick.options[0]?.id ?? "");
-    if (typeof initialStake === "number") {
-      setStake(Math.max(minStake, Math.min(maxStake, initialStake)));
-    } else {
-      setStake(minStake);
-    }
-  }, [pick, initialOptionId, initialStake, minStake, maxStake]);
+    setStake(normalizeStakeToStep(initialStake ?? minStake, minStake, maxStake, safeStakeStep));
+  }, [pick, initialOptionId, initialStake, minStake, maxStake, safeStakeStep]);
 
   const canConfirm = useMemo(() => {
     return Boolean(
@@ -60,9 +76,10 @@ export function PickDrawer({
         optionId &&
         Number.isInteger(stake) &&
         stake >= minStake &&
-        stake <= maxStake,
+        stake <= maxStake &&
+        stake % safeStakeStep === 0,
     );
-  }, [maxStake, minStake, optionId, pick, stake]);
+  }, [maxStake, minStake, optionId, pick, safeStakeStep, stake]);
 
   const eventLabel =
     typeof pick?.metadata?.["event"] === "string" ? pick.metadata["event"] : "Unknown event";
@@ -158,19 +175,79 @@ export function PickDrawer({
                 <p className="text-sm font-medium">
                   Stake: {formatCredits(stake)} créditos
                 </p>
+                <p className="text-xs text-ink/65">Unidad de stake: {formatCredits(safeStakeStep)}</p>
                 {selectedOption ? (
                   <p className="text-xs text-ink/70">
                     Retorno potencial: {formatCredits(potentialReturn)} (
                     {formatCredits(stake)} x cuota {formatOddsEuropean(selectedOption.odds)})
                   </p>
                 ) : null}
+                <div className="flex flex-wrap gap-2">
+                  {presetValues.map((value) => (
+                    <button
+                      key={`stake-preset-${value}`}
+                      type="button"
+                      className={cn(
+                        "rounded-full border px-2.5 py-1 text-xs transition-colors",
+                        stake === value
+                          ? "border-forest bg-forest text-on-forest"
+                          : "border-stone-300 bg-bone text-ink hover:border-forest/40",
+                      )}
+                      onClick={() => setStake(value)}
+                    >
+                      {formatCredits(value)}
+                    </button>
+                  ))}
+                </div>
+                <div className="grid grid-cols-2 gap-2">
+                  <Button
+                    type="button"
+                    variant="outline"
+                    onClick={() =>
+                      setStake((current) =>
+                        normalizeStakeToStep(
+                          current - safeStakeStep,
+                          minStake,
+                          maxStake,
+                          safeStakeStep,
+                        ),
+                      )
+                    }
+                  >
+                    -{safeStakeStep}
+                  </Button>
+                  <Button
+                    type="button"
+                    variant="outline"
+                    onClick={() =>
+                      setStake((current) =>
+                        normalizeStakeToStep(
+                          current + safeStakeStep,
+                          minStake,
+                          maxStake,
+                          safeStakeStep,
+                        ),
+                      )
+                    }
+                  >
+                    +{safeStakeStep}
+                  </Button>
+                </div>
                 <input
                   type="range"
                   min={minStake}
                   max={maxStake}
+                  step={safeStakeStep}
                   value={stake}
                   onChange={(event) =>
-                    setStake(Math.max(minStake, Math.min(maxStake, Number(event.target.value))))
+                    setStake(
+                      normalizeStakeToStep(
+                        Number(event.target.value),
+                        minStake,
+                        maxStake,
+                        safeStakeStep,
+                      ),
+                    )
                   }
                   className="w-full accent-forest"
                 />
@@ -178,15 +255,16 @@ export function PickDrawer({
                   type="number"
                   min={minStake}
                   max={maxStake}
+                  step={safeStakeStep}
                   value={stake}
                   className="border-stone-300 bg-bone text-ink"
                   onChange={(event) => {
                     const next = Number(event.target.value);
                     if (Number.isNaN(next)) {
-                      setStake(minStake);
+                      setStake(normalizeStakeToStep(minStake, minStake, maxStake, safeStakeStep));
                       return;
                     }
-                    setStake(Math.max(minStake, Math.min(maxStake, Math.floor(next))));
+                    setStake(normalizeStakeToStep(next, minStake, maxStake, safeStakeStep));
                   }}
                 />
               </div>

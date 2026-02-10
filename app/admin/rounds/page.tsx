@@ -9,6 +9,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { getUserOrRedirect } from "@/lib/auth";
 import { listRounds } from "@/lib/data/rounds";
+import { deriveStakeRange } from "@/lib/domain/stake-rules";
 import { formatCredits } from "@/lib/format";
 import { isAdminUser } from "@/lib/data/users";
 import { createClient } from "@/lib/supabase/server";
@@ -19,6 +20,10 @@ function toInputDateTime(value: string): string {
 }
 
 export default async function AdminRoundsPage() {
+  const defaultStartingCredits = 10000;
+  const defaultStakeStep = 100;
+  const defaultStakeRange = deriveStakeRange(defaultStartingCredits, defaultStakeStep);
+
   const user = await getUserOrRedirect();
   const supabase = await createClient();
   const admin = await isAdminUser(supabase, user.id);
@@ -83,7 +88,20 @@ export default async function AdminRoundsPage() {
                   name="starting_credits"
                   type="number"
                   min={1}
-                  defaultValue={10000}
+                  defaultValue={defaultStartingCredits}
+                  className="border-stone-300/70 bg-bone-50 text-ink"
+                  required
+                />
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="stake_step" className="text-ink/80">Stake step</Label>
+                <Input
+                  id="stake_step"
+                  name="stake_step"
+                  type="number"
+                  min={1}
+                  step={1}
+                  defaultValue={defaultStakeStep}
                   className="border-stone-300/70 bg-bone-50 text-ink"
                   required
                 />
@@ -95,7 +113,8 @@ export default async function AdminRoundsPage() {
                   name="min_stake"
                   type="number"
                   min={1}
-                  defaultValue={200}
+                  step={defaultStakeStep}
+                  defaultValue={defaultStakeRange.minStake}
                   className="border-stone-300/70 bg-bone-50 text-ink"
                   required
                 />
@@ -107,7 +126,8 @@ export default async function AdminRoundsPage() {
                   name="max_stake"
                   type="number"
                   min={1}
-                  defaultValue={800}
+                  step={defaultStakeStep}
+                  defaultValue={defaultStakeRange.maxStake}
                   className="border-stone-300/70 bg-bone-50 text-ink"
                   required
                 />
@@ -124,6 +144,9 @@ export default async function AdminRoundsPage() {
                 <input type="checkbox" name="enforce_full_budget" />
                 Enforce full budget at lock
               </label>
+              <p className="text-xs text-ink/65 sm:col-span-2">
+                Suggested limits use formula: min 2% and max 8% of starting credits, rounded to stake step.
+              </p>
               <div className="sm:col-span-2">
                 <Button type="submit" className={getActionButtonClass("primary")}>Create round</Button>
               </div>
@@ -145,6 +168,7 @@ export default async function AdminRoundsPage() {
                     <th className="py-2">Opens</th>
                     <th className="py-2">Closes</th>
                     <th className="py-2">Credits</th>
+                    <th className="py-2">Step</th>
                     <th className="py-2">Stake range</th>
                     <th className="py-2">Actions</th>
                   </tr>
@@ -157,6 +181,7 @@ export default async function AdminRoundsPage() {
                       <td className="py-2">{toInputDateTime(round.opens_at)}</td>
                       <td className="py-2">{toInputDateTime(round.closes_at)}</td>
                       <td className="py-2">{formatCredits(round.starting_credits)}</td>
+                      <td className="py-2">{round.stake_step}</td>
                       <td className="py-2">
                         {round.min_stake} - {round.max_stake}
                         {round.enforce_full_budget ? " (full)" : ""}

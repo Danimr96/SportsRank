@@ -8,6 +8,7 @@ export type ValidationErrorCode =
   | "DUPLICATE_PICK_SELECTION"
   | "INVALID_STAKE"
   | "STAKE_OUT_OF_RANGE"
+  | "STAKE_STEP_INVALID"
   | "TOTAL_STAKE_EXCEEDED"
   | "FULL_BUDGET_REQUIRED"
   | "PICK_START_TIME_MISSING"
@@ -80,6 +81,7 @@ function validateStake(
   stake: number,
   minStake: number,
   maxStake: number,
+  stakeStep: number,
   pickId: string,
 ): ValidationError[] {
   if (!isInteger(stake)) {
@@ -91,11 +93,29 @@ function validateStake(
     ];
   }
 
+  if (!isInteger(stakeStep) || stakeStep <= 0) {
+    return [
+      {
+        code: "STAKE_STEP_INVALID",
+        message: "Round stake step configuration is invalid.",
+      },
+    ];
+  }
+
   if (stake < minStake || stake > maxStake) {
     return [
       {
         code: "STAKE_OUT_OF_RANGE",
         message: `Stake for pick ${pickId} must be between ${minStake} and ${maxStake}.`,
+      },
+    ];
+  }
+
+  if (stake % stakeStep !== 0) {
+    return [
+      {
+        code: "STAKE_STEP_INVALID",
+        message: `Stake for pick ${pickId} must be in steps of ${stakeStep}.`,
       },
     ];
   }
@@ -189,6 +209,7 @@ export function validateEntry(
         selection.stake,
         round.min_stake,
         round.max_stake,
+        round.stake_step,
         selection.pick_id,
       ),
     );
@@ -256,6 +277,7 @@ export function validateSelection(
       nextSelection.stake,
       round.min_stake,
       round.max_stake,
+      round.stake_step,
       nextSelection.pick_id,
     ),
   );

@@ -100,6 +100,7 @@ describe("simulator domain", () => {
         opens_at: "2026-02-01T00:00:00.000Z",
         closes_at: "2026-02-07T23:59:59.000Z",
         starting_credits: 10000,
+        stake_step: 100,
         min_stake: 200,
         max_stake: 800,
         enforce_full_budget: false,
@@ -117,6 +118,7 @@ describe("simulator domain", () => {
       if (suggestion.suggestedStake !== undefined) {
         expect(suggestion.suggestedStake).toBeGreaterThanOrEqual(200);
         expect(suggestion.suggestedStake).toBeLessThanOrEqual(800);
+        expect(suggestion.suggestedStake % 100).toBe(0);
       }
     }
   });

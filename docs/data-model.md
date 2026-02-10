@@ -3,8 +3,9 @@
 ## Core tables
 - `rounds`
   - Weekly unit of play.
-  - Fields: `name`, `status`, `opens_at`, `closes_at`, `starting_credits`, `min_stake`, `max_stake`, `enforce_full_budget`.
-  - Weekly budget defaults: `starting_credits=10000`, `min_stake=200`, `max_stake=800`.
+  - Fields: `name`, `status`, `opens_at`, `closes_at`, `starting_credits`, `stake_step`, `min_stake`, `max_stake`, `enforce_full_budget`.
+  - Weekly budget defaults: `starting_credits=10000`, `stake_step=100`.
+  - Suggested stake range defaults are formula-based: `min≈2%`, `max≈8%` of `starting_credits`, rounded to `stake_step`.
 
 - `sports`
   - Pick grouping dimension.
@@ -43,6 +44,41 @@
   - FK: `entry_id -> entries.id`, `pick_id -> picks.id`, `pick_option_id -> pick_options.id`.
   - Unique: `(entry_id, pick_id)`.
   - Fields: `stake`, `payout`.
+
+## Calendar + featured distribution
+- `events`
+  - Canonical calendar feed (no picks/odds required).
+  - Source: external provider sync job (`tools/odds_generator --sync-calendar`).
+  - Fields:
+    - `provider`, `provider_event_id` (unique pair)
+    - `sport_slug`, `league`, `start_time`
+    - `home`, `away`, `status`
+    - `participants` (`jsonb`), `metadata` (`jsonb`)
+  - Uniqueness: `(provider, provider_event_id)`.
+  - Indexes:
+    - `(sport_slug, start_time)`
+    - `(league, start_time)`.
+
+- `featured_events`
+  - Daily “playable board” selector output.
+  - One row per chosen calendar event for a specific local date.
+  - Fields:
+    - `featured_date` (Europe/Madrid date key)
+    - `sport_slug`, `league` (nullable)
+    - `event_id -> events.id`
+    - `bucket` (`today|tomorrow|week_rest`)
+  - Uniqueness: `(featured_date, event_id)`.
+
+- `pick_packs`
+  - Generated import payload snapshots persisted by tooling.
+  - Fields:
+    - `round_id`
+    - `pack_type` (`daily|weekly`)
+    - `anchor_date`
+    - `seed`
+    - `payload` (`jsonb`) - import-compatible picks JSON
+    - `summary` (`jsonb`) - totals/min-max/counts.
+  - Uniqueness: `(round_id, pack_type, anchor_date)`.
 
 ## Supporting tables
 - `profiles`

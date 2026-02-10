@@ -6,7 +6,9 @@ Minimal full-stack MVP for weekly pick portfolios.
 - One round per week using `opens_at`/`closes_at` (for example Mon 00:00 to Sun 23:59).
 - User starts each round with `10,000` credits.
 - Unused credits are allowed as cash (full spend is optional unless admin enables `enforce_full_budget`).
-- Selection stake limits are configured per round (`min_stake`, `max_stake`) and default to `200`-`800`.
+- Selection stake rules are configured per round (`stake_step`, `min_stake`, `max_stake`).
+- Default configuration uses `stake_step=100`, with min/max suggested from formula (2%-8% of `starting_credits`, rounded to step).
+- Each stake must be a multiple of `stake_step` (no one-by-one staking).
 - A selection can be edited only while:
   - entry status is `building`
   - `now < round.closes_at`
@@ -66,6 +68,13 @@ NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
 # Optional product analytics forwarding
 POSTHOG_API_KEY=your_posthog_project_api_key
 POSTHOG_HOST=https://us.i.posthog.com
+# Tooling-only (odds generator / CI jobs, never in Next.js runtime)
+SUPABASE_URL=your_supabase_project_url
+SUPABASE_SERVICE_ROLE_KEY=your_supabase_service_role_key
+ODDS_API_KEY=your_the_odds_api_key
+SPORTSDATA_API_KEY=your_sportsdata_io_key
+SPORTSDATA_BASE_URL=https://api.sportsdata.io/v3
+OPENAI_API_KEY=optional_for_featured_selection
 ```
 
 ## Setup
@@ -135,12 +144,13 @@ on conflict (user_id) do nothing;
   - Daily Pulse block with upcoming windows and mission progress.
 
 - `/calendar`
-  - Event-centric timeline with board/sport filters.
-  - Shows option-level implied probabilities and your active selection.
+  - Event-centric timeline sourced from `public.events`.
+  - Highlights rows selected in `public.featured_events` for the local date.
 
 ## Bet UX notes
 - Odds are shown in European decimal style on pick UI (`1,85` format).
 - Pick drawer shows potential return from selected stake and odds (`floor(stake * odds)`).
+- Pick drawer uses stake presets plus `+/-` step controls (default step `100`).
 - Dashboard hierarchy stays organized as Sport → Board (Daily/Weekly) → Country → League → Event.
 
 ### JSON import schema
@@ -170,6 +180,21 @@ on conflict (user_id) do nothing;
 Important: odds are never fabricated inside gameplay logic. They must come from admin-imported JSON or a provider pipeline.
 `metadata.start_time` is required for import/generation and is used to lock pick editing when events start.
 The standalone odds generator defaults now target lighter packs (`daily=20`, `weekly=16`) and can be overridden per run.
+
+## Calendar + featured generation (tooling)
+Sync full event calendar, select featured events, and build daily pack from featured odds:
+
+```bash
+uv run --project tools/odds_generator \
+  python -m tools.odds_generator.generate \
+  --round-id <round_uuid> \
+  --mode daily \
+  --sync-calendar true \
+  --build-featured true \
+  --generate-featured-picks true \
+  --persist-supabase true \
+  --outdir ./generated
+```
 
 ## Scripts
 - `npm run dev` - local dev server

@@ -119,6 +119,11 @@ def write_sports_map_yaml(path: Path, sports: dict[str, SportConfigEntry]) -> No
             "league": entry.league,
             "allow_daily": bool(entry.allow_daily),
             "allow_weekly": bool(entry.allow_weekly),
+            **(
+                {"provider_sport": entry.provider_sport}
+                if entry.provider_sport
+                else {}
+            ),
         }
         for sport_key, entry in sorted(sports.items(), key=lambda item: item[0])
     }

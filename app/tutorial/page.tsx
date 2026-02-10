@@ -113,7 +113,7 @@ export default async function TutorialPage() {
               <CardContent className="space-y-2 text-sm text-ink/75">
                 <p>• Cada jornada empieza con 10.000 créditos.</p>
                 <p>• Puedes dejar cash sin usar.</p>
-                <p>• Cada selección respeta stake mínimo/máximo de la ronda.</p>
+                <p>• Cada selección respeta stake mínimo/máximo y múltiplos del paso de ronda.</p>
                 <p>• No puedes editar cuando empieza el evento o cierra la jornada.</p>
               </CardContent>
             </Card>

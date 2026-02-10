@@ -24,6 +24,8 @@
   - Includes:
     - `analytics.ts` for settled selection reads (user/global aggregate rows).
     - `simulator.ts` for best-effort live leaderboard snapshots used by coach UI.
+    - `events.ts` for calendar + featured event reads.
+    - `pick-packs.ts` for seeded daily/weekly pack snapshots.
 
 - `/lib/ingestion`
   - Pure import/generation pipeline logic (no DB access).
@@ -37,6 +39,14 @@
   - Current implementation:
     - `mock-provider.ts` (deterministic fixtures + odds)
   - Swap point for real odds API integration.
+
+- `/tools/odds_generator`
+  - Standalone orchestration (outside Next.js runtime).
+  - Pipelines:
+    - calendar sync (`events` table) with no odds dependency
+    - featured selection (`featured_events`) via OpenAI proposal + deterministic fallback
+    - featured odds-to-picks generation and `pick_packs` upsert
+  - Uses `SUPABASE_SERVICE_ROLE_KEY` only in tooling/CI contexts.
 
 - `/app/actions`
   - Orchestration layer for authenticated mutations.
@@ -70,7 +80,7 @@
 2. Dashboard loads current open round and user entry.
 3. Pick drawer updates `entry_selections` via `upsertSelectionAction`.
 4. Selection updates run `validateSelection`:
-   - stake in `[round.min_stake, round.max_stake]`
+   - stake in `[round.min_stake, round.max_stake]` and aligned to `round.stake_step`
    - total spent `<= credits_start` (cash allowed)
    - edits blocked after `pick.metadata.start_time`
 5. Lock action fetches picks + selections and runs `validateEntry`.
@@ -86,11 +96,13 @@
    - transform with `transformRawOddsToPicks`
    - validate + preview
    - insert draft picks/options
-9. Admin settle action runs `settleEntry` per locked entry and persists payouts + `credits_end`.
-10. Leaderboard page fetches settled entries and runs `computeLeaderboard`.
-11. Analytics page fetches settled selection rows (user + global aggregate) and computes charts via `computeAnalyticsDashboard`.
-12. Dashboard live coach computes scenario projections with `projectEntryRange` and `computeProjectedRankRange`, then surfaces explainable stake suggestions.
-13. Client interactions emit best-effort telemetry events to `/api/telemetry`.
+9. Tooling can sync all upcoming provider events into `public.events` and pick featured rows into `public.featured_events`.
+10. Tooling can generate daily import payloads only for featured events that have real odds, then upsert into `public.pick_packs`.
+11. Admin settle action runs `settleEntry` per locked entry and persists payouts + `credits_end`.
+12. Leaderboard page fetches settled entries and runs `computeLeaderboard`.
+13. Analytics page fetches settled selection rows (user + global aggregate) and computes charts via `computeAnalyticsDashboard`.
+14. Dashboard live coach computes scenario projections with `projectEntryRange` and `computeProjectedRankRange`, then surfaces explainable stake suggestions.
+15. Client interactions emit best-effort telemetry events to `/api/telemetry`.
 
 ## Why this is not a black box
 - Validation, payout, and ranking are deterministic pure functions with unit tests.

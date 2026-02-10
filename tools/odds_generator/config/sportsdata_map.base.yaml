@@ -1,0 +1,13 @@
+sportsdata_nba:
+  app_slug: basketball
+  league: NBA
+  provider_sport: nba
+  allow_daily: true
+  allow_weekly: true
+
+sportsdata_soccer:
+  app_slug: soccer
+  league: Football
+  provider_sport: soccer:UCL
+  allow_daily: true
+  allow_weekly: true

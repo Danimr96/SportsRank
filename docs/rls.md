@@ -26,6 +26,11 @@
 - Admin bypass on `entries` and `entry_selections`
   - Allows settlement updates after lock.
 
+- `events`, `featured_events`, `pick_packs`
+  - `select` is allowed for `authenticated`.
+  - `insert/update/delete` require `is_admin(auth.uid())`.
+  - Tooling writes use Supabase `service_role` key, which bypasses RLS by design.
+
 ## Admin detection
 - `is_admin(uuid)` is a `security definer` function that checks `admins` table.
 - Policies call this function for centralized authorization logic.

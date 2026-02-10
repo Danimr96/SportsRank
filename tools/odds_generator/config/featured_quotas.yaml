@@ -1,0 +1,35 @@
+min_lead_minutes: 90
+
+soccer:
+  la_liga:
+    league_keywords:
+      - la liga
+      - spain
+    quotas:
+      today: 3
+      tomorrow: 3
+      week_rest: 2
+  premier_league:
+    league_keywords:
+      - premier league
+      - epl
+      - england
+    quotas:
+      today: 3
+      tomorrow: 3
+      week_rest: 2
+
+basketball:
+  nba:
+    league_keywords:
+      - nba
+    quotas:
+      today: 4
+      tomorrow: 4
+      week_rest: 2
+
+others:
+  quotas:
+    today: 2
+    tomorrow: 2
+    week_rest: 2

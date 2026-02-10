@@ -15,6 +15,9 @@ It also supports a daily auto-generated sports map:
 - Env vars in repo root `.env.local` or shell:
   - `ODDS_API_KEY` (required)
   - `ODDS_API_BASE_URL` (optional, default `https://api.the-odds-api.com`)
+  - `SPORTSDATA_API_KEY` (required only with `--provider sportsdata`)
+  - `SPORTSDATA_BASE_URL` (optional, default `https://api.sportsdata.io/v3`)
+  - `SPORTSDATA_SOCCER_COMPETITIONS` (optional CSV, e.g. `UCL,EPL,ESP`, used when soccer map does not pin competitions)
   - `OPENAI_API_KEY` (optional, only required when `--use-openai true`)
   - `SUPABASE_URL` (required when persisting packs)
   - `SUPABASE_SERVICE_ROLE_KEY` (required when persisting packs, **sensitive**)
@@ -34,6 +37,7 @@ Daily:
 ```bash
 uv run --project tools/odds_generator \
   python -m tools.odds_generator.generate \
+  --provider theodds \
   --round-id 123e4567-e89b-12d3-a456-426614174000 \
   --mode daily \
   --outdir ./generated \
@@ -45,6 +49,7 @@ Weekly:
 ```bash
 uv run --project tools/odds_generator \
   python -m tools.odds_generator.generate \
+  --provider theodds \
   --round-id 123e4567-e89b-12d3-a456-426614174000 \
   --mode weekly \
   --outdir ./generated \
@@ -56,6 +61,7 @@ Both:
 ```bash
 uv run --project tools/odds_generator \
   python -m tools.odds_generator.generate \
+  --provider theodds \
   --round-id 123e4567-e89b-12d3-a456-426614174000 \
   --mode both \
   --sports-config tools/odds_generator/sports_map.base.yaml,tools/odds_generator/sports_map.auto.yaml \
@@ -75,6 +81,113 @@ Optional:
 - `--supabase-url ...` and `--supabase-service-role-key ...` (env fallback supported)
 - `--source live|raw-jornada` (default `live`)
 - `--raw-dir ./generated/raw` when using `--source raw-jornada`
+- `--provider theodds|sportsdata` (default `theodds`)
+- `--sportsdata-sync-days N` for calendar sync window control when using SportsData.
+- `--merge-raw-soccer true|false` (default `true` on SportsData runs). When enabled, soccer events/candidates from previous The Odds raw snapshots are merged without duplicates.
+
+## SportsData quick start (quota-friendly)
+
+Use SportsData without changing Next.js:
+
+```bash
+uv run --project tools/odds_generator \
+  python -m tools.odds_generator.generate \
+  --provider sportsdata \
+  --round-id 123e4567-e89b-12d3-a456-426614174000 \
+  --mode daily \
+  --sync-calendar true \
+  --build-featured true \
+  --generate-featured-picks true \
+  --persist-supabase true \
+  --outdir ./generated
+```
+
+Mixed mode (SportsData + historical The Odds soccer snapshots):
+
+```bash
+uv run --project tools/odds_generator \
+  python -m tools.odds_generator.generate \
+  --provider sportsdata \
+  --round-id 123e4567-e89b-12d3-a456-426614174000 \
+  --mode daily \
+  --sync-calendar true \
+  --build-featured true \
+  --generate-featured-picks true \
+  --merge-raw-soccer true \
+  --raw-dir ./generated/raw \
+  --persist-supabase true \
+  --outdir ./generated
+```
+
+Default sports map for SportsData is:
+- `tools/odds_generator/config/sportsdata_map.base.yaml`
+  - Soccer uses competition-scoped odds endpoints in SportsData v4 (`/soccer/odds/.../{competition}/{date}`).
+  - You can pin competitions directly in map via:
+    - `provider_sport: soccer:UCL,EPL,ESP`
+  - Or by env var:
+    - `SPORTSDATA_SOCCER_COMPETITIONS=UCL,EPL,ESP`
+
+Quota behavior:
+- Monday syncs full week (Mon..Sun).
+- Tue..Sun syncs today + tomorrow only.
+- Override with `--sportsdata-sync-days`.
+
+## Calendar + featured pipeline (events-first)
+
+This pipeline separates:
+1. Calendar sync (`public.events`) without odds.
+2. Featured event selection (`public.featured_events`) for a local date.
+3. Picks generation only for featured events with real odds.
+
+Run all three steps together:
+
+```bash
+uv run --project tools/odds_generator \
+  python -m tools.odds_generator.generate \
+  --round-id 123e4567-e89b-12d3-a456-426614174000 \
+  --mode daily \
+  --sync-calendar true \
+  --build-featured true \
+  --generate-featured-picks true \
+  --featured-config tools/odds_generator/config/featured_quotas.yaml \
+  --persist-supabase true \
+  --outdir ./generated
+```
+
+Step-only examples:
+
+- Sync calendar only:
+```bash
+uv run --project tools/odds_generator \
+  python -m tools.odds_generator.generate \
+  --round-id 123e4567-e89b-12d3-a456-426614174000 \
+  --sync-calendar true \
+  --build-featured false \
+  --generate-featured-picks false
+```
+
+- Build featured only (from already synced events):
+```bash
+uv run --project tools/odds_generator \
+  python -m tools.odds_generator.generate \
+  --round-id 123e4567-e89b-12d3-a456-426614174000 \
+  --sync-calendar false \
+  --build-featured true \
+  --generate-featured-picks false \
+  --featured-date 2026-02-10
+```
+
+- Generate picks only from existing featured rows:
+```bash
+uv run --project tools/odds_generator \
+  python -m tools.odds_generator.generate \
+  --round-id 123e4567-e89b-12d3-a456-426614174000 \
+  --sync-calendar false \
+  --build-featured false \
+  --generate-featured-picks true \
+  --max-markets-per-event 2 \
+  --persist-supabase true
+```
 
 ## Build sports map (auto)
 
@@ -114,6 +227,10 @@ The generator never invents odds. Odds in output always come from The Odds API r
 
 When persistence is enabled, each generated pack is also upserted into Supabase table
 `public.pick_packs` keyed by `(round_id, pack_type, anchor_date)`.
+
+For the featured pipeline, Supabase persistence also writes:
+- `public.events` (calendar sync)
+- `public.featured_events` (daily playable subset)
 
 ## Daily/weekly anchor freeze logic
 

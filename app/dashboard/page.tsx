@@ -1,14 +1,18 @@
 import { saveProfileAction } from "@/app/actions/profile";
 import { AppHeader } from "@/components/layout/app-header";
 import { EntryBuilder } from "@/components/picks/entry-builder";
+import { TodayBoardSummary } from "@/components/picks/today-board-summary";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { getUserOrRedirect } from "@/lib/auth";
 import { getOrCreateEntry, listEntrySelections } from "@/lib/data/entries";
+import { getPickPackByRoundAndDate } from "@/lib/data/pick-packs";
 import { getCurrentOpenRound, listRoundPicksWithOptions } from "@/lib/data/rounds";
 import { getCoachSimulationSeed } from "@/lib/data/simulator";
+import { getPickBoardType } from "@/lib/domain/pick-organization";
+import { getDateKeyInTimeZone } from "@/lib/timezone";
 import { getProfileByUserId } from "@/lib/data/users";
 import { createClient } from "@/lib/supabase/server";
 import { getActionButtonClass } from "@/lib/ui/color-system";
@@ -83,18 +87,33 @@ export default async function DashboardPage() {
     user_id: user.id,
     credits_start: round.starting_credits,
   });
+  const todayMadrid = getDateKeyInTimeZone(new Date(), "Europe/Madrid");
 
-  const [picks, selections, coachSeed] = await Promise.all([
+  const [picks, selections, coachSeed, todayPickPack] = await Promise.all([
     listRoundPicksWithOptions(supabase, round.id),
     listEntrySelections(supabase, entry.id),
     getCoachSimulationSeed(supabase, round.id),
+    getPickPackByRoundAndDate(supabase, {
+      roundId: round.id,
+      packType: "daily",
+      anchorDate: todayMadrid,
+    }),
   ]);
+  const fallbackDailyCount = picks.filter((pick) => {
+    const board = getPickBoardType(pick.title);
+    return board === "daily" || pick.title.trim().toUpperCase().startsWith("[TODAY]");
+  }).length;
 
   return (
     <main className="min-h-screen app-shell text-ink">
       <AppHeader userEmail={user.email} />
       <section className="mx-auto w-full max-w-[1240px] px-4 py-6 md:px-6 md:py-10">
         <div className="surface-canvas rounded-[1.75rem] p-4 md:p-8">
+          <TodayBoardSummary
+            anchorDate={todayMadrid}
+            pickPack={todayPickPack}
+            fallbackDailyCount={fallbackDailyCount}
+          />
           <EntryBuilder
             round={round}
             entry={entry}

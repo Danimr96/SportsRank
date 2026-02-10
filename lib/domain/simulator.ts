@@ -1,4 +1,5 @@
 import type { OptionResult, PickWithOptions, Round } from "@/lib/types";
+import { normalizeStakeToStep } from "@/lib/domain/stake-rules";
 
 export type SimulationScenario = "conservative" | "base" | "aggressive";
 
@@ -380,12 +381,16 @@ export function computeProjectedRankRange(
   };
 }
 
-function nextStakeStep(currentStake: number, minStake: number, maxStake: number, direction: "up" | "down") {
-  const step = Math.max(25, Math.round(minStake / 4));
-  if (direction === "up") {
-    return Math.min(maxStake, currentStake + step);
-  }
-  return Math.max(minStake, currentStake - step);
+function nextStakeStep(
+  currentStake: number,
+  minStake: number,
+  maxStake: number,
+  stakeStep: number,
+  direction: "up" | "down",
+) {
+  const delta = Math.max(1, toInt(stakeStep));
+  const candidate = direction === "up" ? currentStake + delta : currentStake - delta;
+  return normalizeStakeToStep(candidate, minStake, maxStake, delta);
 }
 
 /**
@@ -436,6 +441,7 @@ export function buildStakeSuggestions(input: StakeSuggestionInput): StakeSuggest
       toInt(highVolatility.stake),
       round.min_stake,
       round.max_stake,
+      round.stake_step,
       "down",
     );
     suggestions.push({
@@ -464,8 +470,13 @@ export function buildStakeSuggestions(input: StakeSuggestionInput): StakeSuggest
       return bProb - aProb;
     })[0];
   if (stableCandidate && remaining > 0) {
-    const stepUp = Math.min(remaining, Math.max(25, Math.round(round.min_stake / 4)));
-    const suggestedStake = Math.min(round.max_stake, toInt(stableCandidate.stake) + stepUp);
+    const stepUp = Math.min(remaining, Math.max(1, toInt(round.stake_step)));
+    const suggestedStake = normalizeStakeToStep(
+      toInt(stableCandidate.stake) + stepUp,
+      round.min_stake,
+      round.max_stake,
+      round.stake_step,
+    );
     if (suggestedStake > stableCandidate.stake) {
       suggestions.push({
         id: `boost-${stableCandidate.pickId}`,

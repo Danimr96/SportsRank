@@ -9,6 +9,7 @@ function mapRound(row: any): Round {
     opens_at: row.opens_at,
     closes_at: row.closes_at,
     starting_credits: row.starting_credits,
+    stake_step: row.stake_step,
     min_stake: row.min_stake,
     max_stake: row.max_stake,
     enforce_full_budget: row.enforce_full_budget,
@@ -30,7 +31,7 @@ export async function getCurrentOpenRound(
   const { data, error } = await client
     .from("rounds")
     .select(
-      "id, name, status, opens_at, closes_at, starting_credits, min_stake, max_stake, enforce_full_budget",
+      "id, name, status, opens_at, closes_at, starting_credits, stake_step, min_stake, max_stake, enforce_full_budget",
     )
     .eq("status", "open")
     .lte("opens_at", nowIso)
@@ -53,7 +54,7 @@ export async function getRoundById(
   const { data, error } = await client
     .from("rounds")
     .select(
-      "id, name, status, opens_at, closes_at, starting_credits, min_stake, max_stake, enforce_full_budget",
+      "id, name, status, opens_at, closes_at, starting_credits, stake_step, min_stake, max_stake, enforce_full_budget",
     )
     .eq("id", roundId)
     .maybeSingle();
@@ -69,7 +70,7 @@ export async function listRounds(client: SupabaseClient): Promise<Round[]> {
   const { data, error } = await client
     .from("rounds")
     .select(
-      "id, name, status, opens_at, closes_at, starting_credits, min_stake, max_stake, enforce_full_budget",
+      "id, name, status, opens_at, closes_at, starting_credits, stake_step, min_stake, max_stake, enforce_full_budget",
     )
     .order("opens_at", { ascending: false });
 

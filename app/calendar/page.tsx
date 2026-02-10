@@ -4,8 +4,14 @@ import { Countdown } from "@/components/layout/countdown";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { getUserOrRedirect } from "@/lib/auth";
-import { getEntryByRoundAndUser, listEntrySelections } from "@/lib/data/entries";
-import { getCurrentOpenRound, listRoundPicksWithOptions, listRounds } from "@/lib/data/rounds";
+import {
+  listFeaturedEventsForDate,
+  listUpcomingEvents,
+  listUpcomingEventsFromRoundPicks,
+} from "@/lib/data/events";
+import { getCurrentOpenRound, listRounds } from "@/lib/data/rounds";
+import { getDateKeyInTimeZone } from "@/lib/timezone";
+import type { CalendarEvent } from "@/lib/types";
 import { createClient } from "@/lib/supabase/server";
 
 function getCalendarRound(
@@ -19,9 +25,40 @@ function getCalendarRound(
   return rounds[0] ?? null;
 }
 
+function mergeCalendarEvents(
+  directEvents: CalendarEvent[],
+  fallbackEvents: CalendarEvent[],
+): CalendarEvent[] {
+  const merged = new Map<string, CalendarEvent>();
+
+  const push = (event: CalendarEvent) => {
+    const key = `${event.sport_slug}|${event.league}|${event.start_time}|${event.home ?? ""}|${event.away ?? ""}`;
+    const existing = merged.get(key);
+    if (!existing) {
+      merged.set(key, event);
+      return;
+    }
+    if (existing.provider !== "events" && event.provider === "events") {
+      merged.set(key, event);
+    }
+  };
+
+  for (const event of directEvents) {
+    push(event);
+  }
+  for (const event of fallbackEvents) {
+    push(event);
+  }
+
+  return Array.from(merged.values()).sort((left, right) =>
+    left.start_time.localeCompare(right.start_time),
+  );
+}
+
 export default async function CalendarPage() {
   const user = await getUserOrRedirect();
   const supabase = await createClient();
+  const now = new Date();
 
   const [openRound, rounds] = await Promise.all([
     getCurrentOpenRound(supabase),
@@ -50,12 +87,23 @@ export default async function CalendarPage() {
     );
   }
 
-  const [picks, entry] = await Promise.all([
-    listRoundPicksWithOptions(supabase, round.id),
-    getEntryByRoundAndUser(supabase, round.id, user.id),
-  ]);
+  const featuredDate = getDateKeyInTimeZone(now, "Europe/Madrid");
+  const oneWeekAheadIso = new Date(now.getTime() + 7 * 24 * 60 * 60 * 1000).toISOString();
+  const toIso = new Date(
+    Math.max(Date.parse(round.closes_at), Date.parse(oneWeekAheadIso)),
+  ).toISOString();
+  const fromIso = now.toISOString();
 
-  const selections = entry ? await listEntrySelections(supabase, entry.id) : [];
+  const [eventsFromTable, fallbackEventsFromPicks, featuredEvents] = await Promise.all([
+    listUpcomingEvents(supabase, { fromIso, toIso }),
+    listUpcomingEventsFromRoundPicks(supabase, {
+      roundId: round.id,
+      fromIso,
+      toIso,
+    }),
+    listFeaturedEventsForDate(supabase, featuredDate),
+  ]);
+  const events = mergeCalendarEvents(eventsFromTable, fallbackEventsFromPicks);
 
   return (
     <main className="min-h-screen app-shell text-ink">
@@ -70,7 +118,7 @@ export default async function CalendarPage() {
                   Event calendar
                 </h1>
                 <p className="text-xs text-ink/70 md:text-sm">
-                  Month/week board with day-level selection and sport grouping.
+                  Upcoming events (today to round close) by sport and league.
                 </p>
               </div>
               <div className="rounded-2xl border border-stone-300/70 bg-bone-50 px-4 py-3 text-sm">
@@ -80,14 +128,19 @@ export default async function CalendarPage() {
             </div>
           </header>
 
-          {picks.length === 0 ? (
+          {events.length === 0 ? (
             <section className="surface-subtle rounded-2xl p-6">
               <p className="text-sm text-ink/70">
-                No picks imported for this round yet. Use admin import/generate to populate events.
+                No events available in this window yet.
               </p>
             </section>
           ) : (
-            <CalendarBoard round={round} picks={picks} selections={selections} />
+            <CalendarBoard
+              round={round}
+              events={events}
+              featuredDate={featuredDate}
+              featuredEvents={featuredEvents}
+            />
           )}
         </div>
       </section>

@@ -61,6 +61,21 @@ class OddsApiClient:
             )
         return payload, headers
 
+    def get_events(
+        self,
+        sport_key: str,
+    ) -> tuple[list[dict[str, Any]], Mapping[str, str]]:
+        params: dict[str, str] = {
+            "apiKey": self._api_key,
+            "dateFormat": "iso",
+        }
+        payload, headers = self._request(f"/v4/sports/{sport_key}/events", params)
+        if not isinstance(payload, list):
+            raise OddsApiClientError(
+                f"Expected list response from /v4/sports/{sport_key}/events",
+            )
+        return payload, headers
+
     def _request(
         self,
         path: str,

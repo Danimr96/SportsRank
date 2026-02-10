@@ -7,6 +7,7 @@ from typing import Any, Literal
 from pydantic import BaseModel, ConfigDict, Field, field_validator
 
 Mode = Literal["daily", "weekly"]
+FeaturedBucket = Literal["today", "tomorrow", "week_rest"]
 
 
 class PickOptionModel(BaseModel):
@@ -49,11 +50,41 @@ class ImportPayloadModel(BaseModel):
     picks: list[PickModel] = Field(min_length=1)
 
 
+class EventModel(BaseModel):
+    provider: str = Field(min_length=1)
+    provider_event_id: str = Field(min_length=1)
+    sport_slug: str = Field(min_length=1)
+    league: str = Field(min_length=1)
+    start_time: str = Field(min_length=1)
+    home: str | None = None
+    away: str | None = None
+    status: str = "scheduled"
+    participants: list[str] = Field(default_factory=list)
+    metadata: dict[str, Any] = Field(default_factory=dict)
+
+    @field_validator("start_time")
+    @classmethod
+    def validate_event_start_time(cls, value: str) -> str:
+        parsed = parse_utc_iso(value)
+        if parsed is None:
+            raise ValueError("start_time must be a valid ISO-8601 UTC timestamp")
+        return to_utc_z(parsed)
+
+
+class FeaturedSelectionModel(BaseModel):
+    event_id: str = Field(min_length=1)
+    featured_date: str = Field(min_length=1)
+    sport_slug: str = Field(min_length=1)
+    league: str | None = None
+    bucket: FeaturedBucket
+
+
 class SportConfigEntry(BaseModel):
     app_slug: str = Field(min_length=1)
     league: str = Field(min_length=1)
     allow_daily: bool = True
     allow_weekly: bool = True
+    provider_sport: str | None = None
 
 
 class GeneratorLimits(BaseModel):
@@ -88,6 +119,7 @@ class CandidatePick:
     market: str
     bookmaker: str | None
     options: tuple[CandidateOption, ...]
+    provider_event_id: str = ""
 
     @property
     def mean_odds(self) -> float:

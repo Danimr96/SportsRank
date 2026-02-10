@@ -18,6 +18,7 @@ export async function createRound(
     opens_at: string;
     closes_at: string;
     starting_credits: number;
+    stake_step: number;
     min_stake: number;
     max_stake: number;
     enforce_full_budget: boolean;
@@ -45,6 +46,7 @@ export async function updateRound(
     opens_at: string;
     closes_at: string;
     starting_credits: number;
+    stake_step: number;
     min_stake: number;
     max_stake: number;
     enforce_full_budget: boolean;

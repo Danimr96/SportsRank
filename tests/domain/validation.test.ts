@@ -9,6 +9,7 @@ const baseRound: Round = {
   opens_at: "2026-02-03T00:00:00.000Z",
   closes_at: "2026-02-10T23:59:00.000Z",
   starting_credits: 10000,
+  stake_step: 100,
   min_stake: 200,
   max_stake: 800,
   enforce_full_budget: false,
@@ -83,6 +84,19 @@ describe("validateEntry", () => {
     expect(result.errors.some((error) => error.code === "STAKE_OUT_OF_RANGE")).toBe(true);
   });
 
+  it("fails when a stake is not aligned to round stake step", () => {
+    const result = validateEntry(
+      baseRound,
+      picks,
+      [{ pick_id: "p1", pick_option_id: "o1", stake: 250 }],
+      10000,
+      new Date("2026-02-08T00:00:00.000Z"),
+    );
+
+    expect(result.ok).toBe(false);
+    expect(result.errors.some((error) => error.code === "STAKE_STEP_INVALID")).toBe(true);
+  });
+
   it("fails when spent credits exceed weekly credits", () => {
     const result = validateEntry(
       baseRound,
@@ -155,6 +169,20 @@ describe("validateSelection", () => {
 
     expect(result.ok).toBe(false);
     expect(result.errors.some((error) => error.code === "STAKE_OUT_OF_RANGE")).toBe(true);
+  });
+
+  it("rejects selection stake outside configured step", () => {
+    const result = validateSelection(
+      baseRound,
+      picks,
+      [],
+      { pick_id: "p1", pick_option_id: "o1", stake: 250 },
+      10000,
+      new Date("2026-02-08T00:00:00.000Z"),
+    );
+
+    expect(result.ok).toBe(false);
+    expect(result.errors.some((error) => error.code === "STAKE_STEP_INVALID")).toBe(true);
   });
 
   it("rejects selection updates after round closes_at", () => {
