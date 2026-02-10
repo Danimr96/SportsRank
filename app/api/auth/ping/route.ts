@@ -17,7 +17,8 @@ export async function GET() {
   }
 
   try {
-    const healthResponse = await fetch(`${url}/auth/v1/health`, {
+    const target = `${url}/auth/v1/health`;
+    const healthResponse = await fetch(target, {
       headers: {
         apikey: anonKey,
       },
@@ -27,16 +28,23 @@ export async function GET() {
     return NextResponse.json(
       {
         ok: healthResponse.ok,
+        target,
         status: healthResponse.status,
         body: healthText.slice(0, 500),
       },
       { status: healthResponse.ok ? 200 : 502 },
     );
   } catch (error) {
+    const err = error as Error & { cause?: unknown };
     return NextResponse.json(
       {
         ok: false,
-        error: (error as Error).message || "fetch failed",
+        target: `${url}/auth/v1/health`,
+        error: err.message || "fetch failed",
+        cause:
+          typeof err.cause === "object" && err.cause !== null
+            ? JSON.stringify(err.cause)
+            : err.cause,
       },
       { status: 500 },
     );
