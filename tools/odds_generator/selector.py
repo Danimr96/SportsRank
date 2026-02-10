@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import hashlib
 import json
 from collections import Counter
 from collections.abc import Callable, Sequence
@@ -52,8 +53,23 @@ def _base_score(candidate: CandidatePick) -> float:
     return 1.0 / safe_distance
 
 
-def _candidate_sort_key(candidate: CandidatePick) -> tuple[str, str, str]:
-    return (candidate.start_time, candidate.sport_slug, candidate.candidate_id)
+def _candidate_sort_key(candidate: CandidatePick) -> tuple[str, str, str, str, str]:
+    return (
+        candidate.start_time,
+        candidate.sport_slug,
+        candidate.market,
+        candidate.event,
+        candidate.candidate_id,
+    )
+
+
+def _seed_tiebreak(seed: str | None, candidate_id: str) -> float:
+    if not seed:
+        return 0.0
+
+    digest = hashlib.sha256(f"{seed}|{candidate_id}".encode("utf-8")).digest()
+    integer = int.from_bytes(digest[:8], byteorder="big", signed=False)
+    return integer / 2**64
 
 
 def _normalize(value: str) -> str:
@@ -204,6 +220,7 @@ def _is_daily_tennis(candidate: CandidatePick) -> bool:
 def _heuristic_ranked_order(
     candidates: Sequence[CandidatePick],
     limit: int,
+    seed: str | None = None,
 ) -> list[CandidatePick]:
     remaining = sorted(candidates, key=_candidate_sort_key)
     ranked: list[CandidatePick] = []
@@ -221,7 +238,13 @@ def _heuristic_ranked_order(
                 0.2 / (1 + market_counts[candidate.market])
             )
             near_duplicate_penalty = 0.5 * event_counts[candidate.event_key]
-            score = _base_score(candidate) + variety_bonus - near_duplicate_penalty
+            tiebreak = _seed_tiebreak(seed, candidate.candidate_id)
+            score = (
+                _base_score(candidate)
+                + variety_bonus
+                - near_duplicate_penalty
+                + tiebreak * 1e-6
+            )
 
             if best_score is None or score > best_score:
                 best_score = score
@@ -492,8 +515,9 @@ def select_candidates_heuristic(
     candidates: Sequence[CandidatePick],
     target: int,
     mode: Mode = "daily",
+    seed: str | None = None,
 ) -> list[CandidatePick]:
-    ranked = _heuristic_ranked_order(candidates, len(candidates))
+    ranked = _heuristic_ranked_order(candidates, len(candidates), seed=seed)
     selected, _warnings = _apply_mode_portfolio_with_mode(ranked, target, mode)
     return selected
 
@@ -580,12 +604,13 @@ def select_candidates(
     use_openai: bool,
     openai_api_key: str | None,
     mode: Mode = "daily",
+    seed: str | None = None,
 ) -> tuple[list[CandidatePick], str | None, list[str]]:
     ordered_candidates = sorted(candidates, key=_candidate_sort_key)
 
     if not use_openai:
         selected, warnings = _apply_mode_portfolio_with_mode(
-            _heuristic_ranked_order(ordered_candidates, len(ordered_candidates)),
+            _heuristic_ranked_order(ordered_candidates, len(ordered_candidates), seed=seed),
             target,
             mode,
         )
@@ -602,7 +627,7 @@ def select_candidates(
         )
     except Exception as error:
         fallback, warnings = _apply_mode_portfolio_with_mode(
-            _heuristic_ranked_order(ordered_candidates, len(ordered_candidates)),
+            _heuristic_ranked_order(ordered_candidates, len(ordered_candidates), seed=seed),
             target,
             mode,
         )
@@ -616,7 +641,11 @@ def select_candidates(
 
     if len(openai_ranked) < len(ordered_candidates):
         # Complete list deterministically for quota filling and fallback.
-        fallback_ranked = _heuristic_ranked_order(ordered_candidates, len(ordered_candidates))
+        fallback_ranked = _heuristic_ranked_order(
+            ordered_candidates,
+            len(ordered_candidates),
+            seed=seed,
+        )
         seen_ids = {candidate.candidate_id for candidate in openai_ranked}
         for candidate in fallback_ranked:
             if candidate.candidate_id in seen_ids:

@@ -16,6 +16,8 @@ It also supports a daily auto-generated sports map:
   - `ODDS_API_KEY` (required)
   - `ODDS_API_BASE_URL` (optional, default `https://api.the-odds-api.com`)
   - `OPENAI_API_KEY` (optional, only required when `--use-openai true`)
+  - `SUPABASE_URL` (required when persisting packs)
+  - `SUPABASE_SERVICE_ROLE_KEY` (required when persisting packs, **sensitive**)
 
 ## Setup (uv)
 
@@ -26,6 +28,30 @@ uv sync --project tools/odds_generator --extra dev
 ```
 
 ## CLI usage
+
+Daily:
+
+```bash
+uv run --project tools/odds_generator \
+  python -m tools.odds_generator.generate \
+  --round-id 123e4567-e89b-12d3-a456-426614174000 \
+  --mode daily \
+  --outdir ./generated \
+  --persist-supabase true
+```
+
+Weekly:
+
+```bash
+uv run --project tools/odds_generator \
+  python -m tools.odds_generator.generate \
+  --round-id 123e4567-e89b-12d3-a456-426614174000 \
+  --mode weekly \
+  --outdir ./generated \
+  --persist-supabase true
+```
+
+Both:
 
 ```bash
 uv run --project tools/odds_generator \
@@ -38,12 +64,17 @@ uv run --project tools/odds_generator \
   --daily-target 20 \
   --weekly-target 16 \
   --outdir ./generated \
+  --persist-supabase true \
   --use-openai false
 ```
 
 Optional:
 
 - `--bookmakers draftkings,fanduel`
+- `--persist-supabase false` to skip Supabase writes
+- `--supabase-url ...` and `--supabase-service-role-key ...` (env fallback supported)
+- `--source live|raw-jornada` (default `live`)
+- `--raw-dir ./generated/raw` when using `--source raw-jornada`
 
 ## Build sports map (auto)
 
@@ -81,6 +112,51 @@ soccer_epl:
 
 The generator never invents odds. Odds in output always come from The Odds API raw responses.
 
+When persistence is enabled, each generated pack is also upserted into Supabase table
+`public.pick_packs` keyed by `(round_id, pack_type, anchor_date)`.
+
+## Daily/weekly anchor freeze logic
+
+Timezone for anchor computation: `Europe/Madrid`.
+
+- Daily anchor date = local today.
+- Weekly anchor date:
+  - Mon/Tue/Wed: local today.
+  - Thu/Fri/Sat/Sun: Thursday of the same local week.
+
+Seeds:
+
+- `daily_seed = DAILY|{anchor_date}|{round_id}`
+- `weekly_seed = WEEKLY|{anchor_date}|{round_id}`
+
+Deterministic path (`--use-openai false`) guarantees:
+
+- same seed + same API inputs => identical selected candidates
+- different seeds => selection ordering can change
+- weekly freeze Thu-Sun is achieved by anchor-date seeding (not snapshot reuse)
+
+## OpenAI agent on jornada extractions (quota-friendly)
+
+When The Odds API credits are limited, generate from already extracted raw snapshots:
+
+```bash
+uv run --project tools/odds_generator \
+  python -m tools.odds_generator.generate \
+  --round-id 123e4567-e89b-12d3-a456-426614174000 \
+  --mode both \
+  --source raw-jornada \
+  --raw-dir ./generated/raw \
+  --use-openai true \
+  --persist-supabase true
+```
+
+Behavior:
+
+- Reads all raw extractions in the current local week (Monday 00:00 to now, Europe/Madrid).
+- Builds candidates from those snapshots (latest candidate data wins by candidate_id).
+- Filters candidates to each mode window (daily next 24h / weekly next 7d).
+- Lets OpenAI rank/select if `--use-openai true`, without calling The Odds API again.
+
 Selection is deterministic and distribution-aware (no invented odds, ever):
 
 - Daily rules:
@@ -95,6 +171,15 @@ Selection is deterministic and distribution-aware (no invented odds, ever):
   - Other sports mix: target 5 picks.
 - If a block has insufficient candidates, quota is reallocated deterministically (football first, then best available respecting caps).
 - If a configured sport key is unavailable or fails to fetch, it is skipped with a warning (generation continues).
+
+## Security boundary
+
+`SUPABASE_SERVICE_ROLE_KEY` is privileged and must only be used in:
+
+- this standalone Python utility
+- CI/cron jobs
+
+It must never be used in Next.js runtime, client-side code, or public API routes.
 
 Supported app slugs in generator mappings:
 - `soccer`
