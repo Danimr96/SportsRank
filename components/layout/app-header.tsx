@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { BarChart3, CalendarDays, LayoutDashboard, Shield, Trophy } from "lucide-react";
+import { BarChart3, BookOpenText, CalendarDays, LayoutDashboard, Shield, Trophy } from "lucide-react";
 import { signOutAction } from "@/app/actions/auth";
 import { MobileNav } from "@/components/layout/mobile-nav";
 import { Button } from "@/components/ui/button";
@@ -16,6 +16,7 @@ const NAV_ITEMS = [
   { href: "/dashboard", label: "Dashboard", icon: LayoutDashboard },
   { href: "/calendar", label: "Calendar", icon: CalendarDays },
   { href: "/analytics", label: "Analytics", icon: BarChart3 },
+  { href: "/tutorial", label: "Guide", icon: BookOpenText },
   { href: "/history", label: "History", icon: null },
   { href: "/admin/rounds", label: "Admin", icon: Shield },
 ];

@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { BarChart3, CalendarDays, History, LayoutDashboard, Shield } from "lucide-react";
+import { BarChart3, BookOpenText, CalendarDays, History, LayoutDashboard, Shield } from "lucide-react";
 import { cn } from "@/lib/utils";
 import type { ComponentType } from "react";
 
@@ -16,6 +16,7 @@ const MOBILE_NAV_ITEMS: MobileNavItem[] = [
   { href: "/dashboard", label: "Inicio", icon: LayoutDashboard },
   { href: "/calendar", label: "Calendario", icon: CalendarDays },
   { href: "/analytics", label: "Analytics", icon: BarChart3 },
+  { href: "/tutorial", label: "Guía", icon: BookOpenText },
   { href: "/history", label: "Historial", icon: History },
   { href: "/admin/rounds", label: "Admin", icon: Shield },
 ];
@@ -35,7 +36,7 @@ export function MobileNav() {
 
   return (
     <nav className="fixed inset-x-0 bottom-0 z-50 border-t border-stone-300/80 bg-bone-50/95 backdrop-blur md:hidden">
-      <div className="mx-auto grid max-w-[620px] grid-cols-5 px-1.5 pb-[max(env(safe-area-inset-bottom),0.35rem)] pt-1">
+      <div className="mx-auto grid max-w-[760px] grid-cols-6 px-1.5 pb-[max(env(safe-area-inset-bottom),0.35rem)] pt-1">
         {MOBILE_NAV_ITEMS.map((item) => {
           const active = isActive(pathname, item.href);
           const Icon = item.icon;

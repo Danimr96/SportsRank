@@ -1,4 +1,6 @@
 import { LoginForm } from "@/components/auth/login-form";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
 
 export default function LoginPage() {
   return (
@@ -21,6 +23,16 @@ export default function LoginPage() {
             <span className="rounded-full border border-slate-200 bg-white px-3 py-1.5 shadow-sm">⚽ 🇬🇧 🇪🇸</span>
             <span className="rounded-full border border-slate-200 bg-white px-3 py-1.5 shadow-sm">🏀 🇺🇸</span>
             <span className="rounded-full border border-slate-200 bg-white px-3 py-1.5 shadow-sm">🎾 🌍</span>
+          </div>
+          <div className="pt-1">
+            <Button
+              asChild
+              variant="outline"
+              size="sm"
+              className="border-stone-300/80 bg-bone-50 text-ink hover:bg-bone-100"
+            >
+              <Link href="/tutorial">New here? View tutorial</Link>
+            </Button>
           </div>
         </div>
         <div className="flex justify-center lg:justify-end">

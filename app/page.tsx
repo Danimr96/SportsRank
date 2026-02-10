@@ -79,6 +79,14 @@ export default async function LandingPage() {
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>
+            <Button
+              asChild
+              variant="outline"
+              size="lg"
+              className="border-stone-300/80 bg-bone-50 text-ink hover:bg-bone-100"
+            >
+              <Link href="/tutorial">How it works</Link>
+            </Button>
             {!user ? (
               <Button
                 asChild
